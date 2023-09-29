@@ -9,5 +9,3 @@ Exploring the [API](https://info.arxiv.org/help/api/index.html) provided by arXi
 [![Screenshot-2023-09-28-at-13-25-40.png](https://i.postimg.cc/Y0LpR3MD/Screenshot-2023-09-28-at-13-25-40.png)](https://postimg.cc/2LmR8nqn)
 
 Looking ahead, a missing element that is of fundamental importance is defining a measurement that captures the degree of matching between a user's preference data and the data that characterizes a given paper. We are currently in discussion on designing a reasonably effective way to resolve this issue by investigating more deeply the parameters attached to each paper of interest.
-
-Checking webhook...
