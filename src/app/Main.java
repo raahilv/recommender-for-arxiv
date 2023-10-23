@@ -14,7 +14,9 @@ public class Main {
                 .uri(URI.create(URL))
                 .build();
 
-        CompletableFuture<HttpResponse<String>> responseFuture = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        CompletableFuture<HttpResponse<String>> responseFuture = client.sendAsync(
+                request, HttpResponse.BodyHandlers.ofString()
+        );
 
         responseFuture.thenAccept(response -> {
             String responseFinal = response.body();
