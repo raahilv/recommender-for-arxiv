@@ -1,4 +1,7 @@
 package use_cases.recommend;
 
-public class RecommendInputBoundary {
+public interface RecommendInputBoundary {
+
+    void execute(RecommendInputData recommendInputData);
+
 }

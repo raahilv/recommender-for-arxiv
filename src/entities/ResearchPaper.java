@@ -4,34 +4,41 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 public class ResearchPaper {
-    private final String id;
-    private final HashMap<String, Author> authors = new HashMap<String, Author>();
+    private final String id;  // string of digits (possibly with punctuations)
+    private final String title;  // assume it is in lower case
+    private final Category category;
+    private final HashMap<String, Author> authors = new HashMap<>();
     private final LocalDate publishDate;
     private final String paperAbstract;
+    private final String journalReference;  // assume it is in lower case
     private final String url;
     private long upvoteCount;
     private long downvoteCount;
 
-    public ResearchPaper(String id, HashMap<String, Author> authors,
-                         LocalDate publishDate, String paperAbstract,
+    public ResearchPaper(String id, String title, Category category, HashMap<String, Author> authors,
+                         LocalDate publishDate, String paperAbstract, String journalReference,
                          String url, long upvoteCount, long downvoteCount) {
         this.id = id;
+        this.title = title;
+        this.category = category;
         this.publishDate = publishDate;
         this.paperAbstract = paperAbstract;
+        this.journalReference = journalReference;
         this.url = url;
         this.upvoteCount = upvoteCount;
         this.downvoteCount = downvoteCount;
-
-        for (String authorId : authors.keySet()) {
-            this.authors.put(authorId, authors.get(authorId));
-        }
+        this.authors.putAll(authors);
     }
 
     public String getId() { return this.id; }
 
+    public String getTitle() { return this.title; }
+
     public boolean hasAuthor(String authorId) {
         return this.authors.containsKey(authorId);
     }
+
+    public boolean hasChildCategory(String target) { return this.category.hasChildCategory(target); }
 
     public String getPaperAbstract() { return this.paperAbstract; }
 
