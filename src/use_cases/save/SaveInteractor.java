@@ -14,13 +14,14 @@ public class SaveInteractor implements SaveInputBoundary{
     }
 
     public void execute(SaveInputData saveInputData) {
-        User user = saveInputData.getUser();
-        ResearchPaper paper = saveInputData.getPaper();
-        if (user.getLibrary().containsKey(paper.getId())) {
+        String userName = saveInputData.getUserName();
+        String paperId = saveInputData.getPaperId();
+        if (savedataAccessObject.getUser(userName).getLibrary().containsKey(paperId)) {
             savePresenter.prepareFailView("Error: Paper already saved.");
         } else {
-            user.getLibrary().put(paper.getId(), paper);
-            SaveOutputData saveOutputData = new SaveOutputData(paper.getId());
+            ResearchPaper paper = savedataAccessObject.getPaper(paperId);
+            savedataAccessObject.getUser(userName).getLibrary().put(paper.getId(), paper);
+            SaveOutputData saveOutputData = new SaveOutputData(paperId);
             savePresenter.prepareSuccessView(saveOutputData);
         }
     }

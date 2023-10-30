@@ -4,19 +4,19 @@ import entities.ResearchPaper;
 import entities.User;
 
 public class SaveInputData {
-    final private User user;
-    final private ResearchPaper paper;
+    final private String userName;
+    final private String paperId;
 
-    public SaveInputData(User user, ResearchPaper paper) {
-        this.user = user;
-        this.paper = paper;
+    public SaveInputData(String userName, String paperId) {
+        this.userName = userName;
+        this.paperId = paperId;
     }
 
-    public User getUser() {
-        return user;
+    public String getUserName() {
+        return userName;
     }
 
-    public ResearchPaper getPaper() {
-        return paper;
+    public String getPaperId() {
+        return paperId;
     }
 }

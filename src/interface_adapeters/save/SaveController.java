@@ -12,8 +12,8 @@ public class SaveController {
         this.saveInteractor = saveInteractor;
     }
 
-    public void execute(User user, ResearchPaper paper) {
-        SaveInputData saveInputData = new SaveInputData(user, paper);
+    public void execute(String userName, String paperId) {
+        SaveInputData saveInputData = new SaveInputData(userName, paperId);
         saveInteractor.execute(saveInputData);
     }
 }
