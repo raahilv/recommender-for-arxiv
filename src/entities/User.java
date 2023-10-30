@@ -21,16 +21,6 @@ public class User {
         return username;
     }
 
-    public boolean upvote(String paperId) {
-        // TODO: should this be regarded as a separate use case?
-        return false;
-    }
-
-    public boolean downvote(String paperId) {
-        // TODO: should this be regarded as a separate use case?
-        return false;
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }

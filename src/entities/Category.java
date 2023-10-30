@@ -12,6 +12,6 @@ public abstract class Category {
         return this.parentCategory;
     }
 
-    public abstract boolean hasChildCategory(String target);
+    public abstract String getChildCategory();
 
 }

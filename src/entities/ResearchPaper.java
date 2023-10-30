@@ -40,8 +40,6 @@ public class ResearchPaper {
         return this.authors.containsKey(authorId);
     }
 
-    public boolean hasChildCategory(String target) { return this.category.hasChildCategory(target); }
-
     public String getPaperAbstract() { return this.paperAbstract; }
 
     public String getUrl() { return this.url; }

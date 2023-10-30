@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Subcategory extends Category {
 
-    private final List<String> childCategories = new ArrayList<>();  // assume all in lower case
+    private final String childCategory;  // assume all in lower case
     private final String description;
 
-    public Subcategory(String parentCategory, List<String> childCategories, String description) {
+    public Subcategory(String parentCategory, String childCategory, String description) {
         super(parentCategory);
-        this.childCategories.addAll(childCategories);
+        this.childCategory = childCategory;
         this.description = description;
     }
 
-    public boolean hasChildCategory(String target) {
-        return this.childCategories.contains(target);
+    public String getChildCategory() {
+        return this.childCategory;
     }
 
     public String getDescription() {
