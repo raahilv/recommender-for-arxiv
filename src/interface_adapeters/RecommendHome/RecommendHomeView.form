@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="interface_adapeters.RecommendHome.RecommendHomeView">
+  <grid id="27dc6" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="2094" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <tabbedpane id="a8c99" binding="tabbedPanel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="b1a61" binding="CS" layout-manager="GridLayoutManager" row-count="5" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Computer Science"/>
+            </constraints>
+            <properties>
+              <enabled value="true"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="9477d" class="javax.swing.JRadioButton" binding="computationalComplexityRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Computational Complexity"/>
+                </properties>
+              </component>
+              <component id="1b528" class="javax.swing.JRadioButton" binding="computersAndSocietyRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Computers and Society"/>
+                </properties>
+              </component>
+              <component id="76a6f" class="javax.swing.JRadioButton" binding="hardwareArchitectureRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Hardware Architecture"/>
+                </properties>
+              </component>
+              <component id="19230" class="javax.swing.JRadioButton" binding="databasesRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Databases"/>
+                </properties>
+              </component>
+              <component id="5df66" class="javax.swing.JRadioButton" binding="computationAndLanguageRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Computation and Language"/>
+                </properties>
+              </component>
+              <component id="c7f4c" class="javax.swing.JRadioButton" binding="computationalGeometryRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Computational Geometry"/>
+                </properties>
+              </component>
+              <component id="4b3f3" class="javax.swing.JRadioButton" binding="computationalEngineeringFinanceAndRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Computational Engineering, Finance, and Science"/>
+                </properties>
+              </component>
+              <component id="6d7" class="javax.swing.JRadioButton" binding="computerVisionAndPatternRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Computer Vision and Pattern Recognition"/>
+                </properties>
+              </component>
+              <component id="8af0b" class="javax.swing.JRadioButton" binding="digitalLibrariesRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Digital Libraries"/>
+                </properties>
+              </component>
+              <component id="f1339" class="javax.swing.JRadioButton" binding="discreteMathematicsRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Discrete Mathematics"/>
+                </properties>
+              </component>
+              <component id="179ad" class="javax.swing.JRadioButton" binding="dataStructuresAndAlgorithmsRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Data Structures and Algorithms"/>
+                </properties>
+              </component>
+              <component id="12805" class="javax.swing.JRadioButton" binding="emergingTechnologiesRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Emerging Technologies"/>
+                </properties>
+              </component>
+              <component id="cc5a7" class="javax.swing.JRadioButton" binding="formalLanguagesAndAutomataRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Formal Languages and Automata Theory"/>
+                </properties>
+              </component>
+              <component id="11d7d" class="javax.swing.JRadioButton" binding="generalLiteratureRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="General Literature"/>
+                </properties>
+              </component>
+              <component id="757dc" class="javax.swing.JRadioButton" binding="multiagentSystemsRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Multiagent Systems"/>
+                </properties>
+              </component>
+              <component id="a3668" class="javax.swing.JRadioButton" binding="performanceRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Performance"/>
+                </properties>
+              </component>
+              <component id="18ad5" class="javax.swing.JRadioButton" binding="cryptographyAndSecurityRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Cryptography and Security"/>
+                </properties>
+              </component>
+              <component id="d32e9" class="javax.swing.JRadioButton" binding="graphicsRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Graphics"/>
+                </properties>
+              </component>
+              <component id="34381" class="javax.swing.JRadioButton" binding="multimediaRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Multimedia"/>
+                </properties>
+              </component>
+              <component id="4f0db" class="javax.swing.JRadioButton" binding="programmingLanguagesRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Programming Languages"/>
+                </properties>
+              </component>
+              <component id="9feae" class="javax.swing.JRadioButton" binding="computerScienceAndGameRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Computer Science and Game Theory"/>
+                </properties>
+              </component>
+              <component id="aacd1" class="javax.swing.JRadioButton" binding="mathematicalSoftwareRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Mathematical Software"/>
+                </properties>
+              </component>
+              <component id="223a2" class="javax.swing.JRadioButton" binding="roboticsRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Robotics"/>
+                </properties>
+              </component>
+              <component id="e3069" class="javax.swing.JRadioButton" binding="humanComputerInteractionRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Human-Computer Interaction"/>
+                </properties>
+              </component>
+              <component id="2fb0c" class="javax.swing.JRadioButton" binding="numericalAnalysisRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Numerical Analysis"/>
+                </properties>
+              </component>
+              <component id="27893" class="javax.swing.JRadioButton" binding="symbolicComputationRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Symbolic Computation"/>
+                </properties>
+              </component>
+              <component id="44de1" class="javax.swing.JRadioButton" binding="informationRetrievalRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Information Retrieval"/>
+                </properties>
+              </component>
+              <component id="bb2c5" class="javax.swing.JRadioButton" binding="neuralAndEvolutionaryComputingRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Neural and Evolutionary Computing"/>
+                </properties>
+              </component>
+              <component id="5f1bd" class="javax.swing.JRadioButton" binding="soundRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Sound"/>
+                </properties>
+              </component>
+              <component id="c785a" class="javax.swing.JRadioButton" binding="informationTheoryRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Information Theory"/>
+                </properties>
+              </component>
+              <component id="fd0a8" class="javax.swing.JRadioButton" binding="networkingAndInternetArchitectureRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Networking and Internet Architecture"/>
+                </properties>
+              </component>
+              <component id="526e7" class="javax.swing.JRadioButton" binding="softwareEngineeringRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Software Engineering"/>
+                </properties>
+              </component>
+              <component id="251ca" class="javax.swing.JRadioButton" binding="machineLearningRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Machine Learning"/>
+                </properties>
+              </component>
+              <component id="18e5c" class="javax.swing.JRadioButton" binding="otherComputerScienceRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Other Computer Science"/>
+                </properties>
+              </component>
+              <component id="bb66a" class="javax.swing.JRadioButton" binding="socialAndInformationNetworksRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Social and Information Networks"/>
+                </properties>
+              </component>
+              <component id="f6867" class="javax.swing.JRadioButton" binding="logicInComputerScienceRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="2" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Logic in Computer Science"/>
+                </properties>
+              </component>
+              <component id="626c4" class="javax.swing.JRadioButton" binding="operatingSystemsRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="3" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Operating Systems"/>
+                </properties>
+              </component>
+              <component id="eb57" class="javax.swing.JRadioButton" binding="systemsAndControlRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="4" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Systems and Control"/>
+                </properties>
+              </component>
+              <component id="f21e4" class="javax.swing.JRadioButton" binding="artificialIntelligenceRadioButton">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Artificial Intelligence"/>
+                </properties>
+              </component>
+              <component id="f0b30" class="javax.swing.JRadioButton" binding="distributedParallelAndClusterRadioButton" default-binding="true">
+                <constraints>
+                  <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Distributed, Parallel, and Cluster Computing"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+          <grid id="8879c" binding="Economics" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Economics"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="e7443" binding="EEsSS" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Electrical Engineering and Systems Science"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="2c6a4" binding="Math" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Mathematics"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="41bb6" binding="QBiology" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Quantitative Biology"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="9f7a3" binding="QFinance" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Quantitative Finance"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="9d44" binding="Stat" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Statistics"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+          <grid id="5990e" binding="Phy" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <tabbedpane title="Physics"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children/>
+          </grid>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>
