@@ -21,53 +21,68 @@ public class User {
         return username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
+// >>>>>>> main
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+// <<<<<<< kaiwenzheng
+//     public void setPassword(String password) {
+//         this.password = password;
+//     }
+
+//     public Map<String, ResearchPaper> getLibrary() {
+//         return library;
+//     }
+
+//     public boolean hasParentCategory(String parentCategory) {
+//         return this.preferredCategories.containsKey(parentCategory);
+//     }
+
+//     public boolean addPaper(ResearchPaper paper) {
+//         if (this.library.containsKey(paper.getId())) {
+//             return false;
+//         } else {
+//             this.library.put(paper.getId(), paper);
+//             return true;
+//         }
+//     }
+
+//     public boolean hasEmptyLibrary() {
+//         return this.library.isEmpty();
+//     }
+
+//     public Map<String, ResearchPaper> getUpvotedPapers() {
+//         return upvotedPapers;
+//     }
+
+//     public void addUpvotedPaper(ResearchPaper upvotedPaper) {
+//         this.downvotedPapers.put(upvotedPaper.getId(), upvotedPaper);
+//     }
+
+//     public Map<String, ResearchPaper> getPapersDownvoted() {
+//         return downvotedPapers;
+//     }
+
+//     public void addDownvotedPaper(ResearchPaper downvotedPaper) {
+//         this.downvotedPapers.put(downvotedPaper.getId(), downvotedPaper);
+//     }
+
+// =======
+    public ArrayList<String> getPreferredCategories() {
+        return preferredCategories;
     }
 
-    public Map<String, ResearchPaper> getLibrary() {
+    public HashMap<String, ResearchPaper> getLibrary() {
         return library;
     }
 
-    public boolean hasParentCategory(String parentCategory) {
-        return this.preferredCategories.containsKey(parentCategory);
+    public HashMap<String, ResearchPaper> getPapersUpvoted() {
+        return papersUpvoted;
     }
 
-    public boolean addPaper(ResearchPaper paper) {
-        if (this.library.containsKey(paper.getId())) {
-            return false;
-        } else {
-            this.library.put(paper.getId(), paper);
-            return true;
-        }
+    public HashMap<String, ResearchPaper> getPapersDownvoted() {
+        return papersDownvoted;
     }
-
-    public boolean hasEmptyLibrary() {
-        return this.library.isEmpty();
-    }
-
-    public Map<String, ResearchPaper> getUpvotedPapers() {
-        return upvotedPapers;
-    }
-
-    public void addUpvotedPaper(ResearchPaper upvotedPaper) {
-        this.downvotedPapers.put(upvotedPaper.getId(), upvotedPaper);
-    }
-
-    public Map<String, ResearchPaper> getPapersDownvoted() {
-        return downvotedPapers;
-    }
-
-    public void addDownvotedPaper(ResearchPaper downvotedPaper) {
-        this.downvotedPapers.put(downvotedPaper.getId(), downvotedPaper);
-    }
-
+// >>>>>>> main
 }
