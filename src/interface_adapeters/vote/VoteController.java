@@ -1,2 +1,4 @@
-package interface_adapeters.vote;public class VoteController {
+package interface_adapeters.vote;
+
+public class VoteController {
 }

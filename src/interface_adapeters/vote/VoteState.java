@@ -1,2 +1,4 @@
-package interface_adapeters.vote;public class VoteState {
+package interface_adapeters.vote;
+
+public class VoteState {
 }
