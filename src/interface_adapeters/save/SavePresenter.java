@@ -1,4 +1,4 @@
-package interface_adapeters;
+package interface_adapeters.save;
 
 public class SavePresenter {
 }

@@ -1,2 +1,5 @@
-package use_cases.save;public class SaveInputBoundary {
+package use_cases.save;
+
+public interface SaveInputBoundary {
+    void execute(SaveInputData saveInputData);
 }

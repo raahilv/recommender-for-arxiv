@@ -1,2 +1,4 @@
-package use_cases.save;public class SaveOutputData {
+package use_cases.save;
+
+public class SaveOutputData {
 }

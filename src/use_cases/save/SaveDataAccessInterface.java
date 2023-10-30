@@ -1,2 +1,4 @@
-package use_cases.save;public class SaveDataAccessInterface {
+package use_cases.save;
+
+public interface SaveDataAccessInterface {
 }
