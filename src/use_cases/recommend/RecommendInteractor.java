@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RecommendInteractor implements RecommendInputBoundary {
 
-    static final int THRESHOLD = 1;
+    static final int THRESHOLD = 1;  // TODO: to be polished
     final RecommendDataAccessInterface userDataAccessObject;
     final RecommendOutputBoundary userPresenter;
 
@@ -20,7 +20,12 @@ public class RecommendInteractor implements RecommendInputBoundary {
 
     /* Assume recommendInputData.existsByUsername() returns true. */
     public void execute(RecommendInputData recommendInputData) {
-        // TODO: to be completed
+        /*
+           TODO:
+            In the corresponding view, if one of the optional fields is
+            filled in, then all other fields should be disabled for entering
+            values.
+        */
         String username = recommendInputData.getUsername();
         User user = this.userDataAccessObject.getUser(username);
         String parentCategory = recommendInputData.getParentCategory();
@@ -28,13 +33,17 @@ public class RecommendInteractor implements RecommendInputBoundary {
         String paperTitle = recommendInputData.getTitle();
         String paperJournalReference = recommendInputData.getJournalReference();
 
-        List<ResearchPaper> recommendedPapers = new ArrayList<>();
-        if (user.getLibrary().isEmpty() || !recommendInputData.wantAutoMode()) {
+        List<List<Object>> recommendedPapers = new ArrayList<>();
+        if (user.hasEmptyLibrary() || !recommendInputData.wantAutoMode()) {
             if (paperId.equals("") && paperTitle.equals("") && paperJournalReference.equals("")) {
-                List<String> paperIds = this.userDataAccessObject.getPapersByParentCategory(parentCategory);
-                for (String paper : paperIds) {
-                    if (getRelevanceFactor(paper) >= THRESHOLD) {
-                        recommendedPapers.add(this.userDataAccessObject.getPaperById(paper));
+                List<String> candidatePaperIds = this.userDataAccessObject.filterPapersByParentCategory(parentCategory);
+                for (String candidatePaperId : candidatePaperIds) {
+                    if (getRelevanceFactor(candidatePaperId) >= THRESHOLD) {
+                        ResearchPaper recommendedPaper = this.userDataAccessObject.getPaperById(candidatePaperId);
+                        recommendedPapers.add(recommendedPaper.toList());
+
+                        user.addPaper(recommendedPaper);
+                        // TODO: add categories to preferredCategories
                     }
                 }
             } else {
@@ -46,10 +55,17 @@ public class RecommendInteractor implements RecommendInputBoundary {
                 } else {
                     targetPaper = this.userDataAccessObject.getPaperByJournalReference(paperJournalReference);
                 }
-                recommendedPapers.add(targetPaper);
+                recommendedPapers.add(targetPaper.toList());
             }
         } else {
-            // TODO: to be completed
+            // TODO: recommend papers based the saved ones
+        }
+
+        if (recommendedPapers.isEmpty()) {
+            userPresenter.prepareFailView("Ops, no recommendations found...");
+        } else {
+            RecommendOutputData recommendOutputData = new RecommendOutputData(recommendedPapers);
+            userPresenter.prepareSuccessView(recommendOutputData);
         }
     }
 

@@ -1,17 +1,16 @@
 package entities;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class User {
     private String username;
     private String password;
-    private HashMap<String, Integer> preferredCategories = new HashMap<>();
-    // parent categories of papers : count of papers of the corresponding parent category
-    private List<String> library = new ArrayList<>();
-    private List<String> papersUpvoted = new ArrayList<>();
-    private List<String> papersDownvoted = new ArrayList<>();
+    private Map<Category, List<Subcategory>> preferredCategories = new HashMap<>();
+    private Map<String, ResearchPaper> library = new HashMap<>();  // TODO: maybe change to a list holding the actual objects?
+    private Map<String, ResearchPaper> upvotedPapers = new HashMap<>();
+    private Map<String, ResearchPaper> downvotedPapers = new HashMap<>();
 
     public User(String username, String password) {
         this.username = username;
@@ -44,28 +43,41 @@ public class User {
         this.password = password;
     }
 
-    public List<String> getLibrary() {
+    public Map<String, ResearchPaper> getLibrary() {
         return library;
     }
 
-    public void setLibrary(List<String> library) {
-        this.library = library;
+    public boolean hasParentCategory(String parentCategory) {
+        return this.preferredCategories.containsKey(parentCategory);
     }
 
-    public List<String> getPapersUpvoted() {
-        return papersUpvoted;
+    public boolean addPaper(ResearchPaper paper) {
+        if (this.library.containsKey(paper.getId())) {
+            return false;
+        } else {
+            this.library.put(paper.getId(), paper);
+            return true;
+        }
     }
 
-    public void setPapersUpvoted(List<String> papersUpvoted) {
-        this.papersUpvoted = papersUpvoted;
+    public boolean hasEmptyLibrary() {
+        return this.library.isEmpty();
     }
 
-    public List<String> getPapersDownvoted() {
-        return papersDownvoted;
+    public Map<String, ResearchPaper> getUpvotedPapers() {
+        return upvotedPapers;
     }
 
-    public void setPapersDownvoted(List<String> papersDownvoted) {
-        this.papersDownvoted = papersDownvoted;
+    public void addUpvotedPaper(ResearchPaper upvotedPaper) {
+        this.downvotedPapers.put(upvotedPaper.getId(), upvotedPaper);
+    }
+
+    public Map<String, ResearchPaper> getPapersDownvoted() {
+        return downvotedPapers;
+    }
+
+    public void addDownvotedPaper(ResearchPaper downvotedPaper) {
+        this.downvotedPapers.put(downvotedPaper.getId(), downvotedPaper);
     }
 
 }

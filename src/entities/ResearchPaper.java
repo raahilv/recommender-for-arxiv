@@ -1,7 +1,9 @@
 package entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ResearchPaper {
     private final String id;  // string of digits (possibly with punctuations)
@@ -51,4 +53,36 @@ public class ResearchPaper {
     public long getDownvoteCount() { return this.downvoteCount; }
 
     public void setDownvoteCount(int downvoteCount) { this.downvoteCount = downvoteCount; }
+
+    public List<Object> toList() {
+        List<Object> paperMetadata = new ArrayList<>();
+        paperMetadata.add(this.id);
+        paperMetadata.add(this.title);
+        paperMetadata.add(this.category);
+        paperMetadata.add(this.publishDate);
+        paperMetadata.add(this.paperAbstract);
+        paperMetadata.add(this.journalReference);
+        paperMetadata.add(this.url);
+        paperMetadata.add(this.upvoteCount);
+        paperMetadata.add(this.downvoteCount);
+
+        List<Object> authors = new ArrayList<>();
+        for (String authorId : this.authors.keySet()) {
+            authors.add(this.authors.get(authorId).toList());
+        }
+        paperMetadata.add(authors);
+
+        return paperMetadata;
+//        this.id = id;
+//        this.title = title;
+//        this.category = category;
+//        this.publishDate = publishDate;
+//        this.paperAbstract = paperAbstract;
+//        this.journalReference = journalReference;
+//        this.url = url;
+//        this.upvoteCount = upvoteCount;
+//        this.downvoteCount = downvoteCount;
+//        this.authors.putAll(authors);
+
+    }
 }
