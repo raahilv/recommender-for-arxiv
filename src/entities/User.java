@@ -16,4 +16,27 @@ public class User {
         this.password = password;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public ArrayList<String> getPreferredCategories() {
+        return preferredCategories;
+    }
+
+    public HashMap<String, ResearchPaper> getLibrary() {
+        return library;
+    }
+
+    public HashMap<String, ResearchPaper> getPapersUpvoted() {
+        return papersUpvoted;
+    }
+
+    public HashMap<String, ResearchPaper> getPapersDownvoted() {
+        return papersDownvoted;
+    }
 }
