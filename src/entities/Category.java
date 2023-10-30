@@ -1,17 +1,17 @@
 package entities;
 
-public class Category {
-    private final String id;
-    private final String description;
+public abstract class Category {
 
-    public Category(String id, String description){
-        this.id = id;
-        this.description = description;
+    private final String parentCategory;
+
+    public Category(String parentCategory){
+        this.parentCategory = parentCategory;
     }
-    public String getId(){
-        return this.id;
+
+    public String getParentCategory(){
+        return this.parentCategory;
     }
-    public String getDescription(){
-        return this.description;
-    }
+
+    public abstract String getChildCategory();
+
 }

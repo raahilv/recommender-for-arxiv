@@ -1,4 +1,8 @@
 package use_cases.recommend;
 
-public class RecommendOutputBoundary {
+public interface RecommendOutputBoundary {
+
+    void prepareSuccessView(RecommendOutputData clearOutputData);
+    void prepareFailView(String error);
+
 }
