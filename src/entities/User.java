@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,8 +8,8 @@ import java.util.Map;
 public class User {
     private String username;
     private String password;
-    private Map<Category, List<Subcategory>> preferredCategories = new HashMap<>();
-    private Map<String, ResearchPaper> library = new HashMap<>();  // TODO: maybe change to a list holding the actual objects?
+    private List<Category> preferredCategories = new ArrayList<>();
+    private Map<String, ResearchPaper> library = new HashMap<>();
     private Map<String, ResearchPaper> upvotedPapers = new HashMap<>();
     private Map<String, ResearchPaper> downvotedPapers = new HashMap<>();
 
@@ -26,63 +27,20 @@ public class User {
         return password;
     }
 
-// <<<<<<< kaiwenzheng
-//     public void setPassword(String password) {
-//         this.password = password;
-//     }
-
-//     public Map<String, ResearchPaper> getLibrary() {
-//         return library;
-//     }
-
-//     public boolean hasParentCategory(String parentCategory) {
-//         return this.preferredCategories.containsKey(parentCategory);
-//     }
-
-//     public boolean addPaper(ResearchPaper paper) {
-//         if (this.library.containsKey(paper.getId())) {
-//             return false;
-//         } else {
-//             this.library.put(paper.getId(), paper);
-//             return true;
-//         }
-//     }
-
-//     public boolean hasEmptyLibrary() {
-//         return this.library.isEmpty();
-//     }
-
-//     public Map<String, ResearchPaper> getUpvotedPapers() {
-//         return upvotedPapers;
-//     }
-
-//     public void addUpvotedPaper(ResearchPaper upvotedPaper) {
-//         this.downvotedPapers.put(upvotedPaper.getId(), upvotedPaper);
-//     }
-
-//     public Map<String, ResearchPaper> getPapersDownvoted() {
-//         return downvotedPapers;
-//     }
-
-//     public void addDownvotedPaper(ResearchPaper downvotedPaper) {
-//         this.downvotedPapers.put(downvotedPaper.getId(), downvotedPaper);
-//     }
-
-// =======
-    public ArrayList<String> getPreferredCategories() {
+    public List<Category> getPreferredCategories() {
         return preferredCategories;
     }
 
-    public HashMap<String, ResearchPaper> getLibrary() {
+    public Map<String, ResearchPaper> getLibrary() {
         return library;
     }
 
-    public HashMap<String, ResearchPaper> getPapersUpvoted() {
-        return papersUpvoted;
+    public Map<String, ResearchPaper> getPapersUpvoted() {
+        return upvotedPapers;
     }
 
-    public HashMap<String, ResearchPaper> getPapersDownvoted() {
-        return papersDownvoted;
+    public Map<String, ResearchPaper> getPapersDownvoted() {
+        return downvotedPapers;
     }
-// >>>>>>> main
+
 }

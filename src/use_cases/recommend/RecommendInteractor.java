@@ -44,7 +44,17 @@ public class RecommendInteractor implements RecommendInputBoundary {
 
     private List<List<Object>> recommend(List<Category> preferredCategories) {
         List<List<Object>> recommendedPapers = new ArrayList<>();
-
+        for (Category category : preferredCategories) {
+            List<String> potentialPapers = this.userDataAccessObject.
+                    filterPapersByRootCategory(category.getRootCategory());
+            for (String potentialPaper : potentialPapers) {
+                if (isGoodMatch(potentialPaper, preferredCategories)) {
+                    recommendedPapers.add(
+                            this.userDataAccessObject.getPaperById(potentialPaper).toList()
+                    );
+                }
+            }
+        }
         return recommendedPapers;
     }
 
@@ -62,9 +72,8 @@ public class RecommendInteractor implements RecommendInputBoundary {
         boolean matchRootCategory = matchRootCategory(paper, preferredCategories);
         boolean matchAll = matchAll(paper, preferredCategories);
 
-        if (!matchRootCategory && !matchAll) {
-            relevanceFactor++;
-        } else {
+        if (matchRootCategory || matchAll) {
+            relevanceFactor += getUpvotePercentage(paper.getUpvoteCount(), paper.getDownvoteCount());
             if (matchRootCategory) {
                 // Step 1: paper matches with one of the root categories the user is looking for.
                 relevanceFactor++;
@@ -73,9 +82,8 @@ public class RecommendInteractor implements RecommendInputBoundary {
                 //         This is the most important one.
                 relevanceFactor += 5;
             }
-            relevanceFactor += getUpvotePercentage(paper.getUpvoteCount(), paper.getDownvoteCount());
         }
-
+        // TODO: to be completed...
         return relevanceFactor;
     }
 

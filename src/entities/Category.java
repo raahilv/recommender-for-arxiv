@@ -1,17 +1,36 @@
 package entities;
 
-public abstract class Category {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final String parentCategory;
+public class Category {
 
-    public Category(String parentCategory){
-        this.parentCategory = parentCategory;
+    private final String rootCategory;
+    private final String subcategory;
+
+    public Category(String rootCategory, String subcategory){
+        this.rootCategory = rootCategory;
+        this.subcategory = subcategory;
     }
 
-    public String getParentCategory(){
-        return this.parentCategory;
+    public String getRootCategory() {
+        return this.rootCategory;
     }
 
-    public abstract String getChildCategory();
+    public boolean hasSameRootCategory(Category other) {
+        return this.rootCategory.equalsIgnoreCase(other.rootCategory);
+    }
+
+    public boolean isSame(Category other) {
+        return this.hasSameRootCategory(other) &&
+                this.subcategory.equalsIgnoreCase(other.subcategory);
+    }
+
+    public List<String> toList() {
+        List<String> categoryMetadata = new ArrayList<>();
+        categoryMetadata.add(this.rootCategory);
+        categoryMetadata.add(this.subcategory);
+        return categoryMetadata;
+    }
 
 }
