@@ -1,7 +1,7 @@
 package use_cases.recommend;
 
+import entities.Category;
 import entities.ResearchPaper;
-import entities.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,47 +18,20 @@ public class RecommendInteractor implements RecommendInputBoundary {
         this.userPresenter = userPresenter;
     }
 
-    /* Assume recommendInputData.existsByUsername() returns true. */
     public void execute(RecommendInputData recommendInputData) {
-        /*
-           TODO:
-            In the corresponding view, if one of the optional fields is
-            filled in, then all other fields should be disabled for entering
-            values.
-        */
         String username = recommendInputData.getUsername();
-        User user = this.userDataAccessObject.getUser(username);
-        String parentCategory = recommendInputData.getParentCategory();
-        String paperId = recommendInputData.getId();
-        String paperTitle = recommendInputData.getTitle();
-        String paperJournalReference = recommendInputData.getJournalReference();
-
         List<List<Object>> recommendedPapers = new ArrayList<>();
-        if (user.hasEmptyLibrary() || !recommendInputData.wantAutoMode()) {
-            if (paperId.equals("") && paperTitle.equals("") && paperJournalReference.equals("")) {
-                List<String> candidatePaperIds = this.userDataAccessObject.filterPapersByParentCategory(parentCategory);
-                for (String candidatePaperId : candidatePaperIds) {
-                    if (getRelevanceFactor(candidatePaperId) >= THRESHOLD) {
-                        ResearchPaper recommendedPaper = this.userDataAccessObject.getPaperById(candidatePaperId);
-                        recommendedPapers.add(recommendedPaper.toList());
 
-                        user.addPaper(recommendedPaper);
-                        // TODO: add categories to preferredCategories
-                    }
-                }
-            } else {
-                ResearchPaper targetPaper;
-                if (!paperId.equals("")) {
-                    targetPaper = this.userDataAccessObject.getPaperById(paperId);
-                } else if (!paperTitle.equals("")) {
-                    targetPaper = this.userDataAccessObject.getPaperByTitle(paperTitle);
-                } else {
-                    targetPaper = this.userDataAccessObject.getPaperByJournalReference(paperJournalReference);
-                }
-                recommendedPapers.add(targetPaper.toList());
-            }
+        if (!this.userDataAccessObject.existsByUsername(username)) {
+            this.userPresenter.prepareFailView("ERROR: user *" + username + "* does not exist.");
+        } else if (recommendInputData.wantAutoRecommendMode()) {
+            recommendedPapers.addAll(
+                    recommend(this.userDataAccessObject.getUser(username).getPreferredCategories())
+            );
         } else {
-            // TODO: recommend papers based the saved ones
+            recommendedPapers.addAll(
+                    recommend(recommendInputData.getPreferenceData())
+            );
         }
 
         if (recommendedPapers.isEmpty()) {
@@ -69,9 +42,65 @@ public class RecommendInteractor implements RecommendInputBoundary {
         }
     }
 
-    private int getRelevanceFactor(String paperId) {
-        ResearchPaper paper = this.userDataAccessObject.getPaperById(paperId);
-        // TODO: to be completed
-        return -1;
+    private List<List<Object>> recommend(List<Category> preferredCategories) {
+        List<List<Object>> recommendedPapers = new ArrayList<>();
+
+        return recommendedPapers;
     }
+
+    private boolean isGoodMatch(String paperId, List<Category> preferredCategories) {
+        return getRelevanceFactor(paperId, preferredCategories) >= THRESHOLD;
+    }
+
+    /** Return the *relevance factor* of a paper with respect to the given preference data.
+     * A relevance factor of 0 indicates that the paper is not a good match
+     * */
+    private double getRelevanceFactor(String paperId, List<Category> preferredCategories) {
+        double relevanceFactor = 0;
+
+        ResearchPaper paper = this.userDataAccessObject.getPaperById(paperId);
+        boolean matchRootCategory = matchRootCategory(paper, preferredCategories);
+        boolean matchAll = matchAll(paper, preferredCategories);
+
+        if (!matchRootCategory && !matchAll) {
+            relevanceFactor++;
+        } else {
+            if (matchRootCategory) {
+                // Step 1: paper matches with one of the root categories the user is looking for.
+                relevanceFactor++;
+            } else {
+                // Step 2: paper matches in terms of both its root category and its subcategory.
+                //         This is the most important one.
+                relevanceFactor += 5;
+            }
+            relevanceFactor += getUpvotePercentage(paper.getUpvoteCount(), paper.getDownvoteCount());
+        }
+
+        return relevanceFactor;
+    }
+
+    private boolean matchRootCategory(ResearchPaper paper, List<Category> preferredCategories) {
+        Category paperCategory = paper.getCategory();
+        for (Category category : preferredCategories) {
+            if (category.hasSameRootCategory(paperCategory)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean matchAll(ResearchPaper paper, List<Category> preferredCategories) {
+        for (Category category : preferredCategories) {
+            if (category.isSame(paper.getCategory())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private double getUpvotePercentage(long upvoteCount, long downvoteCount) {
+        return upvoteCount == downvoteCount ?
+                1.0 : 100. * upvoteCount / (upvoteCount + downvoteCount);
+    }
+
 }
