@@ -6,33 +6,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/* KAIWEN ZHENG, Oct 28 2023
-* Currently, it is assumed that a user is asked for providing answers
-* to the following options (in the ordered listed) as the preference data:
-*   - Category of interest (restricted to the ones provided in the drop-down menu;
-*     should select one option only) (MANDATORY)
-*   - Sub-categories of interest (restricted to the ones existing under the corresponding
-*     category; should select at least one option) (MANDATORY)
-*   - Order in which filtered papers are sorted (OPTIONAL)
-* */
 public class RecommendInputData {
 
-    private final String username;
-    private final List<Category> preferenceData = new ArrayList<>();
-    private final boolean wantAutoRecommend;
-
-    /* TODO: choices of sorting/ordering to be added */
+    private final String username;  // mandatory, create user first if not exists
+    private final List<Category> preferenceData = new ArrayList<>();  // mandatory
+    private final boolean wantAutoRecommend;  // mandatory
+    private final boolean prioritizeSubcategorySearch;  // optional
+    private final boolean prioritizeUpvotePercentageSearch;  // optional
 
     public RecommendInputData(String username, List<Category> preferredCategories,
+                              boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
                               boolean wantAutoRecommend) {
         this.username = username;
         this.preferenceData.addAll(preferredCategories);
+        this.prioritizeSubcategorySearch = prioritizeSubcategorySearch;
+        this.prioritizeUpvotePercentageSearch = prioritizeUpvotePercentageSearch;
         this.wantAutoRecommend = wantAutoRecommend;
     }
 
     public String getUsername() { return this.username; }
 
     public List<Category> getPreferenceData() { return this.preferenceData; }
+
+    public boolean prioritizeSubcategorySearch() { return this.prioritizeSubcategorySearch; }
+
+    public boolean prioritizeUpvotePercentageSearch() { return this.prioritizeUpvotePercentageSearch; }
 
     public boolean wantAutoRecommendMode() { return this.wantAutoRecommend; }
 

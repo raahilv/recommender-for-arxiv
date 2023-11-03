@@ -16,9 +16,11 @@ public class RecommendController {
     }
 
     public void execute(String username, List<Category> preferredCategories,
-                        boolean wantAutoRecommendation) {
+                        boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
+                        boolean wantAutoRecommend) {
         RecommendInputData recommendInputData = new RecommendInputData(
-                username, preferredCategories, wantAutoRecommendation
+                username, preferredCategories, prioritizeSubcategorySearch,
+                prioritizeUpvotePercentageSearch, wantAutoRecommend
         );
         this.recommendUseCaseInteractor.execute(recommendInputData);
     }
