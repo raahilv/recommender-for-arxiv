@@ -8,50 +8,39 @@ import java.util.List;
 public class RecommendInputData {
 
     private final String username;
-    private final String id;
-    private final String title;
-    private final String journalReference;
-    private final String parentCategory;
-    private final List<String> childCategories = new ArrayList<>();
-    private final boolean wantAutoRecommendation;
+    private final List<Category> preferredCategories = new ArrayList<>();
+    private final boolean prioritizeSubcategorySearch;
+    private final boolean prioritizeUpvotePercentageSearch;
+    private final boolean wantAutoRecommend;
     
-    public RecommendInputData(String username, String id, String title, String journalReference,
-                        String parentCategory, List<String> childCategories, boolean wantAutoRecommendation) {
+    public RecommendInputData(String username, List<Category> preferredCategories,
+                              boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
+                              boolean wantAutoRecommend) {
         this.username = username;
-        this.id = id;
-        this.title = title;
-        this.journalReference = journalReference;
-        this.parentCategory = parentCategory;
-        this.childCategories.addAll(childCategories);
-        this.wantAutoRecommendation = wantAutoRecommendation;
+        this.preferredCategories.addAll(preferredCategories);
+        this.prioritizeSubcategorySearch = prioritizeSubcategorySearch;
+        this.prioritizeUpvotePercentageSearch = prioritizeUpvotePercentageSearch;
+        this.wantAutoRecommend = wantAutoRecommend;
     }
 
     public String getUsername() {
         return this.username;
     }
 
-    public String getId() {
-        return this.id;
+    public List<Category> getPreferenceData() {
+        return preferredCategories;
     }
 
-    public String getTitle() {
-        return this.title;
+    public boolean prioritizeSubcategorySearch() {
+        return prioritizeSubcategorySearch;
     }
 
-    public String getJournalReference() {
-        return this.journalReference;
-    }
-
-    public String getParentCategory() {
-        return this.parentCategory;
-    }
-
-    public List<String> getChildCategories() {
-        return this.childCategories;
+    public boolean prioritizeUpvotePercentageSearch() {
+        return prioritizeUpvotePercentageSearch;
     }
 
     public boolean wantAutoRecommendation() {
-        return this.wantAutoRecommendation;
+        return this.wantAutoRecommend;
     }
 
 }
