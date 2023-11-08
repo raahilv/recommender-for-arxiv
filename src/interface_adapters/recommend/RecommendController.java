@@ -1,11 +1,10 @@
 package interface_adapters.recommend;
 
 import entities.Category;
+
 import use_cases.recommend.RecommendInputBoundary;
 import use_cases.recommend.RecommendInputData;
-
 import java.util.List;
-import java.util.Map;
 
 public class RecommendController {
 
@@ -15,12 +14,10 @@ public class RecommendController {
         this.recommendUseCaseInteractor = recommendUseCaseInteractor;
     }
 
-    public void execute(String username, List<Category> preferredCategories,
-                        boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
-                        boolean wantAutoRecommend) {
+    public void execute(String username, String id, String title, String journalReference,
+                        String parentCategory, List<String> childCategories, boolean wantAutoRecommendation) {
         RecommendInputData recommendInputData = new RecommendInputData(
-                username, preferredCategories, prioritizeSubcategorySearch,
-                prioritizeUpvotePercentageSearch, wantAutoRecommend
+                username, id, title, journalReference, parentCategory, childCategories, wantAutoRecommendation
         );
         this.recommendUseCaseInteractor.execute(recommendInputData);
     }
