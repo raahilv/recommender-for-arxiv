@@ -2,8 +2,6 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class User {
     private String username;
@@ -22,11 +20,9 @@ public class User {
         return username;
     }
 
-// >>>>>>> main
     public String getPassword() {
         return password;
     }
-
     public List<Category> getPreferredCategories() {
         return preferredCategories;
     }
