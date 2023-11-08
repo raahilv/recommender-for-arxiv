@@ -7,14 +7,24 @@ public class Category {
 
     private final String rootCategory;
     private final String subcategory;
+    private final String description;
 
-    public Category(String rootCategory, String subcategory){
+    public Category(String rootCategory, String subcategory, String description) {
         this.rootCategory = rootCategory;
         this.subcategory = subcategory;
+        this.description = description;
     }
 
     public String getRootCategory() {
         return this.rootCategory;
+    }
+
+    public String getSubcategory() {
+        return this.subcategory;
+    }
+
+    public String getDescription() {
+        return this.description;
     }
 
     public boolean hasSameRootCategory(Category other) {
