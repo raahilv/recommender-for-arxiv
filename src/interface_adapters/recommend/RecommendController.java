@@ -1,4 +1,4 @@
-package interface_adapeters.recommend;
+package interface_adapters.recommend;
 
 import use_cases.recommend.RecommendInputBoundary;
 import use_cases.recommend.RecommendInputData;

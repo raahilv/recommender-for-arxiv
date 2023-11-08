@@ -1,7 +1,5 @@
-package interface_adapeters.save;
+package interface_adapters.save;
 
-import entities.ResearchPaper;
-import entities.User;
 import use_cases.save.SaveInputBoundary;
 import use_cases.save.SaveInputData;
 
