@@ -4,34 +4,54 @@ import entities.Category;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class RecommendInputData {
 
-    private final String username;  // mandatory, create user first if not exists
-    private final List<Category> preferenceData = new ArrayList<>();  // mandatory
-    private final boolean wantAutoRecommend;  // mandatory
-    private final boolean prioritizeSubcategorySearch;  // optional
-    private final boolean prioritizeUpvotePercentageSearch;  // optional
-
-    public RecommendInputData(String username, List<Category> preferredCategories,
-                              boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
-                              boolean wantAutoRecommend) {
+    private final String username;
+    private final String id;
+    private final String title;
+    private final String journalReference;
+    private final String parentCategory;
+    private final List<String> childCategories = new ArrayList<>();
+    private final boolean wantAutoRecommendation;
+    
+    public RecommendInputData(String username, String id, String title, String journalReference,
+                        String parentCategory, List<String> childCategories, boolean wantAutoRecommendation) {
         this.username = username;
-        this.preferenceData.addAll(preferredCategories);
-        this.prioritizeSubcategorySearch = prioritizeSubcategorySearch;
-        this.prioritizeUpvotePercentageSearch = prioritizeUpvotePercentageSearch;
-        this.wantAutoRecommend = wantAutoRecommend;
+        this.id = id;
+        this.title = title;
+        this.journalReference = journalReference;
+        this.parentCategory = parentCategory;
+        this.childCategories.addAll(childCategories);
+        this.wantAutoRecommendation = wantAutoRecommendation;
     }
 
-    public String getUsername() { return this.username; }
+    public String getUsername() {
+        return this.username;
+    }
 
-    public List<Category> getPreferenceData() { return this.preferenceData; }
+    public String getId() {
+        return this.id;
+    }
 
-    public boolean prioritizeSubcategorySearch() { return this.prioritizeSubcategorySearch; }
+    public String getTitle() {
+        return this.title;
+    }
 
-    public boolean prioritizeUpvotePercentageSearch() { return this.prioritizeUpvotePercentageSearch; }
+    public String getJournalReference() {
+        return this.journalReference;
+    }
 
-    public boolean wantAutoRecommendMode() { return this.wantAutoRecommend; }
+    public String getParentCategory() {
+        return this.parentCategory;
+    }
+
+    public List<String> getChildCategories() {
+        return this.childCategories;
+    }
+
+    public boolean wantAutoRecommendation() {
+        return this.wantAutoRecommendation;
+    }
 
 }
