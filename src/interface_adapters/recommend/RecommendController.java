@@ -1,8 +1,9 @@
 package interface_adapters.recommend;
 
+import entities.Category;
+
 import use_cases.recommend.RecommendInputBoundary;
 import use_cases.recommend.RecommendInputData;
-
 import java.util.List;
 
 public class RecommendController {
