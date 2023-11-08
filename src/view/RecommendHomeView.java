@@ -59,6 +59,10 @@ public class RecommendHomeView {
     private JPanel Stat;
     private JPanel Phy;
     private JButton recommendButton;
+    private JCheckBox useSavedPapersForCheckBox;
+    private JCheckBox prioritizeSubCategoriesCheckBox;
+    private JCheckBox useUserRatingsForCheckBox;
+    private JButton savedPapersButton;
     ArrayList<JRadioButton> radioButtonsList;
     HashMap<JRadioButton, Category> categories = new HashMap<JRadioButton, Category>();
 
