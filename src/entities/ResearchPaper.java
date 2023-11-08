@@ -40,6 +40,10 @@ public class ResearchPaper {
         return this.authors.containsKey(authorId);
     }
 
+    public Category getCategory() {
+        return this.category;
+    }
+
     public String getPaperAbstract() { return this.paperAbstract; }
 
     public String getUrl() { return this.url; }
@@ -71,16 +75,6 @@ public class ResearchPaper {
         paperMetadata.add(authors);
 
         return paperMetadata;
-//        this.id = id;
-//        this.title = title;
-//        this.category = category;
-//        this.publishDate = publishDate;
-//        this.paperAbstract = paperAbstract;
-//        this.journalReference = journalReference;
-//        this.url = url;
-//        this.upvoteCount = upvoteCount;
-//        this.downvoteCount = downvoteCount;
-//        this.authors.putAll(authors);
-
     }
+
 }

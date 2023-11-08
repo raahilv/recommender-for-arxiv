@@ -11,6 +11,6 @@ public interface RecommendDataAccessInterface {
     ResearchPaper getPaperById(String id);
     ResearchPaper getPaperByTitle(String title);  // assume all in lower case
     ResearchPaper getPaperByJournalReference(String journalReference);  // assume all in lower case
-    List<String> filterPapersByParentCategory(String parentCategory);
+    List<String> filterPapersByRootCategory(String parentCategory);
 
 }

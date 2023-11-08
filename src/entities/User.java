@@ -6,10 +6,10 @@ import java.util.HashMap;
 public class User {
     private String username;
     private String password;
-    private ArrayList<String> preferredCategories = new ArrayList<>();
-    private HashMap<String, ResearchPaper> library = new HashMap<>();
-    private HashMap<String, ResearchPaper> papersUpvoted = new HashMap<>();
-    private HashMap<String, ResearchPaper> papersDownvoted = new HashMap<>();
+    private List<Category> preferredCategories = new ArrayList<>();
+    private Map<String, ResearchPaper> library = new HashMap<>();
+    private Map<String, ResearchPaper> upvotedPapers = new HashMap<>();
+    private Map<String, ResearchPaper> downvotedPapers = new HashMap<>();
 
     public User(String username, String password) {
         this.username = username;
@@ -23,20 +23,20 @@ public class User {
     public String getPassword() {
         return password;
     }
-
-    public ArrayList<String> getPreferredCategories() {
+    public List<Category> getPreferredCategories() {
         return preferredCategories;
     }
 
-    public HashMap<String, ResearchPaper> getLibrary() {
+    public Map<String, ResearchPaper> getLibrary() {
         return library;
     }
 
-    public HashMap<String, ResearchPaper> getPapersUpvoted() {
-        return papersUpvoted;
+    public Map<String, ResearchPaper> getPapersUpvoted() {
+        return upvotedPapers;
     }
 
-    public HashMap<String, ResearchPaper> getPapersDownvoted() {
-        return papersDownvoted;
+    public Map<String, ResearchPaper> getPapersDownvoted() {
+        return downvotedPapers;
     }
+
 }

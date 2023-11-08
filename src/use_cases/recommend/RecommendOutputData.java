@@ -5,16 +5,16 @@ import java.util.List;
 
 public class RecommendOutputData {
 
-    private final int paperCount;
+    private final int recommendationCount;
     private final List<List<Object>> recommendedPapers = new ArrayList<>();
 
     public RecommendOutputData(List<List<Object>> recommendedPapers) {
-        this.paperCount = recommendedPapers.size();
+        this.recommendationCount = recommendedPapers.size();
         this.recommendedPapers.addAll(recommendedPapers);
     }
 
-    public int getPaperCount() {
-        return this.paperCount;
+    public int getRecommendationCount() {
+        return this.recommendationCount;
     }
 
     public List<List<Object>> getRecommendedPapers() {
