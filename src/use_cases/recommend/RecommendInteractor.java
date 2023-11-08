@@ -18,12 +18,6 @@ public class RecommendInteractor implements RecommendInputBoundary {
         this.userPresenter = userPresenter;
     }
 
-    /** The *relevance factor* of a paper is defined as follows:
-     * (1) If the user prioritizes a search by the subcategory of the paper,
-     *     then give a larger weight to the subcategory. TODO: to be modified
-     * (2) If the user prioritize a search by the upvote percentage of the
-     *     paper, then give a larger weight to the upvote percentage.  TODO: to be modified
-     * */
     public void execute(RecommendInputData recommendInputData) {
         String username = recommendInputData.getUsername();
         List<List<Object>> recommendedPapers = new ArrayList<>();
@@ -61,8 +55,8 @@ public class RecommendInteractor implements RecommendInputBoundary {
         List<List<Object>> recommendedPapers = new ArrayList<>();
 
         for (Category category : preferredCategories) {
-            List<String> potentialPapers = this.userDataAccessObject.
-                    filterPapersByRootCategory(category.getRootCategory());
+            List<String> potentialPapers =
+                    this.userDataAccessObject.filterPapersByRootCategory(category.getRootCategory());
             for (String potentialPaper : potentialPapers) {
                 if (isGoodMatch(potentialPaper, preferredCategories,
                         prioritizeSubcategorySearch, prioritizeUpvotePercentageSearch)) {
@@ -84,30 +78,31 @@ public class RecommendInteractor implements RecommendInputBoundary {
     }
 
     /** Return the *match score* of a paper with respect to the given preference data.
-     * A relevance factor of 0 indicates that the paper is not a good match
+     * A match score of 0 indicates that the paper is not a good match.
+     * ...............................................................................
+     * The *match score* of a paper is defined as follows:
+     * (1) Count the number of categories the given paper shares with the preferred categories;
+     * (2) Adjust the result calculated from (1);
+     * (3) Calculate the percentage of likes (upvote) a paper has;
+     * (4) Give a weight of 10 for the search criterion the user selects (i.e., prioritize
+     *     category search, prioritize upvote percentage search);
+     * (5) The result from Step (4) is the match score.
      * */
     private double getMatchScore(String paperId, List<Category> preferredCategories,
-                                 boolean prioritizeSubcategorySearch,
+                                 boolean prioritizeCategorySearch,
                                  boolean prioritizeUpvotePercentageSearch) {
-        /* TODO: Currently, the relevance factor is calculated solely based on whether a given
-            paper's category (both root category and subcategory) matches with any of preferred
-            categories the user provides. Later, other factors (such as whether a paper's author
-            matches with the one the user is looking for) may be integrated here.
-        */
         double matchScore = 0;
 
         ResearchPaper paper = this.userDataAccessObject.getPaperById(paperId);
         double adjustedMatchCount = adjust(getCategoryMatchCount(paper, preferredCategories));
         double upvotePercentage = getUpvotePercentage(paper.getUpvoteCount(), paper.getDownvoteCount());
 
-        if (prioritizeSubcategorySearch) {
-            if (adjustedMatchCount > 0) {
-                matchScore += 10 * adjustedMatchCount;
-            }
+        if (!prioritizeCategorySearch && !prioritizeUpvotePercentageSearch) {
+            matchScore += adjustedMatchCount + upvotePercentage;
+        } else if (prioritizeCategorySearch) {
+            matchScore += 10 * adjustedMatchCount;
             matchScore += upvotePercentage;
-        }
-
-        if (prioritizeUpvotePercentageSearch) {
+        } else {
             matchScore += 10 * upvotePercentage;
             matchScore += adjustedMatchCount;
         }
@@ -126,22 +121,15 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return 1.0 * factor / scale;
     }
 
-    private int getMatchRootCategoryCount(ResearchPaper paper, List<Category> preferredCategories) {
-        int count = 0;
-        Category paperCategory = paper.getCategory();
-        for (Category category : preferredCategories) {
-            if (category.hasSameRootCategory(paperCategory)) {
-                count++;
-            }
-        }
-        return count;
-    }
-
+    /** Count the number of categories the given paper shares with the preferred categories. */
     private int getCategoryMatchCount(ResearchPaper paper, List<Category> preferredCategories) {
         int count = 0;
-        for (Category category : preferredCategories) {
-            if (category.isSame(paper.getCategory())) {
-                count++;
+        List<Category> paperCategories = paper.getCategories();
+        for (Category paperCategory : paperCategories) {
+            for (Category preferredCategory : preferredCategories) {
+                if (paperCategory.isSame(preferredCategory)) {
+                    count++;
+                }
             }
         }
         return count;
