@@ -30,7 +30,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
 
         if (!this.userDataAccessObject.existsByUsername(username)) {
             this.userPresenter.prepareFailView("ERROR: user *" + username + "* does not exist.");
-        } else if (recommendInputData.wantAutoRecommendMode()) {
+        } else if (recommendInputData.wantAutoRecommendation()) {
             recommendedPapers.addAll(
                     recommend(
                             this.userDataAccessObject.getUser(username).getPreferredCategories(),
