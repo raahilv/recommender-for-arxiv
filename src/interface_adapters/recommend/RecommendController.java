@@ -1,46 +1,26 @@
-package use_cases.recommend;
+package interface_adapters.recommend;
 
 import entities.Category;
+import use_cases.recommend.RecommendInputBoundary;
+import use_cases.recommend.RecommendInputData;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class RecommendInputData {
+public class RecommendController {
 
-    private final String username;
-    private final List<Category> preferredCategories = new ArrayList<>();
-    private final boolean prioritizeSubcategorySearch;
-    private final boolean prioritizeUpvotePercentageSearch;
-    private final boolean wantAutoRecommend;
-    
-    public RecommendInputData(String username, List<Category> preferredCategories,
-                              boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
-                              boolean wantAutoRecommend) {
-        this.username = username;
-        this.preferredCategories.addAll(preferredCategories);
-        this.prioritizeSubcategorySearch = prioritizeSubcategorySearch;
-        this.prioritizeUpvotePercentageSearch = prioritizeUpvotePercentageSearch;
-        this.wantAutoRecommend = wantAutoRecommend;
+    final RecommendInputBoundary recommendUseCaseInteractor;
+
+    public RecommendController(RecommendInputBoundary recommendUseCaseInteractor) {
+        this.recommendUseCaseInteractor = recommendUseCaseInteractor;
     }
 
-    public String getUsername() {
-        return this.username;
-    }
-
-    public List<Category> getPreferenceData() {
-        return preferredCategories;
-    }
-
-    public boolean prioritizeSubcategorySearch() {
-        return prioritizeSubcategorySearch;
-    }
-
-    public boolean prioritizeUpvotePercentageSearch() {
-        return prioritizeUpvotePercentageSearch;
-    }
-
-    public boolean wantAutoRecommendation() {
-        return this.wantAutoRecommend;
+    public void execute(String username, List<Category> preferredCategories,
+                        boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
+                        boolean wantAutoRecommend) {
+        RecommendInputData recommendInputData = new RecommendInputData(username,
+                preferredCategories, prioritizeSubcategorySearch, prioritizeUpvotePercentageSearch, wantAutoRecommend
+        );
+        this.recommendUseCaseInteractor.execute(recommendInputData);
     }
 
 }
