@@ -6,12 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class User {
-    private String username;
-    private String password;
-    private List<Category> preferredCategories = new ArrayList<>();
-    private Map<String, ResearchPaper> library = new HashMap<>();
-    private Map<String, ResearchPaper> upvotedPapers = new HashMap<>();
-    private Map<String, ResearchPaper> downvotedPapers = new HashMap<>();
+    private final String username;
+    private final String password;
+    private final List<Category> preferredCategories = new ArrayList<>();
+    private final Map<String, ResearchPaper> library = new HashMap<>();
+    private final Map<String, ResearchPaper> upvotedPapers = new HashMap<>();
+    private final Map<String, ResearchPaper> downvotedPapers = new HashMap<>();
 
     public User(String username, String password) {
         this.username = username;
