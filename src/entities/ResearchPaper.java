@@ -4,12 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ResearchPaper {
     private final String id;  // string of digits (possibly with punctuations)
     private final String title;  // assume it is in lower case
-    private final Category category;
-    private final HashMap<String, Author> authors = new HashMap<>();
+    private final List<Category> categories = new ArrayList<>();
+    private final Map<String, Author> authors = new HashMap<>();
     private final LocalDate publishDate;
     private final String paperAbstract;
     private final String journalReference;  // assume it is in lower case
@@ -17,19 +18,19 @@ public class ResearchPaper {
     private long upvoteCount;
     private long downvoteCount;
 
-    public ResearchPaper(String id, String title, Category category, HashMap<String, Author> authors,
+    public ResearchPaper(String id, String title, List<Category> categories, Map<String, Author> authors,
                          LocalDate publishDate, String paperAbstract, String journalReference,
                          String url, long upvoteCount, long downvoteCount) {
         this.id = id;
         this.title = title;
-        this.category = category;
+        this.categories.addAll(categories);
+        this.authors.putAll(authors);
         this.publishDate = publishDate;
         this.paperAbstract = paperAbstract;
         this.journalReference = journalReference;
         this.url = url;
         this.upvoteCount = upvoteCount;
         this.downvoteCount = downvoteCount;
-        this.authors.putAll(authors);
     }
 
     public String getId() { return this.id; }
@@ -40,8 +41,8 @@ public class ResearchPaper {
         return this.authors.containsKey(authorId);
     }
 
-    public Category getCategory() {
-        return this.category;
+    public List<Category> getCategories() {
+        return this.categories;
     }
 
     public String getPaperAbstract() { return this.paperAbstract; }
@@ -60,7 +61,7 @@ public class ResearchPaper {
         List<Object> paperMetadata = new ArrayList<>();
         paperMetadata.add(this.id);
         paperMetadata.add(this.title);
-        paperMetadata.add(this.category);
+        paperMetadata.add(this.categories);
         paperMetadata.add(this.publishDate);
         paperMetadata.add(this.paperAbstract);
         paperMetadata.add(this.journalReference);
