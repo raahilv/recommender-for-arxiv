@@ -1,8 +1,6 @@
 package use_cases.recommend;
 
-import entities.Category;
-import entities.ResearchPaper;
-
+import entities.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,32 +9,48 @@ public class RecommendInteractor implements RecommendInputBoundary {
     static final int THRESHOLD = 1;  // TODO: to be polished
     final RecommendDataAccessInterface userDataAccessObject;
     final RecommendOutputBoundary userPresenter;
+    final CategoryFactory categoryFactory;
+    final PreferenceDataFactory preferenceDataFactory;
 
-    public RecommendInteractor(RecommendDataAccessInterface userDataAccessObject,
-                               RecommendOutputBoundary userPresenter) {
+    public RecommendInteractor(RecommendDataAccessInterface userDataAccessObject, RecommendOutputBoundary userPresenter,
+                               CategoryFactory categoryFactory, PreferenceDataFactory preferenceDataFactory) {
         this.userDataAccessObject = userDataAccessObject;
         this.userPresenter = userPresenter;
+        this.categoryFactory = categoryFactory;
+        this.preferenceDataFactory = preferenceDataFactory;
     }
 
     public void execute(RecommendInputData recommendInputData) {
         String username = recommendInputData.getUsername();
-        List<List<Object>> recommendedPapers = new ArrayList<>();
+        List<ResearchPaper> recommendedPapers = new ArrayList<>();
 
         if (!this.userDataAccessObject.existsByUsername(username)) {
             this.userPresenter.prepareFailView("ERROR: user *" + username + "* does not exist.");
         } else if (recommendInputData.wantAutoRecommendation()) {
             recommendedPapers.addAll(
                     recommend(
-                            this.userDataAccessObject.getUser(username).getPreferredCategories(),
-                            recommendInputData.prioritizeSubcategorySearch(),
-                            recommendInputData.prioritizeUpvotePercentageSearch()
+                            this.preferenceDataFactory.createWithObject(
+                                    username,
+                                    this.userDataAccessObject.getUser(username).getPreferredCategories(),
+                                    recommendInputData.prioritizeSubcategorySearch(),
+                                    recommendInputData.prioritizeUpvotePercentageSearch(),
+                                    recommendInputData.wantAutoRecommendation()
+                            )
                     )
             );
         } else {
+            List<List<String>> preferredCategories = recommendInputData.getPreferenceData();
+            boolean prioritizeSubcategorySearch = recommendInputData.prioritizeSubcategorySearch();
+            boolean prioritizeUpvotePercentageSearch = recommendInputData.prioritizeUpvotePercentageSearch();
+            boolean wantAutoRecommend = recommendInputData.wantAutoRecommendation();
             recommendedPapers.addAll(
-                    recommend(recommendInputData.getPreferenceData(),
-                            recommendInputData.prioritizeSubcategorySearch(),
-                            recommendInputData.prioritizeUpvotePercentageSearch()
+                    recommend(
+                            this.preferenceDataFactory.createWithRawData(
+                                    username, preferredCategories,
+                                    prioritizeSubcategorySearch,
+                                    prioritizeUpvotePercentageSearch,
+                                    wantAutoRecommend
+                            )
                     )
             );
         }
@@ -44,24 +58,21 @@ public class RecommendInteractor implements RecommendInputBoundary {
         if (recommendedPapers.isEmpty()) {
             userPresenter.prepareFailView("Ops, no recommendations found...");
         } else {
-            RecommendOutputData recommendOutputData = new RecommendOutputData(recommendedPapers);
+            RecommendOutputData recommendOutputData = new RecommendOutputData(toList(recommendedPapers));
             userPresenter.prepareSuccessView(recommendOutputData);
         }
     }
 
-    private List<List<Object>> recommend(List<Category> preferredCategories,
-                                         boolean prioritizeSubcategorySearch,
-                                         boolean prioritizeUpvotePercentageSearch) {
-        List<List<Object>> recommendedPapers = new ArrayList<>();
+    private List<ResearchPaper> recommend(PreferenceData preferenceData) {
+        List<ResearchPaper> recommendedPapers = new ArrayList<>();
 
-        for (Category category : preferredCategories) {
+        for (Category category : preferenceData.getPreferredCategories()) {
             List<String> potentialPapers =
                     this.userDataAccessObject.filterPapersByRootCategory(category.getRootCategory());
             for (String potentialPaper : potentialPapers) {
-                if (isGoodMatch(potentialPaper, preferredCategories,
-                        prioritizeSubcategorySearch, prioritizeUpvotePercentageSearch)) {
+                if (isGoodMatch(potentialPaper, preferenceData)) {
                     recommendedPapers.add(
-                            this.userDataAccessObject.getPaperById(potentialPaper).toList()
+                            this.userDataAccessObject.getPaperById(potentialPaper)
                     );
                 }
             }
@@ -69,12 +80,8 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return recommendedPapers;
     }
 
-    private boolean isGoodMatch(String paperId, List<Category> preferredCategories,
-                                boolean prioritizeSubcategorySearch,
-                                boolean prioritizeUpvotePercentageSearch) {
-        return getMatchScore(
-                paperId, preferredCategories, prioritizeSubcategorySearch, prioritizeUpvotePercentageSearch
-        ) >= THRESHOLD;
+    private boolean isGoodMatch(String paperId, PreferenceData preferenceData) {
+        return getMatchScore(paperId, preferenceData) >= THRESHOLD;
     }
 
     /** Return the *match score* of a paper with respect to the given preference data.
@@ -88,9 +95,10 @@ public class RecommendInteractor implements RecommendInputBoundary {
      *     category search, prioritize upvote percentage search);
      * (5) The result from Step (4) is the match score.
      * */
-    private double getMatchScore(String paperId, List<Category> preferredCategories,
-                                 boolean prioritizeCategorySearch,
-                                 boolean prioritizeUpvotePercentageSearch) {
+    private double getMatchScore(String paperId, PreferenceData preferenceData) {
+        List<Category> preferredCategories = preferenceData.getPreferredCategories();
+        boolean prioritizeCategorySearch = preferenceData.prioritizeSubcategorySearch();
+        boolean prioritizeUpvotePercentageSearch = preferenceData.prioritizeUpvotePercentageSearch();
         double matchScore = 0;
 
         ResearchPaper paper = this.userDataAccessObject.getPaperById(paperId);
@@ -138,6 +146,14 @@ public class RecommendInteractor implements RecommendInputBoundary {
     private double getUpvotePercentage(long upvoteCount, long downvoteCount) {
         return upvoteCount == downvoteCount ?
                 1.0 : 100.0 * upvoteCount / (upvoteCount + downvoteCount);
+    }
+
+    private List<List<Object>> toList(List<ResearchPaper> papers) {
+        List<List<Object>> reformatted = new ArrayList<>();
+        for (ResearchPaper paper : papers) {
+            reformatted.add(paper.toList());
+        }
+        return reformatted;
     }
 
 }

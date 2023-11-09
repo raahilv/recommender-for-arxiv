@@ -1,23 +1,21 @@
 package use_cases.recommend;
 
-import entities.Category;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendInputData {
 
     private final String username;
-    private final List<Category> preferredCategories = new ArrayList<>();
+    private final List<List<String>> preferredCategoriesRawData = new ArrayList<>();
     private final boolean prioritizeSubcategorySearch;
     private final boolean prioritizeUpvotePercentageSearch;
     private final boolean wantAutoRecommend;
     
-    public RecommendInputData(String username, List<Category> preferredCategories,
+    public RecommendInputData(String username, List<List<String>> preferredCategoriesRawData,
                               boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
                               boolean wantAutoRecommend) {
         this.username = username;
-        this.preferredCategories.addAll(preferredCategories);
+        this.preferredCategoriesRawData.addAll(preferredCategoriesRawData);
         this.prioritizeSubcategorySearch = prioritizeSubcategorySearch;
         this.prioritizeUpvotePercentageSearch = prioritizeUpvotePercentageSearch;
         this.wantAutoRecommend = wantAutoRecommend;
@@ -27,8 +25,8 @@ public class RecommendInputData {
         return this.username;
     }
 
-    public List<Category> getPreferenceData() {
-        return preferredCategories;
+    public List<List<String>> getPreferenceData() {
+        return preferredCategoriesRawData;
     }
 
     public boolean prioritizeSubcategorySearch() {
