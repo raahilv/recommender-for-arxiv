@@ -1,11 +1,17 @@
 package interface_adapters.RecommendHome;
 
-import entities.Category;
+import use_cases.recommend.RecommendInputBoundary;
+import use_cases.recommend.RecommendInputData;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class RecommendHomeController {
-    public void execute(ArrayList<Category> categories){
-
+    final RecommendInputBoundary recommendInputBoundaryInteractor;
+    public RecommendHomeController(RecommendInputBoundary recommendInputBoundaryInteractor) {
+        this.recommendInputBoundaryInteractor = recommendInputBoundaryInteractor;
+    }
+    public void execute(List<List<String>> categories, boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch, boolean wantAutoRecommend){
+        RecommendInputData inputData = new RecommendInputData("User123",categories, prioritizeSubcategorySearch, prioritizeUpvotePercentageSearch, wantAutoRecommend);
+        recommendInputBoundaryInteractor.execute(inputData);
     }
 }
