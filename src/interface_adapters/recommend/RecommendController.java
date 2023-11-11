@@ -14,11 +14,12 @@ public class RecommendController {
         this.recommendUseCaseInteractor = recommendUseCaseInteractor;
     }
 
-    public void execute(String username, List<Category> preferredCategories,
+    public void execute(String username, List<List<String>> preferredCategories,
                         boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
                         boolean wantAutoRecommend) {
-        RecommendInputData recommendInputData = new RecommendInputData(username,
-                preferredCategories, prioritizeSubcategorySearch, prioritizeUpvotePercentageSearch, wantAutoRecommend
+        RecommendInputData recommendInputData = new RecommendInputData(
+                username, preferredCategories, prioritizeSubcategorySearch,
+                prioritizeUpvotePercentageSearch, wantAutoRecommend
         );
         this.recommendUseCaseInteractor.execute(recommendInputData);
     }
