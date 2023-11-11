@@ -9,9 +9,6 @@ import java.awt.event.ActionListener;
 
 public class HomePageView extends JPanel implements ActionListener{
     public final String viewName = "home page";
-    private final SignupView signupView;
-
-    private final LoginView loginView;
 
     private final JButton signUp;
 
@@ -19,9 +16,8 @@ public class HomePageView extends JPanel implements ActionListener{
 
     private final ViewManagerModel viewManagerModel;
 
-    public HomePageView(SignupView signupView, LoginView loginView, ViewManagerModel viewManagerModel){
-        this.signupView = signupView;
-        this.loginView = loginView;
+    public HomePageView(ViewManagerModel viewManagerModel){
+
         this.viewManagerModel = viewManagerModel;
         JPanel buttons = new JPanel();
         signUp = new JButton("Sign up");
@@ -32,6 +28,7 @@ public class HomePageView extends JPanel implements ActionListener{
         title.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         signUp.addActionListener(
+                // This creates an anonymous subclass of ActionListener and instantiates it.
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent evt) {
@@ -61,7 +58,7 @@ public class HomePageView extends JPanel implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent evt) {
-        JOptionPane.showConfirmDialog(this, ""); // fix this later
+        JOptionPane.showConfirmDialog(this, "Cancel not implemented yet.");
     }
 }
 
