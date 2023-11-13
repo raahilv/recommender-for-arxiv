@@ -1,6 +1,6 @@
 package view;
 
-import interface_adapeters.ViewManagerModel;
+import interface_adapters.ViewManagerModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -58,6 +58,7 @@ public class HomePageView extends JPanel implements ActionListener{
 
     }
     public void actionPerformed(ActionEvent evt) {
+        // Fix this.
         JOptionPane.showConfirmDialog(this, "Cancel not implemented yet.");
     }
 }

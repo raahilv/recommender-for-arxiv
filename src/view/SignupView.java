@@ -1,9 +1,9 @@
 package view;
 
 
-import interface_adapeters.signup.SignupController;
-import interface_adapeters.signup.SignupState;
-import interface_adapeters.signup.SignupViewModel;
+import interface_adapters.signup.SignupController;
+import interface_adapters.signup.SignupState;
+import interface_adapters.signup.SignupViewModel;
 
 import javax.swing.*;
 import java.awt.*;

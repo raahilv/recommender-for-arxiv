@@ -1,6 +1,6 @@
-package interface_adapeters.logged_in;
+package interface_adapters.logged_in;
 
-import interface_adapeters.ViewModel;
+import interface_adapters.ViewModel;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

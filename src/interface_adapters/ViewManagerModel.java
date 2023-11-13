@@ -1,4 +1,4 @@
-package interface_adapeters;
+package interface_adapters;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

@@ -1,7 +1,7 @@
 package view;
 
-import interface_adapeters.logged_in.LoggedInState;
-import interface_adapeters.logged_in.LoggedInViewModel;
+import interface_adapters.logged_in.LoggedInState;
+import interface_adapters.logged_in.LoggedInViewModel;
 
 import javax.swing.*;
 import java.awt.*;
