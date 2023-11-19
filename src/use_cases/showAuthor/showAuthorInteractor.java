@@ -3,20 +3,27 @@ package use_cases.showAuthor;
 import entities.Author;
 import entities.ResearchPaper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class showAuthorInteractor implements showAuthorInputBoundary{
-    final List<ResearchPaper> papers;
-    final showAuthorDataAccessInterface dao;
-    final Author author;
 
-    public showAuthorInteractor(showAuthorInputData inputData, showAuthorDataAccessInterface dai) {
-        this.author = inputData.getAuthor();
+    final showAuthorDataAccessInterface dao;
+    final showAuthorOutputBoundary showAuthorPresenter;
+
+    public showAuthorInteractor(showAuthorOutputBoundary showAuthorPresenter, showAuthorDataAccessInterface dai) {
+        this.showAuthorPresenter = showAuthorPresenter;
         this.dao = dai;
     }
 
-    @Override
-    public void showAuthor(showAuthorInputData inputData) {
+    public void execute(showAuthorInputData inputData) {
+        Author author = inputData.getAuthor();
+        List<ResearchPaper> papers = dao.getPapersbyAuthor(author);
+        if (papers.isEmpty()) {
+            showAuthorPresenter.prepareFailurView("Author has no papers");
+        }
+        showAuthorOutputData output = new showAuthorOutputData(author, papers, false);
+        showAuthorPresenter.prepareSuccessView(output);
 
     }
 }
