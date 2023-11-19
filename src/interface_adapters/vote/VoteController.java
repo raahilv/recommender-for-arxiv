@@ -1,4 +1,4 @@
-package interface_adapeters.vote;
+package interface_adapters.vote;
 
 import use_cases.vote.VoteInputBoundary;
 import use_cases.vote.VoteInputData;

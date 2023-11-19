@@ -1,8 +1,6 @@
 package use_cases.save;
 
 import entities.ResearchPaper;
-import entities.User;
-import interface_adapeters.save.SavePresenter;
 
 public class SaveInteractor implements SaveInputBoundary{
     final SaveDataAccessInterface savedataAccessObject;
