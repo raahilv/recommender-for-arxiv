@@ -5,4 +5,8 @@ public class SaveOutputData {
     public SaveOutputData(String paperId) {
         this.paperId = paperId;
     }
+
+    public String getPaperId() {
+        return paperId;
+    }
 }

@@ -1,4 +1,37 @@
 package interface_adapters.save;
 
-public class SaveViewModel {
+import interface_adapters.ViewModel;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+public class SaveViewModel extends ViewModel {
+    public final String TITLE_LABEL = "Save View";
+    public static final String SAVE_BUTTON_LABEL = "Save";
+
+    private SaveState state = new SaveState();
+
+    public SaveViewModel() {
+        super("save");
+    }
+
+    public void setState(SaveState state) {
+        this.state = state;
+    }
+
+    private final PropertyChangeSupport support = new PropertyChangeSupport(this);
+
+    @Override
+    public void firePropertyChanged() {
+        support.firePropertyChange("state", null, this.state);
+    }
+
+    @Override
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        support.addPropertyChangeListener(listener);
+    }
+
+    public SaveState getState() {
+        return state;
+    }
 }

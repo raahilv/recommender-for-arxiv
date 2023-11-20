@@ -42,6 +42,7 @@ public class VoteInteractor implements VoteInputBoundary{
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, true, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             }
+
         } else {
 //            User tries to downvote the paper.
             if (user.getPapersDownvoted().containsKey(paperId)) {
