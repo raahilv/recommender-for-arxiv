@@ -25,10 +25,9 @@ public class VoteInteractor implements VoteInputBoundary{
 //            User tries to upvote the paper.
             if (user.getPapersUpvoted().containsKey(paperId)) {
 //                The paper was already upvoted by the user before.
-//                Trying to upvote again will cancel the previous upvote.
-                user.getPapersUpvoted().remove(paperId);
-                VoteOutputData voteOutputData = new VoteOutputData(paperId, true, true);
-                votePresenter.prepareSuccessView(voteOutputData);
+//                Trying to upvote again will raise an error.
+                String message = "Paper already upvoted.";
+                votePresenter.prepareFailView(message);
             } else if (user.getPapersDownvoted().containsKey(paperId)) {
 //                The paper was downvoted before, and the user try to upvote it.
 //                In this case, previous downvote will be cancelled and the paper is upvoted.
@@ -47,10 +46,9 @@ public class VoteInteractor implements VoteInputBoundary{
 //            User tries to downvote the paper.
             if (user.getPapersDownvoted().containsKey(paperId)) {
 //                The paper was already downvoted by the user before.
-//                Trying to downvote again will cancel the previous downvote.
-                user.getPapersDownvoted().remove(paperId);
-                VoteOutputData voteOutputData = new VoteOutputData(paperId, false, true);
-                votePresenter.prepareSuccessView(voteOutputData);
+//                Trying to downvote again will raise an error.
+                String message = "Paper already downvoted.";
+                votePresenter.prepareFailView(message);
             } else if (user.getPapersUpvoted().containsKey(paperId)) {
 //                The paper was upvoted before, and the user try to downvote it.
 //                In this case, previous upvote will be cancelled and the paper is downvoted.
