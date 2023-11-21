@@ -10,7 +10,8 @@ public class ResearchPaper {
     private final String id;  // string of digits (possibly with punctuations)
     private final String title;  // assume it is in lower case
     private final List<Category> categories = new ArrayList<>();
-    private final Map<String, Author> authors = new HashMap<>();
+    private final List<Author> authors;
+//    private final Map<String, Author> authors = new HashMap<>();
     private final LocalDate publishDate;
     private final String paperAbstract;
     private final String journalReference;  // assume it is in lower case
@@ -18,13 +19,13 @@ public class ResearchPaper {
     private long upvoteCount;
     private long downvoteCount;
 
-    public ResearchPaper(String id, String title, List<Category> categories, Map<String, Author> authors,
+    public ResearchPaper(String id, String title, List<Category> categories, List<Author> authors,
                          LocalDate publishDate, String paperAbstract, String journalReference,
                          String url, long upvoteCount, long downvoteCount) {
         this.id = id;
         this.title = title;
         this.categories.addAll(categories);
-        this.authors.putAll(authors);
+        this.authors = authors;
         this.publishDate = publishDate;
         this.paperAbstract = paperAbstract;
         this.journalReference = journalReference;
@@ -38,7 +39,10 @@ public class ResearchPaper {
     public String getTitle() { return this.title; }
 
     public boolean hasAuthor(String authorId) {
-        return this.authors.containsKey(authorId);
+        for (Author author: authors) {
+            if (author.getAuthorId().equals(authorId)) { return true;}
+        }
+        return false;
     }
 
     public List<Category> getCategories() {
@@ -67,15 +71,16 @@ public class ResearchPaper {
         paperMetadata.add(this.journalReference);
         paperMetadata.add(this.url);
         paperMetadata.add(this.upvoteCount);
-        paperMetadata.add(this.downvoteCount);
-
-        List<Object> authors = new ArrayList<>();
-        for (String authorId : this.authors.keySet()) {
-            authors.add(this.authors.get(authorId).toList());
-        }
-        paperMetadata.add(authors);
+        paperMetadata.add(this.downvoteCount);;
+        paperMetadata.add(this.authors);
 
         return paperMetadata;
     }
 
+    public List<Author> getAuthors() {
+        return this.authors;
+    }
+    public LocalDate getPublishDate() { return this.publishDate;}
+
+    public String getJournalReference() { return this.journalReference;}
 }
