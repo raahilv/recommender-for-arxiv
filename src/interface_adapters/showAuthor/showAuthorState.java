@@ -1,5 +1,6 @@
 package interface_adapters.showAuthor;
 
+import app.ResearchPaperTransport;
 import entities.ResearchPaper;
 
 import java.util.List;
@@ -9,12 +10,12 @@ public class showAuthorState {
 
 
     private String authorName;
-    private List<ResearchPaper> authorPapers;
+    private List<ResearchPaperTransport> authorPapers;
     private Integer TotalUpvotes;
     private Integer TotalDownvotes;
     private double AverageUpvotes;
 
-    public showAuthorState(String authorName, List<ResearchPaper> authorPapers, Integer totalUpvotes, Integer totalDownvotes, double averageUpvotes) {
+    public showAuthorState(String authorName, List<ResearchPaperTransport> authorPapers, Integer totalUpvotes, Integer totalDownvotes, double averageUpvotes) {
         this.authorName = authorName;
         this.authorPapers = authorPapers;
         TotalUpvotes = totalUpvotes;
@@ -31,11 +32,11 @@ public class showAuthorState {
         this.authorName = authorName;
     }
 
-    public List<ResearchPaper> getAuthorPapers() {
+    public List<ResearchPaperTransport> getAuthorPapers() {
         return authorPapers;
     }
 
-    public void setAuthorPapers(List<ResearchPaper> authorPapers) {
+    public void setAuthorPapers(List<ResearchPaperTransport> authorPapers) {
         this.authorPapers = authorPapers;
     }
 

@@ -5,8 +5,9 @@ import use_cases.showAuthor.showAuthorOutputBoundary;
 import use_cases.showAuthor.showAuthorOutputData;
 
 public class showAuthorPresenter implements showAuthorOutputBoundary {
+
     private final showAuthorViewModel showAuthorViewModel;
-private  final ViewManagerModel viewMangerModel;
+    private  final ViewManagerModel viewMangerModel;
 
     public showAuthorPresenter(interface_adapters.showAuthor.showAuthorViewModel showAuthorViewModel, ViewManagerModel viewMangerModel) {
         this.showAuthorViewModel = showAuthorViewModel;
