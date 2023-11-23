@@ -10,13 +10,16 @@ public class showAuthorState {
 
 
     private String authorName;
+    private String authorAffiliation;
     private List<ResearchPaperTransport> authorPapers;
     private Integer TotalUpvotes;
     private Integer TotalDownvotes;
     private double AverageUpvotes;
 
-    public showAuthorState(String authorName, List<ResearchPaperTransport> authorPapers, Integer totalUpvotes, Integer totalDownvotes, double averageUpvotes) {
+
+    public showAuthorState(String authorName,String authorAffiliation, List<ResearchPaperTransport> authorPapers, Integer totalUpvotes, Integer totalDownvotes, double averageUpvotes) {
         this.authorName = authorName;
+        this.authorAffiliation = authorAffiliation;
         this.authorPapers = authorPapers;
         TotalUpvotes = totalUpvotes;
         TotalDownvotes = totalDownvotes;
@@ -27,6 +30,7 @@ public class showAuthorState {
     public String getAuthorName() {
         return authorName;
     }
+    public String getAuthorAffiliation() {return authorAffiliation;}
 
     public void setAuthorName(String authorName) {
         this.authorName = authorName;
