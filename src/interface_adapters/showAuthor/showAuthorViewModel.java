@@ -8,6 +8,7 @@ import java.beans.PropertyChangeSupport;
 
 public class showAuthorViewModel extends ViewModel {
 
+    public static final String TITLE_LABEL = "Showing specific author's details";
     private showAuthorState state = new showAuthorState();
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
     public showAuthorViewModel() {super("Show Author Details");}

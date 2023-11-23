@@ -1,4 +1,7 @@
-package entities;
+package app;
+
+import entities.Author;
+import entities.Category;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -6,20 +9,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ResearchPaper {
+public class ResearchPaperTransport {
     private final String id;  // string of digits (possibly with punctuations)
     private final String title;  // assume it is in lower case
     private final List<Category> categories = new ArrayList<>();
     private final List<Author> authors;
-//    private final Map<String, Author> authors = new HashMap<>();
+    //    private final Map<String, Author> authors = new HashMap<>();
     private final LocalDate publishDate;
     private final String paperAbstract;
     private final String journalReference;  // assume it is in lower case
     private final String url;
-    private long upvoteCount;
-    private long downvoteCount;
+    private final long upvoteCount;
+    private final long downvoteCount;
 
-    public ResearchPaper(String id, String title, List<Category> categories, List<Author> authors,
+    public ResearchPaperTransport(String id, String title, List<Category> categories, List<Author> authors,
                          LocalDate publishDate, String paperAbstract, String journalReference,
                          String url, long upvoteCount, long downvoteCount) {
         this.id = id;
@@ -55,11 +58,8 @@ public class ResearchPaper {
 
     public long getUpvoteCount() { return this.upvoteCount; }
 
-    public void setUpvoteCount(int upvoteCount) { this.upvoteCount = upvoteCount; }
 
     public long getDownvoteCount() { return this.downvoteCount; }
-
-    public void setDownvoteCount(int downvoteCount) { this.downvoteCount = downvoteCount; }
 
     public List<Object> toList() {
         List<Object> paperMetadata = new ArrayList<>();
