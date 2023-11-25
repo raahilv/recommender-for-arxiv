@@ -1,17 +1,18 @@
 package interface_adapters.save;
 
+import interface_adapters.ViewManagerModel;
 import use_cases.save.SaveOutputBoundary;
 import use_cases.save.SaveOutputData;
 import view.ViewManager;
 
 public class SavePresenter implements SaveOutputBoundary {
     private final SaveViewModel saveViewModel;
-    private ViewManager viewManager;
+    private ViewManagerModel viewManagerModel;
 
     public SavePresenter(SaveViewModel saveViewModel,
-                         ViewManager viewManager) {
+                         ViewManagerModel viewManagerModel) {
         this.saveViewModel = saveViewModel;
-        this.viewManager = viewManager;
+        this.viewManagerModel = viewManagerModel;
     }
 
     @Override
@@ -21,11 +22,14 @@ public class SavePresenter implements SaveOutputBoundary {
         this.saveViewModel.setState(saveState);
         this.saveViewModel.firePropertyChanged();
 
-        this.viewManager.
+        this.viewManagerModel.setActiveView(saveViewModel.getViewName());
+        this.viewManagerModel.firePropertyChanged();
     }
 
     @Override
     public void prepareFailView(String error) {
-
+        SaveState saveState = saveViewModel.getState();
+        saveState.setPaperAlreadySavedError(error);
+        saveViewModel.firePropertyChanged();
     }
 }
