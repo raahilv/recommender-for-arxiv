@@ -37,13 +37,6 @@ public class ResearchPaper {
 
     public String getTitle() { return this.title; }
 
-    public boolean hasAuthor(String authorId) {
-        for (Author author: authors) {
-            if (author.getAuthorId().equals(authorId)) { return true; }
-        }
-        return false;
-    }
-
     public boolean belongsToRootCategory(String rootCategory) {
         for (Category category : this.categories) {
             if (category.getRootCategory().equalsIgnoreCase(rootCategory)) {

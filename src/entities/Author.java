@@ -30,11 +30,11 @@ public class Author {
         this.affiliation = affiliation;
     }
 
-    public List<Object> toList() {
-        List<Object> authorMetadata = new ArrayList<>();
-        authorMetadata.add(this.name);
-        authorMetadata.add(this.affiliation);
-        return authorMetadata;
+    public List<String> toList() {
+        List<String> authorInfo = new ArrayList<>();
+        authorInfo.add(this.name);
+        authorInfo.add(this.affiliation);
+        return authorInfo;
     }
 
 }
