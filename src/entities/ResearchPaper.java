@@ -8,13 +8,12 @@ import java.util.Map;
 
 public class ResearchPaper {
     private final String id;  // string of digits (possibly with punctuations)
-    private final String title;  // assume it is in lower case
+    private final String title;
     private final List<Category> categories = new ArrayList<>();
-    private final List<Author> authors;
-//    private final Map<String, Author> authors = new HashMap<>();
+    private final List<Author> authors = new ArrayList<>();
     private final LocalDate publishDate;
     private final String paperAbstract;
-    private final String journalReference;  // assume it is in lower case
+    private final String journalReference;
     private final String url;
     private long upvoteCount;
     private long downvoteCount;
@@ -25,7 +24,7 @@ public class ResearchPaper {
         this.id = id;
         this.title = title;
         this.categories.addAll(categories);
-        this.authors = authors;
+        this.authors.addAll(authors);
         this.publishDate = publishDate;
         this.paperAbstract = paperAbstract;
         this.journalReference = journalReference;
@@ -40,7 +39,16 @@ public class ResearchPaper {
 
     public boolean hasAuthor(String authorId) {
         for (Author author: authors) {
-            if (author.getAuthorId().equals(authorId)) { return true;}
+            if (author.getAuthorId().equals(authorId)) { return true; }
+        }
+        return false;
+    }
+
+    public boolean belongsToRootCategory(String rootCategory) {
+        for (Category category : this.categories) {
+            if (category.getRootCategory().equalsIgnoreCase(rootCategory)) {
+                return true;
+            }
         }
         return false;
     }
@@ -80,7 +88,8 @@ public class ResearchPaper {
     public List<Author> getAuthors() {
         return this.authors;
     }
-    public LocalDate getPublishDate() { return this.publishDate;}
+
+    public LocalDate getPublishDate() { return this.publishDate; }
 
     public String getJournalReference() { return this.journalReference;}
 }
