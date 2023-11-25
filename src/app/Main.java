@@ -6,7 +6,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class Main {
     public static void main(String[] args) {
-        String URL = "http://export.arxiv.org/api/query?search_query=all:computer";
+        /*String URL = "http://export.arxiv.org/api/query?search_query=all:computer";
 
         HttpClient client = HttpClient.newHttpClient();
 
@@ -27,6 +27,7 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        */
 
     }
 }

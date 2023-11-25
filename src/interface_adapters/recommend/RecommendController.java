@@ -13,10 +13,12 @@ public class RecommendController {
         this.recommendUseCaseInteractor = recommendUseCaseInteractor;
     }
 
-    public void execute(String username, String id, String title, String journalReference,
-                        String parentCategory, List<String> childCategories, boolean wantAutoRecommendation) {
+    public void execute(String username, List<List<String>> preferredCategories,
+                        boolean prioritizeSubcategorySearch, boolean prioritizeUpvotePercentageSearch,
+                        boolean wantAutoRecommend) {
         RecommendInputData recommendInputData = new RecommendInputData(
-                username, id, title, journalReference, parentCategory, childCategories, wantAutoRecommendation
+                username, preferredCategories, prioritizeSubcategorySearch,
+                prioritizeUpvotePercentageSearch, wantAutoRecommend
         );
         this.recommendUseCaseInteractor.execute(recommendInputData);
     }
