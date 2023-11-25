@@ -10,4 +10,16 @@ public class VoteOutputData {
         this.isUpvote = isUpvote;
         this.removeVote = removeVote;
     }
+
+    public String getPaperId() {
+        return paperId;
+    }
+
+    public boolean isUpvote() {
+        return isUpvote;
+    }
+
+    public boolean isRemoveVote() {
+        return removeVote;
+    }
 }
