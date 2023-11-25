@@ -2,20 +2,20 @@ package entities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Author {
-    private final String authorId;
     private final String name;  // assume this is in lower case
     private String affiliation;  // assume this is in lower case
 
-    public Author(String authorId, String name, String affiliation) {
-        this.authorId = authorId;
+    public Author(String name) {
         this.name = name;
-        this.affiliation = affiliation;
+        this.affiliation = null;
     }
 
-    public String getAuthorId() {
-        return authorId;
+    public Author(String name, String affiliation) {
+        this.name = name;
+        this.affiliation = affiliation;
     }
 
     public String getName() {
@@ -32,7 +32,6 @@ public class Author {
 
     public List<Object> toList() {
         List<Object> authorMetadata = new ArrayList<>();
-        authorMetadata.add(this.authorId);
         authorMetadata.add(this.name);
         authorMetadata.add(this.affiliation);
         return authorMetadata;
