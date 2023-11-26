@@ -13,10 +13,24 @@ public class ResearchPaper {
     private final List<Author> authors = new ArrayList<>();
     private final LocalDate publishDate;
     private final String paperAbstract;
-    private final String journalReference;
+    private final String journalReference;  // optional
     private final String url;
     private long upvoteCount;
     private long downvoteCount;
+
+    public ResearchPaper(String id, String title, List<Category> categories, List<Author> authors,
+                         LocalDate publishDate, String paperAbstract, String url, long upvoteCount, long downvoteCount) {
+        this.id = id;
+        this.title = title;
+        this.categories.addAll(categories);
+        this.authors.addAll(authors);
+        this.publishDate = publishDate;
+        this.paperAbstract = paperAbstract;
+        this.journalReference = null;
+        this.url = url;
+        this.upvoteCount = upvoteCount;
+        this.downvoteCount = downvoteCount;
+    }
 
     public ResearchPaper(String id, String title, List<Category> categories, List<Author> authors,
                          LocalDate publishDate, String paperAbstract, String journalReference,
