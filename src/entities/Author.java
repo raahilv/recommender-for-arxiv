@@ -37,4 +37,10 @@ public class Author {
         return authorInfo;
     }
 
+    public String toString() {
+        return this.affiliation != null ?
+                "(" + this.name + "|" + this.affiliation + ")" :
+                "(" + this.name + "|None)";
+    }
+
 }
