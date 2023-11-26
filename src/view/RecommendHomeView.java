@@ -2,6 +2,9 @@ package view;
 
 import entities.Category;
 import interface_adapters.RecommendHome.*;
+import use_cases.recommend.RecommendInputBoundary;
+import use_cases.recommend.RecommendInputData;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +13,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class RecommendHomeView {
+public class RecommendHomeView extends JFrame {
     private JTabbedPane tabbedPanel;
     private JPanel CS;
     private JRadioButton computationalComplexityRadioButton;
@@ -65,10 +68,12 @@ public class RecommendHomeView {
     private JCheckBox prioritizeSubCategoriesCheckBox;
     private JCheckBox useUserRatingsForCheckBox;
     private JButton savedPapersButton;
-    ArrayList<JRadioButton> radioButtonsList;
+    private JPanel mainPanel;
+    ArrayList<JRadioButton> radioButtonsList = new ArrayList<>();
     HashMap<JRadioButton, List<String>> categories = new HashMap<JRadioButton, List<String>>();
 
     public RecommendHomeView(RecommendHomeController controller){
+        setContentPane(mainPanel);
         recommendButton.addActionListener(
                 // This creates an anonymous subclass of ActionListener and instantiates it.
                 new ActionListener() {
@@ -171,5 +176,15 @@ public class RecommendHomeView {
             }
         }
         return finalCategories;
+    }
+    //For Test
+    public static void main(String[] args) {
+        RecommendHomeView view = new RecommendHomeView(new RecommendHomeController(new RecommendInputBoundary() {
+            @Override
+            public void execute(RecommendInputData recommendInputData) {
+
+            }
+        }));
+        view.setVisible(true);
     }
 }
