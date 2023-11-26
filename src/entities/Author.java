@@ -39,8 +39,8 @@ public class Author {
 
     public String toString() {
         return this.affiliation != null ?
-                "(" + this.name + "|" + this.affiliation + ")" :
-                "(" + this.name + "|None)";
+                "(" + this.name + "|" + this.affiliation + ") " :
+                "(" + this.name + "|None) ";
     }
 
 }

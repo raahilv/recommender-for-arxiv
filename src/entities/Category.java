@@ -47,7 +47,7 @@ public class Category {
     public String toString() {
         return "(" + this.rootCategory + "|" +
                 this.subcategory + "|" +
-                this.description + ")";
+                this.description + ") ";
     }
 
 }
