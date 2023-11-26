@@ -1,9 +1,9 @@
 package use_cases.library;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class LibraryOutputData {
-    public ArrayList<String> paperID;
-    public ArrayList<String> paperName;
-    public ArrayList<String> paperPDF;
+    public List<String> paperID;
+    public List<String> paperName;
+    public List<String> paperPDF;
 }
