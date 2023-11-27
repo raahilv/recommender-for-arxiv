@@ -1,10 +1,6 @@
 package view;
 
-import entities.Category;
 import interface_adapters.RecommendHome.*;
-import interface_adapters.login.LoginState;
-import use_cases.recommend.RecommendInputBoundary;
-import use_cases.recommend.RecommendInputData;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -72,7 +68,7 @@ public class RecommendHomeView extends JFrame implements PropertyChangeListener 
     private JCheckBox useUserRatingsForCheckBox;
     private JButton savedPapersButton;
     private JPanel mainPanel;
-    private JLabel UserLabel;
+    private JLabel userLabel;
     ArrayList<JRadioButton> radioButtonsList = new ArrayList<>();
     HashMap<JRadioButton, List<String>> categories = new HashMap<JRadioButton, List<String>>();
 
@@ -83,13 +79,23 @@ public class RecommendHomeView extends JFrame implements PropertyChangeListener 
         recommendHomeController = controller;
         this.recommendHomeViewModel = viewModel;
         this.recommendHomeViewModel.addPropertyChangeListener(this);
-        UserLabel.setText(viewModel.getState().getUsername());
+        userLabel.setText(viewModel.getState().getUsername());
         recommendButton.addActionListener(
                 // This creates an anonymous subclass of ActionListener and instantiates it.
                 new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(recommendButton)) {
-                            recommendHomeController.execute(getPreferredCategories(), prioritizeSubCategoriesCheckBox.isSelected(),useUserRatingsForCheckBox.isSelected(),useSavedPapersForCheckBox.isSelected());
+                            recommendHomeController.execute(getPreferredCategories(), prioritizeSubCategoriesCheckBox.isSelected(),useUserRatingsForCheckBox.isSelected(),useSavedPapersForCheckBox.isSelected(),userLabel.getText());
+                        }
+                    }
+                }
+        );
+        savedPapersButton.addActionListener(
+                // This creates an anonymous subclass of ActionListener and instantiates it.
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(savedPapersButton)) {
+                            recommendHomeController.SwitchToLibrary(userLabel.getText());
                         }
                     }
                 }
@@ -201,6 +207,6 @@ public class RecommendHomeView extends JFrame implements PropertyChangeListener 
     }
 
     private void setFields(RecommendHomeState state) {
-        UserLabel.setText(state.getUsername());
+        userLabel.setText(state.getUsername());
     }
 }
