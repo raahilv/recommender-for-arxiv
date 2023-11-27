@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class RecommendHomeView extends JFrame implements PropertyChangeListener {
+public class RecommendHomeView extends JPanel implements PropertyChangeListener {
     private JTabbedPane tabbedPanel;
     private JPanel CS;
     private JRadioButton computationalComplexityRadioButton;
@@ -75,7 +75,6 @@ public class RecommendHomeView extends JFrame implements PropertyChangeListener 
     private RecommendHomeController recommendHomeController;
     private RecommendHomeViewModel recommendHomeViewModel;
     public RecommendHomeView(RecommendHomeViewModel viewModel, RecommendHomeController controller){
-        setContentPane(mainPanel);
         recommendHomeController = controller;
         this.recommendHomeViewModel = viewModel;
         this.recommendHomeViewModel.addPropertyChangeListener(this);

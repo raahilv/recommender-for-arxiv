@@ -17,25 +17,15 @@ public class LibraryOutputData {
         paperPDF.add(linkPDF);
     }
 
-    public String getPaperID(int index) {
-        if(index < paperID.size())
-            return paperID.get(index);
-        else
-            return null;
+    public List<String> getPaperName() {
+        return paperName;
     }
 
-    public String getPaperName(int index) {
-        if(index < paperName.size())
-            return paperName.get(index);
-        else
-            return null;
-    }
-    public String getPaperPDF(int index) {
-        if(index < paperPDF.size())
-            return paperPDF.get(index);
-        else
-            return null;
+    public List<String> getPaperID() {
+        return paperID;
     }
 
-
+    public List<String> getPaperPDF() {
+        return paperPDF;
+    }
 }
