@@ -42,8 +42,8 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
     }
 
     @Override
-    public ResearchPaper getPaper(String paperName) {
-        return arxivDAO.getPaper(paperName);
+    public ResearchPaper getPaper(String id) {
+        return getPaperById(id);
     }
 
     @Override
