@@ -488,6 +488,134 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     }
                 }
         );
+
+//        Add listeners for Save buttons.
+
+        save1.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save1)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
+
+        save2.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save2)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
+
+        save3.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save3)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
+
+        save4.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save4)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
+
+        save5.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save5)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
+
+        save6.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save6)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
+
+        save7.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save7)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
+
+        save8.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save8)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
+
+        save9.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(save9)) {
+                            String userName = loggedInState.getUsername();
+                            String paperId = paperInfo1.get(0).toString();
+                            saveController.execute(userName, paperId);
+                        }
+
+                    }
+                }
+        );
     }
 
     @Override
