@@ -1,16 +1,18 @@
 package view;
 
-import entities.Category;
 import interface_adapters.RecommendHome.*;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class RecommendHomeView {
+public class RecommendHomeView extends JPanel implements PropertyChangeListener {
     private JTabbedPane tabbedPanel;
     private JPanel CS;
     private JRadioButton computationalComplexityRadioButton;
@@ -65,16 +67,34 @@ public class RecommendHomeView {
     private JCheckBox prioritizeSubCategoriesCheckBox;
     private JCheckBox useUserRatingsForCheckBox;
     private JButton savedPapersButton;
-    ArrayList<JRadioButton> radioButtonsList;
+    private JPanel mainPanel;
+    private JLabel userLabel;
+    ArrayList<JRadioButton> radioButtonsList = new ArrayList<>();
     HashMap<JRadioButton, List<String>> categories = new HashMap<JRadioButton, List<String>>();
 
-    public RecommendHomeView(RecommendHomeController controller){
+    private RecommendHomeController recommendHomeController;
+    private RecommendHomeViewModel recommendHomeViewModel;
+    public RecommendHomeView(RecommendHomeViewModel viewModel, RecommendHomeController controller){
+        recommendHomeController = controller;
+        this.recommendHomeViewModel = viewModel;
+        this.recommendHomeViewModel.addPropertyChangeListener(this);
+        userLabel.setText(viewModel.getState().getUsername());
         recommendButton.addActionListener(
                 // This creates an anonymous subclass of ActionListener and instantiates it.
                 new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(recommendButton)) {
-                            controller.execute(getPreferredCategories(), prioritizeSubCategoriesCheckBox.isSelected(),useUserRatingsForCheckBox.isSelected(),useSavedPapersForCheckBox.isSelected());
+                            recommendHomeController.execute(getPreferredCategories(), prioritizeSubCategoriesCheckBox.isSelected(),useUserRatingsForCheckBox.isSelected(),useSavedPapersForCheckBox.isSelected(),userLabel.getText());
+                        }
+                    }
+                }
+        );
+        savedPapersButton.addActionListener(
+                // This creates an anonymous subclass of ActionListener and instantiates it.
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(savedPapersButton)) {
+                            recommendHomeController.SwitchToLibrary(userLabel.getText());
                         }
                     }
                 }
@@ -171,5 +191,21 @@ public class RecommendHomeView {
             }
         }
         return finalCategories;
+    }
+
+    /**
+     * This method gets called when a bound property is changed.
+     *
+     * @param evt A PropertyChangeEvent object describing the event source
+     *            and the property that has changed.
+     */
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        RecommendHomeState state = (RecommendHomeState) evt.getNewValue();
+        setFields(state);
+    }
+
+    private void setFields(RecommendHomeState state) {
+        userLabel.setText(state.getUsername());
     }
 }
