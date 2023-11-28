@@ -6,38 +6,39 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.*;
 
-public class LocalDataAccessObject {
-    private final File papersCsvFile;
-    private final Map<String, Integer> papersCsvFileHeader = new HashMap<>();
+public class LocalResearchPaperDataAccessObject {
+
+    private final File papersCSVFile;
+    private final Map<String, Integer> papersCSVFileHeader = new HashMap<>();
     private final Map<String, ResearchPaper> papers = new HashMap<>();
     private final AuthorFactory authorFactory;
     private final CategoryFactory categoryFactory;
     private final ResearchPaperFactory researchPaperFactory;
 
-    public LocalDataAccessObject(String filepath,
-                                 AuthorFactory authorFactory,
-                                 CategoryFactory categoryFactory,
-                                 ResearchPaperFactory researchPaperFactory) throws IOException {
+    public LocalResearchPaperDataAccessObject(String filepath,
+                                              AuthorFactory authorFactory,
+                                              CategoryFactory categoryFactory,
+                                              ResearchPaperFactory researchPaperFactory) throws IOException {
         this.authorFactory = authorFactory;
         this.categoryFactory = categoryFactory;
         this.researchPaperFactory = researchPaperFactory;
 
-        this.papersCsvFile = new File(filepath);
-        this.papersCsvFileHeader.put("id", 0);
-        this.papersCsvFileHeader.put("title", 1);
-        this.papersCsvFileHeader.put("categories", 2);
-        this.papersCsvFileHeader.put("authors", 3);
-        this.papersCsvFileHeader.put("publish_date", 4);
-        this.papersCsvFileHeader.put("abstract", 5);
-        this.papersCsvFileHeader.put("journal_reference", 6);
-        this.papersCsvFileHeader.put("url", 7);
-        this.papersCsvFileHeader.put("upvote_count", 8);
-        this.papersCsvFileHeader.put("downvote_count", 9);
+        this.papersCSVFile = new File(filepath);
+        this.papersCSVFileHeader.put("id", 0);
+        this.papersCSVFileHeader.put("title", 1);
+        this.papersCSVFileHeader.put("categories", 2);
+        this.papersCSVFileHeader.put("authors", 3);
+        this.papersCSVFileHeader.put("publish_date", 4);
+        this.papersCSVFileHeader.put("abstract", 5);
+        this.papersCSVFileHeader.put("journal_reference", 6);
+        this.papersCSVFileHeader.put("url", 7);
+        this.papersCSVFileHeader.put("upvote_count", 8);
+        this.papersCSVFileHeader.put("downvote_count", 9);
 
-        if (this.papersCsvFile.length() == 0) {
+        if (this.papersCSVFile.length() == 0) {
             save();
         } else {
-            try (BufferedReader reader = new BufferedReader(new FileReader(this.papersCsvFile))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(this.papersCSVFile))) {
                 String header = reader.readLine();
 
                 assert header.equals("id,title,categories,authors,publish_date,abstract," +
@@ -46,19 +47,19 @@ public class LocalDataAccessObject {
                 String row;
                 while ((row = reader.readLine()) != null) {
                     String[] col = row.split(",");
-                    String id = String.valueOf(col[papersCsvFileHeader.get("id")]);
-                    String title = String.valueOf(col[papersCsvFileHeader.get("title")]);
+                    String id = String.valueOf(col[papersCSVFileHeader.get("id")]);
+                    String title = String.valueOf(col[papersCSVFileHeader.get("title")]);
                     String categoriesStringRep =
-                            String.valueOf(col[papersCsvFileHeader.get("categories")]);
+                            String.valueOf(col[papersCSVFileHeader.get("categories")]);
                     String authorsStringRep =
-                            String.valueOf(col[papersCsvFileHeader.get("authors")]);
+                            String.valueOf(col[papersCSVFileHeader.get("authors")]);
                     LocalDate publishDate =
-                            LocalDate.parse(String.valueOf(col[papersCsvFileHeader.get("publish_date")]));
-                    String paperAbstract = String.valueOf(col[papersCsvFileHeader.get("abstract")]);
-                    String journalReference = String.valueOf(col[papersCsvFileHeader.get("journal_reference")]);
-                    String url = String.valueOf(col[papersCsvFileHeader.get("url")]);
-                    long upvoteCount = Long.parseLong(String.valueOf(col[papersCsvFileHeader.get("upvote_count")]));
-                    long downvoteCount = Long.parseLong(String.valueOf(col[papersCsvFileHeader.get("downvote_count")]));
+                            LocalDate.parse(String.valueOf(col[papersCSVFileHeader.get("publish_date")]));
+                    String paperAbstract = String.valueOf(col[papersCSVFileHeader.get("abstract")]);
+                    String journalReference = String.valueOf(col[papersCSVFileHeader.get("journal_reference")]);
+                    String url = String.valueOf(col[papersCSVFileHeader.get("url")]);
+                    long upvoteCount = Long.parseLong(String.valueOf(col[papersCSVFileHeader.get("upvote_count")]));
+                    long downvoteCount = Long.parseLong(String.valueOf(col[papersCSVFileHeader.get("downvote_count")]));
 
                     List<Category> categoriesObjectList = new ArrayList<>();
                     String[] categoriesBreakDown = categoriesStringRep.split(" ");
@@ -91,12 +92,21 @@ public class LocalDataAccessObject {
                             );
                         }
                     }
-                    this.papers.put(
-                            id, this.researchPaperFactory.create(
-                                    id, title, categoriesObjectList, authorsObjectList, publishDate,
-                                    paperAbstract, url, upvoteCount, downvoteCount
-                            )
-                    );
+                    if (journalReference.equalsIgnoreCase("!NO_JOUR_REF!")) {
+                        this.papers.put(
+                                id, this.researchPaperFactory.createWithoutJournalReference(
+                                        id, title, categoriesObjectList, authorsObjectList, publishDate,
+                                        paperAbstract, url, upvoteCount, downvoteCount
+                                )
+                        );
+                    } else {
+                        this.papers.put(
+                                id, this.researchPaperFactory.createWithJournalReference(
+                                        id, title, categoriesObjectList, authorsObjectList, publishDate,
+                                        paperAbstract, journalReference, url, upvoteCount, downvoteCount
+                                )
+                        );
+                    }
                 }
             }
         }
@@ -105,8 +115,8 @@ public class LocalDataAccessObject {
     private void save() {
         BufferedWriter writer;
         try {
-            writer = new BufferedWriter(new FileWriter(this.papersCsvFile));
-            writer.write(String.join(",", this.papersCsvFileHeader.keySet()));
+            writer = new BufferedWriter(new FileWriter(this.papersCSVFile));
+            writer.write(String.join(",", this.papersCSVFileHeader.keySet()));
             writer.newLine();
 
             for (ResearchPaper paper : this.papers.values()) {

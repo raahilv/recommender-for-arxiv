@@ -13,32 +13,37 @@ import use_cases.vote.VoteDataAccessInterface;
 import java.util.List;
 
 public class DataAccessFacade implements LoginUserDataAccessInterface, RecommendDataAccessInterface, SaveDataAccessInterface, ShowAuthorDataAccessInterface, SignupUserDataAccessInterface, VoteDataAccessInterface {
-    private final InMemoryDataAccessObject imDAO;
+    private final LocalUserDataAccessObject localUserDAO;
+    private final LocalLibraryDataAccessObject libraryDAO;
+    private final LocalResearchPaperDataAccessObject localResearchPaperDAO;
     private final ArxivDataAccessObject arxivDAO;
 
-    public DataAccessFacade(InMemoryDataAccessObject imDAO, ArxivDataAccessObject arxivDAO) {
-        this.imDAO = imDAO;
+    public DataAccessFacade(LocalUserDataAccessObject localUserDAO, LocalLibraryDataAccessObject libraryDAO,
+                            LocalResearchPaperDataAccessObject localResearchPaperDAO, ArxivDataAccessObject arxivDAO) {
+        this.localUserDAO = localUserDAO;
+        this.libraryDAO = libraryDAO;
+        this.localResearchPaperDAO = localResearchPaperDAO;
         this.arxivDAO = arxivDAO;
     }
 
     @Override
     public boolean existsByUsername(String username) {
-        return imDAO.existsByUsername(username);
+        return localUserDAO.existsByUsername(username);
     }
 
     @Override
     public void save(User user) {
-        imDAO.save(user);
+        localUserDAO.save(user);
     }
 
     @Override
     public User get(String username) {
-        return imDAO.get(username);
+        return localUserDAO.get(username);
     }
 
     @Override
     public User getUser(String userName) {
-        return imDAO.getUser(userName);
+        return localUserDAO.getUser(userName);
     }
 
     @Override

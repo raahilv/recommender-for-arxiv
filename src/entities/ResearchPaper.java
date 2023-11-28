@@ -92,6 +92,29 @@ public class ResearchPaper {
         return paperMetadata;
     }
 
+    public String toString() {
+        StringBuilder mutableCategoriesStringRep = new StringBuilder();
+        for (Category category : this.categories) {
+            mutableCategoriesStringRep.append(category.toString());
+        }
+        String categoriesStringRep = mutableCategoriesStringRep.toString();
+
+        StringBuilder mutableAuthorsStringRep = new StringBuilder();
+        for (Author author : this.authors) {
+            mutableAuthorsStringRep.append(author.toString());
+        }
+        String authorsStringRep = mutableAuthorsStringRep.toString();
+
+        return this.journalReference != null ?
+                "[" + this.id + "|" + this.title + "|" + categoriesStringRep + "|" +
+                        this.publishDate.toString() + "|" + this.paperAbstract + "|" +
+                        this.journalReference + "|" + this.url + "|" + this.upvoteCount + "|" +
+                        this.downvoteCount + "|" + authorsStringRep + "]" :
+                "[" + this.id + "|" + this.title + "|" + categoriesStringRep + "|" +
+                        this.publishDate.toString() + "|" + this.paperAbstract + "|" + "!NO_JOUR_REF!" + this.url +
+                        "|" + this.upvoteCount + "|" + this.downvoteCount + "|" + authorsStringRep + "]";
+    }
+
     public List<Author> getAuthors() {
         return this.authors;
     }
@@ -99,4 +122,6 @@ public class ResearchPaper {
     public LocalDate getPublishDate() { return this.publishDate; }
 
     public String getJournalReference() { return this.journalReference;}
+
+    public boolean hasJournalReference() { return this.journalReference != null; }
 }
