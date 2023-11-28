@@ -156,4 +156,13 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return reformatted;
     }
 
+    public String toString(List<ResearchPaper> papers) {
+        StringBuilder mutablePapersStringRep = new StringBuilder();
+        for (ResearchPaper paper : papers) {
+            mutablePapersStringRep.append(paper.toString()).append(" ");
+        }
+        mutablePapersStringRep.deleteCharAt(mutablePapersStringRep.length() - 1);
+        return mutablePapersStringRep.toString();
+    }
+
 }
