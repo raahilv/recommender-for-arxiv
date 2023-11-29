@@ -16,12 +16,12 @@ public class ResearchPaper {
     private final String paperAbstract;
     private final String journalReference;  // assume it is in lower case
     private final String url;
-    private long upvoteCount;
-    private long downvoteCount;
+    private int upvoteCount;
+    private int downvoteCount;
 
     public ResearchPaper(String id, String title, List<Category> categories, List<Author> authors,
                          LocalDate publishDate, String paperAbstract, String journalReference,
-                         String url, long upvoteCount, long downvoteCount) {
+                         String url, int upvoteCount, int downvoteCount) {
         this.id = id;
         this.title = title;
         this.categories.addAll(categories);
@@ -53,11 +53,11 @@ public class ResearchPaper {
 
     public String getUrl() { return this.url; }
 
-    public long getUpvoteCount() { return this.upvoteCount; }
+    public int getUpvoteCount() { return this.upvoteCount; }
 
     public void setUpvoteCount(int upvoteCount) { this.upvoteCount = upvoteCount; }
 
-    public long getDownvoteCount() { return this.downvoteCount; }
+    public int getDownvoteCount() { return this.downvoteCount; }
 
     public void setDownvoteCount(int downvoteCount) { this.downvoteCount = downvoteCount; }
 
