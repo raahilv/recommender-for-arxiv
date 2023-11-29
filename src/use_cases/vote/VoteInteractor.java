@@ -33,11 +33,14 @@ public class VoteInteractor implements VoteInputBoundary{
 //                In this case, previous downvote will be cancelled and the paper is upvoted.
                 user.getPapersDownvoted().remove(paperId);
                 user.getPapersUpvoted().put(paperId, paper);
+                paper.setDownvoteCount(paper.getDownvoteCount() - 1);
+                paper.setUpvoteCount(paper.getUpvoteCount() + 1);
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, true, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             } else {
 //                The paper was not upvoted or downvoted before by the user.
                 user.getPapersUpvoted().put(paperId, paper);
+                paper.setUpvoteCount(paper.getUpvoteCount() + 1);
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, true, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             }
@@ -54,12 +57,15 @@ public class VoteInteractor implements VoteInputBoundary{
 //                In this case, previous upvote will be cancelled and the paper is downvoted.
                 user.getPapersUpvoted().remove(paperId);
                 user.getPapersDownvoted().put(paperId, paper);
+                paper.setUpvoteCount(paper.getUpvoteCount() - 1);
+                paper.setDownvoteCount(paper.getDownvoteCount() + 1);
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, false, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             }
             else {
 //                The paper was not upvoted or downvoted before by the user.
                 user.getPapersDownvoted().put(paperId, paper);
+                paper.setDownvoteCount(paper.getDownvoteCount() + 1);
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, false, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             }
