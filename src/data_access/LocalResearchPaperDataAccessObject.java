@@ -36,7 +36,7 @@ public class LocalResearchPaperDataAccessObject {
         this.papersCSVFileHeader.put("downvote_count", 9);
 
         if (this.papersCSVFile.length() == 0) {
-            save();
+            writeToDatabase();
         } else {
             try (BufferedReader reader = new BufferedReader(new FileReader(this.papersCSVFile))) {
                 String header = reader.readLine();
@@ -112,15 +112,16 @@ public class LocalResearchPaperDataAccessObject {
         }
     }
 
-    private void save() {
+    private void writeToDatabase() {
         BufferedWriter writer;
+
         try {
             writer = new BufferedWriter(new FileWriter(this.papersCSVFile));
             writer.write(String.join(",", this.papersCSVFileHeader.keySet()));
             writer.newLine();
 
             for (ResearchPaper paper : this.papers.values()) {
-                String id = paper.getId();
+                String id = paper.getID();
                 String title = paper.getTitle();
                 List<Category> categories = paper.getCategories();
                 List<Author> authors = paper.getAuthors();
@@ -133,12 +134,15 @@ public class LocalResearchPaperDataAccessObject {
 
                 StringBuilder categoriesStringRep = new StringBuilder();
                 for (Category category : categories) {
-                    categoriesStringRep.append(category.toString());
+                    categoriesStringRep.append(category.toString()).append(" ");
                 }
+                categoriesStringRep.deleteCharAt(categoriesStringRep.length() - 1);
+
                 StringBuilder authorsStringRep = new StringBuilder();
                 for (Author author : authors) {
-                    authorsStringRep.append(author.toString());
+                    authorsStringRep.append(author.toString()).append(" ");
                 }
+                authorsStringRep.deleteCharAt(authorsStringRep.length() - 1);
 
                 String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
                         id, title, categories, categoriesStringRep, authorsStringRep,
@@ -147,10 +151,20 @@ public class LocalResearchPaperDataAccessObject {
                 writer.write(line);
                 writer.newLine();
             }
+
             writer.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public ResearchPaper getPaperByID(String paperID) {
+        for (String potentialPaperID : this.papers.keySet()) {
+            if (paperID.equalsIgnoreCase(potentialPaperID)) {
+                return this.papers.get(potentialPaperID);
+            }
+        }
+        return null;
     }
 
 }

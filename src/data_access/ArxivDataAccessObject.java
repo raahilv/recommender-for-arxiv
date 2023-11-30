@@ -163,18 +163,18 @@ public class ArxivDataAccessObject {
 //        return PaperBuilder(map);
 //    }
 
-    public ResearchPaper getPaperById(String id) {
-        HashMap<String, List<String>> map = parse(paperFromApi("id", id));
+    public ResearchPaper getPaperByID(String id) {
+        HashMap<String, List<String>> map = parse(paperFromAPI("id", id));
         return PaperBuilder(map);
     }
 
     public ResearchPaper getPaperByTitle(String title) {
-        HashMap<String, List<String>> map = parse(paperFromApi("ti", title));
+        HashMap<String, List<String>> map = parse(paperFromAPI("ti", title));
         return PaperBuilder(map);
     }
 
     public ResearchPaper getPaperByJournalReference(String journalReference) {
-        HashMap<String, List<String>> map = parse(paperFromApi("jr", journalReference));
+        HashMap<String, List<String>> map = parse(paperFromAPI("jr", journalReference));
         return PaperBuilder(map);
     }
 
@@ -218,7 +218,7 @@ public class ArxivDataAccessObject {
 
     }
 
-    public List<String> getIDsbyAuthor(Author author) {
+    public List<String> getIDsByAuthor(Author author) {
         HttpRequest request;
         try {
             request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + "au" +":" + author.getName().replaceAll(" ", "%20"))).GET().build();
@@ -260,16 +260,16 @@ public class ArxivDataAccessObject {
 
     }
     public List<ResearchPaper> getPapersByAuthor(Author author) {
-        List<String>  ids = getIDsbyAuthor(author);
+        List<String>  ids = getIDsByAuthor(author);
         List<ResearchPaper> papers = new ArrayList<>();
         for (String id: ids) {
-            papers.add(getPaperById(id));
+            papers.add(getPaperByID(id));
         }
         return papers;
 
     }
 
-    private String paperFromApi(String searchType, String query) {
+    private String paperFromAPI(String searchType, String query) {
         query = query.replaceAll(" ", "%20");
         HttpRequest request;
         try {
