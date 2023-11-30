@@ -26,7 +26,7 @@ public class showAuthorInteractor implements showAuthorInputBoundary{
         List<ResearchPaperTransport> transportPapers = new ArrayList<>();
         for (ResearchPaper paper: papers){
             transportPapers.add(
-                    new ResearchPaperTransport(paper.getId(), paper.getTitle(), paper.getCategories(), paper.getAuthors(), paper.getPublishDate(), paper.getPaperAbstract(), paper.getJournalReference(), paper.getUrl(), paper.getUpvoteCount(), paper.getDownvoteCount() ));
+                    new ResearchPaperTransport(paper.getID(), paper.getTitle(), paper.getCategories(), paper.getAuthors(), paper.getPublishDate(), paper.getPaperAbstract(), paper.getJournalReference(), paper.getUrl(), paper.getUpvoteCount(), paper.getDownvoteCount() ));
         }
         showAuthorOutputData output = new showAuthorOutputData(author, transportPapers, false);
         showAuthorPresenter.prepareSuccessView(output);
