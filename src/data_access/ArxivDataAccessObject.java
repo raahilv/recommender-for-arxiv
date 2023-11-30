@@ -30,6 +30,10 @@ public class ArxivDataAccessObject {
     List<Category> catList;
     List<Author> authorList;
 
+    public ArxivDataAccessObject(List<Category> categories, List<Author> authors) {
+        this.catList = categories;
+        this.authorList = authors;
+    }
 
 //    private ResearchPaper PaperBuilder(String id, String title, List<String> categories, List<String> authors, String publishDate, String paperAbstract, String reference, String url) {
 //    }
