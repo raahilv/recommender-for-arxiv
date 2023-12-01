@@ -27,7 +27,9 @@ public class RecommendHomePresenter implements LoginOutputBoundary {
     }
     @Override
     public void prepareSuccessView(LoginOutputData user) {
-
+        /*
+            Prepares recommend home view after a successful login
+         */
 
         RecommendHomeState recommendHomeState = recommendHomeViewModel.getState();
         recommendHomeState.setUsername(user.getUsername());
@@ -40,6 +42,9 @@ public class RecommendHomePresenter implements LoginOutputBoundary {
 
     @Override
     public void prepareFailView(String error) {
+        /*
+        Sends a warning in case the login fails
+         */
         LoginState loginState = loginViewModel.getState();
         loginState.setUsernameError(error);
         loginViewModel.firePropertyChanged();

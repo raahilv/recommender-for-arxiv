@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LibraryItemPanel extends JPanel {
+    /*
+    individual panels for research papers in the library view
+     */
     private JButton viewButton;
     private JLabel paperName;
     private JPanel MainPanel;
