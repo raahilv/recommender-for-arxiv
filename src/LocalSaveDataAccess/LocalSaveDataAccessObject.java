@@ -18,7 +18,7 @@ public class LocalSaveDataAccessObject implements LocalSaveDataAccessInterface {
 
             InputStream inputStream = url.openStream();
 
-            // Get the user's home directory
+            // Get the user's home directory.
             String userHome = System.getProperty("user.home");
 
             // Define the downloads directory path
