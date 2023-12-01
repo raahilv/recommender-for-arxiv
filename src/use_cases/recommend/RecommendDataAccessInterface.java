@@ -9,8 +9,8 @@ public interface RecommendDataAccessInterface {
     boolean existsByUsername(String username);
     User getUser(String userName);
     ResearchPaper getPaperById(String id);
-    ResearchPaper getPaperByTitle(String title);  // assume all in lower case
-    ResearchPaper getPaperByJournalReference(String journalReference);  // assume all in lower case
-    List<String> filterPapersByRootCategory(String parentCategory);
+    ResearchPaper getPaperByTitle(String title);
+    ResearchPaper getPaperByJournalReference(String journalReference);
+    List<String> filterPapersByRootCategory(String rootCategory);
 
 }
