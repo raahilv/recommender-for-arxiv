@@ -1,36 +1,37 @@
-package interface_adapters.recommend;
+package interface_adapters.save;
 
 import interface_adapters.ViewModel;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
-public class RecommendViewModel extends ViewModel {
-    public static final String RECOMMEND_BUTTON_LABEL = "Recommend";
-    public static final String TITLE_LABEL = "Recommend View";
+public class SaveViewModel extends ViewModel {
+    public final String TITLE_LABEL = "Save View";
+    public static final String SAVE_BUTTON_LABEL = "Save";
 
-    private RecommendState state = new RecommendState();
+    private SaveState state = new SaveState();
 
-    public RecommendViewModel() {
-        super("recommend");
+    public SaveViewModel() {
+        super("save");
     }
 
-    public void setState(RecommendState state) {
+    public void setState(SaveState state) {
         this.state = state;
     }
 
     private final PropertyChangeSupport support = new PropertyChangeSupport(this);
 
+    @Override
     public void firePropertyChanged() {
         support.firePropertyChange("state", null, this.state);
     }
 
+    @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         support.addPropertyChangeListener(listener);
     }
 
-    public RecommendState getState() {
+    public SaveState getState() {
         return state;
     }
-
 }

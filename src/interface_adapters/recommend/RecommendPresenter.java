@@ -14,9 +14,12 @@ public class RecommendPresenter implements RecommendOutputBoundary {
         this.viewManagerModel = viewManagerModel;
     }
 
+    @Override
     public void prepareSuccessView(RecommendOutputData recommendOutputData) {
-
+        RecommendState recommendState = this.recommendViewModel.getState();
     }
+
+    @Override
     public void prepareFailView(String error) {
 
     }
