@@ -1,6 +1,6 @@
 package use_cases.localsave;
 
-public class LocalSaveInputData {
+public class LocalSaveInputData { //
     public String paperUrl;
     public String paperName;
 

@@ -10,7 +10,7 @@ public class ShowPdfInteractor implements ShowPdfInputBoundary {
         this.showPdfDataAccessObject = showPdfDataAccessObject;
     }
     public void execute(ShowPdfInputData showPdfInputData){
-        showPdfDataAccessObject.showPdf(showPdfInputData.getUrl());
+        showPdfDataAccessObject.showPdf(showPdfInputData.getUrl()); //
     }
 
 }
