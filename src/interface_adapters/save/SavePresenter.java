@@ -30,6 +30,10 @@ public class SavePresenter implements SaveOutputBoundary {
     public void prepareFailView(String error) {
         SaveState saveState = saveViewModel.getState();
         saveState.setPaperAlreadySavedError(error);
-        saveViewModel.firePropertyChanged();
+        this.saveViewModel.setState(saveState);
+        this.saveViewModel.firePropertyChanged();
+
+        this.viewManagerModel.setActiveView(saveViewModel.getViewName());
+        this.viewManagerModel.firePropertyChanged();
     }
 }

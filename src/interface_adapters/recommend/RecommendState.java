@@ -5,7 +5,8 @@ import java.util.List;
 
 public class RecommendState {
     private int recommendationCount;
-    private List<List<Object>> recommendedPapers = new ArrayList<>();
+    private List<List<String>> recommendedPapers = new ArrayList<>();
+    private String userNotExistError = null;
 //    Format:
 //              id: String,
 //              title: String,
@@ -21,6 +22,7 @@ public class RecommendState {
     public RecommendState(RecommendState copy) {
         this.recommendationCount = copy.recommendationCount;
         this.recommendedPapers = copy.recommendedPapers;
+        this.userNotExistError = copy.userNotExistError;
     }
 
     public RecommendState() {
@@ -34,11 +36,19 @@ public class RecommendState {
         this.recommendationCount = recommendationCount;
     }
 
-    public List<List<Object>> getRecommendedPapers() {
+    public List<List<String>> getRecommendedPapers() {
         return recommendedPapers;
     }
 
-    public void setRecommendedPapers(List<List<Object>> recommendedPapers) {
+    public void setRecommendedPapers(List<List<String>> recommendedPapers) {
         this.recommendedPapers = recommendedPapers;
+    }
+
+    public String getUserNotExistError() {
+        return userNotExistError;
+    }
+
+    public void setUserNotExistError(String userNotExistError) {
+        this.userNotExistError = userNotExistError;
     }
 }
