@@ -43,7 +43,7 @@ public class ArxivDataAccessObject {
         LocalDate date;
 
         String rawDate = map.get("publishDate").get(0);
-        date = LocalDate.parse(rawDate);
+        date = LocalDate.parse(rawDate.split("T")[0]);
 
         for (String cat: map.get("categories")) {
             for (Category CAT: catList) {
@@ -107,7 +107,7 @@ public class ArxivDataAccessObject {
         NodeList nodeList = root.getElementsByTagName("summary");
         for (int i = 0; i < nodeList.getLength(); i++){
             Node node = nodeList.item(i);
-            return node.getTextContent();
+            return node.getTextContent().replaceAll("\n", " ");
         }
         return "";
     }
@@ -147,7 +147,7 @@ public class ArxivDataAccessObject {
             Node node = nodeList.item(i);
             if (node.getParentNode().getNodeName().equals("entry")) {
                 Element element = (Element) node;
-                return element.getTextContent();
+                return element.getTextContent().replaceAll("\n", "");
             }
         }
         return "";
@@ -223,9 +223,16 @@ public class ArxivDataAccessObject {
     }
 
     public List<String> getIDsByAuthor(Author author) {
+        String[] splitNames = author.getName().split(" ");
+        String query = "";
+        for (int i = 0; i < splitNames.length - 1; i++){
+            query = query + "au:" + splitNames[i] + "+AND+";
+        }
+        query = query + "au:" + splitNames[splitNames.length - 1];
+
         HttpRequest request;
         try {
-            request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + "au" +":" + author.getName().replaceAll(" ", "%20"))).GET().build();
+            request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + query +"&max_results=100")).GET().build();
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -253,15 +260,25 @@ public class ArxivDataAccessObject {
         Element root = doc.getDocumentElement();
 
         List<String> ids = new ArrayList<>();
-        NodeList nodeList = root.getElementsByTagName("id");
-        for(int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
-            Element element = (Element) node;
-            ids.add(element.getTextContent());
+        NodeList papers = root.getElementsByTagName("entry");
+        for(int i = 0; i < papers.getLength(); i++) {
+            NodeList nodeList = ((Element) papers.item(i)).getElementsByTagName("name");
+            for (int j = 0; j < nodeList.getLength(); j++) {
+                if (nodeList.item(j).getTextContent().equals(author.getName())){
+                    ids.add(((Element) papers.item(i)).getTextContent().split("http://arxiv.org/abs/")[1].split("\n")[0]);
+                }
+//                Element element = (Element) nodeList.item(j);
+//                ids.add(element.getTextContent());
+            }
+//        }
+//        NodeList nodeList = root.getElementsByTagName("id");
+//         {
+//            Node node = nodeList.item(i);
+//            Element element = (Element) node;
+//            ids.add(element.getTextContent());
+//        }
         }
         return ids;
-
-
     }
     public List<ResearchPaper> getPapersByAuthor(Author author) {
         List<String>  ids = getIDsByAuthor(author);
@@ -289,6 +306,7 @@ public class ArxivDataAccessObject {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return resp.body().replace("\n", ""); //not sure, but this might be needed
+        return resp.body();
+//        return resp.body().replace("\n", ""); //not sure, but this might be needed
     }
 }
