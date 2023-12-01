@@ -33,7 +33,10 @@ public class VotePresenter implements VoteOutputBoundary {
         } else {
             voteState.setPaperAlreadyDownvotedError(error);
         }
-        voteViewModel.firePropertyChanged();
-    }
+        this.voteViewModel.setState(voteState);
+        this.voteViewModel.firePropertyChanged();
+
+        this.viewManagerModel.setActiveView(voteViewModel.getViewName());
+        this.viewManagerModel.firePropertyChanged();    }
 
 }

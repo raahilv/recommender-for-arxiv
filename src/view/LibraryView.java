@@ -30,6 +30,9 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
 
     }
     public void addLibraryPanels(LibraryState state){
+        /*
+        Creates small library item panels for each research paper that is currently bookmarked by the user.
+         */
         Panel2.setLayout(new BoxLayout(Panel2, BoxLayout.PAGE_AXIS));
         for(int i = 0; i < state.getTitles().size(); i++){
             if(!libraryItemPanels.containsKey(state.getTitles().get(i))){
