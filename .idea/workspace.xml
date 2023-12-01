@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f6f6a22-11fd-4925-b4c9-0e9be565f42f" name="Changes" comment="" />
+    <list default="true" id="6f6f6a22-11fd-4925-b4c9-0e9be565f42f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/data_access/ArxivDataAccessObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/ArxivDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/ArxivDataAccessObject.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +28,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2YSXySMwv3fhHP2lsHrYiCnn233" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -76,6 +85,8 @@
       <workItem from="1700523540439" duration="949000" />
       <workItem from="1700760869164" duration="576000" />
       <workItem from="1700867207418" duration="15130000" />
+      <workItem from="1701570572934" duration="10000" />
+      <workItem from="1701570597292" duration="98000" />
     </task>
     <servers />
   </component>
