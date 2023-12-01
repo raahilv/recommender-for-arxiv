@@ -41,9 +41,9 @@ public class ResearchPaperTransport {
 
     public String getTitle() { return this.title; }
 
-    public boolean hasAuthor(String authorId) {
+    public boolean hasAuthor(String authorName) {
         for (Author author: authors) {
-            if (author.getAuthorId().equals(authorId)) { return true;}
+            if (author.getName().equals(authorName)) { return true;}
         }
         return false;
     }

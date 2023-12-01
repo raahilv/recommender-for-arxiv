@@ -23,43 +23,43 @@ public class VoteInteractor implements VoteInputBoundary{
         ResearchPaper paper = voteDataAccessObject.getPaper(paperId);
         if (isUpvote) {
 //            User tries to upvote the paper.
-            if (user.getPapersUpvoted().containsKey(paperId)) {
+            if (user.getUpvotedPapers().containsKey(paperId)) {
 //                The paper was already upvoted by the user before.
 //                Trying to upvote again will raise an error.
                 String message = "Paper already upvoted.";
                 votePresenter.prepareFailView(message);
-            } else if (user.getPapersDownvoted().containsKey(paperId)) {
+            } else if (user.getDownvotedPapers().containsKey(paperId)) {
 //                The paper was downvoted before, and the user try to upvote it.
 //                In this case, previous downvote will be cancelled and the paper is upvoted.
-                user.getPapersDownvoted().remove(paperId);
-                user.getPapersUpvoted().put(paperId, paper);
+                user.getDownvotedPapers().remove(paperId);
+                user.getUpvotedPapers().put(paperId, paper);
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, true, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             } else {
 //                The paper was not upvoted or downvoted before by the user.
-                user.getPapersUpvoted().put(paperId, paper);
+                user.getUpvotedPapers().put(paperId, paper);
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, true, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             }
 
         } else {
 //            User tries to downvote the paper.
-            if (user.getPapersDownvoted().containsKey(paperId)) {
+            if (user.getDownvotedPapers().containsKey(paperId)) {
 //                The paper was already downvoted by the user before.
 //                Trying to downvote again will raise an error.
                 String message = "Paper already downvoted.";
                 votePresenter.prepareFailView(message);
-            } else if (user.getPapersUpvoted().containsKey(paperId)) {
+            } else if (user.getUpvotedPapers().containsKey(paperId)) {
 //                The paper was upvoted before, and the user try to downvote it.
 //                In this case, previous upvote will be cancelled and the paper is downvoted.
-                user.getPapersUpvoted().remove(paperId);
-                user.getPapersDownvoted().put(paperId, paper);
+                user.getUpvotedPapers().remove(paperId);
+                user.getDownvotedPapers().put(paperId, paper);
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, false, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             }
             else {
 //                The paper was not upvoted or downvoted before by the user.
-                user.getPapersDownvoted().put(paperId, paper);
+                user.getDownvotedPapers().put(paperId, paper);
                 VoteOutputData voteOutputData = new VoteOutputData(paperId, false, false);
                 votePresenter.prepareSuccessView(voteOutputData);
             }
