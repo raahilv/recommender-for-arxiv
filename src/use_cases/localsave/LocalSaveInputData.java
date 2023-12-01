@@ -13,5 +13,6 @@ public class LocalSaveInputData {
     }
     public String getPaperName(){
         return this.paperName;
+
     }
 }
