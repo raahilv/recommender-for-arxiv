@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f6f6a22-11fd-4925-b4c9-0e9be565f42f" name="Changes" comment="" />
+    <list default="true" id="6f6f6a22-11fd-4925-b4c9-0e9be565f42f" name="Changes" comment="deltesavedpaper shouldn't be implemented yet">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/library/LibraryDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/LibraryItemPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LibraryItemPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/LibraryItemPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/LibraryItemPanel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +29,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2YSXySMwv3fhHP2lsHrYiCnn233" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,6 +42,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;bleeding&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/kaiwenzheng/Desktop/CSC207-Project&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -76,10 +86,26 @@
       <workItem from="1700523540439" duration="949000" />
       <workItem from="1700760869164" duration="576000" />
       <workItem from="1700867207418" duration="15130000" />
+      <workItem from="1701128738795" duration="880000" />
+      <workItem from="1701393896352" duration="158000" />
     </task>
+    <task id="LOCAL-00001" summary="deltesavedpaper shouldn't be implemented yet">
+      <option name="closed" value="true" />
+      <created>1701128854758</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701128854758</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Done with lib presented and setting up library view and removed some test code" />
+    <MESSAGE value="deltesavedpaper shouldn't be implemented yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="deltesavedpaper shouldn't be implemented yet" />
   </component>
 </project>

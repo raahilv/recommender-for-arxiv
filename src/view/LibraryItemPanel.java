@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LibraryItemPanel extends JPanel {
-    private JButton deleteButton;
     private JButton viewButton;
     private JLabel paperName;
     private JPanel MainPanel;
@@ -23,6 +22,5 @@ public class LibraryItemPanel extends JPanel {
         MainPanel.setLayout(new GridLayout());
         MainPanel.add(paperName);
         MainPanel.add(viewButton);
-        MainPanel.add(deleteButton);
     }
 }
