@@ -37,5 +37,16 @@ public class LibraryOutputData {
             return null;
     }
 
+    public List<String> getPaperName() {
+        return paperName;
+    }
+
+    public List<String> getPaperID() {
+        return paperID;
+    }
+
+    public List<String> getPaperPDF() {
+        return paperPDF;
+    }
 
 }
