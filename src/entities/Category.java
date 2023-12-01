@@ -40,7 +40,14 @@ public class Category {
         List<String> categoryMetadata = new ArrayList<>();
         categoryMetadata.add(this.rootCategory);
         categoryMetadata.add(this.subcategory);
+        categoryMetadata.add(this.description);
         return categoryMetadata;
+    }
+
+    public String toString() {
+        return "(" + this.rootCategory + "|" +
+                this.subcategory + "|" +
+                this.description + ") ";
     }
 
 }
