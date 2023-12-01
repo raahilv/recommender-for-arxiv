@@ -12,5 +12,4 @@ public class SignupOutputData {
         return username;
     }
 
-
 }
