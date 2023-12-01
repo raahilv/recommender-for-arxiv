@@ -8,6 +8,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.awt.Desktop;
+import java.net.URI;
 
 public class LocalSaveDataAccessObject implements LocalSaveDataAccessInterface {
 
@@ -15,13 +17,13 @@ public class LocalSaveDataAccessObject implements LocalSaveDataAccessInterface {
 
         try {
             URL url = new URL(paperUrl);
-
+//
             InputStream inputStream = url.openStream();
 
             // Get the user's home directory.
             String userHome = System.getProperty("user.home");
 
-            // Define the downloads directory path
+            // Define the downloads directory path.
             String downloadsPath = userHome + File.separator + "Downloads";
 
             // Create a Path object for the downloads directory
