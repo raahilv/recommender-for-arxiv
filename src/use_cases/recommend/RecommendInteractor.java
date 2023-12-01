@@ -55,12 +55,11 @@ public class RecommendInteractor implements RecommendInputBoundary {
             );
         }
 
-        if (recommendedPapers.isEmpty()) {
-            userPresenter.prepareFailView("Ops, no recommendations found...");
-        } else {
-            RecommendOutputData recommendOutputData = new RecommendOutputData(toList(recommendedPapers));
-            userPresenter.prepareSuccessView(recommendOutputData);
-        }
+//        if (recommendedPapers.isEmpty()) {
+//            userPresenter.prepareFailView("Ops, no recommendations found...");
+//        } else {
+        RecommendOutputData recommendOutputData = new RecommendOutputData(toList(recommendedPapers));
+        userPresenter.prepareSuccessView(recommendOutputData);
     }
 
     private List<ResearchPaper> recommend(PreferenceData preferenceData) {

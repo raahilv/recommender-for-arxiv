@@ -122,7 +122,7 @@ public class ResearchPaper {
                         this.journalReference + "|" + this.url + "|" + this.upvoteCount + "|" +
                         this.downvoteCount + "|" + authorsStringRep + "]" :
                 "[" + this.id + "|" + this.title + "|" + categoriesStringRep + "|" +
-                        this.publishDate.toString() + "|" + this.paperAbstract + "|" + "!NO_JOUR_REF!" + this.url +
+                        this.publishDate.toString() + "|" + this.paperAbstract + "|" + "!NO_JOUR_REF!" + "|" + this.url +
                         "|" + this.upvoteCount + "|" + this.downvoteCount + "|" + authorsStringRep + "]";
     }
 
