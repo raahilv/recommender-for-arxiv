@@ -4,16 +4,13 @@ import entities.ResearchPaper;
 import entities.ResearchPaperFactory;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LocalDownvotedPapersDataAccessObject {
 
     private final File downvotedPapersCSVFile;
-    private final Map<String, List<ResearchPaper>> usersDownvotedPapers = new HashMap<>();
-    private final Map<String, Integer> usersDownvotedPapersCSVFileHeader = new HashMap<>();
+    private final Map<String, List<ResearchPaper>> usersDownvotedPapers = new LinkedHashMap<>();
+    private final Map<String, Integer> usersDownvotedPapersCSVFileHeader = new LinkedHashMap<>();
     private final LocalResearchPaperDataAccessObject localResearchPaperDAO;
 
     public LocalDownvotedPapersDataAccessObject(String downvotedPapersFilePath, LocalResearchPaperDataAccessObject localResearchPaperDAO) throws IOException {

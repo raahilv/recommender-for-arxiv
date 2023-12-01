@@ -3,16 +3,13 @@ package data_access;
 import entities.ResearchPaper;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class LocalUpvotedPapersDataAccessObject {
 
     private final File upvotedPapersCSVFile;
-    private final Map<String, List<ResearchPaper>> usersUpvotedPapers = new HashMap<>();
-    private final Map<String, Integer> usersUpvotedPapersCSVFileHeader = new HashMap<>();
+    private final Map<String, List<ResearchPaper>> usersUpvotedPapers = new LinkedHashMap<>();
+    private final Map<String, Integer> usersUpvotedPapersCSVFileHeader = new LinkedHashMap<>();
     private final LocalResearchPaperDataAccessObject localResearchPaperDAO;
 
     public LocalUpvotedPapersDataAccessObject(String upvotedPapersFilePath, LocalResearchPaperDataAccessObject localResearchPaperDAO) throws IOException {

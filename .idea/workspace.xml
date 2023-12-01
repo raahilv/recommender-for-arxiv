@@ -4,21 +4,197 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="" />
+    <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/data_access_objects/LocalResearchPaperDataAccessObjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data_access_objects/LocalUserDataAccessObjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/interactors/RecommendInteractorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/categories.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/downvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/emptyPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/library.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/papers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/upvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/users.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomePresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomePresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomeState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomeState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/recommend/RecommendPresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/recommend/RecommendPresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/recommend/RecommendState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/recommend/RecommendState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/showAuthor/showAuthorState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/showAuthor/showAuthorState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/showAuthor/showAuthorViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/showAuthor/showAuthorViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/signup/SignupPresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/signup/SignupPresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VoteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VoteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VotePresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VotePresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VoteState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VoteState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendOutputData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendOutputData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/signup/SignupOutputData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/signup/SignupOutputData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalDownvotedPapersDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalDownvotedPapersDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalLibraryDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalLibraryDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalPreferredCategoriesDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalPreferredCategoriesDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalResearchPaperDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalResearchPaperDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalUpvotedPapersDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalUpvotedPapersDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/vote/VoteInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/vote/VoteInteractor.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/test_files" />
+      <recent name="$PROJECT_DIR$/test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.LocalResearchPaperDataAccessObjectTest">
+    <configuration name="LocalResearchPaperDataAccessObjectTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="data_access_objects.LocalResearchPaperDataAccessObjectTest" />
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access_objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in CSC207-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalResearchPaperDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage" track_test_folders="true">
+        <pattern>
+          <option name="PATTERN" value="data_access_objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+        <pattern>
+          <option name="PATTERN" value="data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access_objects" />
+      <option name="MAIN_CLASS_NAME" value="data_access_objects.LocalResearchPaperDataAccessObjectTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access_objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access_objects" />
+      <option name="MAIN_CLASS_NAME" value="data_access_objects.LocalResearchPaperDataAccessObjectTest" />
+      <option name="METHOD_NAME" value="testGetPaperByIDThatExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalResearchPaperDataAccessObjectTest.testWriterToDatabaseWithNonEmptyPaperCollection" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access_objects.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access_objects" />
+      <option name="MAIN_CLASS_NAME" value="data_access_objects.LocalResearchPaperDataAccessObjectTest" />
+      <option name="METHOD_NAME" value="testWriterToDatabaseWithNonEmptyPaperCollection" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.LocalResearchPaperDataAccessObjectTest" />
+      <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest.testWriterToDatabaseWithNonEmptyPaperCollection" />
+      <item itemvalue="JUnit.All in CSC207-Project" />
+      <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest" />
+      <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest" />
+        <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest.testWriterToDatabaseWithNonEmptyPaperCollection" />
+        <item itemvalue="JUnit.All in CSC207-Project" />
+        <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists" />
+        <item itemvalue="Application.LocalResearchPaperDataAccessObjectTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/data_access_objects/LocalUserDataAccessObjectTest.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/data_access_objects/LocalResearchPaperDataAccessObjectTest.java</url>
+          <line>11</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/test/data_access_objects/LocalResearchPaperDataAccessObjectTest.java</url>
+          <line>91</line>
+          <properties class="data_access_objects.LocalResearchPaperDataAccessObjectTest">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CSC207_Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701468766715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_objects.*</FILTER>
+      <FILTER>data_access.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -12,8 +12,8 @@ public class LocalUserDataAccessObject {
     private final LocalDownvotedPapersDataAccessObject localDownvotedPapersDAO;
     private final LocalPreferredCategoriesDataAccessObject localPreferredCategoriesDAO;
     private final File usersCSVFile;
-    private final Map<String, User> users = new HashMap<>();  // username : username object
-    private final Map<String, Integer> usersCSVFileHeader = new HashMap<>();
+    private final Map<String, User> users = new LinkedHashMap<>();  // username : username object
+    private final Map<String, Integer> usersCSVFileHeader = new LinkedHashMap<>();
     private final UserFactory userFactory;
 
     public LocalUserDataAccessObject(LocalLibraryDataAccessObject localLibraryDAO,
