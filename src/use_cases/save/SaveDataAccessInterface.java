@@ -5,5 +5,7 @@ import entities.User;
 
 public interface SaveDataAccessInterface {
     User getUser(String username);
-    ResearchPaper getPaper(String paperName);
+    ResearchPaper getPaper(String paperID);
+    void save(String username, ResearchPaper paper);
+
 }

@@ -3,8 +3,6 @@ package use_cases.signup;
 import entities.User;
 import entities.UserFactory;
 
-import java.time.LocalDateTime;
-
 public class SignupInteractor implements SignupInputBoundary {
     final SignupUserDataAccessInterface userDataAccessObject;
     final SignupOutputBoundary userPresenter;
@@ -20,17 +18,16 @@ public class SignupInteractor implements SignupInputBoundary {
 
     @Override
     public void execute(SignupInputData signupInputData) {
-        if (userDataAccessObject.existsByName(signupInputData.getUsername())) {
+        if (userDataAccessObject.existsByUsername(signupInputData.getUsername())) {
             userPresenter.prepareFailView("User already exists.");
         } else if (!signupInputData.getPassword().equals(signupInputData.getRepeatPassword())) {
             userPresenter.prepareFailView("Passwords don't match.");
         } else {
 
-            LocalDateTime now = LocalDateTime.now();
             User user = userFactory.create(signupInputData.getUsername(), signupInputData.getPassword());
             userDataAccessObject.save(user);
 
-            SignupOutputData signupOutputData = new SignupOutputData(user.getUsername(), now.toString(), false);
+            SignupOutputData signupOutputData = new SignupOutputData(user.getUsername());
             userPresenter.prepareSuccessView(signupOutputData);
         }
     }
