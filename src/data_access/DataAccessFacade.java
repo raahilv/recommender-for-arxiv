@@ -37,11 +37,11 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
 
     @Override
     public void save(User user) {
-        localUserDAO.save(user);
+        localUserDAO.saveToDatabase(user);
     }
 
     @Override
-    public void save(String username, ResearchPaper paper) {
+    public void savePaperToLibrary(String username, ResearchPaper paper) {
         this.localLibraryDAO.save(username, paper);
     }
 

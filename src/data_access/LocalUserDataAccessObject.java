@@ -12,8 +12,8 @@ public class LocalUserDataAccessObject {
     private final LocalDownvotedPapersDataAccessObject localDownvotedPapersDAO;
     private final LocalPreferredCategoriesDataAccessObject localPreferredCategoriesDAO;
     private final File usersCSVFile;
-    private final Map<String, User> users = new HashMap<>();  // username : username object
-    private final Map<String, Integer> usersCSVFileHeader = new HashMap<>();
+    private final Map<String, User> users = new LinkedHashMap<>();  // username : username object
+    private final Map<String, Integer> usersCSVFileHeader = new LinkedHashMap<>();
     private final UserFactory userFactory;
 
     public LocalUserDataAccessObject(LocalLibraryDataAccessObject localLibraryDAO,
@@ -69,8 +69,34 @@ public class LocalUserDataAccessObject {
 
     }
 
-    public void save(User user) {
+    public void saveToDAO(User user) {
         this.users.put(user.getUsername(), user);
+    }
+
+    public boolean saveToDatabase(User user) {
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(this.usersCSVFile));
+            reader.readLine();
+
+            String row;
+            while ((row = reader.readLine()) != null) {
+                String currentUsername = row.split(",")[0];
+                if (currentUsername.equals(user.getUsername())) {
+                    return false;
+                }
+            }
+            reader.close();
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(this.usersCSVFile));
+            String line = String.format("%s,%s", user.getUsername(), user.getPassword());
+            writer.write(line);
+            writer.newLine();
+            writer.close();
+
+            return true;
+        } catch (IOException ioe) {
+            throw new RuntimeException(ioe);
+        }
     }
 
     public User get(String username) {
