@@ -10,8 +10,8 @@ import java.util.*;
 public class LocalPreferredCategoriesDataAccessObject {
 
     private final File preferredCategoriesCSVFile;
-    private final Map<String, Integer> preferredCategoriesCSVFileHeader = new HashMap<>();
-    private final Map<String, List<Category>> usersPreferredCategories = new HashMap<>();
+    private final Map<String, Integer> preferredCategoriesCSVFileHeader = new LinkedHashMap<>();
+    private final Map<String, List<Category>> usersPreferredCategories = new LinkedHashMap<>();
     private final CategoryFactory categoryFactory;
 
     public LocalPreferredCategoriesDataAccessObject(String preferredCategoriesCSVFilePath,

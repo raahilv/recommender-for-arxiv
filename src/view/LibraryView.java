@@ -7,8 +7,6 @@ import interface_adapters.library.LibraryViewModel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
@@ -42,16 +40,6 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
                 libraryItemPanels.put(state.getTitles().get(i),itemPanel);
                 Panel2.add(itemPanel);
                 itemPanel.setVisible(true);
-                itemPanel.getViewButton().addActionListener(
-                        // This creates an anonymous subclass of ActionListener and instantiates it.
-                        new ActionListener() {
-                            public void actionPerformed(ActionEvent evt) {
-                                if (evt.getSource().equals(itemPanel.getViewButton())) {
-                                    libraryController.execute(itemPanel.getUrl());
-                                }
-                            }
-                        }
-                );
             }
         }
     }

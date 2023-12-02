@@ -9,11 +9,12 @@ import java.util.*;
 public class LocalResearchPaperDataAccessObject {
 
     private final File papersCSVFile;
-    private final Map<String, Integer> papersCSVFileHeader = new HashMap<>();
+    private final Map<String, Integer> papersCSVFileHeader = new LinkedHashMap<>();
     private final Map<String, ResearchPaper> papers = new HashMap<>();
     private final AuthorFactory authorFactory;
     private final CategoryFactory categoryFactory;
     private final ResearchPaperFactory researchPaperFactory;
+
 
     public LocalResearchPaperDataAccessObject(String filepath,
                                               AuthorFactory authorFactory,
@@ -41,8 +42,7 @@ public class LocalResearchPaperDataAccessObject {
             try (BufferedReader reader = new BufferedReader(new FileReader(this.papersCSVFile))) {
                 String header = reader.readLine();
 
-                assert header.equals("id,title,categories,authors,publish_date,abstract," +
-                        "journal_reference,url,upvote_count,downvote_count");
+                assert header.equals("id,title,categories,authors,publish_date,abstract,journal_reference,url,upvote_count,downvote_count");
 
                 String row;
                 while ((row = reader.readLine()) != null) {
@@ -64,11 +64,7 @@ public class LocalResearchPaperDataAccessObject {
                     List<Category> categoriesObjectList = new ArrayList<>();
                     String[] categoriesBreakDown = categoriesStringRep.split(" ");
                     for (String categoryStringRep : categoriesBreakDown) {
-                        StringBuilder mutableCategoryStringRep = new StringBuilder(categoryStringRep);
-                        mutableCategoryStringRep.deleteCharAt(0);
-                        mutableCategoryStringRep.deleteCharAt(categoryStringRep.length() - 1);
-                        String mutatedCategoryStringRep = mutableCategoryStringRep.toString();
-                        String[] categoryContents = mutatedCategoryStringRep.split("\\|");
+                        String[] categoryContents = categoryStringRep.split("\\|");
                         categoriesObjectList.add(
                                 this.categoryFactory.create(Arrays.asList(categoryContents))
                         );
@@ -77,11 +73,7 @@ public class LocalResearchPaperDataAccessObject {
                     List<Author> authorsObjectList = new ArrayList<>();
                     String[] authorsBreakDown = authorsStringRep.split(" ");
                     for (String authorStringRep : authorsBreakDown) {
-                        StringBuilder mutableAuthorStringRep = new StringBuilder(authorStringRep);
-                        mutableAuthorStringRep.deleteCharAt(0);
-                        mutableAuthorStringRep.deleteCharAt(authorStringRep.length() - 1);
-                        String mutatedAuthorStringRep = mutableAuthorStringRep.toString();
-                        String[] authorContents = mutatedAuthorStringRep.split("\\|");
+                        String[] authorContents = authorStringRep.split("\\|");
                         if (authorContents[1].equals("None")) {
                             authorsObjectList.add(
                                     this.authorFactory.createWithAffiliation(authorContents[0], authorContents[1])
@@ -112,7 +104,7 @@ public class LocalResearchPaperDataAccessObject {
         }
     }
 
-    private void writeToDatabase() {
+    public void writeToDatabase() {
         BufferedWriter writer;
 
         try {
@@ -160,11 +152,29 @@ public class LocalResearchPaperDataAccessObject {
 
     public ResearchPaper getPaperByID(String paperID) {
         for (String potentialPaperID : this.papers.keySet()) {
-            if (paperID.equalsIgnoreCase(potentialPaperID)) {
+            if (paperID.equals(potentialPaperID)) {
                 return this.papers.get(potentialPaperID);
             }
         }
         return null;
     }
 
+    /* For testing... */
+    public Map<String, Integer> getPapersCSVFileHeader() {
+        return this.papersCSVFileHeader;
+    }
+
+//    public Map<String, ResearchPaper> getPapers() {
+//        return this.papers;
+//    }
+//
+//    public void setPapers(Map<String, ResearchPaper> papers) {
+//        for (String paperID : papers.keySet()) {
+//            this.papers.put(paperID, papers.get(paperID));
+//        }
+//    }
+//
+//    public void setPapersCSVFile(String filepath) {
+//        this.papersCSVFile = new File(filepath);
+//    }
 }

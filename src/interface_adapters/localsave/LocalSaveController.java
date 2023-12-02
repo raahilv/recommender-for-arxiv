@@ -12,7 +12,6 @@ public class LocalSaveController {
     public void execute(String paperUrl, String paperName){
         LocalSaveInputData localSaveInputData = new LocalSaveInputData(paperUrl, paperName);
         localSaveInteractor.execute(localSaveInputData);
-//
     }
 
 }

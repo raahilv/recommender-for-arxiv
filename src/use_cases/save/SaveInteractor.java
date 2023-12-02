@@ -18,7 +18,7 @@ public class SaveInteractor implements SaveInputBoundary{
             savePresenter.prepareFailView("Error: Paper already saved.");
         } else {
             ResearchPaper paper = saveDataAccessObject.getPaper(paperId);
-            saveDataAccessObject.savePaperToLibrary(userName, paper);
+            saveDataAccessObject.save(userName, paper);
             SaveOutputData saveOutputData = new SaveOutputData(paperId);
             savePresenter.prepareSuccessView(saveOutputData);
         }

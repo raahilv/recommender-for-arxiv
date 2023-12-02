@@ -2,8 +2,6 @@ package view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LibraryItemPanel extends JPanel {
     /*
@@ -27,13 +25,5 @@ public class LibraryItemPanel extends JPanel {
         MainPanel.setLayout(new GridLayout());
         MainPanel.add(paperName);
         MainPanel.add(viewButton);
-
     }
-    public String getUrl(){
-        return  url;
-    }
-    public JButton getViewButton(){
-        return viewButton;
-    }
-
 }
