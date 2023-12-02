@@ -12,10 +12,17 @@ public class VoteViewModel extends ViewModel {
 
     private VoteState state = new VoteState();
 
+    /**
+     * Constructor for view model for Vote use case, set viewName to "vote".
+     */
     public VoteViewModel() {
         super("vote");
     }
 
+    /**
+     * Set the Vote state in the view model.
+     * @param state the Vote state to be stored in the view model
+     */
     public void setState(VoteState state) {
         this.state = state;
     }
@@ -32,6 +39,10 @@ public class VoteViewModel extends ViewModel {
         support.addPropertyChangeListener(listener);
     }
 
+    /**
+     * Get the Vote state stored in the view model.
+     * @return the Vote state stored in the view model
+     */
     public VoteState getState() {
         return state;
     }

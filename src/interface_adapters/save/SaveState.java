@@ -6,7 +6,7 @@ public class SaveState {
 
     /**
      * Constructor for Save state for copying from another Save state.
-     * @param copy the another state copied
+     * @param copy the another state to be copied from
      */
     public SaveState(SaveState copy) {
         this.paperId = copy.paperId;
@@ -20,7 +20,7 @@ public class SaveState {
     }
 
     /**
-     * Getter for paperId.
+     * Get the paperId.
      * @return the paperId that saved in the state (of the paper saved)
      */
     public String getPaperId() {
@@ -28,7 +28,7 @@ public class SaveState {
     }
 
     /**
-     * Getter for paperAlreadySavedError.
+     * Get the paperAlreadySavedError.
      * @return the error message indicating that paper has already been saved.
      */
     public String getPaperAlreadySavedError() {
@@ -36,7 +36,7 @@ public class SaveState {
     }
 
     /**
-     * Setter for paperId.
+     * Set the paperId.
      * @param paperId the paper id to store in the state
      */
     public void setPaperId(String paperId) {
@@ -44,7 +44,7 @@ public class SaveState {
     }
 
     /**
-     * Setter for paperAlreadySavedError。
+     * Set the paperAlreadySavedError。
      * @param paperAlreadySavedError the error message to store in the state
      */
     public void setPaperAlreadySavedError(String paperAlreadySavedError) {
