@@ -27,7 +27,7 @@ public class VoteState {
     }
 
     /**
-     * Getter for paperAlreadyUpvotedError.
+     * Get paperAlreadyUpvotedError.
      * @return the error message indicating the paper has already been upvoted
      */
     public String getPaperAlreadyUpvotedError() {
@@ -35,7 +35,7 @@ public class VoteState {
     }
 
     /**
-     * Setter for paperAlreadyUpvotedError
+     * Set paperAlreadyUpvotedError
      * @param paperAlreadyUpvotedError the error message to be stored
      */
     public void setPaperAlreadyUpvotedError(String paperAlreadyUpvotedError) {
@@ -43,7 +43,7 @@ public class VoteState {
     }
 
     /**
-     * Getter for paperAlreadyDownvotedError.
+     * Get paperAlreadyDownvotedError.
      * @return the error message indicating the paper has already been downvoted
      */
     public String getPaperAlreadyDownvotedError() {
@@ -51,7 +51,7 @@ public class VoteState {
     }
 
     /**
-     * Setter for paperAlreadyDownvotedError.
+     * Set paperAlreadyDownvotedError.
      * @param paperAlreadyDownvotedError the error message to be stored
      */
     public void setPaperAlreadyDownvotedError(String paperAlreadyDownvotedError) {
@@ -59,7 +59,7 @@ public class VoteState {
     }
 
     /**
-     * Setter for paperId.
+     * Set paperId.
      * @param paperId paper id to be stored
      */
     public void setPaperId(String paperId) {
@@ -67,7 +67,7 @@ public class VoteState {
     }
 
     /**
-     * Setter for isUpvote.
+     * Set isUpvote.
      * @param upvote boolean value to be stored, true when the user upvotes, false when the user downvotes
      */
     public void setUpvote(boolean upvote) {
@@ -75,7 +75,7 @@ public class VoteState {
     }
 
     /**
-     * Setter for isRemoveVote (not implemented yet).
+     * Set isRemoveVote (not implemented yet).
      * @param removeVote boolean value to be stores, true when the user removes a vote, false otherwise
      */
     public void setRemoveVote(boolean removeVote) {
@@ -83,7 +83,7 @@ public class VoteState {
     }
 
     /**
-     * Getter for paperId.
+     * Get paperId.
      * @return the paper id stored in the state (of the paper voted)
      */
     public String getPaperId() {
@@ -91,7 +91,7 @@ public class VoteState {
     }
 
     /**
-     * Getter for isUpvote.
+     * Get isUpvote.
      * @return true when the user upvotes the paper, false when the user downvotes the paper
      */
     public boolean isUpvote() {
@@ -99,7 +99,7 @@ public class VoteState {
     }
 
     /**
-     * Getter for isRemoveVote (not implemented yet).
+     * Get isRemoveVote (not implemented yet).
      * @return truw when the user removes a vote, false otherwise
      */
     public boolean isRemoveVote() {

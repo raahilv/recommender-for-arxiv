@@ -9,11 +9,21 @@ public class VoteInteractor implements VoteInputBoundary{
     final VoteDataAccessInterface voteDataAccessObject;
     final VoteOutputBoundary votePresenter;
 
+    /**
+     * Constructor for interactor for vote use case.
+     * @param voteDataAccessObject data access object for Vote use case
+     * @param votePresenter presenter for Vote use case
+     */
     public VoteInteractor(VoteDataAccessInterface voteDataAccessObject, VoteOutputBoundary votePresenter) {
         this.voteDataAccessObject = voteDataAccessObject;
         this.votePresenter = votePresenter;
     }
 
+    /**
+     * Execute the Vote use case, update the upvoted or downvoted papers for user, update the upvote or downvote count of paper.
+     * Call the presenter to prepare successful view or fail view.
+     * @param voteInputData input data for Vote use case
+     */
     @Override
     public void execute(VoteInputData voteInputData) {
         String userName = voteInputData.getUserName();

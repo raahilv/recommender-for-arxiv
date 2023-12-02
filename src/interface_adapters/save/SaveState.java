@@ -20,7 +20,7 @@ public class SaveState {
     }
 
     /**
-     * Get the paperId.
+     * Get paperId.
      * @return the paperId that saved in the state (of the paper saved)
      */
     public String getPaperId() {
@@ -28,7 +28,7 @@ public class SaveState {
     }
 
     /**
-     * Get the paperAlreadySavedError.
+     * Get paperAlreadySavedError.
      * @return the error message indicating that paper has already been saved.
      */
     public String getPaperAlreadySavedError() {
@@ -36,7 +36,7 @@ public class SaveState {
     }
 
     /**
-     * Set the paperId.
+     * Set paperId.
      * @param paperId the paper id to store in the state
      */
     public void setPaperId(String paperId) {
@@ -44,7 +44,7 @@ public class SaveState {
     }
 
     /**
-     * Set the paperAlreadySavedError。
+     * Set paperAlreadySavedError。
      * @param paperAlreadySavedError the error message to store in the state
      */
     public void setPaperAlreadySavedError(String paperAlreadySavedError) {
