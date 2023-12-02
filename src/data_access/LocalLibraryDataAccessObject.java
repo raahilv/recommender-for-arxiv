@@ -3,16 +3,20 @@ package data_access;
 import entities.ResearchPaper;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class LocalLibraryDataAccessObject {
 
+    private static final String userLibrariesCSVFilePath = "test/test_files/libraries.csv";
     private final File userLibrariesCSVFile;
     private final LocalResearchPaperDataAccessObject localResearchPaperDAO;
     private final Map<String, Integer> userLibrariesCSVFileHeader = new LinkedHashMap<>();
     private final Map<String, List<ResearchPaper>> userLibraries = new LinkedHashMap<>();
 
-    public LocalLibraryDataAccessObject(String userLibrariesCSVFilePath, LocalResearchPaperDataAccessObject localResearchPaperDAO)
+    public LocalLibraryDataAccessObject(LocalResearchPaperDataAccessObject localResearchPaperDAO)
             throws IOException {
         this.userLibrariesCSVFile = new File(userLibrariesCSVFilePath);
         this.localResearchPaperDAO = localResearchPaperDAO;
@@ -31,7 +35,7 @@ public class LocalLibraryDataAccessObject {
                 while ((row = reader.readLine()) != null) {
                     String[] col = row.split(",");
                     String username = String.valueOf(col[this.userLibrariesCSVFileHeader.get("username")]);
-                    String paperIDsStringRep = String.valueOf(col[this.userLibrariesCSVFileHeader.get("paper_ids")]);
+                    String paperIDsStringRep = col.length == 1 ? " " : String.valueOf(col[this.userLibrariesCSVFileHeader.get("paper_ids")]);
                     String[] paperIDs = paperIDsStringRep.split(" ");  // <paper_0> <paper_1> <paper_2>
                     List<ResearchPaper> currentUserLibrary = new ArrayList<>();
                     for (String paperID : paperIDs) {
@@ -44,53 +48,57 @@ public class LocalLibraryDataAccessObject {
         }
     }
 
-    public void saveToDAO(String username, ResearchPaper paper) {
-        if (this.userLibraries.containsKey(username)) {
-            this.userLibraries.get(username).add(paper);
-        } else {
-            this.userLibraries.put(username, asList(paper));
-        }
-    }
+//    public void saveToDAO(String username, ResearchPaper paper) {
+//        if (this.userLibraries.containsKey(username)) {
+//            this.userLibraries.get(username).add(paper);
+//        } else {
+//            this.userLibraries.put(username, asList(paper));
+//        }
+//    }
 
     public void saveToDatabase(String username, String paperID) {
-        BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader(this.userLibrariesCSVFile));
-            reader.readLine();  // passes the header
-
-            String row;
-            while ((row = reader.readLine()) != null) {
-                String[] userLibrary = row.split(",");
+            List<String> rows = Files.readAllLines(Paths.get(userLibrariesCSVFilePath), StandardCharsets.UTF_8);
+            boolean userHandled = false;
+            for (int i = 0; i < rows.size() && !userHandled; i++) {
+                String[] userLibrary = rows.get(i).split(",");
                 if (userLibrary[0].equals(username)) {
-                    String[] paperIDs = userLibrary[1].split(" ");
-                    for (String savedPaperID : paperIDs) {
-                        if (savedPaperID.equals(paperID)) {
-
+                    if (userLibrary.length == 2) {
+                        String[] savedPaperIDs = userLibrary[1].split(" ");
+                        boolean exists = false;
+                        for (String savedPaperID : savedPaperIDs) {
+                            if (savedPaperID.equals(paperID)) {
+                                exists = true;
+                                break;
+                            }
                         }
+                        if (!exists) {
+                            String updatedUserLibrary = username + "," + String.join(" ", savedPaperIDs) + " " + paperID;
+                            rows.set(i, updatedUserLibrary);
+                        }
+                    } else if (userLibrary.length == 1) {
+                        String updatedUserLibrary = username + "," + paperID;
+                        rows.set(i, updatedUserLibrary);
                     }
+                    userHandled = true;
                 }
             }
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(userLibrariesCSVFilePath));
+            for (String row : rows) {
+                writer.write(row);
+                writer.newLine();
+            }
+            writer.close();
+
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);
         }
     }
 
     public void writeToDatabase(String username, List<String> paperIDs) {
-        BufferedWriter writer;
-        try {
-            writer = new BufferedWriter(new FileWriter(this.userLibrariesCSVFile));
-            StringBuilder mutablePaperIDsStringRep = new StringBuilder();
-            for (String paperID : paperIDs) {
-                mutablePaperIDsStringRep.append(paperID).append(" ");
-            }
-
-            String line = String.format("%s,%s", username, mutablePaperIDsStringRep);
-            writer.write(line);
-            writer.newLine();
-
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        for (String paperID : paperIDs) {
+            saveToDatabase(username, paperID);
         }
     }
 
@@ -107,7 +115,9 @@ public class LocalLibraryDataAccessObject {
                     for (ResearchPaper paper : this.userLibraries.get(username)) {
                         mutableUserLibraryStringRep.append(paper.getID()).append(" ");
                     }
-                    mutableUserLibraryStringRep.deleteCharAt(mutableUserLibraryStringRep.length() - 1);
+                    if (mutableUserLibraryStringRep.length() > 0) {
+                        mutableUserLibraryStringRep.deleteCharAt(mutableUserLibraryStringRep.length() - 1);
+                    }
                     String userLibraryStringRep = mutableUserLibraryStringRep.toString();
 
                     String line = String.format("%s,%s", username, userLibraryStringRep);
@@ -122,9 +132,9 @@ public class LocalLibraryDataAccessObject {
         }
     }
 
-    /** Assume *username* can be found in this.users for now... */
     public List<ResearchPaper> getLibrary(String username) {
-        return this.userLibraries.get(username);
+        return this.userLibraries.containsKey(username) ?
+                this.userLibraries.get(username) : new ArrayList<>();
     }
 
     public void delete(String username, String targetedPaperID) {
@@ -136,12 +146,6 @@ public class LocalLibraryDataAccessObject {
                 }
             }
         }
-    }
-
-    private List<ResearchPaper> asList(ResearchPaper paper) {
-        List<ResearchPaper> paperListRep = new ArrayList<>();
-        paperListRep.add(paper);
-        return paperListRep;
     }
 
 }

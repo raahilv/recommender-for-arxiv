@@ -120,25 +120,31 @@ public class LocalResearchPaperDataAccessObject {
                     List<Author> authors = paper.getAuthors();
                     LocalDate publishDate = paper.getPublishDate();
                     String paperAbstract = paper.getPaperAbstract();
-                    String journalReference = paper.getJournalReference();
+                    String journalReference = paper.getJournalReference() == null ? "!NO_JOUR_REF!" : paper.getJournalReference();
                     String url = paper.getUrl();
                     long upvoteCount = paper.getUpvoteCount();
                     long downvoteCount = paper.getDownvoteCount();
 
                     StringBuilder categoriesStringRep = new StringBuilder();
                     for (Category category : categories) {
-                        categoriesStringRep.append(category.toString()).append("^");
+                        StringBuilder mutableCategoryStringRep = new StringBuilder(category.toString());
+                        mutableCategoryStringRep.deleteCharAt(0);
+                        mutableCategoryStringRep.deleteCharAt(mutableCategoryStringRep.length() - 1);
+                        categoriesStringRep.append(mutableCategoryStringRep).append("^");
                     }
-                    // categoriesStringRep.deleteCharAt(categoriesStringRep.length() - 1);
+                    categoriesStringRep.deleteCharAt(categoriesStringRep.length() - 1);
 
                     StringBuilder authorsStringRep = new StringBuilder();
                     for (Author author : authors) {
-                        authorsStringRep.append(author.toString()).append("^");
+                        StringBuilder mutableAuthorStringRep = new StringBuilder(author.toString());
+                        mutableAuthorStringRep.deleteCharAt(0);
+                        mutableAuthorStringRep.deleteCharAt(mutableAuthorStringRep.length() - 1);
+                        authorsStringRep.append(mutableAuthorStringRep).append("^");
                     }
-                    // authorsStringRep.deleteCharAt(authorsStringRep.length() - 1);
+                    authorsStringRep.deleteCharAt(authorsStringRep.length() - 1);
 
-                    String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
-                            id, title, categories, categoriesStringRep, authorsStringRep,
+                    String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
+                            id, title, categoriesStringRep, authorsStringRep,
                             publishDate.toString(), paperAbstract, journalReference, url,
                             upvoteCount, downvoteCount);
                     writer.write(line);
@@ -150,6 +156,10 @@ public class LocalResearchPaperDataAccessObject {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean exists(String paperID) {
+        return getPaperByID(paperID) != null;
     }
 
     public ResearchPaper getPaperByID(String paperID) {
