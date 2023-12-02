@@ -22,7 +22,7 @@ public class LocalPreferredCategoriesDataAccessObject {
         this.categoryFactory = categoryFactory;
 
         if (this.preferredCategoriesCSVFile.length() == 0) {
-            writeToDatabase();
+            writeToDatabase(this.preferredCategoriesCSVFile);
         } else {
             try (BufferedReader reader = new BufferedReader(new FileReader(this.preferredCategoriesCSVFile))) {
                 String header = reader.readLine();
@@ -32,18 +32,16 @@ public class LocalPreferredCategoriesDataAccessObject {
                 while ((row = reader.readLine()) != null) {
                     String[] col = row.split(",");
                     String username = String.valueOf(col[this.preferredCategoriesCSVFileHeader.get("username")]);
-                    String preferredCategoriesStringRep =
-                            String.valueOf(col[this.preferredCategoriesCSVFileHeader.get("preferred_categories")]);
+                    String preferredCategoriesStringRep = col.length == 1 ?
+                            "" : String.valueOf(col[this.preferredCategoriesCSVFileHeader.get("preferred_categories")]);
 
                     List<Category> preferredCategories = new ArrayList<>();
-                    String[] preferredCategoriesBreakDown = preferredCategoriesStringRep.split(" ");
+                    String[] preferredCategoriesBreakDown = preferredCategoriesStringRep.split("\\^");
                     for (String categoryStringRep : preferredCategoriesBreakDown) {
-                        StringBuilder mutableCategoryStringRep = new StringBuilder(categoryStringRep);
-                        mutableCategoryStringRep.deleteCharAt(0);
-                        mutableCategoryStringRep.deleteCharAt(mutableCategoryStringRep.length() - 1);
-                        String[] categoryStringRepBreakDown = mutableCategoryStringRep.toString().split("\\|");
-                        Category category = this.categoryFactory.create(Arrays.asList(categoryStringRepBreakDown));
-                        preferredCategories.add(category);
+                        String[] categoryBreakDown = categoryStringRep.split("\\|");
+                        if (!categoryBreakDown[0].equals("")) {
+                            preferredCategories.add(this.categoryFactory.create(Arrays.asList(categoryBreakDown)));
+                        }
                     }
                     this.usersPreferredCategories.put(username, preferredCategories);
                 }
@@ -83,10 +81,10 @@ public class LocalPreferredCategoriesDataAccessObject {
         }
     }
 
-    private void writeToDatabase() {
+    private void writeToDatabase(File dest) {
         BufferedWriter writer;
         try {
-            writer = new BufferedWriter(new FileWriter(this.preferredCategoriesCSVFile));
+            writer = new BufferedWriter(new FileWriter(dest));
             writer.write(String.join(",", this.preferredCategoriesCSVFileHeader.keySet()));
             writer.newLine();
 

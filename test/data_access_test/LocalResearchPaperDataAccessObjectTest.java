@@ -113,7 +113,7 @@ public class LocalResearchPaperDataAccessObjectTest {
     public void testWriteToDatabaseWithNonEmptyPaperCollection() {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(emptyFilepath));
-            writer.write(" ");
+            writer.write("");
             writer.close();
 
             LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);

@@ -102,10 +102,10 @@ public class LocalLibraryDataAccessObject {
         }
     }
 
-    public void writeToDatabase(File userLibrariesCSVFile) {
+    public void writeToDatabase(File dest) {
         BufferedWriter writer;
         try {
-            writer = new BufferedWriter(new FileWriter(userLibrariesCSVFile));
+            writer = new BufferedWriter(new FileWriter(dest));
             writer.write(String.join(",", this.userLibrariesCSVFileHeader.keySet()));
             writer.newLine();
 
