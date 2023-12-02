@@ -1,1 +1,3 @@
 id,title,categories,authors,publish_date,abstract,journal_reference,url,upvote_count,downvote_count
+0,title0,[(r00|s00|d00), (r01|s01|d01)],(r00|s00|d00)^(r01|s01|d01)^,(n00|None)^(n01|MIT)^,2003-01-01,a0,jr0,url0,12,13
+1,title1,[(r10|s10|d10), (r11|s11|d11)],(r10|s10|d10)^(r11|s11|d11)^,(n10|None)^(n11|MIT)^,2004-01-01,a1,jr1,url1,12,13

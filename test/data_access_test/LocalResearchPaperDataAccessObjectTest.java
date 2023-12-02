@@ -1,6 +1,5 @@
-package data_access_objects;
+package data_access;
 
-import data_access.LocalResearchPaperDataAccessObject;
 import entities.AuthorFactory;
 import entities.CategoryFactory;
 import entities.ResearchPaper;
@@ -24,7 +23,7 @@ public class LocalResearchPaperDataAccessObjectTest {
             ResearchPaper paper = lrpDAO.getPaperByID(paperID);
             assert (paper != null && paper.getID().equals(paperID));
         } catch (IOException ioe) {
-            System.out.println("IOException in testGetPaperByIDThatExists");
+            System.out.println("IOException in testGetPaperByIDThatExists().");
         }
     }
 
@@ -36,7 +35,7 @@ public class LocalResearchPaperDataAccessObjectTest {
             ResearchPaper paper = lrpDAO.getPaperByID(paperID);
             assert (paper == null);
         } catch (IOException ioe) {
-            System.out.println("IOException in testGetPaperByIDThatDoesNotExist");
+            System.out.println("IOException in testGetPaperByIDThatDoesNotExist().");
         }
     }
 
@@ -49,44 +48,33 @@ public class LocalResearchPaperDataAccessObjectTest {
 
             LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(emptyFilepath, af, cf, rpf);
             BufferedReader reader = new BufferedReader(new FileReader(new File(emptyFilepath)));
-
-            StringBuilder mutableInObjectHeader = new StringBuilder();
-            for (String headerField : lrpDAO.getPapersCSVFileHeader().keySet()) {
-                mutableInObjectHeader.append(headerField).append(",");
-            }
-            mutableInObjectHeader.deleteCharAt(mutableInObjectHeader.length() - 1);
-
-            String inObjectHeader = mutableInObjectHeader.toString();
             String inFileHeader = reader.readLine();
+            String inObjectHeader = lrpDAO.papersCSVFileHeaderToString();
 
             assert (inObjectHeader.equals(inFileHeader));
         } catch (IOException ioe) {
-            System.out.println("IOException in testWriteToDatabase");
+            System.out.println("IOException in testWriteToDatabase().");
         }
     }
 
-//    @Test
-//    public void testWriterToDatabaseWithNonEmptyPaperCollection() {
-//        try {
-//            File src = new File(emptyFilepath);
-//            BufferedWriter writer = new BufferedWriter(new FileWriter(src));
-//            writer.write("");
-//            writer.close();
-//
-//            LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
-//            lrpDAO.setPapersCSVFile(emptyFilepath);
-//            lrpDAO.writeToDatabase();
-//
-//            BufferedReader reader = new BufferedReader(new FileReader(src));
-//            int counter = 0;
-//            while (reader.readLine() != null) { counter++; }
-//
-//            assert (counter == 3);
-//
-//        } catch (IOException ioe) {
-//            System.out.println("IOException in testWriterToDatabaseWithNonEmptyPaperCollection");
-//        }
-//    }
+    @Test
+    public void testWriteToDatabaseWithNonEmptyPaperCollection() {
+        try {
+            LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
+            lrpDAO.writeToDatabase(new File(emptyFilepath));
 
+            BufferedReader reader = new BufferedReader(new FileReader(new File(emptyFilepath)));
+            String header = reader.readLine();
+            int counter = 1;
+            while (reader.readLine() != null) {
+                counter++;
+            }
+
+            assert (counter == 3 && lrpDAO.papersCSVFileHeaderToString().equals(header));
+
+        } catch (IOException ioe) {
+            System.out.println("IOException in testWriteToDatabaseWithNonEmptyPaperCollection().");
+        }
+    }
 
 }
