@@ -37,7 +37,7 @@ public class LocalResearchPaperDataAccessObject {
         this.papersCSVFileHeader.put("downvote_count", 9);
 
         if (this.papersCSVFile.length() == 0) {
-            writeToDatabase();
+            writeToDatabase(this.papersCSVFile);
         } else {
             try (BufferedReader reader = new BufferedReader(new FileReader(this.papersCSVFile))) {
                 String header = reader.readLine();
@@ -62,7 +62,7 @@ public class LocalResearchPaperDataAccessObject {
                     long downvoteCount = Long.parseLong(String.valueOf(col[papersCSVFileHeader.get("downvote_count")]));
 
                     List<Category> categoriesObjectList = new ArrayList<>();
-                    String[] categoriesBreakDown = categoriesStringRep.split(" ");
+                    String[] categoriesBreakDown = categoriesStringRep.split("\\^");
                     for (String categoryStringRep : categoriesBreakDown) {
                         String[] categoryContents = categoryStringRep.split("\\|");
                         categoriesObjectList.add(
@@ -71,20 +71,20 @@ public class LocalResearchPaperDataAccessObject {
                     }
 
                     List<Author> authorsObjectList = new ArrayList<>();
-                    String[] authorsBreakDown = authorsStringRep.split(" ");
+                    String[] authorsBreakDown = authorsStringRep.split("\\^");
                     for (String authorStringRep : authorsBreakDown) {
                         String[] authorContents = authorStringRep.split("\\|");
                         if (authorContents[1].equals("None")) {
                             authorsObjectList.add(
-                                    this.authorFactory.createWithAffiliation(authorContents[0], authorContents[1])
+                                    this.authorFactory.createWithoutAffiliation(authorContents[0])
                             );
                         } else {
                             authorsObjectList.add(
-                                    this.authorFactory.createWithoutAffiliation(authorContents[0])
+                                    this.authorFactory.createWithAffiliation(authorContents[0], authorContents[1])
                             );
                         }
                     }
-                    if (journalReference.equalsIgnoreCase("!NO_JOUR_REF!")) {
+                    if (journalReference.equals("!NO_JOUR_REF!")) {
                         this.papers.put(
                                 id, this.researchPaperFactory.createWithoutJournalReference(
                                         id, title, categoriesObjectList, authorsObjectList, publishDate,
@@ -104,44 +104,46 @@ public class LocalResearchPaperDataAccessObject {
         }
     }
 
-    public void writeToDatabase() {
+    public void writeToDatabase(File dest) {
         BufferedWriter writer;
 
         try {
-            writer = new BufferedWriter(new FileWriter(this.papersCSVFile));
+            writer = new BufferedWriter(new FileWriter(dest));
             writer.write(String.join(",", this.papersCSVFileHeader.keySet()));
             writer.newLine();
 
-            for (ResearchPaper paper : this.papers.values()) {
-                String id = paper.getID();
-                String title = paper.getTitle();
-                List<Category> categories = paper.getCategories();
-                List<Author> authors = paper.getAuthors();
-                LocalDate publishDate = paper.getPublishDate();
-                String paperAbstract = paper.getPaperAbstract();
-                String journalReference = paper.getJournalReference();
-                String url = paper.getUrl();
-                long upvoteCount = paper.getUpvoteCount();
-                long downvoteCount = paper.getDownvoteCount();
+            if (this.papers.size() > 0) {
+                for (ResearchPaper paper : this.papers.values()) {
+                    String id = paper.getID();
+                    String title = paper.getTitle();
+                    List<Category> categories = paper.getCategories();
+                    List<Author> authors = paper.getAuthors();
+                    LocalDate publishDate = paper.getPublishDate();
+                    String paperAbstract = paper.getPaperAbstract();
+                    String journalReference = paper.getJournalReference();
+                    String url = paper.getUrl();
+                    long upvoteCount = paper.getUpvoteCount();
+                    long downvoteCount = paper.getDownvoteCount();
 
-                StringBuilder categoriesStringRep = new StringBuilder();
-                for (Category category : categories) {
-                    categoriesStringRep.append(category.toString()).append(" ");
+                    StringBuilder categoriesStringRep = new StringBuilder();
+                    for (Category category : categories) {
+                        categoriesStringRep.append(category.toString()).append("^");
+                    }
+                    // categoriesStringRep.deleteCharAt(categoriesStringRep.length() - 1);
+
+                    StringBuilder authorsStringRep = new StringBuilder();
+                    for (Author author : authors) {
+                        authorsStringRep.append(author.toString()).append("^");
+                    }
+                    // authorsStringRep.deleteCharAt(authorsStringRep.length() - 1);
+
+                    String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
+                            id, title, categories, categoriesStringRep, authorsStringRep,
+                            publishDate.toString(), paperAbstract, journalReference, url,
+                            upvoteCount, downvoteCount);
+                    writer.write(line);
+                    writer.newLine();
                 }
-                categoriesStringRep.deleteCharAt(categoriesStringRep.length() - 1);
-
-                StringBuilder authorsStringRep = new StringBuilder();
-                for (Author author : authors) {
-                    authorsStringRep.append(author.toString()).append(" ");
-                }
-                authorsStringRep.deleteCharAt(authorsStringRep.length() - 1);
-
-                String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
-                        id, title, categories, categoriesStringRep, authorsStringRep,
-                        publishDate.toString(), paperAbstract, journalReference, url,
-                        upvoteCount, downvoteCount);
-                writer.write(line);
-                writer.newLine();
             }
 
             writer.close();
@@ -160,21 +162,13 @@ public class LocalResearchPaperDataAccessObject {
     }
 
     /* For testing... */
-    public Map<String, Integer> getPapersCSVFileHeader() {
-        return this.papersCSVFileHeader;
-    }
+    public String papersCSVFileHeaderToString() {
+        StringBuilder header = new StringBuilder();
+        for (String field : this.papersCSVFileHeader.keySet()) {
+            header.append(field).append(",");
+        }
+        header.deleteCharAt(header.length() - 1);
 
-//    public Map<String, ResearchPaper> getPapers() {
-//        return this.papers;
-//    }
-//
-//    public void setPapers(Map<String, ResearchPaper> papers) {
-//        for (String paperID : papers.keySet()) {
-//            this.papers.put(paperID, papers.get(paperID));
-//        }
-//    }
-//
-//    public void setPapersCSVFile(String filepath) {
-//        this.papersCSVFile = new File(filepath);
-//    }
+        return header.toString();
+    }
 }

@@ -21,7 +21,7 @@ public class LocalLibraryDataAccessObject {
         this.userLibrariesCSVFileHeader.put("paper_ids", 1);
 
         if (this.userLibrariesCSVFile.length() == 0) {
-            writeToDatabase();
+            writeToDatabase(this.userLibrariesCSVFile);
         } else {
             try (BufferedReader reader = new BufferedReader(new FileReader(this.userLibrariesCSVFile))) {
                 String header = reader.readLine();
@@ -44,11 +44,34 @@ public class LocalLibraryDataAccessObject {
         }
     }
 
-    public void save(String username, ResearchPaper paper) {
+    public void saveToDAO(String username, ResearchPaper paper) {
         if (this.userLibraries.containsKey(username)) {
             this.userLibraries.get(username).add(paper);
         } else {
             this.userLibraries.put(username, asList(paper));
+        }
+    }
+
+    public void saveToDatabase(String username, String paperID) {
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader(this.userLibrariesCSVFile));
+            reader.readLine();  // passes the header
+
+            String row;
+            while ((row = reader.readLine()) != null) {
+                String[] userLibrary = row.split(",");
+                if (userLibrary[0].equals(username)) {
+                    String[] paperIDs = userLibrary[1].split(" ");
+                    for (String savedPaperID : paperIDs) {
+                        if (savedPaperID.equals(paperID)) {
+
+                        }
+                    }
+                }
+            }
+        } catch (IOException ioe) {
+            throw new RuntimeException(ioe);
         }
     }
 
@@ -71,24 +94,26 @@ public class LocalLibraryDataAccessObject {
         }
     }
 
-    private void writeToDatabase() {
+    public void writeToDatabase(File userLibrariesCSVFile) {
         BufferedWriter writer;
         try {
-            writer = new BufferedWriter(new FileWriter(this.userLibrariesCSVFile));
+            writer = new BufferedWriter(new FileWriter(userLibrariesCSVFile));
             writer.write(String.join(",", this.userLibrariesCSVFileHeader.keySet()));
             writer.newLine();
 
-            for (String username : this.userLibraries.keySet()) {
-                StringBuilder mutableUserLibraryStringRep = new StringBuilder();
-                for (ResearchPaper paper : this.userLibraries.get(username)) {
-                    mutableUserLibraryStringRep.append(paper.getID()).append(" ");
-                }
-                mutableUserLibraryStringRep.deleteCharAt(mutableUserLibraryStringRep.length() - 1);
-                String userLibraryStringRep = mutableUserLibraryStringRep.toString();
+            if (this.userLibraries.size() > 0) {
+                for (String username : this.userLibraries.keySet()) {
+                    StringBuilder mutableUserLibraryStringRep = new StringBuilder();
+                    for (ResearchPaper paper : this.userLibraries.get(username)) {
+                        mutableUserLibraryStringRep.append(paper.getID()).append(" ");
+                    }
+                    mutableUserLibraryStringRep.deleteCharAt(mutableUserLibraryStringRep.length() - 1);
+                    String userLibraryStringRep = mutableUserLibraryStringRep.toString();
 
-                String line = String.format("%s,%s", username, userLibraryStringRep);
-                writer.write(line);
-                writer.newLine();
+                    String line = String.format("%s,%s", username, userLibraryStringRep);
+                    writer.write(line);
+                    writer.newLine();
+                }
             }
 
             writer.close();

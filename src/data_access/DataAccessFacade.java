@@ -11,7 +11,6 @@ import use_cases.showAuthor.ShowAuthorDataAccessInterface;
 import use_cases.signup.SignupUserDataAccessInterface;
 import use_cases.vote.VoteDataAccessInterface;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DataAccessFacade implements LoginUserDataAccessInterface, RecommendDataAccessInterface,
@@ -42,7 +41,7 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
 
     @Override
     public void save(String username, ResearchPaper paper) {
-        this.localLibraryDAO.save(username, paper);
+        this.localLibraryDAO.saveToDatabase(username, paper.getID());
     }
 
     @Override
