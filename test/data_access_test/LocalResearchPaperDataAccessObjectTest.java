@@ -5,7 +5,9 @@ import entities.*;
 import org.junit.Test;
 
 import java.io.*;
-import java.time.LocalDate;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class LocalResearchPaperDataAccessObjectTest {
@@ -21,7 +23,7 @@ public class LocalResearchPaperDataAccessObjectTest {
             LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
             String expectedPaperID = "0";
             ResearchPaper paper = lrpDAO.getPaperByID(expectedPaperID);
-            System.out.println(paper);  // TODO
+            System.out.println(paper);  // TODO: to be deleted...
 
             String actualPaperID = paper.getID();
             String actualTitle = paper.getTitle();
@@ -29,7 +31,7 @@ public class LocalResearchPaperDataAccessObjectTest {
             List<Author> actualAuthors = paper.getAuthors();
             String actualPublishDate = paper.getPublishDate().toString();
             String actualAbstract = paper.getPaperAbstract();
-            String actualJournalReference = paper.getJournalReference();
+            String actualJournalReference = paper.getJournalReference() == null ? "!NO_JOUR_REF!" : paper.getJournalReference();
             String actualURL = paper.getUrl();
             long actualUpvoteCount = paper.getUpvoteCount();
             long actualDownvoteCount = paper.getDownvoteCount();
@@ -51,12 +53,15 @@ public class LocalResearchPaperDataAccessObjectTest {
                 actualAuthorsStringRep.append(authorStringRep).append("^");
             }
             actualAuthorsStringRep.deleteCharAt(actualAuthorsStringRep.length() - 1);
+
             String line = String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s",
-                    actualPaperID, actualTitle, actualCategoriesStringRep.toString(),
-                    actualAuthorsStringRep.toString(), actualPublishDate.toString(),
+                    actualPaperID, actualTitle, actualCategoriesStringRep,
+                    actualAuthorsStringRep, actualPublishDate,
                     actualAbstract, actualJournalReference, actualURL, actualUpvoteCount,
                     actualDownvoteCount);
-            BufferedReader reader = new BufferedReader(new FileReader(new File(filepath)));
+            System.out.println(line);  // TODO: to be deleted...
+
+            BufferedReader reader = new BufferedReader(new FileReader(filepath));
             String row;
             while ((row = reader.readLine()) != null) {
                 String[] paperAttributes = row.split(",");
@@ -107,25 +112,49 @@ public class LocalResearchPaperDataAccessObjectTest {
     @Test
     public void testWriteToDatabaseWithNonEmptyPaperCollection() {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File(emptyFilepath)));
-            writer.write("");
+            BufferedWriter writer = new BufferedWriter(new FileWriter(emptyFilepath));
+            writer.write(" ");
             writer.close();
 
             LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
+            List<String> nonEmptyFileContents = Files.readAllLines(Paths.get(filepath), StandardCharsets.UTF_8);
             lrpDAO.writeToDatabase(new File(emptyFilepath));
+            List<String> emptyFileContents = Files.readAllLines(Paths.get(emptyFilepath), StandardCharsets.UTF_8);
 
-            BufferedReader reader = new BufferedReader(new FileReader(new File(emptyFilepath)));
-            String header = reader.readLine();
-            int counter = 1;
-            while (reader.readLine() != null) {
-                counter++;
-            }
-
-            assert (counter == 3 && lrpDAO.papersCSVFileHeaderToString().equals(header));
-
+            assert (nonEmptyFileContents.equals(emptyFileContents));
         } catch (IOException ioe) {
             System.out.println("IOException in testWriteToDatabaseWithNonEmptyPaperCollection().");
         }
     }
 
+    @Test
+    public void testExistsWithExistingPaper() {
+        try {
+            LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
+            assert (lrpDAO.exists("1"));
+        } catch (IOException ioe) {
+            System.out.println("IOException in testExistsWithExistingPaper().");
+        }
+
+    }
+
+    @Test
+    public void testExistsWithNonExistingPaper() {
+        try {
+            LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
+            assert (!lrpDAO.exists("3"));
+        } catch (IOException ioe) {
+            System.out.println("IOException in testExistsWithNonExistingPaper().");
+        }
+    }
+
+    @Test
+    public void testPapersCSVFileHeaderToString() {
+        try {
+            LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
+            assert (lrpDAO.papersCSVFileHeaderToString().equals("id,title,categories,authors,publish_date,abstract,journal_reference,url,upvote_count,downvote_count"));
+        } catch (IOException ioe) {
+            System.out.println("IOException in testPapersCSVFileHeaderToString().");
+        }
+    }
 }

@@ -14,7 +14,7 @@ public class LocalUserDataAccessObjectTest {
     private final ResearchPaperFactory rpf = new ResearchPaperFactory();
     private final UserFactory uf = new CommonUserFactory();
     private final LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject("test_files/papers.csv", af, cf, rpf);
-    private final LocalLibraryDataAccessObject llDAO = new LocalLibraryDataAccessObject("test_files/library.csv", lrpDAO);
+    private final LocalLibraryDataAccessObject llDAO = new LocalLibraryDataAccessObject(lrpDAO);
     private final LocalUpvotedPapersDataAccessObject lupDAO = new LocalUpvotedPapersDataAccessObject("test_files/upvotedPapers.csv", lrpDAO);
     private final LocalDownvotedPapersDataAccessObject ldpDAO = new LocalDownvotedPapersDataAccessObject("test_files/downvotedPapers.csv", lrpDAO);
     private final LocalPreferredCategoriesDataAccessObject lpcDAO = new LocalPreferredCategoriesDataAccessObject("test_files/categories.csv", cf);
