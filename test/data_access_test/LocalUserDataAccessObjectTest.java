@@ -1,5 +1,6 @@
-package data_access;
+package data_access_test;
 
+import data_access.*;
 import entities.*;
 import org.junit.Test;
 
