@@ -1,35 +1,35 @@
 package interface_adapters.login;
 
+import interface_adapters.RecommendHome.RecommendHomeState;
+import interface_adapters.RecommendHome.RecommendHomeViewModel;
 import interface_adapters.ViewManagerModel;
-import interface_adapters.logged_in.LoggedInState;
-import interface_adapters.logged_in.LoggedInViewModel;
 import use_cases.login.LoginOutputBoundary;
 import use_cases.login.LoginOutputData;
 
 public class LoginPresenter implements LoginOutputBoundary {
 
     private final LoginViewModel loginViewModel;
-    private final LoggedInViewModel loggedInViewModel;
+    private final RecommendHomeViewModel recommendHomeViewModel;
     private ViewManagerModel viewManagerModel;
 
     public LoginPresenter(ViewManagerModel viewManagerModel,
-                          LoggedInViewModel loggedInViewModel,
+                          RecommendHomeViewModel recommendHomeViewModel,
                           LoginViewModel loginViewModel) {
         this.viewManagerModel = viewManagerModel;
-        this.loggedInViewModel = loggedInViewModel;
+        this.recommendHomeViewModel = recommendHomeViewModel;
         this.loginViewModel = loginViewModel;
     }
 
     @Override
     public void prepareSuccessView(LoginOutputData response) {
-        // On success, switch to the logged in view.
+        // On success, switch to the recommend home view.
 
-        LoggedInState loggedInState = loggedInViewModel.getState();
-        loggedInState.setUsername(response.getUsername());
-        this.loggedInViewModel.setState(loggedInState);
-        this.loggedInViewModel.firePropertyChanged();
+        RecommendHomeState recommendHomeState = recommendHomeViewModel.getState();
+        recommendHomeState.setUsername(response.getUsername());
+        this.recommendHomeViewModel.setState(recommendHomeState);
+        this.recommendHomeViewModel.firePropertyChanged();
 
-        this.viewManagerModel.setActiveView(loggedInViewModel.getViewName());
+        this.viewManagerModel.setActiveView(recommendHomeViewModel.getViewName());
         this.viewManagerModel.firePropertyChanged();
     }
 
