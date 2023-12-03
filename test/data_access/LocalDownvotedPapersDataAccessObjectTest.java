@@ -1,4 +1,4 @@
-package data_access_test;
+package data_access;
 
 import data_access.LocalResearchPaperDataAccessObject;
 import data_access.LocalDownvotedPapersDataAccessObject;

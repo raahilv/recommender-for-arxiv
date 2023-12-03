@@ -1,4 +1,4 @@
-package data_access_test;
+package data_access;
 
 import data_access.*;
 import entities.*;
