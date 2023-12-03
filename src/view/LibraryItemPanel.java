@@ -26,4 +26,10 @@ public class LibraryItemPanel extends JPanel {
         MainPanel.add(paperName);
         MainPanel.add(viewButton);
     }
+    public String getUrl(){
+        return  url;
+    }
+    public JButton getViewButton(){
+        return viewButton;
+    }
 }
