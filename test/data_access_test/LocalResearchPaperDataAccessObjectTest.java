@@ -80,7 +80,7 @@ public class LocalResearchPaperDataAccessObjectTest {
     public void testGetPapersByIDThatDoesNotExist() {
         try {
             LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
-            String paperID = "2";
+            String paperID = "3";
             ResearchPaper paper = lrpDAO.getPaperByID(paperID);
             assert (paper == null);
         } catch (IOException ioe) {
