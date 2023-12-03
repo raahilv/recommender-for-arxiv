@@ -117,7 +117,11 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return matchScore;
     }
 
-    public double adjust(int factor) {
+    /**
+     * Return the scaled version of *factor*. Specifically, the value of *factor*
+     * is normalised.
+     * */
+    public static double adjust(int factor) {
         int scale = 1;
         int tempFactor = factor;
         while (tempFactor / 10 > 0) {
@@ -128,7 +132,9 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return 1.0 * factor / scale;
     }
 
-    /** Count the number of categories the given paper shares with the preferred categories. */
+    /**
+     * Count the number of categories the given paper shares with the preferred categories.
+     * */
     public int getCategoryMatchCount(ResearchPaper paper, List<Category> preferredCategories) {
         int count = 0;
         List<Category> paperCategories = paper.getCategories();
@@ -142,8 +148,13 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return count;
     }
 
+    /**
+     * Return the percentage of the number of upvotes with respect to the total number
+     * of votes for a given paper. When the numbers of upvotes and downvotes are all
+     * 0, the returned value is 1.0.
+     * */
     public double getUpvotePercentage(long upvoteCount, long downvoteCount) {
-        return upvoteCount == downvoteCount ?
+        return upvoteCount == 0 && downvoteCount == 0 ?
                 1.0 : 100.0 * upvoteCount / (upvoteCount + downvoteCount);
     }
 
