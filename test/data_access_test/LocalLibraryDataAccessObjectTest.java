@@ -296,8 +296,9 @@ public class LocalLibraryDataAccessObjectTest {
             String emptyLibrariesPath = "test/test_files/emptyLibraries.csv";
             File emptyLibrariesFile = new File(emptyLibrariesPath);
             List<String> librariesContents = Files.readAllLines(Paths.get(librariesFilepath), StandardCharsets.UTF_8);
-            LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(papersFilepath, af, cf, rpf);
-            LocalLibraryDataAccessObject llDAO = new LocalLibraryDataAccessObject(lrpDAO);
+            LocalLibraryDataAccessObject llDAO = new LocalLibraryDataAccessObject(
+                    new LocalResearchPaperDataAccessObject(papersFilepath, af, cf, rpf)
+            );
             llDAO.writeToDatabase(emptyLibrariesFile);
             List<String> emptyLibrariesContents = Files.readAllLines(Paths.get(emptyLibrariesPath), StandardCharsets.UTF_8);
 

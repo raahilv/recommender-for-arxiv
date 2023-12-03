@@ -8,16 +8,17 @@ import java.io.IOException;
 
 public class LocalUserDataAccessObjectTest {
 
+    private final static String papersCSVFilePath = "test/test_files/papers.csv";
     private final static String userCSVFilePath = "test/users.csv";
     private final AuthorFactory af = new AuthorFactory();
     private final CategoryFactory cf = new CategoryFactory();
     private final ResearchPaperFactory rpf = new ResearchPaperFactory();
     private final UserFactory uf = new CommonUserFactory();
-    private final LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject("test_files/papers.csv", af, cf, rpf);
+    private final LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(papersCSVFilePath, af, cf, rpf);
     private final LocalLibraryDataAccessObject llDAO = new LocalLibraryDataAccessObject(lrpDAO);
     private final LocalUpvotedPapersDataAccessObject lupDAO = new LocalUpvotedPapersDataAccessObject("test_files/upvotedPapers.csv", lrpDAO);
     private final LocalDownvotedPapersDataAccessObject ldpDAO = new LocalDownvotedPapersDataAccessObject("test_files/downvotedPapers.csv", lrpDAO);
-    private final LocalPreferredCategoriesDataAccessObject lpcDAO = new LocalPreferredCategoriesDataAccessObject("test_files/categories.csv", cf);
+    private final LocalPreferredCategoriesDataAccessObject lpcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
 
     private final LocalUserDataAccessObject luDAO = new LocalUserDataAccessObject(llDAO, lupDAO, ldpDAO, lpcDAO, userCSVFilePath, uf);
 
