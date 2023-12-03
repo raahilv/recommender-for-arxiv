@@ -14,8 +14,11 @@ public interface SaveDataAccessInterface {
 
     /**
      * Return the Paper object by the paperId.
-     * @param paperId paper id of the paper
+     * @param paperID paper id of the paper
      * @return Paper object that has same id as input
      */
-    ResearchPaper getPaper(String paperId);
+    ResearchPaper getPaper(String paperID);
+
+    void save(String username, ResearchPaper paper);
+
 }

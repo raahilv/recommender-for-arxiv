@@ -3,16 +3,16 @@ package use_cases.save;
 import entities.ResearchPaper;
 
 public class SaveInteractor implements SaveInputBoundary{
-    final SaveDataAccessInterface savedataAccessObject;
+    final SaveDataAccessInterface saveDataAccessObject;
     final SaveOutputBoundary savePresenter;
 
     /**
      * Constructor for interactor for save use case.
-     * @param savedataAccessObject data access object for save use case
+     * @param saveDataAccessObject data access object for save use case
      * @param savePresenter presenter for save use case
      */
-    public SaveInteractor(SaveDataAccessInterface savedataAccessObject, SaveOutputBoundary savePresenter) {
-        this.savedataAccessObject = savedataAccessObject;
+    public SaveInteractor(SaveDataAccessInterface saveDataAccessObject, SaveOutputBoundary savePresenter) {
+        this.saveDataAccessObject = saveDataAccessObject;
         this.savePresenter = savePresenter;
     }
 
@@ -25,11 +25,11 @@ public class SaveInteractor implements SaveInputBoundary{
     public void execute(SaveInputData saveInputData) {
         String userName = saveInputData.getUserName();
         String paperId = saveInputData.getPaperId();
-        if (savedataAccessObject.getUser(userName).getLibrary().containsKey(paperId)) {
+        if (saveDataAccessObject.getUser(userName).getLibrary().containsKey(paperId)) {
             savePresenter.prepareFailView("Error: Paper already saved.");
         } else {
-            ResearchPaper paper = savedataAccessObject.getPaper(paperId);
-            savedataAccessObject.getUser(userName).getLibrary().put(paper.getID(), paper);
+            ResearchPaper paper = saveDataAccessObject.getPaper(paperId);
+            saveDataAccessObject.save(userName, paper);
             SaveOutputData saveOutputData = new SaveOutputData(paperId);
             savePresenter.prepareSuccessView(saveOutputData);
         }
