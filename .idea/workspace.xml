@@ -5,19 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/test/test_files/emptyDownvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/emptyUpvotedPapers.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalPreferredCategoriesDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalPreferredCategoriesDataAccessObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalLibraryDataAccessObjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalLibraryDataAccessObjectTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalPreferredCategoriesDataAccessObjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalPreferredCategoriesDataAccessObjectTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/LocalSaveDataAccess/LocalSaveDataAccessObject.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/DataAccessFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/DataAccessFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalDownvotedPapersDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalDownvotedPapersDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalLibraryDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalLibraryDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalResearchPaperDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalResearchPaperDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUpvotedPapersDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUpvotedPapersDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUserDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUserDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalDownvotedPapersDataAccessObjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalDownvotedPapersDataAccessObjectTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalResearchPaperDataAccessObjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalResearchPaperDataAccessObjectTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalUpvotedPapersDataAccessObjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalUpvotedPapersDataAccessObjectTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalUserDataAccessObjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalUserDataAccessObjectTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyCategories.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyCategories.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/downvotedPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/downvotedPapers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyPapers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/papers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/papers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/upvotedPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/upvotedPapers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/users.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LocalSaveDataAccess/LocalSaveDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalSaveDataAccessObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data_access/DataAccessFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/DataAccessFacade.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_access/LocalPreferredCategoriesDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalPreferredCategoriesDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/use_cases/recommend/RecommendDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/recommend/RecommendDataAccessInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data_access_test/LocalLibraryDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access_test/LocalLibraryDataAccessObjectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/data_access_test/LocalPreferredCategoriesDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access_test/LocalPreferredCategoriesDataAccessObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalDownvotedPapersDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalDownvotedPapersDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalLibraryDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalLibraryDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalResearchPaperDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalResearchPaperDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalUpvotedPapersDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalUpvotedPapersDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data_access_test/LocalDownvotedPapersDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access_test/LocalDownvotedPapersDataAccessObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data_access_test/LocalResearchPaperDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access_test/LocalResearchPaperDataAccessObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data_access_test/LocalUpvotedPapersDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access_test/LocalUpvotedPapersDataAccessObjectTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/data_access_test/LocalUserDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access_test/LocalUserDataAccessObjectTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_files/emptyCategories.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyCategories.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_files/downvotedPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/downvotedPapers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_files/emptyPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyPapers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_files/papers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/papers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_files/upvotedPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/upvotedPapers.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_files/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/users.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,34 +68,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "LocalDAOsTest",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;LocalDAOsTest&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/test/test_files" />
       <recent name="$PROJECT_DIR$/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LocalPreferredCategoriesDataAccessObjectTest">
-    <configuration name="LocalPreferredCategoriesDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.LocalUserDataAccessObjectTest">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LocalUserDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
         <pattern>
@@ -81,19 +123,19 @@
           <option name="ENABLED" value="true" />
         </pattern>
         <pattern>
-          <option name="PATTERN" value="data_access.*" />
+          <option name="PATTERN" value="data_access.LocalUserDataAccessObject" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="data_access_test" />
-      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalPreferredCategoriesDataAccessObjectTest" />
+      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalUserDataAccessObjectTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LocalPreferredCategoriesDataAccessObjectTest.testGetPreferredCategoriesWithExistingUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LocalUserDataAccessObjectTest.testExistsByUsernameWithNonExistingUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
         <pattern>
@@ -102,14 +144,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="data_access_test" />
-      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalPreferredCategoriesDataAccessObjectTest" />
-      <option name="METHOD_NAME" value="testGetPreferredCategoriesWithExistingUser" />
+      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalUserDataAccessObjectTest" />
+      <option name="METHOD_NAME" value="testExistsByUsernameWithNonExistingUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithDestFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LocalUserDataAccessObjectTest.testSaveToDatabaseWithExistingUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
         <pattern>
@@ -118,14 +160,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="data_access_test" />
-      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalPreferredCategoriesDataAccessObjectTest" />
-      <option name="METHOD_NAME" value="testWriteToDatabaseWithDestFile" />
+      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalUserDataAccessObjectTest" />
+      <option name="METHOD_NAME" value="testSaveToDatabaseWithExistingUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithExistingUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LocalUserDataAccessObjectTest.testSaveToDatabaseWithNonExistingUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
         <pattern>
@@ -134,14 +176,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="data_access_test" />
-      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalPreferredCategoriesDataAccessObjectTest" />
-      <option name="METHOD_NAME" value="testWriteToDatabaseWithExistingUsername" />
+      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalUserDataAccessObjectTest" />
+      <option name="METHOD_NAME" value="testSaveToDatabaseWithNonExistingUser" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithNonExistingUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LocalUserDataAccessObjectTest.testWriteToDatabase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
         <pattern>
@@ -150,27 +192,134 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="data_access_test" />
-      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalPreferredCategoriesDataAccessObjectTest" />
-      <option name="METHOD_NAME" value="testWriteToDatabaseWithNonExistingUsername" />
+      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalUserDataAccessObjectTest" />
+      <option name="METHOD_NAME" value="testWriteToDatabase" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="CSC207-Project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CSC207-Project" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testGetPreferredCategoriesWithExistingUser" />
-      <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithDestFile" />
-      <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithExistingUsername" />
-      <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithNonExistingUsername" />
-      <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest" />
+      <item itemvalue="JUnit.LocalUserDataAccessObjectTest.testWriteToDatabase" />
+      <item itemvalue="JUnit.LocalUserDataAccessObjectTest" />
+      <item itemvalue="JUnit.LocalUserDataAccessObjectTest.testExistsByUsernameWithNonExistingUser" />
+      <item itemvalue="JUnit.LocalUserDataAccessObjectTest.testSaveToDatabaseWithExistingUser" />
+      <item itemvalue="JUnit.LocalUserDataAccessObjectTest.testSaveToDatabaseWithNonExistingUser" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest" />
-        <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testGetPreferredCategoriesWithExistingUser" />
-        <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithNonExistingUsername" />
-        <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithExistingUsername" />
-        <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithDestFile" />
+        <item itemvalue="JUnit.LocalUserDataAccessObjectTest" />
+        <item itemvalue="JUnit.LocalUserDataAccessObjectTest.testWriteToDatabase" />
+        <item itemvalue="JUnit.LocalUserDataAccessObjectTest.testSaveToDatabaseWithNonExistingUser" />
+        <item itemvalue="JUnit.LocalUserDataAccessObjectTest.testSaveToDatabaseWithExistingUser" />
+        <item itemvalue="JUnit.LocalUserDataAccessObjectTest.testExistsByUsernameWithNonExistingUser" />
       </list>
     </recent_temporary>
   </component>
@@ -195,20 +344,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/data_access_test/LocalUserDataAccessObjectTest.java</url>
-          <line>8</line>
+          <line>13</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701559400389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>data_access_test.*</FILTER>
-      <FILTER>data_access.*</FILTER>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701573865687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access.LocalResearchPaperDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalUpvotedPapersDataAccessObjectTest.ic" NAME="LocalUpvotedPapersDataAccessObjectTest Coverage Results" MODIFIED="1701575113376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access.LocalUpvotedPapersDataAccessObject</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/CSC207_Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701468766715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access_objects.*</FILTER>
       <FILTER>data_access.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalDownvotedPapersDataAccessObjectTest.ic" NAME="LocalDownvotedPapersDataAccessObjectTest Coverage Results" MODIFIED="1701577656345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.LocalDownvotedPapersDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalUserDataAccessObjectTest.ic" NAME="LocalUserDataAccessObjectTest Coverage Results" MODIFIED="1701582640660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.LocalUserDataAccessObject</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest_testPapersCSVFileHeaderToString.ic" NAME="LocalResearchPaperDataAccessObjectTest.testPapersCSVFileHeaderToString Coverage Results" MODIFIED="1701550290894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access_test.*</FILTER>
