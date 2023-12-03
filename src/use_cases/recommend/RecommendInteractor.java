@@ -148,12 +148,22 @@ public class RecommendInteractor implements RecommendInputBoundary {
                 1.0 : 100.0 * upvoteCount / (upvoteCount + downvoteCount);
     }
 
-    private List<List<Object>> toList(List<ResearchPaper> papers) {
-        List<List<Object>> reformatted = new ArrayList<>();
+    private List<List<String>> toList(List<ResearchPaper> papers) {
+        List<List<String>> reformatted = new ArrayList<>();
         for (ResearchPaper paper : papers) {
             reformatted.add(paper.toList());
         }
         return reformatted;
+    }
+
+    public String toString(List<ResearchPaper> papers) {
+        StringBuilder mutablePapersStringRep = new StringBuilder();
+        for (ResearchPaper paper : papers) {
+            mutablePapersStringRep.append(paper.toString()).append(" ");
+        }
+        mutablePapersStringRep.deleteCharAt(mutablePapersStringRep.length() - 1);
+
+        return mutablePapersStringRep.toString();
     }
 
 }

@@ -30,6 +30,10 @@ public class ArxivDataAccessObject {
     List<Category> catList;
     List<Author> authorList;
 
+    public ArxivDataAccessObject(List<Category> categories, List<Author> authors) {
+        this.catList = categories;
+        this.authorList = authors;
+    }
 
 //    private ResearchPaper PaperBuilder(String id, String title, List<String> categories, List<String> authors, String publishDate, String paperAbstract, String reference, String url) {
 //    }
@@ -167,19 +171,15 @@ public class ArxivDataAccessObject {
 //        HashMap<String, List<String>> map = parse(paperFromApi("ti", paperName));
 //        return PaperBuilder(map);
 //    }
-
-
     public ResearchPaper getPaperByID(String id) {
         HashMap<String, List<String>> map = parse(paperFromAPI("id", getID(id)));
         return PaperBuilder(map);
     }
 
     public ResearchPaper getPaperByTitle(String title) {
-        HashMap<String, List<String>> map = parse(paperFromApi("ti", title));
+        HashMap<String, List<String>> map = parse(paperFromAPI("ti", title));
         return PaperBuilder(map);
     }
-
-
 //    public List<ResearchPaper> getPaperByJournalReference(String journalReference) {
 //        List<ResearchPaper> output = new ArrayList<>();
 //        Element root = getDocFromQuery(apiBegin + "query?search_query=" + "jr" +":" + journalReference.replaceAll(" ", "%20")).getDocumentElement();
@@ -294,7 +294,7 @@ public class ArxivDataAccessObject {
         return ids;
     }
     public List<ResearchPaper> getPapersByAuthor(Author author) {
-        List<String>  ids = getIDsbyAuthor(author);
+        List<String>  ids = getIDsByAuthor(author);
         List<ResearchPaper> papers = new ArrayList<>();
         for (String id: ids) {
             papers.add(getPaperByID(id.split("v")[0]));
@@ -315,7 +315,7 @@ public class ArxivDataAccessObject {
         return doc;
     }
 
-    private String paperFromApi(String searchType, String query) {
+    private String paperFromAPI(String searchType, String query) {
         query = query.replaceAll(" ", "%20");
         HttpRequest request;
         try {
