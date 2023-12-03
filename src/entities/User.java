@@ -33,12 +33,48 @@ public class User {
         return library;
     }
 
-    public Map<String, ResearchPaper> getPapersUpvoted() {
-        return upvotedPapers;
+    public Map<String, ResearchPaper> getUpvotedPapers() {
+        return this.upvotedPapers;
     }
 
-    public Map<String, ResearchPaper> getPapersDownvoted() {
-        return downvotedPapers;
+    public Map<String, ResearchPaper> getDownvotedPapers() {
+        return this.downvotedPapers;
+    }
+
+    public void addPreferredCategories(Category category) {
+        boolean exists = false;
+        for (Category potentialCategory : this.preferredCategories) {
+            if (potentialCategory.isSame(category)) {
+                exists = true;
+                break;
+            }
+        }
+
+        if (!exists) {
+            this.preferredCategories.add(category);
+        }
+    }
+
+    public void savePaperIntoLibrary(ResearchPaper paper) {
+        if (!this.library.containsKey(paper.getID())) {
+            this.library.put(paper.getID(), paper);
+        }
+    }
+
+    public void addUpvotedPapers(ResearchPaper researchPaper) {
+        if (!this.upvotedPapers.containsKey(researchPaper.getID())) {
+            this.upvotedPapers.put(researchPaper.getID(), researchPaper);
+        }
+    }
+
+    public void addDownvotedPapers(ResearchPaper researchPaper) {
+        if (!this.downvotedPapers.containsKey(researchPaper.getID())) {
+            this.downvotedPapers.put(researchPaper.getID(), researchPaper);
+        }
+    }
+
+    public String toString() {
+        return "(" + this.username + "|" + this.password + ")";
     }
 
 }
