@@ -120,7 +120,7 @@ public class LocalLibraryDataAccessObjectTest {
                 }
             }
 
-            llDAO.saveToDatabase(username, paperID);
+            llDAO.saveToDatabase(username, lrpDAO.getPaperByID(paperID));
 
             reader = new BufferedReader(new FileReader(librariesFilepath));  // ignores the header
             reader.readLine();
@@ -178,7 +178,7 @@ public class LocalLibraryDataAccessObjectTest {
                 }
             }
 
-            llDAO.saveToDatabase(username, paperID);
+            llDAO.saveToDatabase(username, lrpDAO.getPaperByID(paperID));
 
             reader = new BufferedReader(new FileReader(librariesFilepath));  // ignores the header
             reader.readLine();
@@ -223,10 +223,10 @@ public class LocalLibraryDataAccessObjectTest {
 
             String username = "sayin";
             String paperID = "whateverid";
-            llDAO.saveToDatabase(username, paperID);
 
+            boolean nullPaper = lrpDAO.getPaperByID(paperID) == null;
             List<String> updatedFileContents = Files.readAllLines(path, StandardCharsets.UTF_8);
-            assert (previousFileContents.equals(updatedFileContents));
+            assert (nullPaper && previousFileContents.equals(updatedFileContents));
 
         } catch (IOException ioe) {
             System.out.println("IOException in testSaveToDatabaseWithNonExistingUser().");
