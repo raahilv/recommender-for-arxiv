@@ -19,6 +19,11 @@ public interface SaveDataAccessInterface {
      */
     ResearchPaper getPaper(String paperID);
 
+    /**
+     * Save the given paper to the given user's library.
+     * @param username username of the use
+     * @param paper the research paper object
+     * */
     void save(String username, ResearchPaper paper);
 
 }

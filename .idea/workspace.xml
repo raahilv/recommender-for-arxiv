@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/CSC207-Project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/app/LoginUseCaseFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/app/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/app/ResearchPaperTransport.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/app/SignupUseCaseFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/ArxivDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/DataAccessFacade.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LibraryDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalDownvotedPapersDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalLibraryDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalPreferredCategoriesDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalResearchPaperDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalSaveDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUpvotedPapersDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUserDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LoginUserDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/RecommendDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/SaveDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/ShowAuthorDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/SignupDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/VoteDataAccessObject.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/Author.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/AuthorFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/Category.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/CategoryFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/CommonUserFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/PreferenceData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/PreferenceDataFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/ResearchPaper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/ResearchPaperFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/UserFactory.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomeController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomePresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomeState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/RecommendHome/RecommendHomeViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/UserCreationFailed.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/ViewManagerModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/ViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/library/LibraryController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/library/LibraryPresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/library/LibraryState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/library/LibraryViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/localsave/LocalSaveController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/logged_in/LoggedInState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/logged_in/LoggedInViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/login/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/login/LoginPresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/login/LoginState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/login/LoginViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/recommend/RecommendController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/recommend/RecommendPresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/recommend/RecommendState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/recommend/RecommendViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/save/SaveController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/save/SavePresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/save/SaveState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/save/SaveViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/showAuthor/showAuthorController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/showAuthor/showAuthorPresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/showAuthor/showAuthorState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/showAuthor/showAuthorViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/signup/SignupController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/signup/SignupPresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/signup/SignupState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/signup/SignupViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/switchView/SwitchViewController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/switchView/SwitchViewPresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/switchView/SwitchViewState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/switchView/SwitchViewViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VoteController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VotePresenter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VoteState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/vote/VoteViewModel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/library/LibraryDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/library/LibraryInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/library/LibraryInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/library/LibraryInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/library/LibraryOutputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/library/LibraryOutputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/localsave/LocalSaveDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/localsave/LocalSaveInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/localsave/LocalSaveInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/localsave/LocalSaveInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/login/LoginInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/login/LoginInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/login/LoginInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/login/LoginOutputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/login/LoginOutputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/login/LoginUserDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendOutputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendOutputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/save/SaveDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/save/SaveInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/save/SaveInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/save/SaveInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/save/SaveOutputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/save/SaveOutputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/showAuthor/ShowAuthorDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/showAuthor/showAuthorInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/showAuthor/showAuthorInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/showAuthor/showAuthorInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/showAuthor/showAuthorOutputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/showAuthor/showAuthorOutputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/signup/SignupInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/signup/SignupInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/signup/SignupInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/signup/SignupOutputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/signup/SignupOutputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/signup/SignupUserDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/switchView/SwitchViewDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/switchView/SwitchViewInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/switchView/SwitchViewInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/switchView/SwitchViewInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/switchView/SwitchViewOutputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/switchView/SwitchViewOutputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/vote/VoteDataAccessInterface.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/vote/VoteInputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/vote/VoteInputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/vote/VoteInteractor.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/vote/VoteOutputBoundary.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/vote/VoteOutputData.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/HomePageView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/HomePageView$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/HomePageView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/LabelTextPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/LibraryItemPanel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/LibraryView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/LoggedInView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/LoginView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/LoginView$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/LoginView$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/LoginView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendHomeView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendHomeView$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendHomeView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$11.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$12.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$13.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$14.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$15.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$16.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$17.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$18.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$19.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$20.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$21.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$22.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$23.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$24.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$25.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$26.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$27.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/SaveView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/SaveView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/ShowAuthorView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/SignupView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/SignupView$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/SignupView$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/SignupView$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/SignupView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/ViewManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/VoteView$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/VoteView.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/AbstractLayout.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/DimensionInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/GridConstraints.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/GridLayoutManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/HorizontalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/LayoutState.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/Spacer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/SupportCode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/Util.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/CSC207Project/com/intellij/uiDesigner/core/VerticalInfo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalDownvotedPapersDataAccessObjectTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalLibraryDataAccessObjectTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalPreferredCategoriesDataAccessObjectTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalResearchPaperDataAccessObjectTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalUpvotedPapersDataAccessObjectTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalUserDataAccessObjectTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/categories.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/downvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyCategories.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyDownvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyLibraries.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/emptyUpvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/libraries.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/papers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/upvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/users.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/CSC207-Project/use_case_test/RecommendInteractorTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/ArxivDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/DataAccessFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LibraryDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalDownvotedPapersDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalLibraryDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalPreferredCategoriesDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalResearchPaperDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalSaveDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalUpvotedPapersDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LoginUserDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/RecommendDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/SaveDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/ShowAuthorDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/SignupDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/VoteDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/AuthorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/ResearchPaperFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interface_adapters/RecommendHome/RecommendHomeViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interface_adapters/library/LibraryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interface_adapters/library/LibraryPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interface_adapters/library/LibraryState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interface_adapters/library/LibraryViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interface_adapters/localsave/LocalSaveController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryDataAccessInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryInputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryOutputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/localsave/LocalSaveDataAccessInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/localsave/LocalSaveInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/localsave/LocalSaveInputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/localsave/LocalSaveInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/showAuthor/ShowAuthorDataAccessInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LibraryItemPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LibraryItemPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LibraryView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LibraryView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data_access_test/LocalDownvotedPapersDataAccessObjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data_access_test/LocalLibraryDataAccessObjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data_access_test/LocalPreferredCategoriesDataAccessObjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data_access_test/LocalResearchPaperDataAccessObjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data_access_test/LocalUpvotedPapersDataAccessObjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/data_access_test/LocalUserDataAccessObjectTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/categories.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/downvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/emptyCategories.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/emptyDownvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/emptyLibraries.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/emptyPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/emptyUpvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/libraries.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/papers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/upvotedPapers.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_files/users.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/use_case_test/RecommendInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/ResearchPaperTransport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/ResearchPaperTransport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/ResearchPaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/ResearchPaper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interface_adapters/RecommendHome/RecommendHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interface_adapters/RecommendHome/RecommendHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interface_adapters/RecommendHome/RecommendHomePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interface_adapters/RecommendHome/RecommendHomePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interface_adapters/RecommendHome/RecommendHomeState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interface_adapters/RecommendHome/RecommendHomeState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interface_adapters/signup/SignupPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interface_adapters/signup/SignupPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interface_adapters/switchView/SwitchViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interface_adapters/switchView/SwitchViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interface_adapters/switchView/SwitchViewPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interface_adapters/switchView/SwitchViewPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interface_adapters/switchView/SwitchViewViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/interface_adapters/switchView/SwitchViewViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/login/LoginInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/login/LoginInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/login/LoginUserDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/login/LoginUserDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/recommend/RecommendDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/recommend/RecommendDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/recommend/RecommendInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/recommend/RecommendInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/save/SaveDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/save/SaveDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/showAuthor/showAuthorDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/showAuthor/showAuthorDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/showAuthor/showAuthorInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/showAuthor/showAuthorInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/signup/SignupInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/signup/SignupInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/signup/SignupOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/signup/SignupOutputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/signup/SignupUserDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/signup/SignupUserDataAccessInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewInputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewInputBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewInputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewInputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewOutputBoundary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewOutputBoundary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewOutputData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/switchView/SwitchViewOutputData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RecommendHomeView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RecommendHomeView.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RecommendHomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RecommendHomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RecommendedPapersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RecommendedPapersView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Z0D8Ehbz3iSbiOtAorwEIcMj1N" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;LocalDAOsTest&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test/test_files" />
+      <recent name="$PROJECT_DIR$/test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.RecommendInteractorTest.testRecommendInteractor">
+    <configuration default="true" type="DjangoTestsConfigurationType">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="LocalUserDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access_test" />
+      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalUserDataAccessObjectTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecommendInteractorTest.testAdjustWithInputGreaterThanOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case_test" />
+      <option name="MAIN_CLASS_NAME" value="use_case_test.RecommendInteractorTest" />
+      <option name="METHOD_NAME" value="testAdjustWithInputGreaterThanOne" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecommendInteractorTest.testAdjustWithInputGreaterThanOne1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case_test" />
+      <option name="MAIN_CLASS_NAME" value="use_case_test.RecommendInteractorTest" />
+      <option name="METHOD_NAME" value="testAdjustWithInputGreaterThanOne1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecommendInteractorTest.testAdjustWithInputGreaterThanOne2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case_test" />
+      <option name="MAIN_CLASS_NAME" value="use_case_test.RecommendInteractorTest" />
+      <option name="METHOD_NAME" value="testAdjustWithInputGreaterThanOne2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecommendInteractorTest.testRecommendInteractor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case_test" />
+      <option name="MAIN_CLASS_NAME" value="use_case_test.RecommendInteractorTest" />
+      <option name="METHOD_NAME" value="testRecommendInteractor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="CSC207-Project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="CSC207-Project" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <module name="CSC207-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.RecommendInteractorTest.testRecommendInteractor" />
+      <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne" />
+      <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne1" />
+      <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne2" />
+      <item itemvalue="JUnit.LocalUserDataAccessObjectTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RecommendInteractorTest.testRecommendInteractor" />
+        <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne1" />
+        <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne2" />
+        <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne" />
+        <item itemvalue="JUnit.LocalUserDataAccessObjectTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="" />
+      <created>1701549941291</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701549941291</updated>
+      <workItem from="1701549942727" duration="2758000" />
+      <workItem from="1701554857255" duration="7240000" />
+      <workItem from="1701622432825" duration="6030000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/data_access_test/LocalUserDataAccessObjectTest.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/use_case_test/RecommendInteractorTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701573865687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access.LocalResearchPaperDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalUpvotedPapersDataAccessObjectTest.ic" NAME="LocalUpvotedPapersDataAccessObjectTest Coverage Results" MODIFIED="1701575113376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access.LocalUpvotedPapersDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207_Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701468766715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_objects.*</FILTER>
+      <FILTER>data_access.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalDownvotedPapersDataAccessObjectTest.ic" NAME="LocalDownvotedPapersDataAccessObjectTest Coverage Results" MODIFIED="1701577656345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.LocalDownvotedPapersDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalUserDataAccessObjectTest.ic" NAME="LocalUserDataAccessObjectTest Coverage Results" MODIFIED="1701583735245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.LocalUserDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest_testPapersCSVFileHeaderToString.ic" NAME="LocalResearchPaperDataAccessObjectTest.testPapersCSVFileHeaderToString Coverage Results" MODIFIED="1701550290894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest__1_.ic" NAME="LocalResearchPaperDataAccessObjectTest (1) Coverage Results" MODIFIED="1701489290581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest_testGetPaperByIDThatExists.ic" NAME="LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists Coverage Results" MODIFIED="1701549952440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalLibraryDataAccessObjectTest.ic" NAME="LocalLibraryDataAccessObjectTest Coverage Results" MODIFIED="1701559453944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalPreferredCategoriesDataAccessObjectTest.ic" NAME="LocalPreferredCategoriesDataAccessObjectTest Coverage Results" MODIFIED="1701564749485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.*</FILTER>
+    </SUITE>
+  </component>
+</project>

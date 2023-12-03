@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RecommendInteractor implements RecommendInputBoundary {
 
-    static final int THRESHOLD = 1;  // TODO: to be polished
+    static final int THRESHOLD = 5;
     final RecommendDataAccessInterface userDataAccessObject;
     final RecommendOutputBoundary userPresenter;
     final CategoryFactory categoryFactory;
@@ -39,10 +39,15 @@ public class RecommendInteractor implements RecommendInputBoundary {
                     )
             );
         } else {
+            System.out.println("else entered...");  // TODO
             List<List<String>> preferredCategories = recommendInputData.getPreferenceData();
+            System.out.println(preferredCategories.size());  // TODO
             boolean prioritizeSubcategorySearch = recommendInputData.prioritizeSubcategorySearch();
             boolean prioritizeUpvotePercentageSearch = recommendInputData.prioritizeUpvotePercentageSearch();
             boolean wantAutoRecommend = recommendInputData.wantAutoRecommendation();
+            System.out.println(prioritizeSubcategorySearch);  // TODO
+            System.out.println(prioritizeUpvotePercentageSearch);  // TODO
+            System.out.println(wantAutoRecommend);  // TODO
             recommendedPapers.addAll(
                     recommend(
                             this.preferenceDataFactory.createWithRawData(
@@ -53,7 +58,9 @@ public class RecommendInteractor implements RecommendInputBoundary {
                             )
                     )
             );
+            System.out.println("exits?");  // TODO
         }
+        System.out.println("recommendedPapers.size() = " + recommendedPapers.size());
 
 //        if (recommendedPapers.isEmpty()) {
 //            userPresenter.prepareFailView("Ops, no recommendations found...");
@@ -63,18 +70,25 @@ public class RecommendInteractor implements RecommendInputBoundary {
     }
 
     private List<ResearchPaper> recommend(PreferenceData preferenceData) {
+        System.out.println("recommend() entered...");  // TODO
         List<ResearchPaper> recommendedPapers = new ArrayList<>();
 
         for (Category category : preferenceData.getPreferredCategories()) {
             List<String> potentialPapers =
                     this.userDataAccessObject.filterPapersByRootCategory(category.getRootCategory());
+            System.out.println("potentialPapers.size() = " + potentialPapers.size());  // TODO
+            System.out.println(potentialPapers.get(0));  // TODO
             for (String potentialPaper : potentialPapers) {
+                System.out.println(potentialPaper);  // TODO
+                System.out.println(isGoodMatch(potentialPaper, preferenceData));  // TODO
                 if (isGoodMatch(potentialPaper, preferenceData)) {
+                    System.out.println("isGoodMatch()");  // TODO
                     recommendedPapers.add(
-                            this.userDataAccessObject.getPaperById(potentialPaper)
+                            this.userDataAccessObject.getPaperByID(potentialPaper)
                     );
                 }
             }
+            System.out.println("LOOP 1 finished...");  // TODO
         }
         return recommendedPapers;
     }
@@ -100,7 +114,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
         boolean prioritizeUpvotePercentageSearch = preferenceData.prioritizeUpvotePercentageSearch();
         double matchScore = 0;
 
-        ResearchPaper paper = this.userDataAccessObject.getPaperById(paperId);
+        ResearchPaper paper = this.userDataAccessObject.getPaperByID(paperId);
         double adjustedMatchCount = adjust(getCategoryMatchCount(paper, preferredCategories));
         double upvotePercentage = getUpvotePercentage(paper.getUpvoteCount(), paper.getDownvoteCount());
 
@@ -117,6 +131,10 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return matchScore;
     }
 
+    /**
+     * Return the scaled version of *factor*. Specifically, the value of *factor*
+     * is normalised.
+     * */
     private double adjust(int factor) {
         int scale = 1;
         int tempFactor = factor;
@@ -128,7 +146,9 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return 1.0 * factor / scale;
     }
 
-    /** Count the number of categories the given paper shares with the preferred categories. */
+    /**
+     * Count the number of categories the given paper shares with the preferred categories.
+     * */
     private int getCategoryMatchCount(ResearchPaper paper, List<Category> preferredCategories) {
         int count = 0;
         List<Category> paperCategories = paper.getCategories();
@@ -142,12 +162,17 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return count;
     }
 
+    /**
+     * Return the percentage of the number of upvotes with respect to the total number
+     * of votes for a given paper. When the numbers of upvotes and downvotes are all
+     * 0, the returned value is 1.0.
+     * */
     private double getUpvotePercentage(long upvoteCount, long downvoteCount) {
-        return upvoteCount == downvoteCount ?
+        return upvoteCount == 0 && downvoteCount == 0 ?
                 1.0 : 100.0 * upvoteCount / (upvoteCount + downvoteCount);
     }
 
-    private List<List<String>> toList(List<ResearchPaper> papers) {
+    public List<List<String>> toList(List<ResearchPaper> papers) {
         List<List<String>> reformatted = new ArrayList<>();
         for (ResearchPaper paper : papers) {
             reformatted.add(paper.toList());
