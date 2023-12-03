@@ -4,6 +4,7 @@ import entities.Author;
 import entities.ResearchPaper;
 import entities.User;
 import use_cases.library.LibraryDataAccessInterface;
+import use_cases.localsave.LocalSaveDataAccessInterface;
 import use_cases.login.LoginUserDataAccessInterface;
 import use_cases.recommend.RecommendDataAccessInterface;
 import use_cases.save.SaveDataAccessInterface;
@@ -15,18 +16,21 @@ import java.util.List;
 
 public class DataAccessFacade implements LoginUserDataAccessInterface, RecommendDataAccessInterface,
         SaveDataAccessInterface, ShowAuthorDataAccessInterface, SignupUserDataAccessInterface,
-        VoteDataAccessInterface, LibraryDataAccessInterface {
+        VoteDataAccessInterface, LibraryDataAccessInterface, LocalSaveDataAccessInterface {
     private final LocalUserDataAccessObject localUserDAO;
     private final LocalLibraryDataAccessObject localLibraryDAO;
     private final LocalResearchPaperDataAccessObject localResearchPaperDAO;
     private final ArxivDataAccessObject arxivDAO;
+    private final LocalSaveDataAccessObject localSaveDAO;
 
     public DataAccessFacade(LocalUserDataAccessObject localUserDAO, LocalLibraryDataAccessObject localLibraryDAO,
-                            LocalResearchPaperDataAccessObject localResearchPaperDAO, ArxivDataAccessObject arxivDAO) {
+                            LocalResearchPaperDataAccessObject localResearchPaperDAO, ArxivDataAccessObject arxivDAO,
+                            LocalSaveDataAccessObject localSaveDAO) {
         this.localUserDAO = localUserDAO;
         this.localLibraryDAO = localLibraryDAO;
         this.localResearchPaperDAO = localResearchPaperDAO;
         this.arxivDAO = arxivDAO;
+        this.localSaveDAO = localSaveDAO;
     }
 
     @Override
@@ -42,6 +46,11 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
     @Override
     public void save(String username, ResearchPaper paper) {
         this.localLibraryDAO.saveToDatabase(username, paper.getID());
+    }
+
+    @Override
+    public void localSave(String paperURL, String paperName) {
+        this.localSaveDAO.localSave(paperURL, paperName);
     }
 
     @Override

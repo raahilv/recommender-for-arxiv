@@ -109,22 +109,22 @@ public class LocalLibraryDataAccessObject {
             writer.write(String.join(",", this.userLibrariesCSVFileHeader.keySet()));
             writer.newLine();
 
-            if (this.userLibraries.size() > 0) {
-                for (String username : this.userLibraries.keySet()) {
-                    StringBuilder mutableUserLibraryStringRep = new StringBuilder();
-                    for (ResearchPaper paper : this.userLibraries.get(username)) {
-                        mutableUserLibraryStringRep.append(paper.getID()).append(" ");
-                    }
-                    if (mutableUserLibraryStringRep.length() > 0) {
-                        mutableUserLibraryStringRep.deleteCharAt(mutableUserLibraryStringRep.length() - 1);
-                    }
-                    String userLibraryStringRep = mutableUserLibraryStringRep.toString();
 
-                    String line = String.format("%s,%s", username, userLibraryStringRep);
-                    writer.write(line);
-                    writer.newLine();
+            for (String username : this.userLibraries.keySet()) {
+                StringBuilder mutableUserLibraryStringRep = new StringBuilder();
+                for (ResearchPaper paper : this.userLibraries.get(username)) {
+                    mutableUserLibraryStringRep.append(paper.getID()).append(" ");
                 }
+                if (mutableUserLibraryStringRep.length() > 0) {
+                    mutableUserLibraryStringRep.deleteCharAt(mutableUserLibraryStringRep.length() - 1);
+                }
+                String userLibraryStringRep = mutableUserLibraryStringRep.toString();
+
+                String line = String.format("%s,%s", username, userLibraryStringRep);
+                writer.write(line);
+                writer.newLine();
             }
+
 
             writer.close();
         } catch (IOException e) {
