@@ -10,7 +10,7 @@ public interface RecommendDataAccessInterface {
     User getUser(String userName);
     ResearchPaper getPaperById(String id);
     ResearchPaper getPaperByTitle(String title);
-    List<ResearchPaper> getPaperByJournalReference(String journalReference);
+    ResearchPaper getPaperByJournalReference(String journalReference);
     List<String> filterPapersByRootCategory(String rootCategory);
 
 }
