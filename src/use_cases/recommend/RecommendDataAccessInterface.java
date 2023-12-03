@@ -8,9 +8,8 @@ import java.util.List;
 public interface RecommendDataAccessInterface {
     boolean existsByUsername(String username);
     User getUser(String userName);
-    ResearchPaper getPaperById(String id);
+    ResearchPaper getPaperByID(String id);
     ResearchPaper getPaperByTitle(String title);
-    ResearchPaper getPaperByJournalReference(String journalReference);
     List<String> filterPapersByRootCategory(String rootCategory);
 
 }

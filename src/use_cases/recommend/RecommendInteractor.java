@@ -62,7 +62,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
         userPresenter.prepareSuccessView(recommendOutputData);
     }
 
-    private List<ResearchPaper> recommend(PreferenceData preferenceData) {
+    public List<ResearchPaper> recommend(PreferenceData preferenceData) {
         List<ResearchPaper> recommendedPapers = new ArrayList<>();
 
         for (Category category : preferenceData.getPreferredCategories()) {
@@ -71,7 +71,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
             for (String potentialPaper : potentialPapers) {
                 if (isGoodMatch(potentialPaper, preferenceData)) {
                     recommendedPapers.add(
-                            this.userDataAccessObject.getPaperById(potentialPaper)
+                            this.userDataAccessObject.getPaperByID(potentialPaper)
                     );
                 }
             }
@@ -79,7 +79,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return recommendedPapers;
     }
 
-    private boolean isGoodMatch(String paperId, PreferenceData preferenceData) {
+    public boolean isGoodMatch(String paperId, PreferenceData preferenceData) {
         return getMatchScore(paperId, preferenceData) >= THRESHOLD;
     }
 
@@ -94,13 +94,13 @@ public class RecommendInteractor implements RecommendInputBoundary {
      *     category search, prioritize upvote percentage search);
      * (5) The result from Step (4) is the match score.
      * */
-    private double getMatchScore(String paperId, PreferenceData preferenceData) {
+    public double getMatchScore(String paperId, PreferenceData preferenceData) {
         List<Category> preferredCategories = preferenceData.getPreferredCategories();
         boolean prioritizeCategorySearch = preferenceData.prioritizeSubcategorySearch();
         boolean prioritizeUpvotePercentageSearch = preferenceData.prioritizeUpvotePercentageSearch();
         double matchScore = 0;
 
-        ResearchPaper paper = this.userDataAccessObject.getPaperById(paperId);
+        ResearchPaper paper = this.userDataAccessObject.getPaperByID(paperId);
         double adjustedMatchCount = adjust(getCategoryMatchCount(paper, preferredCategories));
         double upvotePercentage = getUpvotePercentage(paper.getUpvoteCount(), paper.getDownvoteCount());
 
@@ -117,7 +117,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return matchScore;
     }
 
-    private double adjust(int factor) {
+    public double adjust(int factor) {
         int scale = 1;
         int tempFactor = factor;
         while (tempFactor / 10 > 0) {
@@ -129,7 +129,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
     }
 
     /** Count the number of categories the given paper shares with the preferred categories. */
-    private int getCategoryMatchCount(ResearchPaper paper, List<Category> preferredCategories) {
+    public int getCategoryMatchCount(ResearchPaper paper, List<Category> preferredCategories) {
         int count = 0;
         List<Category> paperCategories = paper.getCategories();
         for (Category paperCategory : paperCategories) {
@@ -142,12 +142,12 @@ public class RecommendInteractor implements RecommendInputBoundary {
         return count;
     }
 
-    private double getUpvotePercentage(long upvoteCount, long downvoteCount) {
+    public double getUpvotePercentage(long upvoteCount, long downvoteCount) {
         return upvoteCount == downvoteCount ?
                 1.0 : 100.0 * upvoteCount / (upvoteCount + downvoteCount);
     }
 
-    private List<List<String>> toList(List<ResearchPaper> papers) {
+    public List<List<String>> toList(List<ResearchPaper> papers) {
         List<List<String>> reformatted = new ArrayList<>();
         for (ResearchPaper paper : papers) {
             reformatted.add(paper.toList());
