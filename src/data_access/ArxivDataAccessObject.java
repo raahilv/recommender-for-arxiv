@@ -9,6 +9,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import use_cases.recommend.RecommendDataAccessInterface;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -174,11 +175,6 @@ public class ArxivDataAccessObject {
 
     public ResearchPaper getPaperByTitle(String title) {
         HashMap<String, List<String>> map = parse(paperFromAPI("ti", title));
-        return PaperBuilder(map);
-    }
-
-    public ResearchPaper getPaperByJournalReference(String journalReference) {
-        HashMap<String, List<String>> map = parse(paperFromAPI("jr", journalReference));
         return PaperBuilder(map);
     }
 

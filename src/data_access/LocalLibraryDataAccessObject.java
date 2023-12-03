@@ -56,8 +56,9 @@ public class LocalLibraryDataAccessObject {
 //        }
 //    }
 
-    public void saveToDatabase(String username, String paperID) {
+    public void saveToDatabase(String username, ResearchPaper paper) {
         try {
+            String paperID = paper.getID();
             List<String> rows = Files.readAllLines(Paths.get(userLibrariesCSVFilePath), StandardCharsets.UTF_8);
             boolean userHandled = false;
             for (int i = 0; i < rows.size() && !userHandled; i++) {
@@ -98,7 +99,7 @@ public class LocalLibraryDataAccessObject {
 
     public void writeToDatabase(String username, List<String> paperIDs) {
         for (String paperID : paperIDs) {
-            saveToDatabase(username, paperID);
+            saveToDatabase(username, this.localResearchPaperDAO.getPaperByID(paperID));
         }
     }
 

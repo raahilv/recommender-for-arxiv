@@ -1,6 +1,7 @@
 package data_access;
 
 import entities.*;
+import use_cases.recommend.RecommendDataAccessInterface;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

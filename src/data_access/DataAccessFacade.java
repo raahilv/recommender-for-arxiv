@@ -45,7 +45,7 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
 
     @Override
     public void save(String username, ResearchPaper paper) {
-        this.localLibraryDAO.saveToDatabase(username, paper.getID());
+        this.localLibraryDAO.saveToDatabase(username, paper);
     }
 
     @Override
@@ -65,22 +65,17 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
 
     @Override
     public ResearchPaper getPaper(String paperID) {
-        return getPaperById(paperID);
+        return getPaperByID(paperID);
     }
 
     @Override
-    public ResearchPaper getPaperById(String id) {
+    public ResearchPaper getPaperByID(String id) {
         return arxivDAO.getPaperByID(id);
     }
 
     @Override
     public ResearchPaper getPaperByTitle(String title) {
         return arxivDAO.getPaperByTitle(title);
-    }
-
-    @Override
-    public ResearchPaper getPaperByJournalReference(String journalReference) {
-        return arxivDAO.getPaperByJournalReference(journalReference);
     }
 
     @Override
