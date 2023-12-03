@@ -14,7 +14,6 @@ public class LocalSaveInteractor implements LocalSaveInputBoundary {
         this.localSaveDataAccessObject = localSaveDataAccessObject;
 
     }
-
     public void execute(LocalSaveInputData localSaveInputData) {
         localSaveDataAccessObject.localSave(localSaveInputData.getPaperUrl(), localSaveInputData.getPaperName());
     }

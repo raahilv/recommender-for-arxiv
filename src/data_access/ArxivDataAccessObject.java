@@ -43,7 +43,7 @@ public class ArxivDataAccessObject {
         LocalDate date;
 
         String rawDate = map.get("publishDate").get(0);
-        date = LocalDate.parse(rawDate);
+        date = LocalDate.parse(rawDate.split("T")[0]);
 
         for (String cat: map.get("categories")) {
             for (Category CAT: catList) {
@@ -107,7 +107,7 @@ public class ArxivDataAccessObject {
         NodeList nodeList = root.getElementsByTagName("summary");
         for (int i = 0; i < nodeList.getLength(); i++){
             Node node = nodeList.item(i);
-            return node.getTextContent();
+            return node.getTextContent().replaceAll("\n", " ");
         }
         return "";
     }
@@ -147,7 +147,7 @@ public class ArxivDataAccessObject {
             Node node = nodeList.item(i);
             if (node.getParentNode().getNodeName().equals("entry")) {
                 Element element = (Element) node;
-                return element.getTextContent();
+                return element.getTextContent().replaceAll("\n", "");
             }
         }
         return "";
@@ -156,8 +156,13 @@ public class ArxivDataAccessObject {
         String[] str = input.split("id>");
         for (String string : str) {
             if (string.startsWith("http://arxiv.org/abs")) {
-                return string.split("http://arxiv.org/abs/")[1].split("</")[0];
+                return string.split("http://arxiv.org/abs/")[1].split("v")[0];
             }
+            try {
+                Float.parseFloat(string.split("v")[0]);
+                return string.split("v")[0];
+            }catch (NumberFormatException e){}
+
         }
         return "";
     }
@@ -166,9 +171,8 @@ public class ArxivDataAccessObject {
 //        HashMap<String, List<String>> map = parse(paperFromApi("ti", paperName));
 //        return PaperBuilder(map);
 //    }
-
     public ResearchPaper getPaperByID(String id) {
-        HashMap<String, List<String>> map = parse(paperFromAPI("id", id));
+        HashMap<String, List<String>> map = parse(paperFromAPI("id", getID(id)));
         return PaperBuilder(map);
     }
 
@@ -176,43 +180,53 @@ public class ArxivDataAccessObject {
         HashMap<String, List<String>> map = parse(paperFromAPI("ti", title));
         return PaperBuilder(map);
     }
-
-    public ResearchPaper getPaperByJournalReference(String journalReference) {
-        HashMap<String, List<String>> map = parse(paperFromAPI("jr", journalReference));
-        return PaperBuilder(map);
-    }
+//    public List<ResearchPaper> getPaperByJournalReference(String journalReference) {
+//        List<ResearchPaper> output = new ArrayList<>();
+//        Element root = getDocFromQuery(apiBegin + "query?search_query=" + "jr" +":" + journalReference.replaceAll(" ", "%20")).getDocumentElement();
+//        NodeList papers = root.getElementsByTagName("entry");
+//        for(int i = 0; i < papers.getLength(); i++) {
+//            NodeList nodeList = ((Element) papers.item(i)).getElementsByTagName("id");
+//            NodeList jrCheck = ((Element) papers.item(i)).getElementsByTagName("arxiv:journal_ref");
+//            for (int j = 0; j < nodeList.getLength(); j++) {
+//                if (jrCheck.item(j).getTextContent().equals(journalReference)) {
+//                    output.add(getPaperByID(getID(nodeList.item(j).getTextContent())));
+//                }
+//            }
+//        }
+//        return output;
+//    }
 
     public List<String> filterPapersByRootCategory(String parentCategory) {
         //assumes 50 papers for now
         List<String> ids = new ArrayList<>();
-        HttpRequest request;
-        try {
-            request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + "cat" +":" + parentCategory.replaceAll(" ", "%20") + "&start=0&max_results=50")).GET().build();
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
-        HttpResponse<String> resp;
-        try {
-            resp = HttpClient.newBuilder().build().send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder;
-        try {
-            builder = factory.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        }
-        Document doc;
-        try {
-            doc = builder.parse(new InputSource(new StringReader(resp.body())));
-        } catch (SAXException | IOException e) {
-            throw new RuntimeException(e);
-        }
-        Element root = doc.getDocumentElement();
+//        HttpRequest request;
+//        try {
+//            request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + "cat" +":" + parentCategory.replaceAll(" ", "%20") + "&start=0&max_results=50")).GET().build();
+//        } catch (URISyntaxException e) {
+//            throw new RuntimeException(e);
+//        }
+//        HttpResponse<String> resp;
+//        try {
+//            resp = HttpClient.newBuilder().build().send(request, HttpResponse.BodyHandlers.ofString());
+//        } catch (IOException | InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//        DocumentBuilder builder;
+//        try {
+//            builder = factory.newDocumentBuilder();
+//        } catch (ParserConfigurationException e) {
+//            throw new RuntimeException(e);
+//        }
+//        Document doc;
+//        try {
+//            doc = builder.parse(new InputSource(new StringReader(resp.body())));
+//        } catch (SAXException | IOException e) {
+//            throw new RuntimeException(e);
+//        }
+        Element root = getDocFromQuery(apiBegin + "query?search_query=" + "cat" +":" + parentCategory.replaceAll(" ", "%20") + "&start=0&max_results=50").getDocumentElement();
         NodeList nodeList = root.getElementsByTagName("id");
-        for(int i = 0; i < nodeList.getLength(); i++) {
+        for(int i = 1; i < nodeList.getLength(); i++) {
             Node node = nodeList.item(i);
             Element element = (Element) node;
             ids.add(element.getTextContent());
@@ -223,54 +237,82 @@ public class ArxivDataAccessObject {
     }
 
     public List<String> getIDsByAuthor(Author author) {
-        HttpRequest request;
-        try {
-            request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + "au" +":" + author.getName().replaceAll(" ", "%20"))).GET().build();
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
+        String[] splitNames = author.getName().split(" ");
+        String query = "";
+        for (int i = 0; i < splitNames.length - 1; i++){
+            query = query + "au:" + splitNames[i] + "+AND+";
         }
-        HttpResponse<String> resp;
-        try {
-            resp = HttpClient.newBuilder().build().send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException | InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder;
-        try {
-            builder = factory.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            throw new RuntimeException(e);
-        }
-        Document doc;
-        try {
-            doc = builder.parse(new InputSource(new StringReader(resp.body())));
-        } catch (SAXException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        Element root = doc.getDocumentElement();
+        query = query + "au:" + splitNames[splitNames.length - 1];
+//        HttpRequest request;
+//        try {
+//            request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + query +"&max_results=100")).GET().build();
+//        } catch (URISyntaxException e) {
+//            throw new RuntimeException(e);
+//        }
+//        HttpResponse<String> resp;
+//        try {
+//            resp = HttpClient.newBuilder().build().send(request, HttpResponse.BodyHandlers.ofString());
+//        } catch (IOException | InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+//        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//        DocumentBuilder builder;
+//        try {
+//            builder = factory.newDocumentBuilder();
+//        } catch (ParserConfigurationException e) {
+//            throw new RuntimeException(e);
+//        }
+//        Document doc;
+//        try {
+//            doc = builder.parse(new InputSource(new StringReader(resp.body())));
+//        } catch (SAXException e) {
+//            throw new RuntimeException(e);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+        Element root = getDocFromQuery(apiBegin + "query?search_query=" + query).getDocumentElement();
 
         List<String> ids = new ArrayList<>();
-        NodeList nodeList = root.getElementsByTagName("id");
-        for(int i = 0; i < nodeList.getLength(); i++) {
-            Node node = nodeList.item(i);
-            Element element = (Element) node;
-            ids.add(element.getTextContent());
+        NodeList papers = root.getElementsByTagName("entry");
+        for(int i = 0; i < papers.getLength(); i++) {
+            NodeList nodeList = ((Element) papers.item(i)).getElementsByTagName("name");
+            for (int j = 0; j < nodeList.getLength(); j++) {
+                if (nodeList.item(j).getTextContent().equals(author.getName())){
+                    ids.add(((Element) papers.item(i)).getTextContent().split("http://arxiv.org/abs/")[1].split("\n")[0]);
+                }
+//                Element element = (Element) nodeList.item(j);
+//                ids.add(element.getTextContent());
+            }
+//        }
+//        NodeList nodeList = root.getElementsByTagName("id");
+//         {
+//            Node node = nodeList.item(i);
+//            Element element = (Element) node;
+//            ids.add(element.getTextContent());
+//        }
         }
         return ids;
-
-
     }
     public List<ResearchPaper> getPapersByAuthor(Author author) {
         List<String>  ids = getIDsByAuthor(author);
         List<ResearchPaper> papers = new ArrayList<>();
         for (String id: ids) {
-            papers.add(getPaperByID(id));
+            papers.add(getPaperByID(id.split("v")[0]));
         }
         return papers;
 
+    }
+    private Document getDocFromQuery(String query) {
+        HttpRequest request;
+        try {request = HttpRequest.newBuilder().uri(new URI(query)).GET().build();} catch (URISyntaxException e) {throw new RuntimeException(e);}
+        HttpResponse<String> resp;
+        try {resp = HttpClient.newBuilder().build().send(request, HttpResponse.BodyHandlers.ofString());} catch (IOException | InterruptedException e) {throw new RuntimeException(e);}
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder;
+        try {builder = factory.newDocumentBuilder();} catch (ParserConfigurationException e) {throw new RuntimeException(e);}
+        Document doc;
+        try {doc = builder.parse(new InputSource(new StringReader(resp.body())));} catch (SAXException | IOException e) {throw new RuntimeException(e);}
+        return doc;
     }
 
     private String paperFromAPI(String searchType, String query) {
@@ -284,11 +326,10 @@ public class ArxivDataAccessObject {
         HttpResponse<String> resp;
         try {
             resp = HttpClient.newBuilder().build().send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return resp.body().replace("\n", ""); //not sure, but this might be needed
+        return resp.body();
+//        return resp.body().replace("\n", ""); //not sure, but this might be needed
     }
 }

@@ -6,9 +6,9 @@ import java.util.List;
 
 
 public interface LibraryDataAccessInterface {
-  
-    List<ResearchPaper> getSavedPapersForUser(String username);
-  
-    void deleteSavedPaper(String username,String paperID);
-  
+    public List<ResearchPaper> getSavedPapersForUser(String username);
+
+    public void deleteSavedPaper(String userName,String paperID); //DONT
+
+
 }

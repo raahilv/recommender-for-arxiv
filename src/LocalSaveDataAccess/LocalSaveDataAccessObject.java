@@ -21,7 +21,7 @@ public class LocalSaveDataAccessObject implements LocalSaveDataAccessInterface {
             // Get the user's home directory.
             String userHome = System.getProperty("user.home");
 
-            // Define the downloads directory path
+            // Define the downloads directory path.
             String downloadsPath = userHome + File.separator + "Downloads";
 
             // Create a Path object for the downloads directory
