@@ -21,7 +21,7 @@ public class VoteDataAccessObject implements VoteDataAccessInterface {
     }
 
     @Override
-    public ResearchPaper getPaper(String paperName) {
-        return this.arxivDAO.getPaperByTitle(paperName);  // TODO: ask zherui: is this get paper by title?
+    public ResearchPaper getPaper(String paperID) {
+        return this.arxivDAO.getPaperByID(paperID);
     }
 }
