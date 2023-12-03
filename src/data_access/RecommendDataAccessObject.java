@@ -27,7 +27,7 @@ public class RecommendDataAccessObject implements RecommendDataAccessInterface {
     }
 
     @Override
-    public ResearchPaper getPaperByID(String id) {
+    public ResearchPaper getPaperById(String id) {
         return this.arxivDAO.getPaperByID(id);
     }
 

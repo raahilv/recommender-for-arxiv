@@ -106,24 +106,25 @@ public class ResearchPaper {
     public String toString() {
         StringBuilder mutableCategoriesStringRep = new StringBuilder();
         for (Category category : this.categories) {
-            mutableCategoriesStringRep.append(category.toString());
+            mutableCategoriesStringRep.append(category.toString()).append(" ");
         }
+        mutableCategoriesStringRep.deleteCharAt(mutableCategoriesStringRep.length() - 1);
         String categoriesStringRep = mutableCategoriesStringRep.toString();
 
         StringBuilder mutableAuthorsStringRep = new StringBuilder();
         for (Author author : this.authors) {
-            mutableAuthorsStringRep.append(author.toString());
+            mutableAuthorsStringRep.append(author.toString()).append(" ");
         }
+        mutableAuthorsStringRep.deleteCharAt(mutableAuthorsStringRep.length() - 1);
         String authorsStringRep = mutableAuthorsStringRep.toString();
 
         return this.journalReference != null ?
-                "[" + this.id + "|" + this.title + "|" + categoriesStringRep + "|" +
-                        this.publishDate.toString() + "|" + this.paperAbstract + "|" +
-                        this.journalReference + "|" + this.url + "|" + this.upvoteCount + "|" +
-                        this.downvoteCount + "|" + authorsStringRep + "]" :
-                "[" + this.id + "|" + this.title + "|" + categoriesStringRep + "|" +
-                        this.publishDate.toString() + "|" + this.paperAbstract + "|" + "!NO_JOUR_REF!" + "|" + this.url +
-                        "|" + this.upvoteCount + "|" + this.downvoteCount + "|" + authorsStringRep + "]";
+                "{" + this.id + "} {" + this.title + "} {" + categoriesStringRep + "} {" + authorsStringRep + "} {" + this.publishDate.toString() +  "} {" +
+                        this.paperAbstract + "} {" + this.journalReference + "} {" + this.url + "} {" + this.upvoteCount + "} " +
+                        this.downvoteCount + "}" :
+                "{" + this.id + "} {" + this.title + "} {" + categoriesStringRep + "} {" + authorsStringRep + "} {" + this.publishDate.toString() +  "} {" +
+                        this.paperAbstract + "} {" + "!NO_JOUR_REF!" + "} {" + this.url + "} {" + this.upvoteCount + "} " +
+                        this.downvoteCount + "}";
     }
 
     public List<Author> getAuthors() {

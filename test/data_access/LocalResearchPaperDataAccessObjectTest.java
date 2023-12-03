@@ -23,7 +23,7 @@ public class LocalResearchPaperDataAccessObjectTest {
             LocalResearchPaperDataAccessObject lrpDAO = new LocalResearchPaperDataAccessObject(filepath, af, cf, rpf);
             String expectedPaperID = "0";
             ResearchPaper paper = lrpDAO.getPaperByID(expectedPaperID);
-            System.out.println(paper);  // TODO: to be deleted...
+            // System.out.println(paper);
 
             String actualPaperID = paper.getID();
             String actualTitle = paper.getTitle();
@@ -59,7 +59,7 @@ public class LocalResearchPaperDataAccessObjectTest {
                     actualAuthorsStringRep, actualPublishDate,
                     actualAbstract, actualJournalReference, actualURL, actualUpvoteCount,
                     actualDownvoteCount);
-            System.out.println(line);  // TODO: to be deleted...
+            // System.out.println(line);
 
             BufferedReader reader = new BufferedReader(new FileReader(filepath));
             String row;

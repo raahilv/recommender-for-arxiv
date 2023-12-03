@@ -172,6 +172,7 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             lrcDAO.writeToDatabase(dest);
             List<String> emptyCategoriesContents = Files.readAllLines(Paths.get(emptyCategoriesFilePath), StandardCharsets.UTF_8);
 
+
             assert (categoriesContents.equals(emptyCategoriesContents));
 
         } catch (IOException ioe) {
