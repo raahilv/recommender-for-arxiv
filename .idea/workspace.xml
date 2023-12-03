@@ -65,16 +65,31 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="JUnit.LocalResearchPaperDataAccessObjectTest">
+}</component>
+  <component name="RunManager" selected="JUnit.data_access in CSC207-Project">
+    <configuration name="ArxivDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access" />
+      <option name="MAIN_CLASS_NAME" value="data_access.ArxivDataAccessObjectTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LocalPreferredCategoriesDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
@@ -86,22 +101,6 @@
       <option name="PACKAGE_NAME" value="data_access" />
       <option name="MAIN_CLASS_NAME" value="data_access.LocalPreferredCategoriesDataAccessObjectTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithExistingUsername" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CSC207-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data_access.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="data_access" />
-      <option name="MAIN_CLASS_NAME" value="data_access.LocalPreferredCategoriesDataAccessObjectTest" />
-      <option name="METHOD_NAME" value="testWriteToDatabaseWithExistingUsername" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -152,19 +151,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.ArxivDataAccessObjectTest" />
       <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest" />
-      <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithExistingUsername" />
       <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest" />
       <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists" />
       <item itemvalue="JUnit.data_access in CSC207-Project" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.data_access in CSC207-Project" />
+        <item itemvalue="JUnit.ArxivDataAccessObjectTest" />
         <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest" />
         <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest" />
-        <item itemvalue="JUnit.data_access in CSC207-Project" />
         <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists" />
-        <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest.testWriteToDatabaseWithExistingUsername" />
       </list>
     </recent_temporary>
   </component>
