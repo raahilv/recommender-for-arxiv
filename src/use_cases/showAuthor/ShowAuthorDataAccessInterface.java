@@ -7,5 +7,4 @@ import java.util.List;
 
 public interface ShowAuthorDataAccessInterface {
     List<ResearchPaper> getPapersByAuthor(Author author);
-
 }

@@ -71,11 +71,6 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
     }
 
     @Override
-    public List<ResearchPaper> getPaperByJournalReference(String journalReference) {
-        return arxivDAO.getPaperByJournalReference(journalReference);
-    }
-
-    @Override
     public List<String> filterPapersByRootCategory(String parentCategory) {
         return arxivDAO.filterPapersByRootCategory(parentCategory);
     }
