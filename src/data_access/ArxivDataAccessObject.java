@@ -195,8 +195,9 @@ public class ArxivDataAccessObject {
 //        return output;
 //    }
 
-    public List<String> filterPapersByRootCategory(String parentCategory) {
+    public List<String> filterPapersByRootCategory(Category category) {
         //assumes 50 papers for now
+        String categoryStringRep = category.getRootCategory().toLowerCase() + "." + category.getSubcategory().toUpperCase();
         List<String> ids = new ArrayList<>();
 //        HttpRequest request;
 //        try {
@@ -223,7 +224,7 @@ public class ArxivDataAccessObject {
 //        } catch (SAXException | IOException e) {
 //            throw new RuntimeException(e);
 //        }
-        Element root = getDocFromQuery(apiBegin + "query?search_query=" + "cat" +":" + parentCategory.replaceAll(" ", "%20") + "&start=0&max_results=50").getDocumentElement();
+        Element root = getDocFromQuery(apiBegin + "query?search_query=" + "cat" +":" + categoryStringRep.replaceAll(" ", "%20") + "&start=0&max_results=50").getDocumentElement();
         NodeList nodeList = root.getElementsByTagName("id");
         for(int i = 1; i < nodeList.getLength(); i++) {
             Node node = nodeList.item(i);
