@@ -131,10 +131,27 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
         download8 = new JButton("Download" + " paper 8");
         download9 = new JButton("Download" + " paper 9");
 
-
         saveViewModel.addPropertyChangeListener(this);
         voteViewModel.addPropertyChangeListener(this);
 
+        ArrayList<JTextArea> infoAreas = new ArrayList<JTextArea>(
+                Arrays.asList(paperInfoArea1, paperInfoArea2, paperInfoArea3, paperInfoArea4,
+                        paperInfoArea5, paperInfoArea6, paperInfoArea7, paperInfoArea8, paperInfoArea9));
+
+        ArrayList<JButton> upVoteButtons = new ArrayList<JButton>(
+                Arrays.asList(upVote1, upVote2, upVote3, upVote4, upVote5, upVote6,
+                        upVote7, upVote8, upVote9));
+
+        ArrayList<JButton> downVoteButtons = new ArrayList<JButton>(
+                Arrays.asList(downVote1, downVote2, downVote3, downVote4, downVote5, downVote6,
+                        downVote7, downVote8, downVote9));
+
+        ArrayList<JButton> saveButtons = new ArrayList<JButton>(
+                Arrays.asList(save1, save2, save3, save4, save5, save6, save7, save8, save9));
+
+        ArrayList<JButton> downloadButtons = new ArrayList<JButton>(
+                Arrays.asList(download1, download2, download3, download4, download5, download6,
+                        download7, download8, download9));
 
         RecommendState recommendState = this.recommendViewModel.getState();
         RecommendHomeState recommendHomeState = this.recommendHomeViewModel.getState();
@@ -149,641 +166,117 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
         }
 
         List<List<String>> papersDisplayed = recommendState.getRecommendedPapers().subList(0, 9);
-        List<String> paperInfo1 = papersDisplayed.get(0);
-        List<String> paperInfo2 = papersDisplayed.get(1);
-        List<String> paperInfo3 = papersDisplayed.get(2);
-        List<String> paperInfo4 = papersDisplayed.get(3);
-        List<String> paperInfo5 = papersDisplayed.get(4);
-        List<String> paperInfo6 = papersDisplayed.get(5);
-        List<String> paperInfo7 = papersDisplayed.get(6);
-        List<String> paperInfo8 = papersDisplayed.get(7);
-        List<String> paperInfo9 = papersDisplayed.get(7);
 
 //        load paper information to the InfoArea (text areas)
 
-        paperInfoArea1.append("Paper " + String.valueOf(1) + "\n");
-        paperInfoArea1.append("Id: " + paperInfo1.get(0) + "\n");
-        paperInfoArea1.append("Title: " + paperInfo1.get(1) + "\n");
-        paperInfoArea1.append("Publish Date: "+ paperInfo1.get(3) + "\n");
-        paperInfoArea1.append("Authors: " + paperInfo1.get(9) + "\n");
-        paperInfoArea1.append("Upvote & Downvote Count: " + paperInfo1.get(7) +
-                paperInfo1.get(8) + "\n");
-        paperInfoArea1.append(paperInfo1.get(4));
-        paperInfoArea1.setEditable(false);
-
-        paperInfoArea2.append("Paper " + String.valueOf(2) + "\n");
-        paperInfoArea2.append("Id: " + paperInfo2.get(0) + "\n");
-        paperInfoArea2.append("Title: " + paperInfo2.get(1) + "\n");
-        paperInfoArea2.append("Publish Date: "+ paperInfo2.get(3) + "\n");
-        paperInfoArea2.append("Authors: " + paperInfo2.get(9) + "\n");
-        paperInfoArea2.append("Upvote & Downvote Count: " + paperInfo2.get(7) +
-                paperInfo2.get(8) + "\n");
-        paperInfoArea2.append(paperInfo2.get(4));
-        paperInfoArea2.setEditable(false);
-
-        paperInfoArea3.append("Paper " + String.valueOf(3) + "\n");
-        paperInfoArea3.append("Id: " + paperInfo3.get(0) + "\n");
-        paperInfoArea3.append("Title: " + paperInfo3.get(1) + "\n");
-        paperInfoArea3.append("Publish Date: "+ paperInfo3.get(3) + "\n");
-        paperInfoArea3.append("Authors: " + paperInfo3.get(9) + "\n");
-        paperInfoArea3.append("Upvote & Downvote Count: " + paperInfo3.get(7) +
-                paperInfo3.get(8) + "\n");
-        paperInfoArea3.append(paperInfo3.get(4));
-        paperInfoArea3.setEditable(false);
-
-        paperInfoArea4.append("Paper " + String.valueOf(4) + "\n");
-        paperInfoArea4.append("Id: " + paperInfo4.get(0) + "\n");
-        paperInfoArea4.append("Title: " + paperInfo4.get(1) + "\n");
-        paperInfoArea4.append("Publish Date: "+ paperInfo4.get(3) + "\n");
-        paperInfoArea4.append("Authors: " + paperInfo4.get(9) + "\n");
-        paperInfoArea4.append("Upvote & Downvote Count: " + paperInfo4.get(7) +
-                paperInfo4.get(8) + "\n");
-        paperInfoArea4.append(paperInfo4.get(4));
-        paperInfoArea4.setEditable(false);
-
-        paperInfoArea5.append("Paper " + String.valueOf(5) + "\n");
-        paperInfoArea5.append("Id: " + paperInfo5.get(0) + "\n");
-        paperInfoArea5.append("Title: " + paperInfo5.get(1) + "\n");
-        paperInfoArea5.append("Publish Date: "+ paperInfo5.get(3) + "\n");
-        paperInfoArea5.append("Authors: " + paperInfo5.get(9) + "\n");
-        paperInfoArea5.append("Upvote & Downvote Count: " + paperInfo5.get(7) +
-                paperInfo5.get(8) + "\n");
-        paperInfoArea5.append(paperInfo5.get(4));
-        paperInfoArea5.setEditable(false);
-
-        paperInfoArea6.append("Paper " + String.valueOf(6) + "\n");
-        paperInfoArea6.append("Id: " + paperInfo6.get(0) + "\n");
-        paperInfoArea6.append("Title: " + paperInfo6.get(1) + "\n");
-        paperInfoArea6.append("Publish Date: "+ paperInfo6.get(3) + "\n");
-        paperInfoArea6.append("Authors: " + paperInfo6.get(9) + "\n");
-        paperInfoArea6.append("Upvote & Downvote Count: " + paperInfo6.get(7) +
-                paperInfo6.get(8) + "\n");
-        paperInfoArea6.append(paperInfo6.get(4));
-        paperInfoArea6.setEditable(false);
-
-        paperInfoArea7.append("Paper " + String.valueOf(7) + "\n");
-        paperInfoArea7.append("Id: " + paperInfo7.get(0) + "\n");
-        paperInfoArea7.append("Title: " + paperInfo7.get(1) + "\n");
-        paperInfoArea7.append("Publish Date: "+ paperInfo7.get(3) + "\n");
-        paperInfoArea7.append("Authors: " + paperInfo7.get(9) + "\n");
-        paperInfoArea7.append("Upvote & Downvote Count: " + paperInfo7.get(7) +
-                paperInfo7.get(8) + "\n");
-        paperInfoArea7.append(paperInfo7.get(4));
-        paperInfoArea7.setEditable(false);
-
-        paperInfoArea8.append("Paper " + String.valueOf(8) + "\n");
-        paperInfoArea8.append("Id: " + paperInfo8.get(0) + "\n");
-        paperInfoArea8.append("Title: " + paperInfo8.get(1) + "\n");
-        paperInfoArea8.append("Publish Date: "+ paperInfo8.get(3) + "\n");
-        paperInfoArea8.append("Authors: " + paperInfo8.get(9) + "\n");
-        paperInfoArea8.append("Upvote & Downvote Count: " + paperInfo8.get(7) +
-                paperInfo8.get(8) + "\n");
-        paperInfoArea8.append(paperInfo8.get(4));
-        paperInfoArea8.setEditable(false);
-
-        paperInfoArea9.append("Paper " + String.valueOf(9) + "\n");
-        paperInfoArea9.append("Id: " + paperInfo9.get(0) + "\n");
-        paperInfoArea9.append("Title: " + paperInfo9.get(1) + "\n");
-        paperInfoArea9.append("Publish Date: "+ paperInfo9.get(3) + "\n");
-        paperInfoArea9.append("Authors: " + paperInfo9.get(9) + "\n");
-        paperInfoArea9.append("Upvote & Downvote Count: " + paperInfo9.get(7) +
-                paperInfo9.get(8) + "\n");
-        paperInfoArea9.append(paperInfo9.get(4));
-        paperInfoArea9.setEditable(false);
+        for (int i = 0; i < 9; i++) {
+            JTextArea paperInfoArea = infoAreas.get(i);
+            List<String> paperInfo = papersDisplayed.get(i);
+            paperInfoArea.append("Paper " + String.valueOf(1) + "\n");
+            paperInfoArea.append("Id: " + paperInfo.get(0) + "\n");
+            paperInfoArea.append("Title: " + paperInfo.get(1) + "\n");
+            paperInfoArea.append("Publish Date: "+ paperInfo.get(3) + "\n");
+            paperInfoArea.append("Authors: " + paperInfo.get(9) + "\n");
+            paperInfoArea.append("Upvote & Downvote Count: " + paperInfo.get(7) +
+                    paperInfo.get(8) + "\n");
+            paperInfoArea.append(paperInfo.get(4));
+            paperInfoArea.setEditable(false);
+        }
 
 //        Add listeners to Upvote buttons.
 
-        upVote1.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote1)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
+        for (int i = 0; i < 9; i++) {
+            JButton upvoteButton = upVoteButtons.get(i);
+            List<String> paperInfo = papersDisplayed.get(i);
+            upvoteButton.addActionListener(
+                    new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            if (evt.getSource().equals(upvoteButton)) {
+                                String userName = recommendHomeState.getUsername();
+                                String paperId = paperInfo.get(0);
+                                boolean isUpvote = true;
+                                voteController.execute(userName, paperId, isUpvote);
+                            }
+
                         }
-
                     }
-                }
-        );
-
-        upVote2.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote2)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo2.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        upVote3.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote3)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo3.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        upVote4.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote4)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo4.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        upVote5.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote5)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo5.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        upVote6.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote6)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo6.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        upVote7.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote7)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo7.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        upVote8.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote8)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo8.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        upVote9.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(upVote9)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo9.get(0);
-                            boolean isUpvote = true;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
+            );
+        }
 
 //      Add listeners to Downvote buttons.
 
-        downVote1.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote1)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
+        for (int i = 0; i < 9; i++) {
+            JButton downvoteButton = downVoteButtons.get(i);
+            List<String> paperInfo = papersDisplayed.get(i);
+            downvoteButton.addActionListener(
+                    new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            if (evt.getSource().equals(downvoteButton)) {
+                                String userName = recommendHomeState.getUsername();
+                                String paperId = paperInfo.get(0);
+                                boolean isUpvote = false;
+                                voteController.execute(userName, paperId, isUpvote);
+                            }
+
                         }
-
                     }
-                }
-        );
-
-        downVote2.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote2)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo2.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        downVote3.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote3)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo3.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        downVote4.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote4)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo4.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        downVote5.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote5)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo5.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        downVote6.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote6)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo6.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        downVote7.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote7)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo7.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        downVote8.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote8)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo8.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
-
-        downVote9.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(downVote9)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo9.get(0);
-                            boolean isUpvote = false;
-                            voteController.execute(userName, paperId, isUpvote);
-                        }
-
-                    }
-                }
-        );
+            );
+        }
 
 //        Add listeners for Save buttons.
 
-        save1.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save1)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
+        for (int i = 0; i < 9; i++) {
+            JButton saveButton = saveButtons.get(i);
+            List<String> paperInfo = papersDisplayed.get(i);
+            saveButton.addActionListener(
+                    new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            if (evt.getSource().equals(saveButton)) {
+                                String userName = recommendHomeState.getUsername();
+                                String paperId = paperInfo.get(0);
+                                saveController.execute(userName, paperId);
+                            }
+
                         }
-
                     }
-                }
-        );
+            );
 
-        save2.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save2)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
-                        }
-
-                    }
-                }
-        );
-
-        save3.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save3)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
-                        }
-
-                    }
-                }
-        );
-
-        save4.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save4)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
-                        }
-
-                    }
-                }
-        );
-
-        save5.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save5)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
-                        }
-
-                    }
-                }
-        );
-
-        save6.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save6)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
-                        }
-
-                    }
-                }
-        );
-
-        save7.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save7)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
-                        }
-
-                    }
-                }
-        );
-
-        save8.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save8)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
-                        }
-
-                    }
-                }
-        );
-
-        save9.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(save9)) {
-                            String userName = recommendHomeState.getUsername();
-                            String paperId = paperInfo1.get(0);
-                            saveController.execute(userName, paperId);
-                        }
-
-                    }
-                }
-        );
+        }
 
 //        Add listeners to download buttons.
 
-        download1.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download1)) {
-                            String paperName = paperInfo1.get(1);
-                            String paperUrl = paperInfo1.get(6);
-                            localSaveController.execute(paperUrl, paperName);
+        for (int i = 0; i < 9; i++) {
+            JButton downloadButton = downloadButtons.get(i);
+            List<String> paperInfo = papersDisplayed.get(i);
+            downloadButton.addActionListener(
+                    new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent evt) {
+                            if (evt.getSource().equals(downloadButton)) {
+                                String paperName = paperInfo.get(1);
+                                String paperUrl = paperInfo.get(6);
+                                localSaveController.execute(paperUrl, paperName);
+                            }
                         }
                     }
-                }
-        );
-
-        download2.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download2)) {
-                            String paperName = paperInfo2.get(1);
-                            String paperUrl = paperInfo2.get(6);
-                            localSaveController.execute(paperUrl, paperName);
-                        }
-                    }
-                }
-        );
-
-        download3.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download3)) {
-                            String paperName = paperInfo3.get(1);
-                            String paperUrl = paperInfo3.get(6);
-                            localSaveController.execute(paperUrl, paperName);
-                        }
-                    }
-                }
-        );
-
-        download4.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download4)) {
-                            String paperName = paperInfo4.get(1);
-                            String paperUrl = paperInfo4.get(6);
-                            localSaveController.execute(paperUrl, paperName);
-                        }
-                    }
-                }
-        );
-
-        download5.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download5)) {
-                            String paperName = paperInfo5.get(1);
-                            String paperUrl = paperInfo5.get(6);
-                            localSaveController.execute(paperUrl, paperName);
-                        }
-                    }
-                }
-        );
-
-        download6.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download6)) {
-                            String paperName = paperInfo6.get(1);
-                            String paperUrl = paperInfo6.get(6);
-                            localSaveController.execute(paperUrl, paperName);
-                        }
-                    }
-                }
-        );
-
-        download7.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download7)) {
-                            String paperName = paperInfo7.get(1);
-                            String paperUrl = paperInfo7.get(6);
-                            localSaveController.execute(paperUrl, paperName);
-                        }
-                    }
-                }
-        );
-
-        download8.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download8)) {
-                            String paperName = paperInfo8.get(1);
-                            String paperUrl = paperInfo8.get(6);
-                            localSaveController.execute(paperUrl, paperName);
-                        }
-                    }
-                }
-        );
-
-        download9.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent evt) {
-                        if (evt.getSource().equals(download9)) {
-                            String paperName = paperInfo9.get(1);
-                            String paperUrl = paperInfo9.get(6);
-                            localSaveController.execute(paperUrl, paperName);
-                        }
-                    }
-                }
-        );
+            );
+        }
 
         this.setLayout(new GridLayout(3, 3, 10, 10));
 
-        addPaperInfoArea(paperInfoArea1, upVote1, downVote1, save1, download1);
-        addPaperInfoArea(paperInfoArea2, upVote2, downVote2, save2, download2);
-        addPaperInfoArea(paperInfoArea3, upVote3, downVote3, save3, download3);
-        addPaperInfoArea(paperInfoArea4, upVote4, downVote4, save4, download4);
-        addPaperInfoArea(paperInfoArea5, upVote5, downVote5, save5, download5);
-        addPaperInfoArea(paperInfoArea6, upVote6, downVote6, save6, download6);
-        addPaperInfoArea(paperInfoArea7, upVote7, downVote7, save7, download7);
-        addPaperInfoArea(paperInfoArea8, upVote8, downVote8, save8, download8);
-        addPaperInfoArea(paperInfoArea9, upVote9, downVote9, save9, download9);
-
+        for (int i = 0; i < 9; i++) {
+            List<String> paperInfo = papersDisplayed.get(i);
+            if (! paperInfo.equals(emptyPaperInfo)) {
+                addPaperInfoArea(infoAreas.get(i),
+                        upVoteButtons.get(i),
+                        downVoteButtons.get(i),
+                        saveButtons.get(i),
+                        downloadButtons.get(i));
+            }
+        }
     }
 
     private void addPaperInfoArea(JTextArea paperInfoArea, JButton upVote, JButton downVote, JButton save, JButton doanload) {
