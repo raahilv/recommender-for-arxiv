@@ -54,6 +54,7 @@ public class RecommendInteractorTest {
             categories.add(new ArrayList<>(List.of("cs", "CR", "")));
             PreferenceData preference = new PreferenceDataFactory().createWithRawData(username, categories, false, false, false);
 
+            System.out.println(interactor.getMatchScore(randomPaper, preference));
             assert (interactor.getMatchScore(randomPaper, preference) == 2);
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);
