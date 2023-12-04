@@ -89,6 +89,7 @@ public class LocalUserDataAccessObject {
                     writer.newLine();
                 }
                 writer.close();
+                this.users.put(user.getUsername(), user);
             }
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);
