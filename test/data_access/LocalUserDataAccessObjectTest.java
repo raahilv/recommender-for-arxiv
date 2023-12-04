@@ -235,7 +235,7 @@ public class LocalUserDataAccessObjectTest {
             User user = uf.create(username, password);
             uDAO.saveToDatabase(user);
 
-            assert (Files.readAllLines(Paths.get(USER_CSV_FILE_PATH), StandardCharsets.UTF_8).get(5).equals("kaiwen,kaiwenpwd"));
+            assert (Files.readAllLines(Paths.get(USER_CSV_FILE_PATH), StandardCharsets.UTF_8).get(6).equals("kaiwen,kaiwenpwd"));
 
         } catch (IOException ioe) {
             System.out.println("IOException in testExistsByUsernameWithNonExistingUser().");

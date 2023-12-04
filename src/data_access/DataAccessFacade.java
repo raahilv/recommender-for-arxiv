@@ -1,8 +1,6 @@
 package data_access;
 
-import entities.Author;
-import entities.ResearchPaper;
-import entities.User;
+import entities.*;
 import use_cases.library.LibraryDataAccessInterface;
 import use_cases.login.LoginUserDataAccessInterface;
 import use_cases.recommend.RecommendDataAccessInterface;
@@ -11,6 +9,7 @@ import use_cases.showAuthor.ShowAuthorDataAccessInterface;
 import use_cases.signup.SignupUserDataAccessInterface;
 import use_cases.vote.VoteDataAccessInterface;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +20,21 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
     private final LocalLibraryDataAccessObject localLibraryDAO;
     private final LocalResearchPaperDataAccessObject localResearchPaperDAO;
     private final ArxivDataAccessObject arxivDAO;
+
+    public DataAccessFacade(List<Category> categories) throws IOException {
+        AuthorFactory af = new AuthorFactory();
+        CategoryFactory cf = new CategoryFactory();
+        UserFactory uf = new CommonUserFactory();
+        ResearchPaperFactory rpf = new ResearchPaperFactory();
+
+        this.localResearchPaperDAO = new LocalResearchPaperDataAccessObject("test/test_files/papers.csv", af, cf, rpf);
+        this.localLibraryDAO = new LocalLibraryDataAccessObject(this.localResearchPaperDAO);
+        LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+        LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject("test/test_files/upvotedPapers.csv", this.localResearchPaperDAO);
+        LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject("test/test_files/downvotedPapers.csv", this.localResearchPaperDAO);
+        this.localUserDAO = new LocalUserDataAccessObject(this.localLibraryDAO, upDAO, dpDAO, pcDAO, uf);
+        this.arxivDAO = new ArxivDataAccessObject(categories, af);
+    }
 
     public DataAccessFacade(LocalUserDataAccessObject localUserDAO, LocalLibraryDataAccessObject localLibraryDAO,
                             LocalResearchPaperDataAccessObject localResearchPaperDAO, ArxivDataAccessObject arxivDAO) {

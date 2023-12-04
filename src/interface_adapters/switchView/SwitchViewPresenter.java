@@ -27,5 +27,6 @@ public class SwitchViewPresenter implements SwitchViewOutputBoundary {
     public void prepareSuccessView(SwitchViewOutputData switchViewOutputData) {
         String viewName = switchViewOutputData.getViewName();
         this.viewManagerModel.setActiveView(viewName);
+        this.viewManagerModel.firePropertyChanged();
     }
 }
