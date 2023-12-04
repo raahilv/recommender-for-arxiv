@@ -173,7 +173,10 @@ public class RecommendInteractorTest {
 
             RecommendDataAccessObject rDAO = new RecommendDataAccessObject(aDAO, uDAO);
             RecommendInteractor interactor = new RecommendInteractor(rDAO, presenter, cf, pdf);
-            interactor.execute(input);
+            // interactor.execute(input);
+            PreferenceData preferenceData = new PreferenceData(username, preferredCategories, false, false, false);
+            List<ResearchPaper> papers = interactor.recommend(preferenceData);
+            System.out.println(papers.size());
 
 
         } catch (IOException ioe) {

@@ -50,7 +50,8 @@ public class ArxivDataAccessObject {
 
         for (String cat: map.get("categories")) {
             for (Category CAT: catList) {
-                if ((CAT.getRootCategory().equals(cat.split("\\.")[0])) && (CAT.getSubcategory().equals(cat.split("\\.")[1]))) {
+//                if ((CAT.getRootCategory().equals(cat.split("\\.")[0])) && (CAT.getSubcategory().equals(cat.split("\\.")[1]))) {
+                if (CAT.getSubcategory().equals(cat) || CAT.getRootCategory().equals(cat)){
                     categories.add(CAT);
                 }
             }
@@ -211,7 +212,8 @@ public class ArxivDataAccessObject {
 
     public List<String> filterPapersByRootCategory(Category category) {
         //assumes 50 papers for now
-        String categoryStringRep = category.getRootCategory().toLowerCase() + "." + category.getSubcategory().toUpperCase();
+//        String categoryStringRep = category.getRootCategory().toLowerCase() + "." + category.getSubcategory().toUpperCase();
+        String categoryStringRep = category.getSubcategory();
         List<String> ids = new ArrayList<>();
 //        HttpRequest request;
 //        try {

@@ -24,13 +24,13 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             BufferedWriter writer = new BufferedWriter(new FileWriter(preferredCategoriesCSVFilePath));
             writer.write("username,preferred_categories");
             writer.newLine();
-            writer.write("ege,r00|s00|d00^r01|s01|d01^r02|s02|d02^r03|s03|d03");
+            writer.write("ege,r00|s00|null^r01|s01|null^r02|s02|null^r03|s03|null");
             writer.newLine();
-            writer.write("kevin,r10|s10|d10");
+            writer.write("kevin,r10|s10|null");
             writer.newLine();
-            writer.write("jerry,r20|s20|d20^r21|s21|d21");
+            writer.write("jerry,r20|s20|null^r21|s21|null");
             writer.newLine();
-            writer.write("ozgen,r30|s30|d30^r31|s31|d31^r32|s32|d32");
+            writer.write("ozgen,r30|s30|null^r31|s31|null^r32|s32|null");
             writer.newLine();
             writer.write("raahil,");
             writer.newLine();
@@ -51,13 +51,13 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             BufferedWriter writer = new BufferedWriter(new FileWriter(preferredCategoriesCSVFilePath));
             writer.write("username,preferred_categories");
             writer.newLine();
-            writer.write("ege,r00|s00|d00^r01|s01|d01^r02|s02|d02^r03|s03|d03");
+            writer.write("ege,r00|s00|null^r01|s01|null^r02|s02|null^r03|s03|null");
             writer.newLine();
-            writer.write("kevin,r10|s10|d10");
+            writer.write("kevin,r10|s10|null");
             writer.newLine();
-            writer.write("jerry,r20|s20|d20^r21|s21|d21");
+            writer.write("jerry,r20|s20|null^r21|s21|null");
             writer.newLine();
-            writer.write("ozgen,r30|s30|d30^r31|s31|d31^r32|s32|d32");
+            writer.write("ozgen,r30|s30|null^r31|s31|null^r32|s32|null");
             writer.newLine();
             writer.write("raahil,");
             writer.newLine();
@@ -78,13 +78,13 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             BufferedWriter writer = new BufferedWriter(new FileWriter(preferredCategoriesCSVFilePath));
             writer.write("username,preferred_categories");
             writer.newLine();
-            writer.write("ege,r00|s00|d00^r01|s01|d01^r02|s02|d02^r03|s03|d03");
+            writer.write("ege,r00|s00|null^r01|s01|null^r02|s02|null^r03|s03|null");
             writer.newLine();
-            writer.write("kevin,r10|s10|d10");
+            writer.write("kevin,r10|s10|null");
             writer.newLine();
-            writer.write("jerry,r20|s20|d20^r21|s21|d21");
+            writer.write("jerry,r20|s20|null^r21|s21|null");
             writer.newLine();
-            writer.write("ozgen,r30|s30|d30^r31|s31|d31^r32|s32|d32");
+            writer.write("ozgen,r30|s30|null^r31|s31|null^r32|s32|null");
             writer.newLine();
             writer.write("raahil,");
             writer.newLine();
@@ -98,7 +98,7 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             List<String> categoryInfo = new ArrayList<>();
             categoryInfo.add("r03");
             categoryInfo.add("s03");
-            categoryInfo.add("d03");
+            categoryInfo.add("null");
             Category category = cf.create(categoryInfo);
             lrcDAO.saveToDatabase(username, category);
 
@@ -117,13 +117,13 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             BufferedWriter writer = new BufferedWriter(new FileWriter(preferredCategoriesCSVFilePath));
             writer.write("username,preferred_categories");
             writer.newLine();
-            writer.write("ege,r00|s00|d00^r01|s01|d01^r02|s02|d02^r03|s03|d03");
+            writer.write("ege,r00|s00|null^r01|s01|null^r02|s02|null^r03|s03|null");
             writer.newLine();
-            writer.write("kevin,r10|s10|d10");
+            writer.write("kevin,r10|s10|null");
             writer.newLine();
-            writer.write("jerry,r20|s20|d20^r21|s21|d21");
+            writer.write("jerry,r20|s20|null^r21|s21|null");
             writer.newLine();
-            writer.write("ozgen,r30|s30|d30^r31|s31|d31^r32|s32|d32");
+            writer.write("ozgen,r30|s30|null^r31|s31|null^r32|s32|null");
             writer.newLine();
             writer.write("raahil,");
             writer.newLine();
@@ -141,8 +141,8 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             lrcDAO.saveToDatabase(username, category);
 
             String updatedPreferredCategories = Files.readAllLines(Paths.get(preferredCategoriesCSVFilePath), StandardCharsets.UTF_8).get(5);
-
-            assert ((previousPreferredCategories + "r03|s03|d03").equals(updatedPreferredCategories));
+            System.out.println(updatedPreferredCategories);
+            assert ((previousPreferredCategories + "r03|s03|null").equals(updatedPreferredCategories));
         } catch (IOException ioe) {
             System.out.println("IOException in testSavePreferredCategory().");
         }
@@ -154,13 +154,13 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             BufferedWriter writer = new BufferedWriter(new FileWriter(preferredCategoriesCSVFilePath));
             writer.write("username,preferred_categories");
             writer.newLine();
-            writer.write("ege,r00|s00|d00^r01|s01|d01^r02|s02|d02^r03|s03|d03");
+            writer.write("ege,r00|s00|null^r01|s01|null^r02|s02|null^r03|s03|null");
             writer.newLine();
-            writer.write("kevin,r10|s10|d10");
+            writer.write("kevin,r10|s10|null");
             writer.newLine();
-            writer.write("jerry,r20|s20|d20^r21|s21|d21");
+            writer.write("jerry,r20|s20|null^r21|s21|null");
             writer.newLine();
-            writer.write("ozgen,r30|s30|d30^r31|s31|d31^r32|s32|d32");
+            writer.write("ozgen,r30|s30|null^r31|s31|null^r32|s32|null");
             writer.newLine();
             writer.write("raahil,");
             writer.newLine();
@@ -186,13 +186,13 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             BufferedWriter writer = new BufferedWriter(new FileWriter(preferredCategoriesCSVFilePath));
             writer.write("username,preferred_categories");
             writer.newLine();
-            writer.write("ege,r00|s00|d00^r01|s01|d01^r02|s02|d02^r03|s03|d03");
+            writer.write("ege,r00|s00|null^r01|s01|null^r02|s02|null^r03|s03|null");
             writer.newLine();
-            writer.write("kevin,r10|s10|d10");
+            writer.write("kevin,r10|s10|null");
             writer.newLine();
-            writer.write("jerry,r20|s20|d20^r21|s21|d21");
+            writer.write("jerry,r20|s20|null^r21|s21|null");
             writer.newLine();
-            writer.write("ozgen,r30|s30|d30^r31|s31|d31^r32|s32|d32");
+            writer.write("ozgen,r30|s30|null^r31|s31|null^r32|s32|null");
             writer.newLine();
             writer.write("raahil,");
             writer.newLine();
@@ -220,13 +220,13 @@ public class LocalPreferredCategoriesDataAccessObjectTest {
             BufferedWriter writer = new BufferedWriter(new FileWriter(preferredCategoriesCSVFilePath));
             writer.write("username,preferred_categories");
             writer.newLine();
-            writer.write("ege,r00|s00|d00^r01|s01|d01^r02|s02|d02^r03|s03|d03");
+            writer.write("ege,r00|s00|null^r01|s01|null^r02|s02|null^r03|s03|null");
             writer.newLine();
-            writer.write("kevin,r10|s10|d10");
+            writer.write("kevin,r10|s10|null");
             writer.newLine();
-            writer.write("jerry,r20|s20|d20^r21|s21|d21");
+            writer.write("jerry,r20|s20|null^r21|s21|null");
             writer.newLine();
-            writer.write("ozgen,r30|s30|d30^r31|s31|d31^r32|s32|d32");
+            writer.write("ozgen,r30|s30|null^r31|s31|null^r32|s32|null");
             writer.newLine();
             writer.write("raahil,");
             writer.newLine();

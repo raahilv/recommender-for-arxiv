@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RecommendInteractor implements RecommendInputBoundary {
 
-    static final int THRESHOLD = 5;  // TODO: to be polished
+    static final int THRESHOLD = 1;  // TODO: to be polished
     final RecommendDataAccessInterface userDataAccessObject;
     final RecommendOutputBoundary userPresenter;
     final CategoryFactory categoryFactory;
@@ -58,6 +58,9 @@ public class RecommendInteractor implements RecommendInputBoundary {
 //        if (recommendedPapers.isEmpty()) {
 //            userPresenter.prepareFailView("Ops, no recommendations found...");
 //        } else {
+        for (ResearchPaper paper : recommendedPapers) {
+            System.out.println(paper.getUrl());
+        }
         RecommendOutputData recommendOutputData = new RecommendOutputData(toList(recommendedPapers));
         userPresenter.prepareSuccessView(recommendOutputData);
     }
@@ -66,8 +69,11 @@ public class RecommendInteractor implements RecommendInputBoundary {
         List<ResearchPaper> recommendedPapers = new ArrayList<>();
 
         List<String> potentialPaperIDs = new ArrayList<>();
+        // System.out.println("PREFERREDCATEGORIES: " + preferenceData.getPreferredCategories().size());
         for (Category category : preferenceData.getPreferredCategories()) {
-            potentialPaperIDs.addAll(this.userDataAccessObject.filterPapersByRootCategory(category));
+            List<String> current = this.userDataAccessObject.filterPapersByRootCategory(category);
+            System.out.println("current.size() = " + current.size());
+            potentialPaperIDs.addAll(current);
         }
 
         List<ResearchPaper> potentialPapers = new ArrayList<>();
@@ -75,6 +81,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
             potentialPapers.add(this.userDataAccessObject.getPaperById(ID));
         }
 
+        System.out.println("POTENTIALPAPERS.size() = " + potentialPapers.size());
         for (ResearchPaper paper : potentialPapers) {
             if (isGoodMatch(paper, preferenceData)) {
                 recommendedPapers.add(paper);

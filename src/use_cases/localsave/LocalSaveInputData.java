@@ -1,6 +1,8 @@
 package use_cases.localsave;
 
 public class LocalSaveInputData {
+    /* Contains the research paper's URL and it's name.
+         */
     public String paperUrl;
     public String paperName;
 

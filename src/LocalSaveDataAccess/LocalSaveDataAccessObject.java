@@ -12,7 +12,10 @@ import java.nio.file.Paths;
 public class LocalSaveDataAccessObject implements LocalSaveDataAccessInterface {
 
     public void localSave(String paperUrl, String paperName){
-
+        /*
+        Downloads the research paper to user's downloads folder from the given url.
+        PaperName is being used to name the downloaded file.
+         */
         try {
             URL url = new URL(paperUrl);
 
