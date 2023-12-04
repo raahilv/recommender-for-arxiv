@@ -1,24 +1,22 @@
 package view;
 
-import interface_adapters.RecommendHome.RecommendHomeState;
 import interface_adapters.library.LibraryController;
 import interface_adapters.library.LibraryState;
 import interface_adapters.library.LibraryViewModel;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class LibraryView extends JPanel implements PropertyChangeListener {
     public final String viewName = "library view";
     private JPanel panel1;
     private JPanel Panel2;
+    private JButton backButton;
     private Map<String, LibraryItemPanel> libraryItemPanels = new HashMap<>();
     LibraryViewModel libraryViewModel;
     LibraryController libraryController;
@@ -27,6 +25,16 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
         this.libraryController = libraryController;
         this.libraryViewModel.addPropertyChangeListener(this);
         add(panel1);
+        backButton.addActionListener(
+                // This creates an anonymous subclass of ActionListener and instantiates it.
+                new ActionListener() {
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(backButton)) {
+                            libraryController.goBack("recommend home");
+                        }
+                    }
+                }
+        );
     }
     public void addLibraryPanels(LibraryState state){
         /*

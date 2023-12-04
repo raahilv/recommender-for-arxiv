@@ -13,9 +13,12 @@ import interface_adapters.library.LibraryViewModel;
 import interface_adapters.login.LoginController;
 import interface_adapters.login.LoginViewModel;
 import interface_adapters.signup.SignupViewModel;
+import interface_adapters.switchView.SwitchViewPresenter;
+import interface_adapters.switchView.SwitchViewViewModel;
 import org.w3c.dom.css.CSSValue;
 import use_cases.library.LibraryInteractor;
 import use_cases.login.LoginInteractor;
+import use_cases.switchView.SwitchViewInteractor;
 import view.*;
 
 import javax.swing.*;
@@ -115,7 +118,7 @@ public class Main {
         LoginView loginView = new LoginView(loginViewModel,new LoginController(new LoginInteractor(DAO,recommendHomePresenter)));
         views.add(loginView, loginView.viewName);
         views.add(recommendHomeView,recommendHomeView.viewName);
-        LibraryView libraryView = new LibraryView(libraryViewModel, new LibraryController(null));
+        LibraryView libraryView = new LibraryView(libraryViewModel, new LibraryController(null,new SwitchViewInteractor(null,new SwitchViewPresenter(new SwitchViewViewModel(),viewManagerModel))));
         views.add(libraryView, libraryView.viewName);
         viewManagerModel.setActiveView(homePageView.viewName);
         viewManagerModel.firePropertyChanged();
