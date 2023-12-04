@@ -211,7 +211,8 @@ public class ArxivDataAccessObject {
 
     public List<String> filterPapersByRootCategory(Category category) {
         //assumes 50 papers for now
-        String categoryStringRep = category.getRootCategory().toLowerCase() + "." + category.getSubcategory().toUpperCase();
+//        String categoryStringRep = category.getRootCategory().toLowerCase() + "." + category.getSubcategory().toUpperCase();
+        String categoryStringRep = category.getSubcategory();
         List<String> ids = new ArrayList<>();
 //        HttpRequest request;
 //        try {
