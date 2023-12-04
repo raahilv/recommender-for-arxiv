@@ -1,38 +1,43 @@
 package data_access;
 
 import entities.*;
+import use_cases.recommend.RecommendDataAccessInterface;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class LocalUserDataAccessObject {
 
+    private static final String USER_CSV_FILE_PATH = "test/test_files/users.csv";
     private final LocalLibraryDataAccessObject localLibraryDAO;
     private final LocalUpvotedPapersDataAccessObject localUpvotedPapersDAO;
     private final LocalDownvotedPapersDataAccessObject localDownvotedPapersDAO;
     private final LocalPreferredCategoriesDataAccessObject localPreferredCategoriesDAO;
     private final File usersCSVFile;
-    private final Map<String, User> users = new HashMap<>();  // username : username object
-    private final Map<String, Integer> usersCSVFileHeader = new HashMap<>();
+    private final Map<String, User> users = new LinkedHashMap<>();  // username : username object
+    private final Map<String, Integer> usersCSVFileHeader = new LinkedHashMap<>();
     private final UserFactory userFactory;
 
     public LocalUserDataAccessObject(LocalLibraryDataAccessObject localLibraryDAO,
                                      LocalUpvotedPapersDataAccessObject localUpvotedPapersDAO,
                                      LocalDownvotedPapersDataAccessObject localDownvotedPapersDAO,
                                      LocalPreferredCategoriesDataAccessObject localPreferredCategoriesDAO,
-                                     String usersCSVFilePath, UserFactory userFactory) throws IOException {
+                                     UserFactory userFactory) throws IOException {
         this.localLibraryDAO = localLibraryDAO;
         this.localUpvotedPapersDAO = localUpvotedPapersDAO;
         this.localDownvotedPapersDAO = localDownvotedPapersDAO;
         this.localPreferredCategoriesDAO = localPreferredCategoriesDAO;
-        this.usersCSVFile = new File(usersCSVFilePath);
+        this.usersCSVFile = new File(USER_CSV_FILE_PATH);
         this.userFactory = userFactory;
 
         this.usersCSVFileHeader.put("username", 0);
         this.usersCSVFileHeader.put("password", 1);
 
         if (this.usersCSVFile.length() == 0) {
-            writeToDatabase();
+            writeToDatabase(this.usersCSVFile);
         } else {
             try (BufferedReader reader = new BufferedReader(new FileReader(this.usersCSVFile))) {
                 String header = reader.readLine();
@@ -46,7 +51,7 @@ public class LocalUserDataAccessObject {
                     List<Category> preferredCategories =
                             this.localPreferredCategoriesDAO.getPreferredCategories(username);
                     List<ResearchPaper> userLibrary = this.localLibraryDAO.getLibrary(username);
-                    List<ResearchPaper> upvotedPapers = this.localUpvotedPapersDAO.getUpvotedPapers(username);
+                    List<ResearchPaper> upvotedPapers = this.localUpvotedPapersDAO.getDownvotedPapers(username);
                     List<ResearchPaper> downvotedPapers = this.localDownvotedPapersDAO.getDownvotedPapers(username);
 
                     User user = this.userFactory.create(username, password);
@@ -66,31 +71,46 @@ public class LocalUserDataAccessObject {
                 }
             }
         }
-
     }
 
-    public void save(User user) {
-        this.users.put(user.getUsername(), user);
+    public void saveToDatabase(User user) {
+        try {
+            if (!existsByUsername(user.getUsername())) {
+                List<String> users = Files.readAllLines(Paths.get(USER_CSV_FILE_PATH), StandardCharsets.UTF_8);
+                String newUserInfo = user.getUsername() + "," + user.getPassword();
+                users.add(newUserInfo);
+
+                BufferedWriter writer = new BufferedWriter(new FileWriter(USER_CSV_FILE_PATH));
+                writer.write("username,password");
+                for (int i = 1; i < users.size(); i++) {
+                    writer.write(users.get(i));
+                    writer.newLine();
+                }
+                writer.close();
+            }
+        } catch (IOException ioe) {
+            throw new RuntimeException(ioe);
+        }
     }
 
     public User get(String username) {
-        return this.users.get(username);
+        return existsByUsername(username) ? this.users.get(username) : null;
     }
 
     public User getUser(String username) {
-        return this.users.get(username);
+        return existsByUsername(username) ? this.users.get(username) : null;
     }
 
     public boolean existsByUsername(String username) {
         return this.users.containsKey(username);
     }
 
-    private void writeToDatabase() {
+    public void writeToDatabase(File dest) {
         /* When using this method, there are no users in the CSV file, so we can safely assume
         * that each username written to the CSV file by this method is unique. */
         BufferedWriter writer;
         try {
-            writer = new BufferedWriter(new FileWriter(this.usersCSVFile));
+            writer = new BufferedWriter(new FileWriter(dest));
             writer.write(String.join(",", this.usersCSVFileHeader.keySet()));
             writer.newLine();
 

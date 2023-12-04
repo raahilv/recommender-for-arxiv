@@ -1,11 +1,12 @@
 package use_cases.library;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryOutputData {
-    private List<String> paperID;
-    private List<String> paperName;
-    private List<String> paperPDF;
+    private List<String> paperID = new ArrayList<>();
+    private List<String> paperName = new ArrayList<>();
+    private List<String> paperPDF = new ArrayList<>();
 
     public void addID(String id){
         paperID.add(id);

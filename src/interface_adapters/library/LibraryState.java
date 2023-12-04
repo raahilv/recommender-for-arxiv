@@ -1,11 +1,12 @@
 package interface_adapters.library;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryState {
-    private List<String> ids;
-    private List<String> titles;
-    private List<String> urls;
+    private List<String> ids = new ArrayList<>();
+    private List<String> titles = new ArrayList<>();
+    private List<String> urls = new ArrayList<>();
     public void setIds(List<String> ids) {
         this.ids = ids;
     }

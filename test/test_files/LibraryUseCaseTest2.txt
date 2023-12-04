@@ -1,0 +1,1 @@
+id,title,categories,authors,publish_date,abstract,journal_reference,url,upvote_count,downvote_count
