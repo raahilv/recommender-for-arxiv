@@ -38,6 +38,8 @@ public class SaveUseCaseTest {
         assert(testUser1.getLibrary().containsKey("1"));
         assert(!testUser1.getLibrary().containsKey("2"));
         assert(testUser2.getLibrary().containsKey("2"));
+        interactor.execute(new SaveInputData("username2", "2"));
+        assert(testUser2.getLibrary().containsKey("2"));
     }
 
     private class testPresenter implements SaveOutputBoundary {
