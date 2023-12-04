@@ -172,7 +172,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
         for (int i = 0; i < 9; i++) {
             JTextArea paperInfoArea = infoAreas.get(i);
             List<String> paperInfo = papersDisplayed.get(i);
-            paperInfoArea.append("Paper " + String.valueOf(1) + "\n");
+            paperInfoArea.append("Paper " + String.valueOf(i + 1) + "\n");
             paperInfoArea.append("Id: " + paperInfo.get(0) + "\n");
             paperInfoArea.append("Title: " + paperInfo.get(1) + "\n");
             paperInfoArea.append("Publish Date: "+ paperInfo.get(3) + "\n");
@@ -268,14 +268,11 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
         this.setLayout(new GridLayout(3, 3, 10, 10));
 
         for (int i = 0; i < 9; i++) {
-            List<String> paperInfo = papersDisplayed.get(i);
-            if (! paperInfo.equals(emptyPaperInfo)) {
-                addPaperInfoArea(infoAreas.get(i),
-                        upVoteButtons.get(i),
-                        downVoteButtons.get(i),
-                        saveButtons.get(i),
-                        downloadButtons.get(i));
-            }
+            addPaperInfoArea(infoAreas.get(i),
+                    upVoteButtons.get(i),
+                    downVoteButtons.get(i),
+                    saveButtons.get(i),
+                    downloadButtons.get(i));
         }
     }
 
