@@ -8,7 +8,7 @@ public class CategoryFactory {
         return new Category(
                 preferredCategoryRawData.get(0),  // root category
                 preferredCategoryRawData.get(1),  // subcategory
-                preferredCategoryRawData.get(2)  // category description
+                null  // category description
         );
     }
 

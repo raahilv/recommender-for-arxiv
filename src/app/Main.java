@@ -1,8 +1,7 @@
 package app;
 
 import data_access.*;
-import entities.Category;
-import entities.CommonUserFactory;
+import entities.*;
 import interface_adapters.RecommendHome.RecommendHomeController;
 import interface_adapters.RecommendHome.RecommendHomePresenter;
 import interface_adapters.RecommendHome.RecommendHomeViewModel;
@@ -12,12 +11,15 @@ import interface_adapters.library.LibraryPresenter;
 import interface_adapters.library.LibraryViewModel;
 import interface_adapters.login.LoginController;
 import interface_adapters.login.LoginViewModel;
+import interface_adapters.recommend.RecommendPresenter;
+import interface_adapters.recommend.RecommendViewModel;
 import interface_adapters.signup.SignupViewModel;
 import interface_adapters.switchView.SwitchViewPresenter;
 import interface_adapters.switchView.SwitchViewViewModel;
 import org.w3c.dom.css.CSSValue;
 import use_cases.library.LibraryInteractor;
 import use_cases.login.LoginInteractor;
+import use_cases.recommend.RecommendInteractor;
 import use_cases.switchView.SwitchViewInteractor;
 import view.*;
 
@@ -34,7 +36,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         List<Category> categories = new ArrayList<>();
         categories.add(new Category("cs", "cs.AI"));
         categories.add(new Category("cs", "cs.CL"));
@@ -113,7 +115,13 @@ public class Main {
         LibraryViewModel libraryViewModel = new LibraryViewModel();
         LibraryPresenter libraryPresenter = new LibraryPresenter(viewManagerModel,libraryViewModel);
         LibraryInteractor libraryInteractor = new LibraryInteractor(DAO,libraryPresenter);
-        RecommendHomeView recommendHomeView = new RecommendHomeView(recommendHomeViewModel, new RecommendHomeController(null,libraryInteractor));
+
+        ArxivDataAccessObject arxivDataAccessObject = new ArxivDataAccessObject(categories, new AuthorFactory());
+        LocalUserDataAccessObject localUserDataAccessObject = new LocalUserDataAccessObject(new CommonUserFactory());
+        RecommendDataAccessObject recommendDataAccessObject = new RecommendDataAccessObject(arxivDataAccessObject, localUserDataAccessObject);
+        RecommendPresenter recommendPresenter = new RecommendPresenter(new RecommendViewModel(), new ViewManagerModel());
+        RecommendInteractor recommendInteractor = new RecommendInteractor(recommendDataAccessObject, recommendPresenter, new CategoryFactory(), new PreferenceDataFactory());
+        RecommendHomeView recommendHomeView = new RecommendHomeView(recommendHomeViewModel, new RecommendHomeController(recommendInteractor,libraryInteractor));
         RecommendHomePresenter recommendHomePresenter = new RecommendHomePresenter(viewManagerModel,recommendHomeViewModel,loginViewModel);
         LoginView loginView = new LoginView(loginViewModel,new LoginController(new LoginInteractor(DAO,recommendHomePresenter)));
         views.add(loginView, loginView.viewName);

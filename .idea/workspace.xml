@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/data_access/ArxivDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/ArxivDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_access/DataAccessFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/DataAccessFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_access/RecommendDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/RecommendDataAccessObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/use_cases/recommend/RecommendDataAccessInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/recommend/RecommendDataAccessInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/use_cases/recommend/RecommendInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/recommend/RecommendInteractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/CategoryFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/CategoryFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data_access/ArxivDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access/ArxivDataAccessObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data_access/LocalUserDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access/LocalUserDataAccessObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_files/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/users.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,17 +21,45 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Z4JnN40Dngk1EX5BIoOeR4BPSG" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="JUnit.RecommendInteractorTest">
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="app.Main" />
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ArxivDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
@@ -46,7 +75,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LocalPreferredCategoriesDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LocalUserDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
         <pattern>
@@ -55,22 +84,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="data_access" />
-      <option name="MAIN_CLASS_NAME" value="data_access.LocalPreferredCategoriesDataAccessObjectTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LocalResearchPaperDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CSC207-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data_access.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="data_access" />
-      <option name="MAIN_CLASS_NAME" value="data_access.LocalResearchPaperDataAccessObjectTest" />
+      <option name="MAIN_CLASS_NAME" value="data_access.LocalUserDataAccessObjectTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -106,24 +120,47 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.LocalUserDataAccessObjectTest" />
       <item itemvalue="JUnit.RecommendInteractorTest" />
       <item itemvalue="JUnit.ArxivDataAccessObjectTest" />
-      <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest" />
-      <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest" />
       <item itemvalue="JUnit.data_access in CSC207-Project" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.RecommendInteractorTest" />
         <item itemvalue="JUnit.data_access in CSC207-Project" />
         <item itemvalue="JUnit.ArxivDataAccessObjectTest" />
-        <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest" />
-        <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest" />
+        <item itemvalue="JUnit.LocalUserDataAccessObjectTest" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="" />
+      <created>1701675585520</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701675585520</updated>
+      <workItem from="1701675586769" duration="776000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/data_access/ArxivDataAccessObjectTest.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CSC207_Project$RecommendInteractorTest.ic" NAME="RecommendInteractorTest Coverage Results" MODIFIED="1701672857691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -135,6 +172,9 @@
     </SUITE>
     <SUITE FILE_PATH="coverage/CSC207Project$LocalUpvotedPapersDataAccessObjectTest.ic" NAME="LocalUpvotedPapersDataAccessObjectTest Coverage Results" MODIFIED="1701575113376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access.LocalUpvotedPapersDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207_Project$ArxivDataAccessObjectTest.ic" NAME="ArxivDataAccessObjectTest Coverage Results" MODIFIED="1701659089058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/CSC207_Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701468766715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access_objects.*</FILTER>
@@ -148,20 +188,30 @@
       <FILTER>data_access_test.*</FILTER>
       <FILTER>data_access.LocalUserDataAccessObject</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest_testPapersCSVFileHeaderToString.ic" NAME="LocalResearchPaperDataAccessObjectTest.testPapersCSVFileHeaderToString Coverage Results" MODIFIED="1701550290894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CSC207_Project$All_in_CSC207_Project.ic" NAME="All in CSC207-Project Coverage Results" MODIFIED="1701661843390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalPreferredCategoriesDataAccessObjectTest.ic" NAME="LocalPreferredCategoriesDataAccessObjectTest Coverage Results" MODIFIED="1701564749485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest__1_.ic" NAME="LocalResearchPaperDataAccessObjectTest (1) Coverage Results" MODIFIED="1701489290581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CSC207_Project$ShowAuthorInteractorTest_testSuccessView.ic" NAME="ShowAuthorInteractorTest.testSuccessView Coverage Results" MODIFIED="1701639733729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>use_cases.showAuthor.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207_Project$ArxivDataAccessObjectTest__1_.ic" NAME="ArxivDataAccessObjectTest (1) Coverage Results" MODIFIED="1701557286006" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207_Project$ArxivDataAccessObjectTest_testGetPaperById.ic" NAME="ArxivDataAccessObjectTest.testGetPaperById Coverage Results" MODIFIED="1701393303439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>test.data_access.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest_testPapersCSVFileHeaderToString.ic" NAME="LocalResearchPaperDataAccessObjectTest.testPapersCSVFileHeaderToString Coverage Results" MODIFIED="1701550290894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access_test.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest_testGetPaperByIDThatExists.ic" NAME="LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists Coverage Results" MODIFIED="1701549952440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access_test.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CSC207Project$LocalLibraryDataAccessObjectTest.ic" NAME="LocalLibraryDataAccessObjectTest Coverage Results" MODIFIED="1701559453944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest__1_.ic" NAME="LocalResearchPaperDataAccessObjectTest (1) Coverage Results" MODIFIED="1701489290581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access_test.*</FILTER>
-      <FILTER>data_access.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/CSC207Project$LocalPreferredCategoriesDataAccessObjectTest.ic" NAME="LocalPreferredCategoriesDataAccessObjectTest Coverage Results" MODIFIED="1701564749485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalLibraryDataAccessObjectTest.ic" NAME="LocalLibraryDataAccessObjectTest Coverage Results" MODIFIED="1701559453944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>data_access_test.*</FILTER>
       <FILTER>data_access.*</FILTER>
     </SUITE>

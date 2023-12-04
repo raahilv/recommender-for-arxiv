@@ -51,7 +51,7 @@ public class ArxivDataAccessObjectTest {
 
     @org.junit.Test
     public void testDoesFilterPapersByRootFilter(){
-        List<String> papers = arxdao.filterPapersByRootCategory("cs.fl");
+        List<String> papers = arxdao.filterPapersByRootCategory(new Category("cs", "fl", ""));
         int start = (int) (Math.random() * 45);
         for (int i = 0; i < 5; i++) {
             boolean cat_in = false;

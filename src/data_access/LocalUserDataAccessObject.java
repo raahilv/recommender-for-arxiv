@@ -83,6 +83,7 @@ public class LocalUserDataAccessObject {
 
                 BufferedWriter writer = new BufferedWriter(new FileWriter(USER_CSV_FILE_PATH));
                 writer.write("username,password");
+                writer.newLine();
                 for (int i = 1; i < users.size(); i++) {
                     writer.write(users.get(i));
                     writer.newLine();
