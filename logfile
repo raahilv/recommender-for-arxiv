@@ -1,0 +1,4 @@
+2023-11-24 18:21:00.889 EST   [4388]LOG:  redirecting log output to logging collector process
+2023-11-24 18:21:00.889 EST   [4388]HINT:  Future log output will appear in directory "log".
+2023-11-24 18:21:14.969 EST   [4398]LOG:  redirecting log output to logging collector process
+2023-11-24 18:21:14.969 EST   [4398]HINT:  Future log output will appear in directory "log".
