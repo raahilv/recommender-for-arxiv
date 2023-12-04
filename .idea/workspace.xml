@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/ArxivDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/ArxivDataAccessObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/DataAccessFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/DataAccessFacade.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalLibraryDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalLibraryDataAccessObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUserDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUserDataAccessObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendDataAccessInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendDataAccessInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendInteractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendInteractor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalLibraryDataAccessObjectTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/data_access_test/LocalLibraryDataAccessObjectTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/use_cases/recommend/RecommendInteractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/use_cases/recommend/RecommendInteractor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_files/emptyCategories.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyCategories.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_files/emptyDownvotedPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyDownvotedPapers.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_files/emptyLibraries.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyLibraries.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_files/emptyPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyPapers.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_files/emptyUpvotedPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyUpvotedPapers.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/use_case_test/RecommendInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/use_case_test/RecommendInteractorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data_access_test/LocalUserDataAccessObjectTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,22 +61,7 @@
       <recent name="$PROJECT_DIR$/test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne1">
-    <configuration name="LocalUpvotedPapersDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CSC207-Project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="data_access_test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="data_access_test" />
-      <option name="MAIN_CLASS_NAME" value="data_access_test.LocalUpvotedPapersDataAccessObjectTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.RecommendInteractorTest.testRecommendInteractor">
     <configuration name="LocalUserDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CSC207-Project" />
       <extension name="coverage">
@@ -153,8 +125,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RecommendInteractorTest.testRecommendInteractor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="use_case_test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="use_case_test" />
+      <option name="MAIN_CLASS_NAME" value="use_case_test.RecommendInteractorTest" />
+      <option name="METHOD_NAME" value="testRecommendInteractor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.LocalUpvotedPapersDataAccessObjectTest" />
+      <item itemvalue="JUnit.RecommendInteractorTest.testRecommendInteractor" />
       <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne" />
       <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne1" />
       <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne2" />
@@ -162,11 +150,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.RecommendInteractorTest.testRecommendInteractor" />
+        <item itemvalue="JUnit.LocalUserDataAccessObjectTest" />
         <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne1" />
         <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne2" />
         <item itemvalue="JUnit.RecommendInteractorTest.testAdjustWithInputGreaterThanOne" />
-        <item itemvalue="JUnit.LocalUserDataAccessObjectTest" />
-        <item itemvalue="JUnit.LocalUpvotedPapersDataAccessObjectTest" />
       </list>
     </recent_temporary>
   </component>

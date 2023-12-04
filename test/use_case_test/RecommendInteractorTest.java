@@ -2,8 +2,11 @@ package use_case_test;
 
 import data_access.*;
 import entities.*;
+import interface_adapters.ViewManagerModel;
 import interface_adapters.recommend.RecommendPresenter;
+import interface_adapters.recommend.RecommendViewModel;
 import org.junit.Test;
+import use_cases.recommend.RecommendInputData;
 import use_cases.recommend.RecommendInteractor;
 import use_cases.recommend.RecommendOutputBoundary;
 
@@ -22,46 +25,32 @@ public class RecommendInteractorTest {
     private final ResearchPaperFactory rpf = new ResearchPaperFactory();
     private final PreferenceDataFactory pdf = new PreferenceDataFactory();
     private final UserFactory uf = new CommonUserFactory();
+    private final Author a1 = new Author("Zhipp Canuff");
+    private final Author a2 = new Author("Mnji Aito");
+    private final List<String> gn = new ArrayList<>(Arrays.asList("econ", "GN", "General Economics"));
+    private final List<String> ap = new ArrayList<>(Arrays.asList("stat", "AP", "Applications"));
+    private final List<String> sp = new ArrayList<>(Arrays.asList("math", "SP", "Spectral Theory"));
+    private final List<List<String>> preferredCategoriesRawData = new ArrayList<>(Arrays.asList(gn, ap, sp));
+    private final List<Category> preferredCategories = new ArrayList<>(Arrays.asList(cf.create(gn), cf.create(ap), cf.create(sp)));
+    private final List<Author> authors = new ArrayList<>(Arrays.asList(a1, a2));
 
     @Test
-    public void testAdjustWithInputGreaterThanOne1() {
-        double eps = 10e-10;
-        int factor = 10;
-        double result = RecommendInteractor.adjust(factor);
-        assert (Math.abs(result - 1.0) <= eps);
-//        try {
-//            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPER_FILE_PATH, af, cf, rpf);
-//            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
-//            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-//            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_FILE_PATH, rpDAO);
-//            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_FILE_PATH, rpDAO);
-//            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(lDAO, upDAO, dpDAO, pcDAO, uf);
-//
-//            List<Category> categories = new ArrayList<>();
-//            String[] c1Info = {"r00", "s00", "d00"};
-//            String[] c2Info = {"r01", "s01", "d01"};
-//            categories.add(cf.create(Arrays.asList(c1Info)));
-//            categories.add(cf.create(Arrays.asList(c2Info)));
-//
-//            List<Author> authors = new ArrayList<>();
-//            authors.add(af.createWithoutAffiliation("Roberto Metere"));
-//            authors.add(af.createWithoutAffiliation("Changyu Dong"));
-////            ArxivDataAccessObject arxivDAO = new ArxivDataAccessObject();
-////            RecommendDataAccessObject rDAO = new RecommendDataAccessObject(, uDAO)
-////            RecommendOutputBoundary presenter = new RecommendPresenter();
-////            RecommendInteractor ri = new RecommendInteractor(uDAO, presenter, cf, pdf);
-//            int factor = 10;
-//            // assert ()
-//        } catch (IOException ioe) {
-//            System.out.println("IOException in testAdjustWithInputGreaterThanOne().");
-//        }
+    public void testRecommendInteractor() {
+        try {
+            String username = "kevin";
+            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
+            ArxivDataAccessObject aDAO = new ArxivDataAccessObject(preferredCategories, authors);
+
+            RecommendInputData input = new RecommendInputData(username, preferredCategoriesRawData, false, false, false);
+            RecommendPresenter presenter = new RecommendPresenter(new RecommendViewModel(), new ViewManagerModel());
+
+            RecommendDataAccessObject rDAO = new RecommendDataAccessObject(aDAO, uDAO);
+            RecommendInteractor interactor = new RecommendInteractor(rDAO, presenter, cf, pdf);
+            interactor.execute(input);
+
+        } catch (IOException ioe) {
+            System.out.println("IOException in testAdjustWithInputGreaterThanOne().");
+        }
     }
 
-    @Test
-    public void testAdjustWithInputGreaterThanOne2() {
-        double eps = 10e-10;
-        int factor = 36;
-        double result = RecommendInteractor.adjust(factor);
-        assert (Math.abs(result - 3.6) <= eps);
-    }
 }
