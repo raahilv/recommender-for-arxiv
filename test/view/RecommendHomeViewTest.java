@@ -28,10 +28,13 @@ public class RecommendHomeViewTest {
         jframe.setContentPane(recommendHomeView);
         jframe.pack();
         jframe.setVisible(true);
-        JRadioButton button = ((JRadioButton) recommendHomeView.getComponent(3));
+        JPanel mainPanel = (JPanel) recommendHomeView.getComponent(0);
+        JTabbedPane tabbedPane = (JTabbedPane) mainPanel.getComponent(0);
+        JPanel CSpanel = (JPanel) tabbedPane.getComponent(0);
+        JRadioButton button = (JRadioButton) CSpanel.getComponent(2);
         button.setSelected(true);
         try {
-            Thread.sleep(4000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
