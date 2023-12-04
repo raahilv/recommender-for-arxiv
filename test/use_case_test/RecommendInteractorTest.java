@@ -54,7 +54,6 @@ public class RecommendInteractorTest {
             RecommendInteractor interactor = new RecommendInteractor(rDAO, presenter, cf, pdf);
             interactor.execute(input);
 
-
         } catch (IOException ioe) {
             System.out.println("IOException in testAdjustWithInputGreaterThanOne().");
         }

@@ -56,7 +56,7 @@ public class User {
     }
 
     public void savePaperIntoLibrary(ResearchPaper paper) {
-        if (!this.library.containsKey(paper.getID())) {
+        if (paper != null && !this.library.containsKey(paper.getID())) {
             this.library.put(paper.getID(), paper);
         }
     }
