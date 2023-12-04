@@ -1,3 +1,5 @@
+package view;
+
 import interface_adapters.RecommendHome.RecommendHomeController;
 import interface_adapters.RecommendHome.RecommendHomePresenter;
 import interface_adapters.RecommendHome.RecommendHomeViewModel;
@@ -20,13 +22,20 @@ public class RecommendHomeViewTest {
         RecommendHomeController controller = new RecommendHomeController(rib,lib);
         RecommendHomeViewModel viewModel = new RecommendHomeViewModel();
         RecommendHomePresenter presenter = new RecommendHomePresenter(new ViewManagerModel(),viewModel, new LoginViewModel());
-        JPanel recommendHomeView = new RecommendHomeView(viewModel,controller);
+        RecommendHomeView recommendHomeView = new RecommendHomeView(viewModel,controller);
         JFrame jframe = new JFrame();
 
         jframe.setContentPane(recommendHomeView);
         jframe.pack();
         jframe.setVisible(true);
-
+        JRadioButton button = ((JRadioButton) recommendHomeView.getComponent(3));
+        button.setSelected(true);
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        assert (recommendHomeView.getPreferredCategories().get(0).get(1).equals("cs.AR"));
     }
 
 }

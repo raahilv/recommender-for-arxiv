@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +20,7 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
     private JButton button1;
     private JPanel Panel2;
     private JButton button2;
-    private Map<String, LibraryItemPanel> libraryItemPanels;
+    private Map<String, LibraryItemPanel> libraryItemPanels = new HashMap<>();
     LibraryViewModel libraryViewModel;
     LibraryController libraryController;
     public LibraryView(LibraryViewModel libraryViewModel, LibraryController libraryController) {

@@ -79,6 +79,7 @@ public class RecommendHomeView extends JPanel implements PropertyChangeListener 
         this.recommendHomeViewModel = viewModel;
         this.recommendHomeViewModel.addPropertyChangeListener(this);
         userLabel.setText(viewModel.getState().getUsername());
+        add(recommendButton);
         recommendButton.addActionListener(
                 // This creates an anonymous subclass of ActionListener and instantiates it.
                 new ActionListener() {
@@ -182,8 +183,14 @@ public class RecommendHomeView extends JPanel implements PropertyChangeListener 
         radioButtonsList.add(systemsAndControlRadioButton);
         radioButtonsList.add(artificialIntelligenceRadioButton);
         radioButtonsList.add(distributedParallelAndClusterRadioButton);
+        for(JRadioButton button : radioButtonsList){
+            add(button);
+        }
     }
-    List<List<String>> getPreferredCategories(){
+    public List<List<String>> getPreferredCategories(){
+        /*
+        Returns a list of preferred categories in the format of (category, sub_category, description)
+         */
         List<List<String>> finalCategories = new ArrayList<>();
         for(JRadioButton radioButton : radioButtonsList){
             if(radioButton.isSelected()){

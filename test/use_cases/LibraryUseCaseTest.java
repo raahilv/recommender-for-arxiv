@@ -1,3 +1,5 @@
+package use_cases;
+
 import data_access.DataAccessFacade;
 import data_access.LocalLibraryDataAccessObject;
 import data_access.LocalResearchPaperDataAccessObject;
@@ -17,7 +19,7 @@ public class LibraryUseCaseTest {
     public void TestLibraryUseCase() throws IOException {
         // create the UI; note, we don't make a real InputBoundary,
         // since we don't need it for this test.
-        LocalLibraryDataAccessObject DAO = new LocalLibraryDataAccessObject("./test/test_files/LibraryUseCaseTest1.txt",new LocalResearchPaperDataAccessObject("./test/test_files/LibraryUseCaseTest2.txt", new AuthorFactory(),new CategoryFactory(), new ResearchPaperFactory()));
+        LocalLibraryDataAccessObject DAO = new LocalLibraryDataAccessObject(new LocalResearchPaperDataAccessObject("./test/test_files/papers.csv", new AuthorFactory(),new CategoryFactory(), new ResearchPaperFactory()));
         ArrayList<Category> tempCat = new ArrayList<Category>();
         tempCat.add(new Category("cs", "cs","cs"));
         ArrayList<Author> tempAuthor = new ArrayList<>();
@@ -25,11 +27,11 @@ public class LibraryUseCaseTest {
         ResearchPaper tempPaper = new ResearchPaper("1", "e",tempCat , tempAuthor,
                 LocalDate.now(), "eee", "eeeee",
                 "eee.com", 0, 0);
-        DAO.save("ege", tempPaper);
+        DAO.saveToDatabase("ege", tempPaper);
         LibraryViewModel libraryViewModel = new LibraryViewModel();
         DataAccessFacade facade = new DataAccessFacade(null,DAO,null,null);
         LibraryInteractor libint = new LibraryInteractor(facade,new LibraryPresenter(new ViewManagerModel(),libraryViewModel));
         libint.execute(new LibraryInputData("ege"));
-        assert(libraryViewModel.getState().getTitles().get(0).equals("e"));
+        assert(libraryViewModel.getState().getIds().get(0).equals("1"));
     }
 }
