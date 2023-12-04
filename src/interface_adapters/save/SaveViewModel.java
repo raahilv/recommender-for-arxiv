@@ -11,10 +11,17 @@ public class SaveViewModel extends ViewModel {
 
     private SaveState state = new SaveState();
 
+    /**
+     * Constructor for view model of Save use case, set viewName to "save".
+     */
     public SaveViewModel() {
         super("save");
     }
 
+    /**
+     * Set the Save state stored in the view model.
+     * @param state the Save state to be stored
+     */
     public void setState(SaveState state) {
         this.state = state;
     }
@@ -31,6 +38,10 @@ public class SaveViewModel extends ViewModel {
         support.addPropertyChangeListener(listener);
     }
 
+    /**
+     * Get the Save state stored in the view model.
+     * @return the Save state stored in the view model
+     */
     public SaveState getState() {
         return state;
     }
