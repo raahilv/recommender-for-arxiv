@@ -38,6 +38,17 @@ public class VoteUseCaseTest {
         assert(testPaper1.getUpvoteCount() == 11);
         assert(testUser2.getDownvotedPapers().containsKey("2"));
         assert(testPaper2.getDownvoteCount() == 10);
+        interactor.execute(new VoteInputData("username1", "1", true));
+        assert(testUser1.getUpvotedPapers().containsKey("1"));
+        interactor.execute(new VoteInputData("username1", "1", false));
+        assert(! testUser1.getUpvotedPapers().containsKey("1"));
+        assert(testUser1.getDownvotedPapers().containsKey("1"));
+        assert(testPaper1.getUpvoteCount() == 10);
+        interactor.execute(new VoteInputData("username2", "2", false));
+        assert(testUser2.getDownvotedPapers().containsKey("2"));
+        interactor.execute(new VoteInputData("username2", "2", true));
+        assert(!testUser2.getDownvotedPapers().containsKey("2"));
+        assert(testUser2.getUpvotedPapers().containsKey("2"));
     }
 
     private class testPresenter implements VoteOutputBoundary {
