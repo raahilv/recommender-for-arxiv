@@ -1,7 +1,5 @@
 package use_cases.showpdf;
 
-import use_cases.localsave.LocalSaveDataAccessInterface;
-
 public class ShowPdfInteractor implements ShowPdfInputBoundary {
 
     final ShowPdfDataAccessInterface showPdfDataAccessObject;
@@ -10,7 +8,8 @@ public class ShowPdfInteractor implements ShowPdfInputBoundary {
         this.showPdfDataAccessObject = showPdfDataAccessObject;
     }
     public void execute(ShowPdfInputData showPdfInputData){
-        showPdfDataAccessObject.showPdf(showPdfInputData.getUrl()); //
+        /* Calls show pdf data access object with the input data's URL */
+        showPdfDataAccessObject.showPdf(showPdfInputData.getUrl());
     }
 
 }
