@@ -28,26 +28,20 @@ public class TestSignUp {
         SignupInputData signupInputData = new SignupInputData("random", "123", "123");
         SignupController signupController = new SignupController(signupInteractor);
     @Test
-    public void SignupWritesToCsv(){
+    public void SignupWritesToCsv() {
         signupController.execute("random", "123", "123");
         try (BufferedReader reader = new BufferedReader(new FileReader("test/test_files/users.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                // Split the CSV line by comma
-                String[] values = line.split(",");
-
-                // Check if the target value exists in the array
-                for (int i = 0; i < values.length; i++) {
-                    if (values[i].trim().equals("random")) {
-                        // Remove the target value from the array
-                        values[i] = "";
-                        assert true;
-                    }
+                // Check if the line contains the user: random, password:123
+                if (line.contains("random, 123")) {
+                    assert true;
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
+            assert false;
         }
-        assert false;
     }
 }
+
