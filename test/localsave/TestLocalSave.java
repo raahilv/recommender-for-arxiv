@@ -3,7 +3,6 @@ package localsave;
 import LocalSaveDataAccess.LocalSaveDataAccessObject;
 
 import interface_adapters.localsave.LocalSaveController;
-import use_cases.localsave.LocalSaveInputData;
 import use_cases.localsave.LocalSaveInteractor;
 import org.junit.Test;
 
@@ -11,13 +10,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-public class LocalSave{
+public class TestLocalSave{
     LocalSaveDataAccessObject localSaveDataAccessObject = new LocalSaveDataAccessObject();
     LocalSaveInteractor localSaveInteractor = new LocalSaveInteractor(localSaveDataAccessObject);
 
     LocalSaveController localSaveController = new LocalSaveController(localSaveInteractor);
     @Test
     public void checkIfRightDirectory(){
+
         String sampleUrl = "https://arxiv.org/pdf/2311.18000.pdf";
         String paperName = "Lyman Limits";
         localSaveController.execute(sampleUrl, paperName);
