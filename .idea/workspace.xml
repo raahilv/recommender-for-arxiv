@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/entities/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/libraries.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/test_files/libraries.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/CSC207-Project/use_case_test/RecommendInteractorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/CSC207-Project/use_case_test/RecommendInteractorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/use_cases/showAuthor/showAuthorDataAccessInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test_files/libraries.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/libraries.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/use_case_test/RecommendInteractorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/use_case_test/RecommendInteractorTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
