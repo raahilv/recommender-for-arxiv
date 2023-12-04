@@ -160,7 +160,21 @@ public class ArxivDataAccessObject {
             try {
                 Float.parseFloat(string.split("v")[0]);
                 return string.split("v")[0];
-            }catch (NumberFormatException e){}
+            }catch (NumberFormatException e){
+                try {
+                    for (Category cat: catList) {
+                        if (string.startsWith(cat.getRootCategory() + "/") ){
+                            String postfix = string.split(cat.getRootCategory())[1];
+                            return cat.getRootCategory() + postfix.split("v")[0];
+                        }
+                        else if(string.startsWith(cat.getSubcategory() + "/")) {
+                            String postfix = string.split(cat.getSubcategory())[1];
+                            return cat.getSubcategory() + postfix.split("v")[0];
+                        }
+                    }
+                }catch (Exception ignored){}
+
+            }
 
         }
         return "";
@@ -316,7 +330,7 @@ public class ArxivDataAccessObject {
     }
 
     private String paperFromAPI(String searchType, String query) {
-        query = query.replaceAll(" ", "%20");
+        query = query.replaceAll(" ", "%20").replaceAll("\\/", "%2F");
         HttpRequest request;
         try {
             request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + searchType +":" + query + "&start=0&max_results=1")).GET().build();
