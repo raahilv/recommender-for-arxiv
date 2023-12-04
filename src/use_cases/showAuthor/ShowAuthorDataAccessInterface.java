@@ -5,7 +5,7 @@ import entities.ResearchPaper;
 
 import java.util.List;
 
-public interface showAuthorDataAccessInterface {
-    List<ResearchPaper> getPapersbyAuthor(Author author);
+public interface ShowAuthorDataAccessInterface {
+    List<ResearchPaper> getPapersByAuthor(Author author);
 
 }

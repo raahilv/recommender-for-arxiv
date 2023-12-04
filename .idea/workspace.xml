@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="53ef8044-73ca-4342-affe-c85e2c39c145" name="Changes" comment="Resolve conflicts with bleeding.">
+      <change afterPath="$PROJECT_DIR$/src/LocalSaveDataAccess/LocalSaveDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/ArxivDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/DataAccessFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalDownvotedPapersDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalLibraryDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalPreferredCategoriesDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalResearchPaperDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalUpvotedPapersDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/data_access/LocalUserDataAccessObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/AuthorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/ResearchPaperFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryDataAccessInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryInputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryOutputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/library/LibraryOutputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/localsave/LocalSaveDataAccessInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/localsave/LocalSaveInputBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/localsave/LocalSaveInputData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/use_cases/localsave/LocalSaveInteractor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LibraryItemPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LibraryItemPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LibraryView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/LibraryView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSC207-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CSC207-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RecommendView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/RecommendedPapersView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/RecommendedPapersView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Z0xf25BVYAXX38MXzOWRgOxhSj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "zhang-view"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53ef8044-73ca-4342-affe-c85e2c39c145" name="Changes" comment="Add Javadoc for Switch View use case and interface adapters." />
+      <created>1701572897370</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701572897370</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Updates">
+      <created>1701572940948</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1701572940948</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Resolve conflicts with bleeding.">
+      <created>1701573780312</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1701573780312</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixed an error (paper.getID() instead of paper.getId())" />
+    <MESSAGE value="Add Javadoc for Vote and Save use cases." />
+    <MESSAGE value="Add Javadoc for Switch View use case and interface adapters." />
+    <MESSAGE value="Updates" />
+    <MESSAGE value="Resolve conflicts with bleeding." />
+    <option name="LAST_COMMIT_MESSAGE" value="Resolve conflicts with bleeding." />
+  </component>
+</project>
