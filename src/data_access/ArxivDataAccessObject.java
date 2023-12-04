@@ -1,6 +1,7 @@
 package data_access;
 
 import entities.Author;
+import entities.AuthorFactory;
 import entities.Category;
 import entities.ResearchPaper;
 import org.w3c.dom.Document;
@@ -28,11 +29,13 @@ import java.util.List;
 public class ArxivDataAccessObject {
     static String apiBegin = "http://export.arxiv.org/api/";
     List<Category> catList;
-    List<Author> authorList;
+//    List<Author> authorList;
+    AuthorFactory authorFactory;
 
-    public ArxivDataAccessObject(List<Category> categories, List<Author> authors) {
+    public ArxivDataAccessObject(List<Category> categories, AuthorFactory authorFactory) {
         this.catList = categories;
-        this.authorList = authors;
+//        this.authorList = authors;
+        this.authorFactory = authorFactory;
     }
 
 //    private ResearchPaper PaperBuilder(String id, String title, List<String> categories, List<String> authors, String publishDate, String paperAbstract, String reference, String url) {
@@ -54,12 +57,8 @@ public class ArxivDataAccessObject {
         }
 
         for (String author: map.get("authors")) {
-            for(Author AUTHOR: authorList) {
-                if (AUTHOR.getName().equals(author)) {
-                    authors.add(AUTHOR);
-                }
+            authors.add(authorFactory.createWithoutAffiliation(author));
             }
-        }
         if (!map.get("reference").get(0).isEmpty()) { // journal_ref exists for this paper
             return new ResearchPaper(map.get("id").get(0), map.get("title").get(0), categories, authors, date, map.get("paperAbstract").get(0), map.get("reference").get(0), map.get("url").get(0), 0, 0);
         }
