@@ -21,6 +21,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
     }
 
     public void execute(RecommendInputData recommendInputData) {
+        System.out.println(recommendInputData.getPreferenceData().get(0).get(1));
         String username = recommendInputData.getUsername();
         List<ResearchPaper> recommendedPapers = new ArrayList<>();
 
@@ -54,7 +55,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
                     )
             );
         }
-
+        System.out.println(recommendedPapers.size() + "sizeee");
 //        if (recommendedPapers.isEmpty()) {
 //            userPresenter.prepareFailView("Ops, no recommendations found...");
 //        } else {
@@ -67,7 +68,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
 
     public List<ResearchPaper> recommend(PreferenceData preferenceData) {
         List<ResearchPaper> recommendedPapers = new ArrayList<>();
-
+        System.out.println( preferenceData.getPreferredCategories().get(0) + "cat");
         List<String> potentialPaperIDs = new ArrayList<>();
         // System.out.println("PREFERREDCATEGORIES: " + preferenceData.getPreferredCategories().size());
         for (Category category : preferenceData.getPreferredCategories()) {
