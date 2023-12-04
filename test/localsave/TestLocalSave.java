@@ -16,7 +16,7 @@ public class TestLocalSave{
 
     LocalSaveController localSaveController = new LocalSaveController(localSaveInteractor);
     @Test
-    public void checkIfRightDirectory(){
+    public void downloadedToRightDirectory(){
 
         String sampleUrl = "https://arxiv.org/pdf/2311.18000.pdf";
         String paperName = "Lyman Limits";
