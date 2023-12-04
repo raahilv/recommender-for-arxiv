@@ -17,9 +17,7 @@ import java.util.Map;
 
 public class LibraryView extends JPanel implements PropertyChangeListener {
     private JPanel panel1;
-    private JButton button1;
     private JPanel Panel2;
-    private JButton button2;
     private Map<String, LibraryItemPanel> libraryItemPanels = new HashMap<>();
     LibraryViewModel libraryViewModel;
     LibraryController libraryController;
