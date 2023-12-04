@@ -112,9 +112,10 @@ public class RecommendInteractor implements RecommendInputBoundary {
         boolean prioritizeUpvotePercentageSearch = preferenceData.prioritizeUpvotePercentageSearch();
         int matchScore = 0;
 
-        double matchCount = getCategoryMatchCount(paper, preferredCategories);
+        int matchCount = getCategoryMatchCount(paper, preferredCategories);
         double upvotePercentage = getUpvotePercentage(paper.getUpvoteCount(), paper.getDownvoteCount());
 
+        System.out.println("matchCount: " + matchCount);
         if (!prioritizeCategorySearch && !prioritizeUpvotePercentageSearch) {
             matchScore += matchCount + upvotePercentage;
         } else {
@@ -142,7 +143,7 @@ public class RecommendInteractor implements RecommendInputBoundary {
         List<Category> paperCategories = paper.getCategories();
         for (Category paperCategory : paperCategories) {
             for (Category preferredCategory : preferredCategories) {
-                if (paperCategory.isSame(preferredCategory)) {
+                if (paperCategory.getRootCategory().equals(preferredCategory.getRootCategory()) && paperCategory.getSubcategory().equals(preferredCategory.getSubcategory())) {
                     count++;
                 }
             }

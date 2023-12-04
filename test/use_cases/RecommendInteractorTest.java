@@ -28,9 +28,9 @@ public class RecommendInteractorTest {
     private final PreferenceDataFactory pdf = new PreferenceDataFactory();
     private final UserFactory uf = new CommonUserFactory();
 
-    private final List<String> gn = new ArrayList<>(Arrays.asList("cs", "cs.CR", ""));
-    private final List<String> ap = new ArrayList<>(Arrays.asList("cs", "cs.AR", ""));
-    private final List<String> sp = new ArrayList<>(Arrays.asList("cs", "cs.CV", ""));
+    private final List<String> gn = new ArrayList<>(Arrays.asList("cs", "CR", ""));
+    private final List<String> ap = new ArrayList<>(Arrays.asList("cs", "AR", ""));
+    private final List<String> sp = new ArrayList<>(Arrays.asList("cs", "CV", ""));
     private final List<List<String>> preferredCategoriesRawData = new ArrayList<>(Arrays.asList(gn, ap, sp));
     private final List<Category> preferredCategories = new ArrayList<>(Arrays.asList(cf.create(gn), cf.create(ap), cf.create(sp)));
 
@@ -38,7 +38,7 @@ public class RecommendInteractorTest {
     public void testGetCategoryMatchCountWithoutPrioritizeCategorySearchAndWithoutPrioritizeUpvotePercentage() {
         try {
             String username = "kevin";
-            Category category = new CategoryFactory().create(new ArrayList<>(List.of(new String[]{"cs", "cs.CR"})));
+            Category category = new CategoryFactory().create(new ArrayList<>(List.of(new String[]{"cs", "CR"})));
             LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
             ArxivDataAccessObject aDAO = new ArxivDataAccessObject(new ArrayList<>(List.of(new Category[]{category})), new AuthorFactory());
             RecommendPresenter presenter = new RecommendPresenter(new RecommendViewModel(), new ViewManagerModel());
@@ -49,11 +49,12 @@ public class RecommendInteractorTest {
 
             ResearchPaper randomPaper = aDAO.getPaperByID(papers.get(new Random().nextInt(papers.size())));
             List<List<String>> categories = new ArrayList<>();
-            categories.add(new ArrayList<>(List.of("cs", "cs.AR", "")));
-            categories.add(new ArrayList<>(List.of("cs", "cs.CV", "")));
-            categories.add(new ArrayList<>(List.of("cs", "cs.CR", "")));
+            categories.add(new ArrayList<>(List.of("cs", "AR", "")));
+            categories.add(new ArrayList<>(List.of("cs", "CV", "")));
+            categories.add(new ArrayList<>(List.of("cs", "CR", "")));
             PreferenceData preference = new PreferenceDataFactory().createWithRawData(username, categories, false, false, false);
 
+            System.out.println(interactor.getMatchScore(randomPaper, preference));
             assert (interactor.getMatchScore(randomPaper, preference) == 2);
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);
@@ -65,7 +66,7 @@ public class RecommendInteractorTest {
     public void testGetCategoryMatchCountWithoutPrioritizeCategorySearchAndWithPrioritizeUpvotePercentage() {
         try {
             String username = "kevin";
-            Category category = new CategoryFactory().create(new ArrayList<>(List.of(new String[]{"cs", "cs.CV"})));
+            Category category = new CategoryFactory().create(new ArrayList<>(List.of(new String[]{"cs", "CV"})));
             LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
             ArxivDataAccessObject aDAO = new ArxivDataAccessObject(new ArrayList<>(List.of(new Category[]{category})), new AuthorFactory());
             RecommendPresenter presenter = new RecommendPresenter(new RecommendViewModel(), new ViewManagerModel());
@@ -76,9 +77,9 @@ public class RecommendInteractorTest {
 
             ResearchPaper randomPaper = aDAO.getPaperByID(papers.get(new Random().nextInt(papers.size())));
             List<List<String>> categories = new ArrayList<>();
-            categories.add(new ArrayList<>(List.of("cs", "cs.AI", "")));
-            categories.add(new ArrayList<>(List.of("cs", "cs.CV", "")));
-            categories.add(new ArrayList<>(List.of("cs", "cs.AR", "")));
+            categories.add(new ArrayList<>(List.of("cs", "AI", "")));
+            categories.add(new ArrayList<>(List.of("cs", "CV", "")));
+            categories.add(new ArrayList<>(List.of("cs", "AR", "")));
             PreferenceData preference = new PreferenceDataFactory().createWithRawData(username, categories, false, true, false);
 
             assert (interactor.getMatchScore(randomPaper, preference) == 11);
