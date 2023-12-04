@@ -1,4 +1,4 @@
-package LocalSaveDataAccess;
+package data_access;
 
 import use_cases.localsave.LocalSaveDataAccessInterface;
 import use_cases.showpdf.ShowPdfDataAccessInterface;
