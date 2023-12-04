@@ -17,6 +17,10 @@ public class LibraryInteractor implements LibraryInputBoundary {
   
     @Override
     public void execute(LibraryInputData inputData) {
+        /*
+        Uses user's bookmarked research papers to create lists of research paper information, which is used to construct
+        user library.
+         */
         List<ResearchPaper> researchPaperList = libraryDAO.getSavedPapersForUser(inputData.GetUserName());
         LibraryOutputData outputData = new LibraryOutputData();
         for (ResearchPaper rp : researchPaperList){

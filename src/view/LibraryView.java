@@ -7,8 +7,11 @@ import interface_adapters.library.LibraryViewModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +20,7 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
     private JButton button1;
     private JPanel Panel2;
     private JButton button2;
-    private Map<String, LibraryItemPanel> libraryItemPanels;
+    private Map<String, LibraryItemPanel> libraryItemPanels = new HashMap<>();
     LibraryViewModel libraryViewModel;
     LibraryController libraryController;
     public LibraryView(LibraryViewModel libraryViewModel, LibraryController libraryController) {
@@ -30,6 +33,9 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
 
     }
     public void addLibraryPanels(LibraryState state){
+        /*
+        Creates small library item panels for each research paper that is currently bookmarked by the user.
+         */
         Panel2.setLayout(new BoxLayout(Panel2, BoxLayout.PAGE_AXIS));
         for(int i = 0; i < state.getTitles().size(); i++){
             if(!libraryItemPanels.containsKey(state.getTitles().get(i))){
@@ -37,6 +43,16 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
                 libraryItemPanels.put(state.getTitles().get(i),itemPanel);
                 Panel2.add(itemPanel);
                 itemPanel.setVisible(true);
+                itemPanel.getViewButton().addActionListener(
+                        // This creates an anonymous subclass of ActionListener and instantiates it.
+                        new ActionListener() {
+                            public void actionPerformed(ActionEvent evt) {
+                                if (evt.getSource().equals(itemPanel.getViewButton())) {
+                                    libraryController.execute(itemPanel.getUrl());
+                                }
+                            }
+                        }
+                );
             }
         }
     }

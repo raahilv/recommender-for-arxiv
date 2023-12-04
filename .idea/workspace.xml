@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8de186e8-7961-4325-a15e-fd8aa8693659" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/CSC207-Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CSC207-Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/app/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/app/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/ArxivDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/ArxivDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/DataAccessFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/DataAccessFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalDownvotedPapersDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalDownvotedPapersDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalLibraryDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalLibraryDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalPreferredCategoriesDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalPreferredCategoriesDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalResearchPaperDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalResearchPaperDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUpvotedPapersDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUpvotedPapersDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUserDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/data_access/LocalUserDataAccessObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/localsave/LocalSaveController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/interface_adapters/localsave/LocalSaveController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/localsave/LocalSaveInteractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/localsave/LocalSaveInteractor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendDataAccessInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/use_cases/recommend/RecommendDataAccessInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$22.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$22.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$23.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$24.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$25.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$26.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$26.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$27.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$27.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CSC207-Project/view/RecommendedPapersView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_access/RecommendDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_access/RecommendDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/ResearchPaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/ResearchPaper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data_access/LocalPreferredCategoriesDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access/LocalPreferredCategoriesDataAccessObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/data_access/LocalResearchPaperDataAccessObjectTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/data_access/LocalResearchPaperDataAccessObjectTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_files/emptyCategories.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyCategories.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_files/emptyPapers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_files/emptyPapers.csv" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  }
+}</component>
+  <component name="RunManager" selected="JUnit.data_access in CSC207-Project">
+    <configuration name="ArxivDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access" />
+      <option name="MAIN_CLASS_NAME" value="data_access.ArxivDataAccessObjectTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalPreferredCategoriesDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access" />
+      <option name="MAIN_CLASS_NAME" value="data_access.LocalPreferredCategoriesDataAccessObjectTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalResearchPaperDataAccessObjectTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access" />
+      <option name="MAIN_CLASS_NAME" value="data_access.LocalResearchPaperDataAccessObjectTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access" />
+      <option name="MAIN_CLASS_NAME" value="data_access.LocalResearchPaperDataAccessObjectTest" />
+      <option name="METHOD_NAME" value="testGetPaperByIDThatExists" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="data_access in CSC207-Project" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CSC207-Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="data_access.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="data_access" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ArxivDataAccessObjectTest" />
+      <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest" />
+      <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest" />
+      <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists" />
+      <item itemvalue="JUnit.data_access in CSC207-Project" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.data_access in CSC207-Project" />
+        <item itemvalue="JUnit.ArxivDataAccessObjectTest" />
+        <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest" />
+        <item itemvalue="JUnit.LocalPreferredCategoriesDataAccessObjectTest" />
+        <item itemvalue="JUnit.LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701573865687" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access.LocalResearchPaperDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalUpvotedPapersDataAccessObjectTest.ic" NAME="LocalUpvotedPapersDataAccessObjectTest Coverage Results" MODIFIED="1701575113376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access.LocalUpvotedPapersDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207_Project$LocalResearchPaperDataAccessObjectTest.ic" NAME="LocalResearchPaperDataAccessObjectTest Coverage Results" MODIFIED="1701468766715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_objects.*</FILTER>
+      <FILTER>data_access.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalDownvotedPapersDataAccessObjectTest.ic" NAME="LocalDownvotedPapersDataAccessObjectTest Coverage Results" MODIFIED="1701577656345" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.LocalDownvotedPapersDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalUserDataAccessObjectTest.ic" NAME="LocalUserDataAccessObjectTest Coverage Results" MODIFIED="1701583735245" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.LocalUserDataAccessObject</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest_testPapersCSVFileHeaderToString.ic" NAME="LocalResearchPaperDataAccessObjectTest.testPapersCSVFileHeaderToString Coverage Results" MODIFIED="1701550290894" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest__1_.ic" NAME="LocalResearchPaperDataAccessObjectTest (1) Coverage Results" MODIFIED="1701489290581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalResearchPaperDataAccessObjectTest_testGetPaperByIDThatExists.ic" NAME="LocalResearchPaperDataAccessObjectTest.testGetPaperByIDThatExists Coverage Results" MODIFIED="1701549952440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalLibraryDataAccessObjectTest.ic" NAME="LocalLibraryDataAccessObjectTest Coverage Results" MODIFIED="1701559453944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/CSC207Project$LocalPreferredCategoriesDataAccessObjectTest.ic" NAME="LocalPreferredCategoriesDataAccessObjectTest Coverage Results" MODIFIED="1701564749485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>data_access_test.*</FILTER>
+      <FILTER>data_access.*</FILTER>
+    </SUITE>
+  </component>
+</project>

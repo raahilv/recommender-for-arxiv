@@ -9,7 +9,7 @@ public class LibraryInputData {
     public String GetUserName(){
         return userName;
     }
-    public void SetUserName(String userName){
+    public void setUserName(String userName){
         this.userName = userName;
     }
 }

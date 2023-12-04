@@ -25,7 +25,7 @@ public class ArxivDataAccessObjectTest {
     Author Changyu = AF.createWithoutAffiliation("Changyu Dong");
     String summary = "  Programs using random values can either make all choices in advance (eagerly) or sample as needed (lazily). In formal proofs, we focus on indistinguishability between two lazy programs, a common requirement in the random oracle model (ROM). While rearranging sampling instructions often solves this, it gets complex when sampling is spread across procedures. The traditional approach, introduced by Bellare and Rogaway in 2004, converts programs to eager sampling, but requires assuming finite memory, a polynomial bound, and artificial resampling functions. We introduce a novel approach in probabilistic Relational Hoare Logic (pRHL) that directly proves indistinguishability, eliminating the need for conversions and the mentioned assumptions. We also implement this approach in the EasyCrypt theorem prover, showing that it can be a convenient alternative to the traditional method. ";
     ResearchPaper paper = new ResearchPaper("2311.16844", "A Direct Lazy Sampling Proof Technique in Probabilistic Relational Hoare  Logic", categories, authors, LocalDate.parse("2023-11-28"), summary, "http://arxiv.org/abs/2311.16844", 0, 0);
-    ArxivDataAccessObject arxdao = new ArxivDataAccessObject(categories, authors);
+    ArxivDataAccessObject arxdao = new ArxivDataAccessObject(categories, AF);
     @org.junit.Test
     public void testGetPaperById(){
         ResearchPaper paper2 = arxdao.getPaperByID("2311.16844");
