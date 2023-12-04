@@ -1,5 +1,6 @@
 package view;
 
+import interface_adapters.recommend.RecommendState;
 import interface_adapters.switchView.SwitchViewController;
 import interface_adapters.switchView.SwitchViewViewModel;
 import interface_adapters.vote.VoteState;
@@ -26,7 +27,11 @@ public class VoteView extends JPanel implements ActionListener, PropertyChangeLi
         this.switchViewViewModel = switchViewViewModel;
         this.switchViewController = switchViewController;
         switchViewViewModel.addPropertyChangeListener(this);
+        voteViewModel.addPropertyChangeListener(this);
+        backButton = new JButton(switchViewViewModel.TITLE_LABEL);
+    }
 
+    private void setViewLayout() {
         VoteState currentState = voteViewModel.getState();
         if (currentState.getPaperAlreadyUpvotedError() != null) {
             messageArea.append(currentState.getPaperAlreadyUpvotedError());
@@ -41,7 +46,6 @@ public class VoteView extends JPanel implements ActionListener, PropertyChangeLi
             }
         }
 
-        backButton = new JButton(switchViewViewModel.TITLE_LABEL);
         backButton.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
@@ -60,6 +64,7 @@ public class VoteView extends JPanel implements ActionListener, PropertyChangeLi
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
+        this.voteViewModel.setState((VoteState) evt.getNewValue());
+        this.setViewLayout();
     }
 }

@@ -1,6 +1,6 @@
 username,preferred_categories
-ege,r00|s00|d00^r01|s01|d01^r02|s02|d02^r03|s03|d03
-kevin,r10|s10|d10
-jerry,r20|s20|d20^r21|s21|d21
-ozgen,r30|s30|d30^r31|s31|d31^r32|s32|d32
+ege,r00|s00|null^r01|s01|null^r02|s02|null^r03|s03|null
+kevin,r10|s10|null
+jerry,r20|s20|null^r21|s21|null
+ozgen,r30|s30|null^r31|s31|null^r32|s32|null
 raahil,

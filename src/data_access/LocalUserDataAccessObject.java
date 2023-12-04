@@ -12,24 +12,25 @@ import java.util.*;
 public class LocalUserDataAccessObject {
 
     private static final String USER_CSV_FILE_PATH = "test/test_files/users.csv";
-    private final LocalLibraryDataAccessObject localLibraryDAO;
-    private final LocalUpvotedPapersDataAccessObject localUpvotedPapersDAO;
-    private final LocalDownvotedPapersDataAccessObject localDownvotedPapersDAO;
-    private final LocalPreferredCategoriesDataAccessObject localPreferredCategoriesDAO;
+//    private final LocalLibraryDataAccessObject localLibraryDAO;
+//    private final LocalUpvotedPapersDataAccessObject localUpvotedPapersDAO;
+//    private final LocalDownvotedPapersDataAccessObject localDownvotedPapersDAO;
+//    private final LocalPreferredCategoriesDataAccessObject localPreferredCategoriesDAO;
     private final File usersCSVFile;
     private final Map<String, User> users = new LinkedHashMap<>();  // username : username object
     private final Map<String, Integer> usersCSVFileHeader = new LinkedHashMap<>();
     private final UserFactory userFactory;
 
-    public LocalUserDataAccessObject(LocalLibraryDataAccessObject localLibraryDAO,
-                                     LocalUpvotedPapersDataAccessObject localUpvotedPapersDAO,
-                                     LocalDownvotedPapersDataAccessObject localDownvotedPapersDAO,
-                                     LocalPreferredCategoriesDataAccessObject localPreferredCategoriesDAO,
+    public LocalUserDataAccessObject(
+//                                     LocalLibraryDataAccessObject localLibraryDAO,
+//                                     LocalUpvotedPapersDataAccessObject localUpvotedPapersDAO,
+//                                     LocalDownvotedPapersDataAccessObject localDownvotedPapersDAO,
+//                                     LocalPreferredCategoriesDataAccessObject localPreferredCategoriesDAO,
                                      UserFactory userFactory) throws IOException {
-        this.localLibraryDAO = localLibraryDAO;
-        this.localUpvotedPapersDAO = localUpvotedPapersDAO;
-        this.localDownvotedPapersDAO = localDownvotedPapersDAO;
-        this.localPreferredCategoriesDAO = localPreferredCategoriesDAO;
+//        this.localLibraryDAO = localLibraryDAO;
+//        this.localUpvotedPapersDAO = localUpvotedPapersDAO;
+//        this.localDownvotedPapersDAO = localDownvotedPapersDAO;
+//        this.localPreferredCategoriesDAO = localPreferredCategoriesDAO;
         this.usersCSVFile = new File(USER_CSV_FILE_PATH);
         this.userFactory = userFactory;
 
@@ -48,25 +49,25 @@ public class LocalUserDataAccessObject {
                     String[] col = row.split(",");
                     String username = String.valueOf(col[this.usersCSVFileHeader.get("username")]);
                     String password = String.valueOf(col[this.usersCSVFileHeader.get("password")]);
-                    List<Category> preferredCategories =
-                            this.localPreferredCategoriesDAO.getPreferredCategories(username);
-                    List<ResearchPaper> userLibrary = this.localLibraryDAO.getLibrary(username);
-                    List<ResearchPaper> upvotedPapers = this.localUpvotedPapersDAO.getDownvotedPapers(username);
-                    List<ResearchPaper> downvotedPapers = this.localDownvotedPapersDAO.getDownvotedPapers(username);
+//                    List<Category> preferredCategories =
+//                            this.localPreferredCategoriesDAO.getPreferredCategories(username);
+//                    List<ResearchPaper> userLibrary = this.localLibraryDAO.getLibrary(username);
+//                    List<ResearchPaper> upvotedPapers = this.localUpvotedPapersDAO.getDownvotedPapers(username);
+//                    List<ResearchPaper> downvotedPapers = this.localDownvotedPapersDAO.getDownvotedPapers(username);
 
                     User user = this.userFactory.create(username, password);
-                    for (Category preferredCategory : preferredCategories) {
-                        user.addPreferredCategories(preferredCategory);
-                    }
-                    for (ResearchPaper savedPaper : userLibrary) {
-                        user.savePaperIntoLibrary(savedPaper);
-                    }
-                    for (ResearchPaper upvotedPaper : upvotedPapers) {
-                        user.addUpvotedPapers(upvotedPaper);
-                    }
-                    for (ResearchPaper downvotedPaper : downvotedPapers) {
-                        user.addDownvotedPapers(downvotedPaper);
-                    }
+//                    for (Category preferredCategory : preferredCategories) {
+//                        user.addPreferredCategories(preferredCategory);
+//                    }
+//                    for (ResearchPaper savedPaper : userLibrary) {
+//                        user.savePaperIntoLibrary(savedPaper);
+//                    }
+//                    for (ResearchPaper upvotedPaper : upvotedPapers) {
+//                        user.addUpvotedPapers(upvotedPaper);
+//                    }
+//                    for (ResearchPaper downvotedPaper : downvotedPapers) {
+//                        user.addDownvotedPapers(downvotedPaper);
+//                    }
                     this.users.put(username, user);
                 }
             }
@@ -82,11 +83,13 @@ public class LocalUserDataAccessObject {
 
                 BufferedWriter writer = new BufferedWriter(new FileWriter(USER_CSV_FILE_PATH));
                 writer.write("username,password");
+                writer.newLine();
                 for (int i = 1; i < users.size(); i++) {
                     writer.write(users.get(i));
                     writer.newLine();
                 }
                 writer.close();
+                this.users.put(user.getUsername(), user);
             }
         } catch (IOException ioe) {
             throw new RuntimeException(ioe);
@@ -117,27 +120,27 @@ public class LocalUserDataAccessObject {
             for (User user : this.users.values()) {
                 String username = user.getUsername();
                 String password = user.getPassword();
-                Map<String, ResearchPaper> userLibrary = user.getLibrary();
-                List<Category> preferredCategories = user.getPreferredCategories();
-                Map<String, ResearchPaper> upvotedPapers = user.getUpvotedPapers();
-                Map<String, ResearchPaper> downvotedPapers = user.getDownvotedPapers();
+//                Map<String, ResearchPaper> userLibrary = user.getLibrary();
+//                List<Category> preferredCategories = user.getPreferredCategories();
+//                Map<String, ResearchPaper> upvotedPapers = user.getUpvotedPapers();
+//                Map<String, ResearchPaper> downvotedPapers = user.getDownvotedPapers();
 
                 String line = String.format("%s,%s", username, password);
                 writer.write(line);
                 writer.newLine();
 
-                this.localLibraryDAO.writeToDatabase(
-                        username, new ArrayList<>(userLibrary.keySet())
-                );
-                this.localPreferredCategoriesDAO.writeToDatabase(
-                        username, preferredCategories
-                );
-                this.localUpvotedPapersDAO.writeToDatabase(
-                        username, new ArrayList<>(upvotedPapers.keySet())
-                );
-                this.localDownvotedPapersDAO.writeToDatabase(
-                        username, new ArrayList<>(downvotedPapers.keySet())
-                );
+//                this.localLibraryDAO.writeToDatabase(
+//                        username, new ArrayList<>(userLibrary.keySet())
+//                );
+//                this.localPreferredCategoriesDAO.writeToDatabase(
+//                        username, preferredCategories
+//                );
+//                this.localUpvotedPapersDAO.writeToDatabase(
+//                        username, new ArrayList<>(upvotedPapers.keySet())
+//                );
+//                this.localDownvotedPapersDAO.writeToDatabase(
+//                        username, new ArrayList<>(downvotedPapers.keySet())
+//                );
             }
 
             writer.close();

@@ -50,7 +50,8 @@ public class ArxivDataAccessObject {
 
         for (String cat: map.get("categories")) {
             for (Category CAT: catList) {
-                if ((CAT.getRootCategory().equals(cat.split("\\.")[0])) && (CAT.getSubcategory().equals(cat.split("\\.")[1]))) {
+//                if ((CAT.getRootCategory().equals(cat.split("\\.")[0])) && (CAT.getSubcategory().equals(cat.split("\\.")[1]))) {
+                if (CAT.getSubcategory().equals(cat) || CAT.getRootCategory().equals(cat)){
                     categories.add(CAT);
                 }
             }
@@ -160,7 +161,21 @@ public class ArxivDataAccessObject {
             try {
                 Float.parseFloat(string.split("v")[0]);
                 return string.split("v")[0];
-            }catch (NumberFormatException e){}
+            }catch (NumberFormatException e){
+                try {
+                    for (Category cat: catList) {
+                        if (string.startsWith(cat.getRootCategory() + "/") ){
+                            String postfix = string.split(cat.getRootCategory())[1];
+                            return cat.getRootCategory() + postfix.split("v")[0];
+                        }
+                        else if(string.startsWith(cat.getSubcategory() + "/")) {
+                            String postfix = string.split(cat.getSubcategory())[1];
+                            return cat.getSubcategory() + postfix.split("v")[0];
+                        }
+                    }
+                }catch (Exception ignored){}
+
+            }
 
         }
         return "";
@@ -195,8 +210,10 @@ public class ArxivDataAccessObject {
 //        return output;
 //    }
 
-    public List<String> filterPapersByRootCategory(String parentCategory) {
+    public List<String> filterPapersByRootCategory(Category category) {
         //assumes 50 papers for now
+//        String categoryStringRep = category.getRootCategory().toLowerCase() + "." + category.getSubcategory().toUpperCase();
+        String categoryStringRep = category.getSubcategory();
         List<String> ids = new ArrayList<>();
 //        HttpRequest request;
 //        try {
@@ -223,7 +240,7 @@ public class ArxivDataAccessObject {
 //        } catch (SAXException | IOException e) {
 //            throw new RuntimeException(e);
 //        }
-        Element root = getDocFromQuery(apiBegin + "query?search_query=" + "cat" +":" + parentCategory.replaceAll(" ", "%20") + "&start=0&max_results=50").getDocumentElement();
+        Element root = getDocFromQuery(apiBegin + "query?search_query=" + "cat" +":" + categoryStringRep.replaceAll(" ", "%20") + "&start=0&max_results=50").getDocumentElement();
         NodeList nodeList = root.getElementsByTagName("id");
         for(int i = 1; i < nodeList.getLength(); i++) {
             Node node = nodeList.item(i);
@@ -315,7 +332,7 @@ public class ArxivDataAccessObject {
     }
 
     private String paperFromAPI(String searchType, String query) {
-        query = query.replaceAll(" ", "%20");
+        query = query.replaceAll(" ", "%20").replaceAll("\\/", "%2F");
         HttpRequest request;
         try {
             request = HttpRequest.newBuilder().uri(new URI(apiBegin + "query?search_query=" + searchType +":" + query + "&start=0&max_results=1")).GET().build();

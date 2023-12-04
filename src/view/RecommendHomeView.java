@@ -3,6 +3,8 @@ package view;
 import interface_adapters.RecommendHome.*;
 
 import javax.swing.*;
+import javax.swing.plaf.TabbedPaneUI;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -13,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RecommendHomeView extends JPanel implements PropertyChangeListener {
+    public final String viewName = "recommend home";
     private JTabbedPane tabbedPanel;
     private JPanel CS;
     private JRadioButton computationalComplexityRadioButton;
@@ -75,11 +78,11 @@ public class RecommendHomeView extends JPanel implements PropertyChangeListener 
     private RecommendHomeController recommendHomeController;
     private RecommendHomeViewModel recommendHomeViewModel;
     public RecommendHomeView(RecommendHomeViewModel viewModel, RecommendHomeController controller){
+        add(mainPanel);
         recommendHomeController = controller;
         this.recommendHomeViewModel = viewModel;
         this.recommendHomeViewModel.addPropertyChangeListener(this);
         userLabel.setText(viewModel.getState().getUsername());
-        add(recommendButton);
         recommendButton.addActionListener(
                 // This creates an anonymous subclass of ActionListener and instantiates it.
                 new ActionListener() {
@@ -183,10 +186,10 @@ public class RecommendHomeView extends JPanel implements PropertyChangeListener 
         radioButtonsList.add(systemsAndControlRadioButton);
         radioButtonsList.add(artificialIntelligenceRadioButton);
         radioButtonsList.add(distributedParallelAndClusterRadioButton);
-        for(JRadioButton button : radioButtonsList){
-            add(button);
-        }
+
     }
+
+
     public List<List<String>> getPreferredCategories(){
         /*
         Returns a list of preferred categories in the format of (category, sub_category, description)

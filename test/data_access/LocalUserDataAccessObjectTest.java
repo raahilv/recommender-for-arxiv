@@ -41,12 +41,12 @@ public class LocalUserDataAccessObjectTest {
             writer.newLine();
             writer.close();
 
-            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
-            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
-            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
-            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
-            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(lDAO, upDAO, dpDAO, pcDAO, uf);
+//            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
+//            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
+//            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+//            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
+//            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
+            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
 
             String username = "kevin";
             User actualUser = uDAO.getUser(username);
@@ -74,12 +74,12 @@ public class LocalUserDataAccessObjectTest {
             writer.newLine();
             writer.close();
 
-            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
-            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
-            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
-            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
-            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(lDAO, upDAO, dpDAO, pcDAO, uf);
+//            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
+//            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
+//            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+//            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
+//            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
+            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
 
             String username = "boris";
             User actualUser = uDAO.getUser(username);
@@ -107,12 +107,12 @@ public class LocalUserDataAccessObjectTest {
             writer.newLine();
             writer.close();
 
-            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
-            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
-            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
-            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
-            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(lDAO, upDAO, dpDAO, pcDAO, uf);
+//            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
+//            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
+//            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+//            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
+//            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
+            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
 
             String username = "ege";
             assert (uDAO.existsByUsername(username));
@@ -139,12 +139,12 @@ public class LocalUserDataAccessObjectTest {
             writer.newLine();
             writer.close();
 
-            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
-            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
-            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
-            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
-            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(lDAO, upDAO, dpDAO, pcDAO, uf);
+//            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
+//            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
+//            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+//            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
+//            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
+            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
 
             String username = "kaiwen";
             assert (!uDAO.existsByUsername(username));
@@ -171,12 +171,12 @@ public class LocalUserDataAccessObjectTest {
             writer.newLine();
             writer.close();
 
-            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
-            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
-            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
-            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
-            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(lDAO, upDAO, dpDAO, pcDAO, uf);
+//            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
+//            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
+//            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+//            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
+//            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
+            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
 
             String username = "kevin";
             String password = "different_pwd";
@@ -223,19 +223,19 @@ public class LocalUserDataAccessObjectTest {
             writer.newLine();
             writer.close();
 
-            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
-            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
-            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
-            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
-            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(lDAO, upDAO, dpDAO, pcDAO, uf);
+//            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
+//            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
+//            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+//            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
+//            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
+            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
 
             String username = "kaiwen";
             String password = "kaiwenpwd";
             User user = uf.create(username, password);
             uDAO.saveToDatabase(user);
 
-            assert (Files.readAllLines(Paths.get(USER_CSV_FILE_PATH), StandardCharsets.UTF_8).get(5).equals("kaiwen,kaiwenpwd"));
+            assert (Files.readAllLines(Paths.get(USER_CSV_FILE_PATH), StandardCharsets.UTF_8).get(6).equals("kaiwen,kaiwenpwd"));
 
         } catch (IOException ioe) {
             System.out.println("IOException in testExistsByUsernameWithNonExistingUser().");
@@ -259,13 +259,13 @@ public class LocalUserDataAccessObjectTest {
             writer.write("raahil,raahilpwd");
             writer.newLine();
             writer.close();
-
-            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
-            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
-            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
-            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
-            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(lDAO, upDAO, dpDAO, pcDAO, uf);
+//
+//            LocalResearchPaperDataAccessObject rpDAO = new LocalResearchPaperDataAccessObject(PAPERS_CSV_FILE_PATH, af, cf, rpf);
+//            LocalLibraryDataAccessObject lDAO = new LocalLibraryDataAccessObject(rpDAO);
+//            LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+//            LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject(UPVOTED_CSV_FILE_PATH, rpDAO);
+//            LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject(DOWNVOTED_CSV_FILE_PATH, rpDAO);
+            LocalUserDataAccessObject uDAO = new LocalUserDataAccessObject(uf);
 
             List<String> previousUserFileLines = Files.readAllLines(Paths.get(USER_CSV_FILE_PATH), StandardCharsets.UTF_8);
             List<String> previousPreferredCategoriesFileLines = Files.readAllLines(Paths.get(PREFERRED_CATEGORIES_FILE_PATH), StandardCharsets.UTF_8);

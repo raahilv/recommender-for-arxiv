@@ -16,8 +16,8 @@ import java.util.Objects;
 import static org.junit.Assert.*;
 public class ArxivDataAccessObjectTest {
     CategoryFactory CF = new CategoryFactory();
-    List<Category> categories = new ArrayList<>(Arrays.asList(new Category[]{CF.create(List.of("cs", "CR", "Cryptography and Security")), CF.create(List.of("cs", "FL", "Formal Languages and Automata Theory"))}));
-    Category CR = CF.create(List.of("cs", "CR", "Cryptography and Security"));
+    List<Category> categories = new ArrayList<>(Arrays.asList(new Category[]{CF.create(List.of("cs", "cs.CR", "Cryptography and Security")), CF.create(List.of("cs", "cs.FL", "Formal Languages and Automata Theory"))}));
+    Category CR = CF.create(List.of("cs", "cs.CR", "Cryptography and Security"));
 //    Category FL = CF.create(List.of("cs", "FL", "Formal Languages and Automata Theory"));
     AuthorFactory AF = new AuthorFactory();
     List<Author> authors = new ArrayList<>(Arrays.asList(new Author[]{AF.createWithoutAffiliation("Roberto Metere"),AF.createWithoutAffiliation("Changyu Dong")}));
@@ -51,7 +51,7 @@ public class ArxivDataAccessObjectTest {
 
     @org.junit.Test
     public void testDoesFilterPapersByRootFilter(){
-        List<String> papers = arxdao.filterPapersByRootCategory("cs.fl");
+        List<String> papers = arxdao.filterPapersByRootCategory(new Category("cs", "cs.FL", ""));
         int start = (int) (Math.random() * 45);
         for (int i = 0; i < 5; i++) {
             boolean cat_in = false;

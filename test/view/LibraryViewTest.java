@@ -24,7 +24,7 @@ public class LibraryViewTest {
         // create the UI; note, we don't make a real InputBoundary,
         // since we don't need it for this test.
         ShowPdfInputBoundary sib = new ShowPdfInteractor(null);
-        LibraryController controller = new LibraryController(sib);
+        LibraryController controller = new LibraryController(sib, null);
         LibraryViewModel viewModel = new LibraryViewModel();
         LibraryPresenter presenter = new LibraryPresenter(new ViewManagerModel(),viewModel);
         LibraryView libView = new LibraryView(viewModel,controller);

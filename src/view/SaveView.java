@@ -1,9 +1,11 @@
 package view;
 
+import interface_adapters.recommend.RecommendState;
 import interface_adapters.save.SaveState;
 import interface_adapters.save.SaveViewModel;
 import interface_adapters.switchView.SwitchViewController;
 import interface_adapters.switchView.SwitchViewViewModel;
+import interface_adapters.vote.VoteState;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -26,7 +28,11 @@ public class SaveView extends JPanel implements ActionListener, PropertyChangeLi
         this.switchViewController = switchViewController;
         this.switchViewViewModel = switchViewViewModel;
         switchViewViewModel.addPropertyChangeListener(this);
+        saveViewModel.addPropertyChangeListener(this);
+        backButton = new JButton(switchViewViewModel.TITLE_LABEL);
+    }
 
+    private void setViewLayout() {
         SaveState currentState = saveViewModel.getState();
         if (currentState.getPaperAlreadySavedError() != null) {
             messageArea.append(currentState.getPaperAlreadySavedError());
@@ -34,7 +40,6 @@ public class SaveView extends JPanel implements ActionListener, PropertyChangeLi
             String paperId = currentState.getPaperId();
             messageArea.append("Paper " + paperId + " successfully saved.");
         }
-        backButton = new JButton(switchViewViewModel.TITLE_LABEL);
         backButton.addActionListener(
                 new ActionListener() {
                     public void actionPerformed(ActionEvent evt) {
@@ -53,6 +58,7 @@ public class SaveView extends JPanel implements ActionListener, PropertyChangeLi
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
+        this.saveViewModel.setState((SaveState) evt.getNewValue());
+        this.setViewLayout();
     }
 }

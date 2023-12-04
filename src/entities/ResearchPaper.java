@@ -83,7 +83,9 @@ public class ResearchPaper {
         for (Category category : this.categories) {
             categoriesStringRep.append(category.toString()).append(" ");
         }
-        categoriesStringRep.deleteCharAt(categoriesStringRep.length() - 1);
+        if (categoriesStringRep.length() > 0) {
+            categoriesStringRep.deleteCharAt(categoriesStringRep.length() - 1);
+        }
         paperMetadata.add(categoriesStringRep.toString());
 
         paperMetadata.add(this.publishDate.toString());

@@ -35,10 +35,10 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
 
         this.localResearchPaperDAO = new LocalResearchPaperDataAccessObject("test/test_files/papers.csv", af, cf, rpf);
         this.localLibraryDAO = new LocalLibraryDataAccessObject(this.localResearchPaperDAO);
-        LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
-        LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject("test/test_files/upvotedPapers.csv", this.localResearchPaperDAO);
-        LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject("test/test_files/downvotedPapers.csv", this.localResearchPaperDAO);
-        this.localUserDAO = new LocalUserDataAccessObject(this.localLibraryDAO, upDAO, dpDAO, pcDAO, uf);
+//        LocalPreferredCategoriesDataAccessObject pcDAO = new LocalPreferredCategoriesDataAccessObject(cf);
+//        LocalUpvotedPapersDataAccessObject upDAO = new LocalUpvotedPapersDataAccessObject("test/test_files/upvotedPapers.csv", this.localResearchPaperDAO);
+//        LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject("test/test_files/downvotedPapers.csv", this.localResearchPaperDAO);
+        this.localUserDAO = new LocalUserDataAccessObject(uf);
         this.arxivDAO = new ArxivDataAccessObject(categories, af);
         this.localSaveDAO = new LocalSaveDataAccessObject();
         this.showPdfDAO = new ShowPdfDataAccessObject();
@@ -81,13 +81,14 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
     }
 
     @Override
-    public ResearchPaper getPaper(String paperID) {
-        return getPaperById(paperID);
-    }
-
-    @Override
     public ResearchPaper getPaperById(String id) {
         return arxivDAO.getPaperByID(id);
+    }
+
+
+    @Override
+    public ResearchPaper getPaper(String paperID) {
+        return getPaperById(paperID);
     }
 
     @Override
@@ -96,8 +97,8 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
     }
 
     @Override
-    public List<String> filterPapersByRootCategory(String parentCategory) {
-        return arxivDAO.filterPapersByRootCategory(parentCategory);
+    public List<String> filterPapersByRootCategory(Category category) {
+        return arxivDAO.filterPapersByRootCategory(category);
     }
 
     @Override
