@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RecommendedPapersView extends JPanel implements ActionListener, PropertyChangeListener {
-    private final String viewName = "recommend";
+    public final String viewName = "recommend";
     private final SaveViewModel saveViewModel;
     private final VoteViewModel voteViewModel;
     private final RecommendViewModel recommendViewModel;
@@ -774,33 +774,15 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
 
         this.setLayout(new GridLayout(3, 3, 10, 10));
 
-        if (! paperInfo1.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea1, upVote1, downVote1, save1, download1);
-        }
-        if (! paperInfo2.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea2, upVote2, downVote2, save2, download2);
-        }
-        if (! paperInfo3.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea3, upVote3, downVote3, save3, download3);
-        }
-        if (! paperInfo4.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea4, upVote4, downVote4, save4, download4);
-        }
-        if (! paperInfo5.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea5, upVote5, downVote5, save5, download5);
-        }
-        if (! paperInfo6.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea6, upVote6, downVote6, save6, download6);
-        }
-        if (! paperInfo7.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea7, upVote7, downVote7, save7, download7);
-        }
-        if (! paperInfo8.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea8, upVote8, downVote8, save8, download8);
-        }
-        if (! paperInfo9.equals(emptyPaperInfo)) {
-            addPaperInfoArea(paperInfoArea9, upVote9, downVote9, save9, download9);
-        }
+        addPaperInfoArea(paperInfoArea1, upVote1, downVote1, save1, download1);
+        addPaperInfoArea(paperInfoArea2, upVote2, downVote2, save2, download2);
+        addPaperInfoArea(paperInfoArea3, upVote3, downVote3, save3, download3);
+        addPaperInfoArea(paperInfoArea4, upVote4, downVote4, save4, download4);
+        addPaperInfoArea(paperInfoArea5, upVote5, downVote5, save5, download5);
+        addPaperInfoArea(paperInfoArea6, upVote6, downVote6, save6, download6);
+        addPaperInfoArea(paperInfoArea7, upVote7, downVote7, save7, download7);
+        addPaperInfoArea(paperInfoArea8, upVote8, downVote8, save8, download8);
+        addPaperInfoArea(paperInfoArea9, upVote9, downVote9, save9, download9);
 
     }
 
