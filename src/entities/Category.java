@@ -14,6 +14,11 @@ public class Category {
         this.subcategory = subcategory;
         this.description = description;
     }
+    public Category(String rootCategory, String subcategory) {
+        this.rootCategory = rootCategory;
+        this.subcategory = subcategory;
+        this.description = "";
+    }
 
     public String getRootCategory() {
         return this.rootCategory;
