@@ -8,6 +8,7 @@ public class ShowPdfInteractor implements ShowPdfInputBoundary {
         this.showPdfDataAccessObject = showPdfDataAccessObject;
     }
     public void execute(ShowPdfInputData showPdfInputData){
+        /* Calls show pdf data access object with the input data's URL */
         showPdfDataAccessObject.showPdf(showPdfInputData.getUrl());
     }
 

@@ -1,4 +1,4 @@
-package showpdf;
+package use_cases.showpdf;
 
 import LocalSaveDataAccess.ShowPdfDataAccessObject;
 import org.junit.Test;
@@ -14,6 +14,7 @@ public class TestShowPdf {
 
     @Test
     public void checkIfBrowserOpens() {
+        /* Check if the interactor can open the browser with a sample pdf URL */
         try {
             showPdfInteractor.execute(showPdfInputData);
         } catch (Exception e) {

@@ -1,4 +1,4 @@
-package localsave;
+package use_cases.localsave;
 
 import LocalSaveDataAccess.LocalSaveDataAccessObject;
 
@@ -17,7 +17,7 @@ public class TestLocalSave{
     LocalSaveController localSaveController = new LocalSaveController(localSaveInteractor);
     @Test
     public void downloadedToRightDirectory(){
-
+        /* Check if the pdf is downloaded to right directory */
         String sampleUrl = "https://arxiv.org/pdf/2311.18000.pdf";
         String paperName = "Lyman Limits";
         localSaveController.execute(sampleUrl, paperName);

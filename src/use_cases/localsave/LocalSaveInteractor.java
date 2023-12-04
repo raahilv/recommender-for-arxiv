@@ -8,6 +8,10 @@ public class LocalSaveInteractor implements LocalSaveInputBoundary {
 
     }
     public void execute(LocalSaveInputData localSaveInputData) {
+        /*
+        Calls local save data object's local save method with the paper url and paper name from the
+        input data.
+         */
         localSaveDataAccessObject.localSave(localSaveInputData.getPaperUrl(), localSaveInputData.getPaperName());
     }
 }
