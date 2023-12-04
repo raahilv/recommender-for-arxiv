@@ -133,7 +133,10 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
 
         saveViewModel.addPropertyChangeListener(this);
         voteViewModel.addPropertyChangeListener(this);
+        recommendViewModel.addPropertyChangeListener(this);
+    }
 
+    private void setViewLayout() {
         ArrayList<JTextArea> infoAreas = new ArrayList<JTextArea>(
                 Arrays.asList(paperInfoArea1, paperInfoArea2, paperInfoArea3, paperInfoArea4,
                         paperInfoArea5, paperInfoArea6, paperInfoArea7, paperInfoArea8, paperInfoArea9));
@@ -264,7 +267,6 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     }
             );
         }
-
         this.setLayout(new GridLayout(3, 3, 10, 10));
 
         for (int i = 0; i < 9; i++) {
@@ -308,6 +310,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-
+        this.recommendViewModel.setState((RecommendState) evt.getNewValue());
+        this.setViewLayout();
     }
 }
