@@ -3,13 +3,20 @@ package app;
 import data_access.*;
 import entities.Category;
 import entities.CommonUserFactory;
+import interface_adapters.RecommendHome.RecommendHomeController;
+import interface_adapters.RecommendHome.RecommendHomePresenter;
+import interface_adapters.RecommendHome.RecommendHomeViewModel;
 import interface_adapters.ViewManagerModel;
+import interface_adapters.library.LibraryController;
+import interface_adapters.library.LibraryPresenter;
+import interface_adapters.library.LibraryViewModel;
+import interface_adapters.login.LoginController;
 import interface_adapters.login.LoginViewModel;
 import interface_adapters.signup.SignupViewModel;
 import org.w3c.dom.css.CSSValue;
-import view.HomePageView;
-import view.SignupView;
-import view.ViewManager;
+import use_cases.library.LibraryInteractor;
+import use_cases.login.LoginInteractor;
+import view.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -66,5 +73,54 @@ public class Main {
         categories.add(new Category("cs", "cs.SD"));
         categories.add(new Category("cs", "cs.SC"));
         categories.add(new Category("cs", "cs.SY"));
+        // Build the main program window, the main panel containing the
+        // various cards, and the layout, and stitch them together.
+
+        // The main application window.
+        JFrame application = new JFrame("Arxiv Paper Recommender");
+        application.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        application.setPreferredSize(new Dimension(1920,1080));
+        application.setResizable(false);
+        CardLayout cardLayout = new CardLayout();
+
+        // The various View objects. Only one view is visible at a time.
+        JPanel views = new JPanel(cardLayout);
+        application.add(views);
+
+        // This keeps track of and manages which view is currently showing.
+        ViewManagerModel viewManagerModel = new ViewManagerModel();
+        new ViewManager(views, cardLayout, viewManagerModel);
+        DataAccessFacade DAO;
+        try {
+            DAO = new DataAccessFacade(categories);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        // The data for the views, such as username and password, are in the ViewModels.
+        // This information will be changed by a presenter object that is reporting the
+        // results from the use case. The ViewModels are observable, and will
+        // be observed by the Views.
+        HomePageView homePageView = new HomePageView(viewManagerModel);
+        LoginViewModel loginViewModel = new LoginViewModel();
+        SignupViewModel signupViewModel = new SignupViewModel();
+        views.add(homePageView,homePageView.viewName);
+        SignupView signupView = SignupUseCaseFactory.create(viewManagerModel, loginViewModel, signupViewModel, DAO);
+        views.add(signupView, signupView.viewName);
+        RecommendHomeViewModel recommendHomeViewModel = new RecommendHomeViewModel();
+        LibraryViewModel libraryViewModel = new LibraryViewModel();
+        LibraryPresenter libraryPresenter = new LibraryPresenter(viewManagerModel,libraryViewModel);
+        LibraryInteractor libraryInteractor = new LibraryInteractor(DAO,libraryPresenter);
+        RecommendHomeView recommendHomeView = new RecommendHomeView(recommendHomeViewModel, new RecommendHomeController(null,libraryInteractor));
+        RecommendHomePresenter recommendHomePresenter = new RecommendHomePresenter(viewManagerModel,recommendHomeViewModel,loginViewModel);
+        LoginView loginView = new LoginView(loginViewModel,new LoginController(new LoginInteractor(DAO,recommendHomePresenter)));
+        views.add(loginView, loginView.viewName);
+        views.add(recommendHomeView,recommendHomeView.viewName);
+        LibraryView libraryView = new LibraryView(libraryViewModel, new LibraryController(null));
+        views.add(libraryView, libraryView.viewName);
+        viewManagerModel.setActiveView(homePageView.viewName);
+        viewManagerModel.firePropertyChanged();
+
+        application.pack();
+        application.setVisible(true);
     }
 }

@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 public class LibraryView extends JPanel implements PropertyChangeListener {
+    public final String viewName = "library view";
     private JPanel panel1;
     private JPanel Panel2;
     private Map<String, LibraryItemPanel> libraryItemPanels = new HashMap<>();
@@ -25,10 +26,7 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
         this.libraryViewModel = libraryViewModel;
         this.libraryController = libraryController;
         this.libraryViewModel.addPropertyChangeListener(this);
-
-    }
-    public static void main(String[] args) {
-
+        add(panel1);
     }
     public void addLibraryPanels(LibraryState state){
         /*
