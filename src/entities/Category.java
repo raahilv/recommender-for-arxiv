@@ -23,10 +23,6 @@ public class Category {
         return this.subcategory;
     }
 
-    public String getDescription() {
-        return this.description;
-    }
-
     public boolean hasSameRootCategory(Category other) {
         return this.rootCategory.equalsIgnoreCase(other.rootCategory);
     }
