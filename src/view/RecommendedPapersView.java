@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RecommendedPapersView extends JPanel implements ActionListener, PropertyChangeListener {
-    private final String viewName = "recommend";
+    public final String viewName = "recommend";
     private final SaveViewModel saveViewModel;
     private final VoteViewModel voteViewModel;
     private final RecommendViewModel recommendViewModel;

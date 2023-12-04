@@ -9,18 +9,28 @@ import interface_adapters.ViewManagerModel;
 import interface_adapters.library.LibraryController;
 import interface_adapters.library.LibraryPresenter;
 import interface_adapters.library.LibraryViewModel;
+import interface_adapters.localsave.LocalSaveController;
 import interface_adapters.login.LoginController;
 import interface_adapters.login.LoginViewModel;
 import interface_adapters.recommend.RecommendPresenter;
 import interface_adapters.recommend.RecommendViewModel;
+import interface_adapters.save.SaveController;
+import interface_adapters.save.SavePresenter;
+import interface_adapters.save.SaveViewModel;
 import interface_adapters.signup.SignupViewModel;
 import interface_adapters.switchView.SwitchViewPresenter;
 import interface_adapters.switchView.SwitchViewViewModel;
+import interface_adapters.vote.VoteController;
+import interface_adapters.vote.VotePresenter;
+import interface_adapters.vote.VoteViewModel;
 import org.w3c.dom.css.CSSValue;
 import use_cases.library.LibraryInteractor;
+import use_cases.localsave.LocalSaveInteractor;
 import use_cases.login.LoginInteractor;
 import use_cases.recommend.RecommendInteractor;
+import use_cases.save.SaveInteractor;
 import use_cases.switchView.SwitchViewInteractor;
+import use_cases.vote.VoteInteractor;
 import view.*;
 
 import javax.swing.*;
@@ -119,7 +129,8 @@ public class Main {
         ArxivDataAccessObject arxivDataAccessObject = new ArxivDataAccessObject(categories, new AuthorFactory());
         LocalUserDataAccessObject localUserDataAccessObject = new LocalUserDataAccessObject(new CommonUserFactory());
         RecommendDataAccessObject recommendDataAccessObject = new RecommendDataAccessObject(arxivDataAccessObject, localUserDataAccessObject);
-        RecommendPresenter recommendPresenter = new RecommendPresenter(new RecommendViewModel(), new ViewManagerModel());
+        RecommendViewModel recommendViewModel = new RecommendViewModel();
+        RecommendPresenter recommendPresenter = new RecommendPresenter(recommendViewModel, viewManagerModel);
         RecommendInteractor recommendInteractor = new RecommendInteractor(recommendDataAccessObject, recommendPresenter, new CategoryFactory(), new PreferenceDataFactory());
         RecommendHomeView recommendHomeView = new RecommendHomeView(recommendHomeViewModel, new RecommendHomeController(recommendInteractor,libraryInteractor));
         RecommendHomePresenter recommendHomePresenter = new RecommendHomePresenter(viewManagerModel,recommendHomeViewModel,loginViewModel);
@@ -128,6 +139,18 @@ public class Main {
         views.add(recommendHomeView,recommendHomeView.viewName);
         LibraryView libraryView = new LibraryView(libraryViewModel, new LibraryController(null,new SwitchViewInteractor(null,new SwitchViewPresenter(new SwitchViewViewModel(),viewManagerModel))));
         views.add(libraryView, libraryView.viewName);
+        SaveViewModel saveViewModel = new SaveViewModel();
+        VoteViewModel voteViewModel = new VoteViewModel();
+
+        SavePresenter savePresenter = new SavePresenter(saveViewModel,viewManagerModel);
+        SaveController saveController = new SaveController(new SaveInteractor(DAO,savePresenter));
+        VotePresenter votePresenter = new VotePresenter(voteViewModel,viewManagerModel);
+        VoteController voteController = new VoteController(new VoteInteractor(DAO,votePresenter));
+        LocalSaveController localSaveController = new LocalSaveController(new LocalSaveInteractor(null));
+        RecommendedPapersView recommendedPapersView = new RecommendedPapersView(saveViewModel,voteViewModel,recommendViewModel,recommendHomeViewModel,saveController,voteController,localSaveController);
+        views.add(recommendedPapersView, recommendedPapersView.viewName);
+
+
         viewManagerModel.setActiveView(homePageView.viewName);
         viewManagerModel.firePropertyChanged();
 
