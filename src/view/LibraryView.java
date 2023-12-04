@@ -7,27 +7,26 @@ import interface_adapters.library.LibraryViewModel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class LibraryView extends JPanel implements PropertyChangeListener {
+    public final String viewName = "library view";
     private JPanel panel1;
-    private JButton button1;
     private JPanel Panel2;
-    private JButton button2;
-    private Map<String, LibraryItemPanel> libraryItemPanels;
+    private Map<String, LibraryItemPanel> libraryItemPanels = new HashMap<>();
     LibraryViewModel libraryViewModel;
     LibraryController libraryController;
     public LibraryView(LibraryViewModel libraryViewModel, LibraryController libraryController) {
         this.libraryViewModel = libraryViewModel;
         this.libraryController = libraryController;
         this.libraryViewModel.addPropertyChangeListener(this);
-
-    }
-    public static void main(String[] args) {
-
+        add(panel1);
     }
     public void addLibraryPanels(LibraryState state){
         /*
@@ -40,6 +39,16 @@ public class LibraryView extends JPanel implements PropertyChangeListener {
                 libraryItemPanels.put(state.getTitles().get(i),itemPanel);
                 Panel2.add(itemPanel);
                 itemPanel.setVisible(true);
+                itemPanel.getViewButton().addActionListener(
+                        // This creates an anonymous subclass of ActionListener and instantiates it.
+                        new ActionListener() {
+                            public void actionPerformed(ActionEvent evt) {
+                                if (evt.getSource().equals(itemPanel.getViewButton())) {
+                                    libraryController.execute(itemPanel.getUrl());
+                                }
+                            }
+                        }
+                );
             }
         }
     }

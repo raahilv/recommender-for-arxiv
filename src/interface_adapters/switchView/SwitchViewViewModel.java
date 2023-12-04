@@ -12,10 +12,17 @@ public class SwitchViewViewModel extends ViewModel {
 
     private SwitchViewState state = new SwitchViewState();
 
+    /**
+     * Constructor for view model for Switch View use case.
+     */
     public SwitchViewViewModel() {
         super("switch");
     }
 
+    /**
+     * Set Switch View state stored in the view model.
+     * @param state the Switch View state to be stored in the view model
+     */
     public void setState(SwitchViewState state) {
         this.state = state;
     }
@@ -32,6 +39,10 @@ public class SwitchViewViewModel extends ViewModel {
         support.addPropertyChangeListener(listener);
     }
 
+    /**
+     * Get the Switch View state stored in the view model.
+     * @return the Switch View state stored in the view model
+     */
     public SwitchViewState getState() {
         return state;
     }

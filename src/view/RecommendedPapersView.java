@@ -1,7 +1,8 @@
 package view;
 
-import interface_adapters.logged_in.LoggedInState;
-import interface_adapters.logged_in.LoggedInViewModel;
+import interface_adapters.RecommendHome.RecommendHomeState;
+import interface_adapters.RecommendHome.RecommendHomeViewModel;
+import interface_adapters.localsave.LocalSaveController;
 import interface_adapters.recommend.RecommendState;
 import interface_adapters.recommend.RecommendViewModel;
 import interface_adapters.save.SaveController;
@@ -24,9 +25,10 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
     private final SaveViewModel saveViewModel;
     private final VoteViewModel voteViewModel;
     private final RecommendViewModel recommendViewModel;
-    private final LoggedInViewModel loggedInViewModel;
+    private final RecommendHomeViewModel recommendHomeViewModel;
     private final SaveController saveController;
     private final VoteController voteController;
+    private final LocalSaveController localSaveController;
     private final JTextArea paperInfoArea1 = new JTextArea(10, 40);
     private final JTextArea paperInfoArea2 = new JTextArea(10, 40);
     private final JTextArea paperInfoArea3 = new JTextArea(10, 40);
@@ -77,15 +79,17 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
     public RecommendedPapersView(SaveViewModel saveViewModel,
                                  VoteViewModel voteViewModel,
                                  RecommendViewModel recommendViewModel,
-                                 LoggedInViewModel loggedInViewModel,
+                                 RecommendHomeViewModel recommendHomeViewModel,
                                  SaveController saveController,
-                                 VoteController voteController) {
+                                 VoteController voteController,
+                                 LocalSaveController localSaveController) {
         this.saveViewModel = saveViewModel;
         this.voteViewModel = voteViewModel;
         this.recommendViewModel = recommendViewModel;
-        this.loggedInViewModel = loggedInViewModel;
+        this.recommendHomeViewModel = recommendHomeViewModel;
         this.saveController = saveController;
         this.voteController = voteController;
+        this.localSaveController = localSaveController;
 
         upVote1 = new JButton(voteViewModel.UPVOTE_BUTTON_LABEL + " paper 1");
         upVote2 = new JButton(voteViewModel.UPVOTE_BUTTON_LABEL + " paper 2");
@@ -133,7 +137,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
 
 
         RecommendState recommendState = this.recommendViewModel.getState();
-        LoggedInState loggedInState = this.loggedInViewModel.getState();
+        RecommendHomeState recommendHomeState = this.recommendHomeViewModel.getState();
         List<List<String>> papersRecommended = recommendState.getRecommendedPapers();
         List<String> emptyPaperInfo = new ArrayList<>();
         for (int i = 0; i <= 10; i++) {
@@ -254,7 +258,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote1)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -269,7 +273,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote2)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo2.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -284,7 +288,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote3)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo3.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -299,7 +303,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote4)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo4.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -314,7 +318,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote5)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo5.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -329,7 +333,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote6)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo6.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -344,7 +348,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote7)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo7.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -359,7 +363,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote8)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo8.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -374,7 +378,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(upVote9)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo9.get(0);
                             boolean isUpvote = true;
                             voteController.execute(userName, paperId, isUpvote);
@@ -391,7 +395,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote1)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -406,7 +410,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote2)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo2.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -421,7 +425,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote3)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo3.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -436,7 +440,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote4)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo4.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -451,7 +455,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote5)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo5.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -466,7 +470,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote6)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo6.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -481,7 +485,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote7)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo7.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -496,7 +500,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote8)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo8.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -511,7 +515,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(downVote9)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo9.get(0);
                             boolean isUpvote = false;
                             voteController.execute(userName, paperId, isUpvote);
@@ -528,7 +532,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save1)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -542,7 +546,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save2)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -556,7 +560,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save3)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -570,7 +574,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save4)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -584,7 +588,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save5)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -598,7 +602,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save6)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -612,7 +616,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save7)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -626,7 +630,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save8)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -640,7 +644,7 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                     @Override
                     public void actionPerformed(ActionEvent evt) {
                         if (evt.getSource().equals(save9)) {
-                            String userName = loggedInState.getUsername();
+                            String userName = recommendHomeState.getUsername();
                             String paperId = paperInfo1.get(0);
                             saveController.execute(userName, paperId);
                         }
@@ -649,17 +653,154 @@ public class RecommendedPapersView extends JPanel implements ActionListener, Pro
                 }
         );
 
+//        Add listeners to download buttons.
+
+        download1.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download1)) {
+                            String paperName = paperInfo1.get(1);
+                            String paperUrl = paperInfo1.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
+        download2.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download2)) {
+                            String paperName = paperInfo2.get(1);
+                            String paperUrl = paperInfo2.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
+        download3.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download3)) {
+                            String paperName = paperInfo3.get(1);
+                            String paperUrl = paperInfo3.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
+        download4.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download4)) {
+                            String paperName = paperInfo4.get(1);
+                            String paperUrl = paperInfo4.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
+        download5.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download5)) {
+                            String paperName = paperInfo5.get(1);
+                            String paperUrl = paperInfo5.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
+        download6.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download6)) {
+                            String paperName = paperInfo6.get(1);
+                            String paperUrl = paperInfo6.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
+        download7.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download7)) {
+                            String paperName = paperInfo7.get(1);
+                            String paperUrl = paperInfo7.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
+        download8.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download8)) {
+                            String paperName = paperInfo8.get(1);
+                            String paperUrl = paperInfo8.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
+        download9.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        if (evt.getSource().equals(download9)) {
+                            String paperName = paperInfo9.get(1);
+                            String paperUrl = paperInfo9.get(6);
+                            localSaveController.execute(paperUrl, paperName);
+                        }
+                    }
+                }
+        );
+
         this.setLayout(new GridLayout(3, 3, 10, 10));
 
-        addPaperInfoArea(paperInfoArea1, upVote1, downVote1, save1, download1);
-        addPaperInfoArea(paperInfoArea2, upVote2, downVote2, save2, download2);
-        addPaperInfoArea(paperInfoArea3, upVote3, downVote3, save3, download3);
-        addPaperInfoArea(paperInfoArea4, upVote4, downVote4, save4, download4);
-        addPaperInfoArea(paperInfoArea5, upVote5, downVote5, save5, download5);
-        addPaperInfoArea(paperInfoArea6, upVote6, downVote6, save6, download6);
-        addPaperInfoArea(paperInfoArea7, upVote7, downVote7, save7, download7);
-        addPaperInfoArea(paperInfoArea8, upVote8, downVote8, save8, download8);
-        addPaperInfoArea(paperInfoArea9, upVote9, downVote9, save9, download9);
+        if (! paperInfo1.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea1, upVote1, downVote1, save1, download1);
+        }
+        if (! paperInfo2.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea2, upVote2, downVote2, save2, download2);
+        }
+        if (! paperInfo3.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea3, upVote3, downVote3, save3, download3);
+        }
+        if (! paperInfo4.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea4, upVote4, downVote4, save4, download4);
+        }
+        if (! paperInfo5.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea5, upVote5, downVote5, save5, download5);
+        }
+        if (! paperInfo6.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea6, upVote6, downVote6, save6, download6);
+        }
+        if (! paperInfo7.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea7, upVote7, downVote7, save7, download7);
+        }
+        if (! paperInfo8.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea8, upVote8, downVote8, save8, download8);
+        }
+        if (! paperInfo9.equals(emptyPaperInfo)) {
+            addPaperInfoArea(paperInfoArea9, upVote9, downVote9, save9, download9);
+        }
 
     }
 

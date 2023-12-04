@@ -1,5 +1,6 @@
 package data_access;
 
+import entities.Category;
 import entities.ResearchPaper;
 import entities.User;
 import use_cases.recommend.RecommendDataAccessInterface;
@@ -38,7 +39,7 @@ public class RecommendDataAccessObject implements RecommendDataAccessInterface {
 
 
     @Override
-    public List<String> filterPapersByRootCategory(String rootCategory) {
-        return this.arxivDAO.filterPapersByRootCategory(rootCategory);
+    public List<String> filterPapersByRootCategory(Category category) {
+        return this.arxivDAO.filterPapersByRootCategory(category);
     }
 }

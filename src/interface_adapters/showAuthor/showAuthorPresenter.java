@@ -35,4 +35,9 @@ public class showAuthorPresenter implements showAuthorOutputBoundary {
 
     }
 
+//    @Override
+//    public void prepareFailurView(String error) {
+//
+//    }
+
 }

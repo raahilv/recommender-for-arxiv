@@ -3,6 +3,8 @@ package view;
 import interface_adapters.RecommendHome.*;
 
 import javax.swing.*;
+import javax.swing.plaf.TabbedPaneUI;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
@@ -13,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RecommendHomeView extends JPanel implements PropertyChangeListener {
+    public final String viewName = "recommend home";
     private JTabbedPane tabbedPanel;
     private JPanel CS;
     private JRadioButton computationalComplexityRadioButton;
@@ -75,6 +78,7 @@ public class RecommendHomeView extends JPanel implements PropertyChangeListener 
     private RecommendHomeController recommendHomeController;
     private RecommendHomeViewModel recommendHomeViewModel;
     public RecommendHomeView(RecommendHomeViewModel viewModel, RecommendHomeController controller){
+        add(mainPanel);
         recommendHomeController = controller;
         this.recommendHomeViewModel = viewModel;
         this.recommendHomeViewModel.addPropertyChangeListener(this);
@@ -99,46 +103,46 @@ public class RecommendHomeView extends JPanel implements PropertyChangeListener 
                     }
                 }
         );
-        categories.put(artificialIntelligenceRadioButton, Arrays.asList("cs", "cs.AI", "Artificial Intelligence"));
-        categories.put(computationAndLanguageRadioButton, Arrays.asList("cs", "cs.CL", "Computation and Language"));
-        categories.put(computationalComplexityRadioButton, Arrays.asList("cs", "cs.CC", "Computational Complexity"));
-        categories.put(computationalEngineeringFinanceAndRadioButton, Arrays.asList("cs", "cs.CE", "Computational Engineering, Finance, and Science"));
-        categories.put(computationalGeometryRadioButton, Arrays.asList("cs", "cs.CG", "Computational Geometry"));
-        categories.put(computerScienceAndGameRadioButton, Arrays.asList("cs", "cs.GT", "Computer Science and Game Theory"));
-        categories.put(computerVisionAndPatternRadioButton, Arrays.asList("cs", "cs.CV", "Computer Vision and Pattern Recognition"));
-        categories.put(computersAndSocietyRadioButton, Arrays.asList("cs", "cs.CY", "Computers and Society"));
-        categories.put(cryptographyAndSecurityRadioButton, Arrays.asList("cs", "cs.CR", "Cryptography and Security"));
-        categories.put(dataStructuresAndAlgorithmsRadioButton, Arrays.asList("cs", "cs.DS", "Data Structures and Algorithms"));
-        categories.put(databasesRadioButton, Arrays.asList("cs", "cs.DB", "Databases"));
-        categories.put(digitalLibrariesRadioButton, Arrays.asList("cs", "cs.DL", "Digital Libraries"));
-        categories.put(discreteMathematicsRadioButton, Arrays.asList("cs", "cs.DM", "Discrete Mathematics"));
-        categories.put(distributedParallelAndClusterRadioButton, Arrays.asList("cs", "cs.DC", "Distributed, Parallel, and Cluster Computing"));
-        categories.put(emergingTechnologiesRadioButton, Arrays.asList("cs", "cs.ET", "Emerging Technologies"));
-        categories.put(formalLanguagesAndAutomataRadioButton, Arrays.asList("cs", "cs.FL", "Formal Languages and Automata Theory"));
-        categories.put(generalLiteratureRadioButton, Arrays.asList("cs", "cs.GL", "General Literature"));
-        categories.put(graphicsRadioButton, Arrays.asList("cs", "cs.GR", "Graphics"));
-        categories.put(hardwareArchitectureRadioButton, Arrays.asList("cs", "cs.AR", "Hardware Architecture"));
-        categories.put(humanComputerInteractionRadioButton, Arrays.asList("cs", "cs.HC", "Human-Computer Interaction"));
-        categories.put(informationRetrievalRadioButton, Arrays.asList("cs", "cs.IR", "Information Retrieval"));
-        categories.put(informationTheoryRadioButton, Arrays.asList("cs", "cs.IT", "Information Theory"));
-        categories.put(logicInComputerScienceRadioButton, Arrays.asList("cs", "cs.LO", "Logic in Computer Science"));
-        categories.put(machineLearningRadioButton, Arrays.asList("cs", "cs.LG", "Machine Learning"));
-        categories.put(mathematicalSoftwareRadioButton, Arrays.asList("cs", "cs.MS", "Mathematical Software"));
-        categories.put(multiagentSystemsRadioButton, Arrays.asList("cs", "cs.MA", "Multiagent Systems"));
-        categories.put(multimediaRadioButton, Arrays.asList("cs", "cs.MM", "Multimedia"));
-        categories.put(networkingAndInternetArchitectureRadioButton, Arrays.asList("cs", "cs.NI", "Networking and Internet Architecture"));
-        categories.put(neuralAndEvolutionaryComputingRadioButton, Arrays.asList("cs", "cs.NE", "Neural and Evolutionary Computing"));
-        categories.put(numericalAnalysisRadioButton, Arrays.asList("cs", "cs.NA", "Numerical Analysis"));
-        categories.put(operatingSystemsRadioButton, Arrays.asList("cs", "cs.OS", "Operating Systems"));
-        categories.put(otherComputerScienceRadioButton, Arrays.asList("cs", "cs.OH", "Other Computer Science"));
-        categories.put(performanceRadioButton, Arrays.asList("cs", "cs.PF", "Performance"));
-        categories.put(programmingLanguagesRadioButton, Arrays.asList("cs", "cs.PL", "Programming Languages"));
-        categories.put(roboticsRadioButton, Arrays.asList("cs", "cs.RO", "Robotics"));
-        categories.put(socialAndInformationNetworksRadioButton, Arrays.asList("cs", "cs.SI", "Social and Information Networks"));
-        categories.put(softwareEngineeringRadioButton, Arrays.asList("cs", "cs.SE", "Software Engineering"));
-        categories.put(soundRadioButton, Arrays.asList("cs", "cs.SD", "Sound"));
-        categories.put(symbolicComputationRadioButton, Arrays.asList("cs", "cs.SC", "Symbolic Computation"));
-        categories.put(systemsAndControlRadioButton, Arrays.asList("cs", "cs.SY", "Systems and Control"));
+        categories.put(artificialIntelligenceRadioButton, Arrays.asList("cs", "cs.AI"));
+        categories.put(computationAndLanguageRadioButton, Arrays.asList("cs", "cs.CL"));
+        categories.put(computationalComplexityRadioButton, Arrays.asList("cs", "cs.CC"));
+        categories.put(computationalEngineeringFinanceAndRadioButton, Arrays.asList("cs", "cs.CE"));
+        categories.put(computationalGeometryRadioButton, Arrays.asList("cs", "cs.CG"));
+        categories.put(computerScienceAndGameRadioButton, Arrays.asList("cs", "cs.GT"));
+        categories.put(computerVisionAndPatternRadioButton, Arrays.asList("cs", "cs.CV"));
+        categories.put(computersAndSocietyRadioButton, Arrays.asList("cs", "cs.CY"));
+        categories.put(cryptographyAndSecurityRadioButton, Arrays.asList("cs", "cs.CR"));
+        categories.put(dataStructuresAndAlgorithmsRadioButton, Arrays.asList("cs", "cs.DS"));
+        categories.put(databasesRadioButton, Arrays.asList("cs", "cs.DB"));
+        categories.put(digitalLibrariesRadioButton, Arrays.asList("cs", "cs.DL"));
+        categories.put(discreteMathematicsRadioButton, Arrays.asList("cs", "cs.DM"));
+        categories.put(distributedParallelAndClusterRadioButton, Arrays.asList("cs", "cs.DC"));
+        categories.put(emergingTechnologiesRadioButton, Arrays.asList("cs", "cs.ET"));
+        categories.put(formalLanguagesAndAutomataRadioButton, Arrays.asList("cs", "cs.FL"));
+        categories.put(generalLiteratureRadioButton, Arrays.asList("cs", "cs.GL"));
+        categories.put(graphicsRadioButton, Arrays.asList("cs", "cs.GR"));
+        categories.put(hardwareArchitectureRadioButton, Arrays.asList("cs", "cs.AR"));
+        categories.put(humanComputerInteractionRadioButton, Arrays.asList("cs", "cs.HC"));
+        categories.put(informationRetrievalRadioButton, Arrays.asList("cs", "cs.IR"));
+        categories.put(informationTheoryRadioButton, Arrays.asList("cs", "cs.IT"));
+        categories.put(logicInComputerScienceRadioButton, Arrays.asList("cs", "cs.LO"));
+        categories.put(machineLearningRadioButton, Arrays.asList("cs", "cs.LG"));
+        categories.put(mathematicalSoftwareRadioButton, Arrays.asList("cs", "cs.MS"));
+        categories.put(multiagentSystemsRadioButton, Arrays.asList("cs", "cs.MA"));
+        categories.put(multimediaRadioButton, Arrays.asList("cs", "cs.MM"));
+        categories.put(networkingAndInternetArchitectureRadioButton, Arrays.asList("cs", "cs.NI"));
+        categories.put(neuralAndEvolutionaryComputingRadioButton, Arrays.asList("cs", "cs.NE"));
+        categories.put(numericalAnalysisRadioButton, Arrays.asList("cs", "cs.NA"));
+        categories.put(operatingSystemsRadioButton, Arrays.asList("cs", "cs.OS"));
+        categories.put(otherComputerScienceRadioButton, Arrays.asList("cs", "cs.OH"));
+        categories.put(performanceRadioButton, Arrays.asList("cs", "cs.PF"));
+        categories.put(programmingLanguagesRadioButton, Arrays.asList("cs", "cs.PL"));
+        categories.put(roboticsRadioButton, Arrays.asList("cs", "cs.RO"));
+        categories.put(socialAndInformationNetworksRadioButton, Arrays.asList("cs", "cs.SI"));
+        categories.put(softwareEngineeringRadioButton, Arrays.asList("cs", "cs.SE"));
+        categories.put(soundRadioButton, Arrays.asList("cs", "cs.SD"));
+        categories.put(symbolicComputationRadioButton, Arrays.asList("cs", "cs.SC"));
+        categories.put(systemsAndControlRadioButton, Arrays.asList("cs", "cs.SY"));
 
 
 
@@ -182,8 +186,14 @@ public class RecommendHomeView extends JPanel implements PropertyChangeListener 
         radioButtonsList.add(systemsAndControlRadioButton);
         radioButtonsList.add(artificialIntelligenceRadioButton);
         radioButtonsList.add(distributedParallelAndClusterRadioButton);
+
     }
-    List<List<String>> getPreferredCategories(){
+
+
+    public List<List<String>> getPreferredCategories(){
+        /*
+        Returns a list of preferred categories in the format of (category, sub_category, description)
+         */
         List<List<String>> finalCategories = new ArrayList<>();
         for(JRadioButton radioButton : radioButtonsList){
             if(radioButton.isSelected()){

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RecommendInteractor implements RecommendInputBoundary {
 
-    static final int THRESHOLD = 1;  // TODO: to be polished
+    static final int THRESHOLD = 5;  // TODO: to be polished
     final RecommendDataAccessInterface userDataAccessObject;
     final RecommendOutputBoundary userPresenter;
     final CategoryFactory categoryFactory;
@@ -65,21 +65,26 @@ public class RecommendInteractor implements RecommendInputBoundary {
     public List<ResearchPaper> recommend(PreferenceData preferenceData) {
         List<ResearchPaper> recommendedPapers = new ArrayList<>();
 
+        List<String> potentialPaperIDs = new ArrayList<>();
         for (Category category : preferenceData.getPreferredCategories()) {
-            List<String> potentialPapers =
-                    this.userDataAccessObject.filterPapersByRootCategory(category.getRootCategory());
-            for (String potentialPaper : potentialPapers) {
-                if (isGoodMatch(potentialPaper, preferenceData)) {
-                    recommendedPapers.add(
-                            this.userDataAccessObject.getPaperByID(potentialPaper)
-                    );
-                }
+            potentialPaperIDs.addAll(this.userDataAccessObject.filterPapersByRootCategory(category));
+        }
+
+        List<ResearchPaper> potentialPapers = new ArrayList<>();
+        for (String ID : potentialPaperIDs) {
+            potentialPapers.add(this.userDataAccessObject.getPaperByID(ID));
+        }
+
+        for (ResearchPaper paper : potentialPapers) {
+            if (isGoodMatch(paper, preferenceData)) {
+                recommendedPapers.add(paper);
             }
         }
+
         return recommendedPapers;
     }
 
-    public boolean isGoodMatch(String paperId, PreferenceData preferenceData) {
+    public boolean isGoodMatch(ResearchPaper paperId, PreferenceData preferenceData) {
         return getMatchScore(paperId, preferenceData) >= THRESHOLD;
     }
 
@@ -94,42 +99,32 @@ public class RecommendInteractor implements RecommendInputBoundary {
      *     category search, prioritize upvote percentage search);
      * (5) The result from Step (4) is the match score.
      * */
-    public double getMatchScore(String paperId, PreferenceData preferenceData) {
+    public int getMatchScore(ResearchPaper paper, PreferenceData preferenceData) {
         List<Category> preferredCategories = preferenceData.getPreferredCategories();
         boolean prioritizeCategorySearch = preferenceData.prioritizeSubcategorySearch();
         boolean prioritizeUpvotePercentageSearch = preferenceData.prioritizeUpvotePercentageSearch();
-        double matchScore = 0;
+        int matchScore = 0;
 
-        ResearchPaper paper = this.userDataAccessObject.getPaperByID(paperId);
-        double adjustedMatchCount = adjust(getCategoryMatchCount(paper, preferredCategories));
+        double matchCount = getCategoryMatchCount(paper, preferredCategories);
         double upvotePercentage = getUpvotePercentage(paper.getUpvoteCount(), paper.getDownvoteCount());
 
         if (!prioritizeCategorySearch && !prioritizeUpvotePercentageSearch) {
-            matchScore += adjustedMatchCount + upvotePercentage;
-        } else if (prioritizeCategorySearch) {
-            matchScore += 10 * adjustedMatchCount;
-            matchScore += upvotePercentage;
+            matchScore += matchCount + upvotePercentage;
         } else {
-            matchScore += 10 * upvotePercentage;
-            matchScore += adjustedMatchCount;
+            if (prioritizeCategorySearch) {
+                matchScore += 10 * matchCount;
+            } else {
+                matchScore += matchCount;
+            }
+
+            if (prioritizeUpvotePercentageSearch) {
+                matchScore += 10 * upvotePercentage;
+            } else {
+                matchScore += upvotePercentage;
+            }
         }
 
         return matchScore;
-    }
-
-    /**
-     * Return the scaled version of *factor*. Specifically, the value of *factor*
-     * is normalised.
-     * */
-    public static double adjust(int factor) {
-        int scale = 1;
-        int tempFactor = factor;
-        while (tempFactor / 10 > 0) {
-            scale *= 10;
-            tempFactor /= 10;
-        }
-
-        return 1.0 * factor / scale;
     }
 
     /**

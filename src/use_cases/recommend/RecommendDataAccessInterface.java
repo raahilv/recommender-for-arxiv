@@ -1,5 +1,6 @@
 package use_cases.recommend;
 
+import entities.Category;
 import entities.User;
 import entities.ResearchPaper;
 
@@ -10,6 +11,6 @@ public interface RecommendDataAccessInterface {
     User getUser(String userName);
     ResearchPaper getPaperByID(String id);
     ResearchPaper getPaperByTitle(String title);
-    List<String> filterPapersByRootCategory(String rootCategory);
+    List<String> filterPapersByRootCategory(Category category);
 
 }
