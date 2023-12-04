@@ -117,7 +117,7 @@ public class RecommendHomeView extends JPanel implements PropertyChangeListener 
         categories.put(emergingTechnologiesRadioButton, Arrays.asList("cs", "cs.ET"));
         categories.put(formalLanguagesAndAutomataRadioButton, Arrays.asList("cs", "cs.FL"));
         categories.put(generalLiteratureRadioButton, Arrays.asList("cs", "cs.GL"));
-        categories.put(graphicsRadioButton, Arrays.asList("cs", "cs.GR", "Graphics"));
+        categories.put(graphicsRadioButton, Arrays.asList("cs", "cs.GR"));
         categories.put(hardwareArchitectureRadioButton, Arrays.asList("cs", "cs.AR"));
         categories.put(humanComputerInteractionRadioButton, Arrays.asList("cs", "cs.HC"));
         categories.put(informationRetrievalRadioButton, Arrays.asList("cs", "cs.IR"));
