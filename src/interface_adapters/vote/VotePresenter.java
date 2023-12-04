@@ -8,12 +8,21 @@ public class VotePresenter implements VoteOutputBoundary {
     private final VoteViewModel voteViewModel;
     private ViewManagerModel viewManagerModel;
 
+    /**
+     * Constructor for presenter for Vote use case.
+     * @param voteViewModel the view model for Vote use case
+     * @param viewManagerModel the view manager model
+     */
     public VotePresenter(VoteViewModel voteViewModel,
                          ViewManagerModel viewManagerModel) {
         this.voteViewModel = voteViewModel;
         this.viewManagerModel = viewManagerModel;
     }
 
+    /**
+     * Prepare the view when the paper is successfully voted.
+     * @param voteOutputData the output data for the Vote use case
+     */
     @Override
     public void prepareSuccessView(VoteOutputData voteOutputData) {
         VoteState voteState = voteViewModel.getState();
@@ -25,6 +34,10 @@ public class VotePresenter implements VoteOutputBoundary {
         this.viewManagerModel.firePropertyChanged();
     }
 
+    /**
+     * Prepare the view when the paper is not successfully saved.
+     * @param error the error message
+     */
     @Override
     public void prepareFailView(String error) {
         VoteState voteState = voteViewModel.getState();
@@ -33,7 +46,10 @@ public class VotePresenter implements VoteOutputBoundary {
         } else {
             voteState.setPaperAlreadyDownvotedError(error);
         }
-        voteViewModel.firePropertyChanged();
-    }
+        this.voteViewModel.setState(voteState);
+        this.voteViewModel.firePropertyChanged();
+
+        this.viewManagerModel.setActiveView(voteViewModel.getViewName());
+        this.viewManagerModel.firePropertyChanged();    }
 
 }

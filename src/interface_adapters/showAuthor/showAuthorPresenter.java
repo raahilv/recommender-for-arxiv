@@ -30,9 +30,9 @@ public class showAuthorPresenter implements showAuthorOutputBoundary {
         this.viewMangerModel.firePropertyChanged();
     }
 
-    @Override
-    public void prepareFailurView(String error) {
-
-    }
+//    @Override
+//    public void prepareFailurView(String error) {
+//
+//    }
 
 }

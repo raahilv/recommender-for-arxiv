@@ -1,5 +1,18 @@
 package app;
 
+import data_access.*;
+import entities.CommonUserFactory;
+import interface_adapters.ViewManagerModel;
+import interface_adapters.login.LoginViewModel;
+import interface_adapters.signup.SignupViewModel;
+import org.w3c.dom.css.CSSValue;
+import view.HomePageView;
+import view.SignupView;
+import view.ViewManager;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -8,29 +21,6 @@ import java.util.concurrent.CompletableFuture;
 
 public class Main {
     public static void main(String[] args) {
-
-        /*String URL = "http://export.arxiv.org/api/query?search_query=all:computer";
-
-        HttpClient client = HttpClient.newHttpClient();
-
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(URL))
-                .build();
-
-        CompletableFuture<HttpResponse<String>> responseFuture = client.sendAsync(
-                request, HttpResponse.BodyHandlers.ofString()
-        );
-
-        responseFuture.thenAccept(response -> {
-            String responseFinal = response.body();
-            System.out.println(responseFinal);
-        });
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        */
 
     }
 }

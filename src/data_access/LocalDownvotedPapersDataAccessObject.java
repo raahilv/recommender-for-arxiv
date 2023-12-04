@@ -1,19 +1,18 @@
 package data_access;
 
 import entities.ResearchPaper;
-import entities.ResearchPaperFactory;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class LocalDownvotedPapersDataAccessObject {
 
+    private static final String DOWNVOTED_PAPERS_CSV_FILE_PATH = "test/test_files/downvotedPapers.csv";
     private final File downvotedPapersCSVFile;
-    private final Map<String, List<ResearchPaper>> usersDownvotedPapers = new HashMap<>();
-    private final Map<String, Integer> usersDownvotedPapersCSVFileHeader = new HashMap<>();
+    private final Map<String, List<ResearchPaper>> usersDownvotedPapers = new LinkedHashMap<>();
+    private final Map<String, Integer> usersDownvotedPapersCSVFileHeader = new LinkedHashMap<>();
     private final LocalResearchPaperDataAccessObject localResearchPaperDAO;
 
     public LocalDownvotedPapersDataAccessObject(String downvotedPapersFilePath, LocalResearchPaperDataAccessObject localResearchPaperDAO) throws IOException {
@@ -24,7 +23,7 @@ public class LocalDownvotedPapersDataAccessObject {
         this.usersDownvotedPapersCSVFileHeader.put("paper_ids", 1);
 
         if (this.downvotedPapersCSVFile.length() == 0) {
-            writeToDatabase();
+            writeToDatabase(this.downvotedPapersCSVFile);
         } else {
             try (BufferedReader reader = new BufferedReader(new FileReader(this.downvotedPapersCSVFile))) {
                 String header = reader.readLine();
@@ -34,17 +33,16 @@ public class LocalDownvotedPapersDataAccessObject {
                 while ((row = reader.readLine()) != null) {
                     String[] col = row.split(",");
                     String username = String.valueOf(col[this.usersDownvotedPapersCSVFileHeader.get("username")]);
-                    String[] upvotedPaperIDs =
-                            String.valueOf(col[this.usersDownvotedPapersCSVFileHeader.get("paper_ids")]).split(" ");
+                    String[] downvotedPaperIDs = col.length == 1 ? new String[0] : String.valueOf(col[this.usersDownvotedPapersCSVFileHeader.get("paper_ids")]).split(" ");
 
-                    List<ResearchPaper> upvotedPapers = new ArrayList<>();
-                    for (String paperID : upvotedPaperIDs) {
-                        upvotedPapers.add(
+                    List<ResearchPaper> downvotedPapers = new ArrayList<>();
+                    for (String paperID : downvotedPaperIDs) {
+                        downvotedPapers.add(
                                 this.localResearchPaperDAO.getPaperByID(paperID)
                         );
                     }
 
-                    this.usersDownvotedPapers.put(username, upvotedPapers);
+                    this.usersDownvotedPapers.put(username, downvotedPapers);
                 }
             }
         }
@@ -55,48 +53,69 @@ public class LocalDownvotedPapersDataAccessObject {
                 this.usersDownvotedPapers.get(username) : new ArrayList<>();
     }
 
-    public boolean saveDownvotedPaper(String username, ResearchPaper paper) {
-        if (this.usersDownvotedPapers.containsKey(username)) {
-            this.usersDownvotedPapers.get(username).add(paper);
-            return true;
-        } else {
-            return false;
+    public void saveToDAO(String username, String paperID) {
+        try {
+            List<String> lines = Files.readAllLines(Paths.get(DOWNVOTED_PAPERS_CSV_FILE_PATH));
+            boolean userHandled = false;
+            for (int i = 0; i < lines.size() && !userHandled; i++) {
+                String[] userDownvotedPapers = lines.get(i).split(",");
+                if (userDownvotedPapers[0].equals(username)) {
+                    if (userDownvotedPapers.length == 2) {
+                        String[] savedDownvotedPaperIDs = userDownvotedPapers[1].split(" ");
+                        boolean exists = false;
+                        for (String savedDownvotedPaperID : savedDownvotedPaperIDs) {
+                            if (savedDownvotedPaperID.equals(paperID)) {
+                                exists = true;
+                                break;
+                            }
+                        }
+                        if (!exists) {
+                            String updatedDownvotedPapers = username + "," + String.join(" ", savedDownvotedPaperIDs) + " " + paperID;
+                            lines.set(i, updatedDownvotedPapers);
+                        }
+                    } else if (userDownvotedPapers.length == 1) {
+                        String updatedDownvotedPapers = username + "," + paperID;
+                        lines.set(i, updatedDownvotedPapers);
+                    }
+                    userHandled = true;
+                }
+            }
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(DOWNVOTED_PAPERS_CSV_FILE_PATH));
+            for (String line : lines) {
+                writer.write(line);
+                writer.newLine();
+            }
+            writer.close();
+
+        } catch (IOException ioe) {
+            throw new RuntimeException(ioe);
         }
     }
 
     public void writeToDatabase(String username, List<String> downvotedPaperIDs) {
-        BufferedWriter writer;
-        try {
-            writer = new BufferedWriter(new FileWriter(this.downvotedPapersCSVFile));
-
-            StringBuilder mutableDownvotedPaperIDsStringRep = new StringBuilder();
-            for (String paperID : downvotedPaperIDs) {
-                mutableDownvotedPaperIDsStringRep.append(paperID).append(" ");
-            }
-
-            String line = String.format("%s,%s", username, mutableDownvotedPaperIDsStringRep);
-            writer.write(line);
-            writer.newLine();
-
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        for (String downvotedPaperID : downvotedPaperIDs) {
+            saveToDAO(username, downvotedPaperID);
         }
     }
 
-    private void writeToDatabase() {
+    public void writeToDatabase(File dest) {
         BufferedWriter writer;
 
         try {
-            writer = new BufferedWriter(new FileWriter(this.downvotedPapersCSVFile));
+            writer = new BufferedWriter(new FileWriter(dest));
             writer.write(String.join(",", this.usersDownvotedPapersCSVFileHeader.keySet()));
             writer.newLine();
 
             for (String username : this.usersDownvotedPapers.keySet()) {
                 StringBuilder mutableDownvotedPapersStringRep = new StringBuilder();
-                for (ResearchPaper upvotedPaper : this.usersDownvotedPapers.get(username)) {
-                    mutableDownvotedPapersStringRep.append(upvotedPaper.getID()).append(" ");
+                for (ResearchPaper downvotedPaper : this.usersDownvotedPapers.get(username)) {
+                    mutableDownvotedPapersStringRep.append(downvotedPaper.getID()).append(" ");
                 }
+                if (mutableDownvotedPapersStringRep.length() > 0) {
+                    mutableDownvotedPapersStringRep.deleteCharAt(mutableDownvotedPapersStringRep.length() - 1);
+                }
+
                 String downvotedPapersStringRep = mutableDownvotedPapersStringRep.toString();
                 String line = String.format("%s,%s", username, downvotedPapersStringRep);
                 writer.write(line);

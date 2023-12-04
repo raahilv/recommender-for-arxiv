@@ -17,11 +17,19 @@ public class RecommendPresenter implements RecommendOutputBoundary {
     @Override
     public void prepareSuccessView(RecommendOutputData recommendOutputData) {
         RecommendState recommendState = this.recommendViewModel.getState();
+        recommendState.setRecommendedPapers(recommendOutputData.getRecommendedPapers());
+        this.recommendViewModel.setState(recommendState);
+        recommendViewModel.firePropertyChanged();
+
+        viewManagerModel.setActiveView(recommendViewModel.getViewName());
+        viewManagerModel.firePropertyChanged();
     }
 
     @Override
     public void prepareFailView(String error) {
-
+        RecommendState recommendState = this.recommendViewModel.getState();
+        recommendState.setUserNotExistError(error);
+        recommendViewModel.firePropertyChanged();
     }
 
 }
