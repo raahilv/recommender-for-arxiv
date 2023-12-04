@@ -29,7 +29,7 @@ public class LibraryUseCaseTest {
                 "eee.com", 0, 0);
         DAO.saveToDatabase("ege", tempPaper);
         LibraryViewModel libraryViewModel = new LibraryViewModel();
-        DataAccessFacade facade = new DataAccessFacade(null,DAO,null,null);
+        DataAccessFacade facade = new DataAccessFacade(null,DAO,null,null, null, null);
         LibraryInteractor libint = new LibraryInteractor(facade,new LibraryPresenter(new ViewManagerModel(),libraryViewModel));
         libint.execute(new LibraryInputData("ege"));
         assert(libraryViewModel.getState().getIds().get(0).equals("1"));

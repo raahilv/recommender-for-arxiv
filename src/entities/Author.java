@@ -10,7 +10,7 @@ public class Author {
 
     public Author(String name) {
         this.name = name;
-        this.affiliation = null;
+        this.affiliation = "";
     }
 
     public Author(String name, String affiliation) {
@@ -38,7 +38,7 @@ public class Author {
     }
 
     public String toString() {
-        return this.affiliation != null ?
+        return !this.affiliation.isEmpty() ?
                "(" + this.name + "|" + this.affiliation + ")" :
                "(" + this.name + "|None)";
     }

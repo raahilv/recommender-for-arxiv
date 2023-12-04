@@ -1,25 +1,31 @@
 package data_access;
 
+import data_access.LocalSaveDataAccessObject;
 import entities.*;
 import use_cases.library.LibraryDataAccessInterface;
+import use_cases.localsave.LocalSaveDataAccessInterface;
 import use_cases.login.LoginUserDataAccessInterface;
 import use_cases.recommend.RecommendDataAccessInterface;
 import use_cases.save.SaveDataAccessInterface;
 import use_cases.showAuthor.ShowAuthorDataAccessInterface;
+import use_cases.showpdf.ShowPdfDataAccessInterface;
 import use_cases.signup.SignupUserDataAccessInterface;
+import use_cases.switchView.SwitchViewDataAccessInterface;
 import use_cases.vote.VoteDataAccessInterface;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DataAccessFacade implements LoginUserDataAccessInterface, RecommendDataAccessInterface,
         SaveDataAccessInterface, ShowAuthorDataAccessInterface, SignupUserDataAccessInterface,
-        VoteDataAccessInterface, LibraryDataAccessInterface {
+        VoteDataAccessInterface, LibraryDataAccessInterface, LocalSaveDataAccessInterface, ShowPdfDataAccessInterface,
+        SwitchViewDataAccessInterface {
     private final LocalUserDataAccessObject localUserDAO;
     private final LocalLibraryDataAccessObject localLibraryDAO;
     private final LocalResearchPaperDataAccessObject localResearchPaperDAO;
     private final ArxivDataAccessObject arxivDAO;
+    private final LocalSaveDataAccessObject localSaveDAO;
+    private final ShowPdfDataAccessObject showPdfDAO;
 
     public DataAccessFacade(List<Category> categories) throws IOException {
         AuthorFactory af = new AuthorFactory();
@@ -34,14 +40,19 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
         LocalDownvotedPapersDataAccessObject dpDAO = new LocalDownvotedPapersDataAccessObject("test/test_files/downvotedPapers.csv", this.localResearchPaperDAO);
         this.localUserDAO = new LocalUserDataAccessObject(this.localLibraryDAO, upDAO, dpDAO, pcDAO, uf);
         this.arxivDAO = new ArxivDataAccessObject(categories, af);
+        this.localSaveDAO = new LocalSaveDataAccessObject();
+        this.showPdfDAO = new ShowPdfDataAccessObject();
     }
 
     public DataAccessFacade(LocalUserDataAccessObject localUserDAO, LocalLibraryDataAccessObject localLibraryDAO,
-                            LocalResearchPaperDataAccessObject localResearchPaperDAO, ArxivDataAccessObject arxivDAO) {
+                            LocalResearchPaperDataAccessObject localResearchPaperDAO, ArxivDataAccessObject arxivDAO,
+                            LocalSaveDataAccessObject localSaveDAO, ShowPdfDataAccessObject showPdfDAO) {
         this.localUserDAO = localUserDAO;
         this.localLibraryDAO = localLibraryDAO;
         this.localResearchPaperDAO = localResearchPaperDAO;
         this.arxivDAO = arxivDAO;
+        this.localSaveDAO = localSaveDAO;
+        this.showPdfDAO = showPdfDAO;
     }
 
     @Override
@@ -104,4 +115,14 @@ public class DataAccessFacade implements LoginUserDataAccessInterface, Recommend
         this.localLibraryDAO.delete(username, paperID);
     }
 
+    @Override
+    public void localSave(String paperUrl, String paperName) {
+        this.localSaveDAO.localSave(paperUrl, paperName);
+
+    }
+
+    @Override
+    public void showPdf(String paperUrl) {
+        this.showPdfDAO.showPdf(paperUrl);
+    }
 }
